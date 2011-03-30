@@ -1,0 +1,16 @@
+## Cheetah Template
+<div>
+    <h2>Documents linking to "$title"</h2>
+    <div class='searchResults'>
+        #if $message
+            <div style="font-weight:bold;text-align:left;padding: 2px;">$message&#160;</div>
+        #else
+            <ol>
+            #for result in $searchResult
+                <li><div class='search-result'><a href="$result[0]">$result[1]</a><div class='search-result-desc'>$result[2]</div></div></li>
+            #end for
+            </ol>
+        #end if
+    </div>
+</div>
+

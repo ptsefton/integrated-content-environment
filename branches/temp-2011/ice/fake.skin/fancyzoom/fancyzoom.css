@@ -1,0 +1,38 @@
+/* Lightbox */
+.lightbox-link .lb-link-text {
+    /* transparent and display inline required for safari */
+    display: inline;
+    color: transparent;
+    font-size: 0px;
+}
+.lightbox-caption{
+	font-weight:bold;
+	margin-left:5px;
+}
+a:link :hover .lightbox-link,a:link :visited .lightbox-link {
+    /* hides underline on hover */
+    color: transparent;
+    text-decoration: none;
+}
+
+a.lightbox:hover span.lightbox-link {
+/*    position: absolute;
+    background: url(magnifier.png) no-repeat bottom;
+    vertical-align: bottom;
+    margin-left: 2px;
+    height: 12px;
+    width: 16px;
+    padding-top: 8px;
+    padding-left:15px;
+    text-decoration: none;*/
+}
+
+a.lightbox img + span.lightbox-link {
+    position: relative;
+    right: 18px;
+    bottom: 12px;
+    background: url(magnifier.png) no-repeat bottom;
+    padding-top: 8px;
+    padding-left:15px;
+    vertical-align: bottom;
+}

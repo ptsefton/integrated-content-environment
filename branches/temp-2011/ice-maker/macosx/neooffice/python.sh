@@ -1,0 +1,5 @@
+echo "Running python.sh from within OOo"
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Applications/NeoOffice.app/Contents/program
+export PATH=$PATH:/Applications/NeoOffice.app/Contents/program
+export PYTHONPATH=$PYTHONPATH:/Applications/NeoOffice.app/Contents/program:/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3:/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/plat-darwin:/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/plat-mac:/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/plat-mac/lib-scriptpackages:/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/lib-tk:/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/lib-dynload:/System/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.3/Extras/lib/python
+python2.3 $1 $2 $3 $4

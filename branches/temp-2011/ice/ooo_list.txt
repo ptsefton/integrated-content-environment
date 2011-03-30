@@ -1,0 +1,28 @@
+[windows]
+oooPaths:
+  \Programs Files\OpenOffice.org 2.5
+  \Programs Files\OpenOffice.org 2.4
+  \Programs Files\OpenOffice.org 2.3
+  \Programs Files\OpenOffice.org 2.2
+  \Programs Files\OpenOffice.org 2.1
+  \Programs Files\OpenOffice.org 2.0
+
+[mac]
+oooPaths:
+  /Applications/OpenOffice.org 2.0.app
+  ~/Applications/OpenOffice.org 2.0.app
+
+[linux]
+oooPaths:
+  /etc/openoffice.org-2.5
+  /etc/openoffice.org-2.4
+  /etc/openoffice.org-2.3
+  /etc/openoffice.org-2.2
+  /etc/openoffice.org-2.1
+  /opt/openoffice.org2.5
+  /opt/openoffice.org2.4
+  /opt/openoffice.org2.3
+  /opt/openoffice.org2.2
+  /opt/openoffice.org2.1
+  /opt/openoffice.org2.0
+  

@@ -1,0 +1,51 @@
+<table border="0">
+    <tr><td colspan="4" class="sect-title">Resize/Crop Image options</td></tr>
+    <tr>
+        <td>Mode</td>
+        <td colspan="2">
+            <input type="radio" name="mode" id="image" value="image" checked="checked"/><label for="image">Preview image</label>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="2">
+            <input type="radio" name="mode" id="image" value="download"/><label for="image">Download image</label>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4"><br/>Resize by:</td>
+    </tr>
+    <tr>
+    	<td>&nbsp;</td>
+        <td colspan="3">
+            <input type="radio" name="option" id="option" value="ratio" checked="checked"/><strong>Ratio: </strong>(defaults to -50)
+        	<input size="3" maxlength="3" type="text" name="ratio" id="ratio"/>%
+        </td>
+    </tr>
+    <tr>
+    	<td>&nbsp;</td>
+        <td colspan="3">
+            <input type="radio" name="option" id="option" value="fixedWidth"/><strong>Fixed Width:</strong> (defaults to 100 pixels)
+            <input type="hidden" name="enlarge" name="enlarge" value="true" />
+        	<input size="5" maxlength="5" type="text" name="fixedWidth" id="fixedWidth"/>
+        </td>
+    </tr>
+    <tr>
+    	<td>&nbsp;</td>
+        <td colspan="3">
+            <input type="radio" name="option" id="option" value="crop"/><strong>Crop Image:</strong> (defaults to (100, 100, 400, 400) for 300x300 pixels)
+        	<br/>
+        	<table border="0" align="right">
+        		<tr><td>Crop coordinates:</td>
+    				<td>Left:</td><td><input size="5" maxlength="5" type="text" name="cropLeft" id="cropLeft"/></td>
+    				<td>Upper:</td><td><input size="5" maxlength="5" type="text" name="cropUpper" id="cropUpper"/></td>
+    			</tr>
+        	 	<tr>
+        	 	    <td>&nbsp;</td>
+    				<td>Right:</td><td><input size="5" maxlength="5" type="text" name="cropRight" id="cropRight"/></td>
+    				<td>Lower:</td><td><input size="5" maxlength="5" type="text" name="cropLower" id="cropLower"/></td>
+    			</tr>
+			</table>
+        </td>
+    </tr>
+</table>

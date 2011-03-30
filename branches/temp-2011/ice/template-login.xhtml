@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<title class="ins title">ICE Repository authentication</title>
+		<style type="text/css">
+			body, table td {
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-weight: normal;
+			color: black;
+			padding: 5px;
+			margin: 5px;
+			font-size: .8em;
+			}
+			.title  {
+			font-size: 1.4em;
+			font-weight: bold;
+			color: #CC6600;
+			font-family: Arial, Verdana, Helvetica, sans-serif;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<h1 class="ins title">Repository authentication</h1>
+		<form method="POST">
+			<input type="hidden" name="login" value="login"/>
+			<table style="border:1px solid black;">
+				<tr>
+					<td> Username: </td>
+					<td>
+						<input type="text" name="username" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td> Password: </td>
+					<td>
+						<input type="password" name="password" value=""/>
+					</td>
+				</tr>
+				<tr>
+					<td>&#160;</td>
+					<td>
+						<input type="submit" name="submitBut" value="Submit"/>
+						
+					</td>
+				</tr>
+			</table>
+			<p>
+			<b>Authentication required</b><br/>The repository has not previously been checked out, please
+			enter your username and password (this may take awhile depending on the size of the repository
+			content)</p>
+		</form>
+	</body>
+</html>

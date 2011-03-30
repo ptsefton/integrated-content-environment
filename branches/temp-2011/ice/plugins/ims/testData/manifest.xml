@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE manifest SYSTEM "imscp_rootv1p1.dtd" >
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+    xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    identifier="MANIFEST-6971EFA4-1391-578F-D1CE-39875264E76A"
+    xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd
+    http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd">
+    <metadata>
+        <schema>IMS Content</schema>
+        <schemaversion>1.2.2</schemaversion>
+    </metadata>
+    <organizations default="default">
+        <organization identifier="default" structure="">
+            <title>Untitled</title>
+            <item identifier="default-1d8994d66d3f5774b5d92b143bfd2daa-1"
+                identifierref="1d8994d66d3f5774b5d92b143bfd2daa" isvisible="True">
+                <title>Assessment</title>
+            </item>
+            <item identifier="default-61259e595362bef92c48bbc3a018263c-1"
+                identifierref="61259e595362bef92c48bbc3a018263c" isvisible="True">
+                <title>Introduction</title>
+            </item>
+            <item identifier="default-6b1fac15e90e48129c944af960de6b5a-1"
+                identifierref="6b1fac15e90e48129c944af960de6b5a" isvisible="True">
+                <title>Study Guide</title>
+                <item identifier="default-3b9a62f98b3b22396c22af668b858dc6-1"
+                    identifierref="3b9a62f98b3b22396c22af668b858dc6" isvisible="True">
+                    <title>Module 1 About Stuff</title>
+                    <item identifier="default-5285e7c6f41844d36bb234c3e8047819-1"
+                        identifierref="5285e7c6f41844d36bb234c3e8047819" isvisible="True">
+                        <title>PDF</title>
+                    </item>
+                </item>
+                <item identifier="default-998b710ec34f3fea931df125a307c3ad-1"
+                    identifierref="998b710ec34f3fea931df125a307c3ad" isvisible="True">
+                    <title>Module 2 More about stuff</title>
+                </item>
+                <item identifier="default-7a35b3f45f8c976510e07ae89599fcad-1"
+                    identifierref="7a35b3f45f8c976510e07ae89599fcad" isvisible="True">
+                    <title>Module 3 Even more about stuff</title>
+                </item>
+            </item>
+        </organization>
+    </organizations>
+    <resources>
+        <resource identifier="1d8994d66d3f5774b5d92b143bfd2daa" type="webcontent"
+            href="intro/assessment.htm">
+            <file href="intro/assessment.htm"/>
+        </resource>
+        <resource identifier="3b9a62f98b3b22396c22af668b858dc6" type="webcontent"
+            href="study-materials/module01.htm">
+            <file href="study-materials/module01.htm"/>
+            <file href="study-materials/module01_files/m638bc800_100x75.gif"/>
+        </resource>
+        <resource identifier="5285e7c6f41844d36bb234c3e8047819" type="webcontent"
+            href="media/module01.pdf">
+            <file href="media/module01.pdf"/>
+        </resource>
+        <resource identifier="61259e595362bef92c48bbc3a018263c" type="webcontent"
+            href="intro/introduction.htm">
+            <file href="intro/introduction.htm"/>
+            <file href="intro/introduction_files/459cceb9_226x226.gif"/>
+        </resource>
+        <resource identifier="6b1fac15e90e48129c944af960de6b5a" type="webcontent"
+            href="study-materials/study_guide.htm">
+            <file href="study-materials/study_guide.htm"/>
+        </resource>
+        <resource identifier="7a35b3f45f8c976510e07ae89599fcad" type="webcontent"
+            href="study-materials/module03.htm">
+            <file href="study-materials/module03.htm"/>
+        </resource>
+        <resource identifier="998b710ec34f3fea931df125a307c3ad" type="webcontent"
+            href="study-materials/module02.htm">
+            <file href="study-materials/module02.htm"/>
+        </resource>
+    </resources>
+</manifest>

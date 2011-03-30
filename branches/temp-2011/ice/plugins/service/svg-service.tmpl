@@ -1,0 +1,43 @@
+<div>
+    <table>
+        <tr><td colspan="2" class="sect-title">SVG options</td></tr>
+        <tr>
+            <td>Format</td>
+            <td>
+                <select name="format">
+                    <option value="png" selected="selected">PNG</option>
+                    <option value="pdf">PDF</option>
+                    <option value="ps">PostScript</option>
+                    <option value="svg">SVG (transform only)</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr><td colspan="3" class="sub-title">Transform</td></tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="keep-aspect-ratio" id="keep-aspect-ratio"/>
+                <label for="keep-aspect-ratio">Preserve aspect ratio</label>
+            </td>
+            <th>W</th>
+            <th>H</th>
+        </tr>
+        <tr>
+            <td>Size (defaults to SVG size)</td>
+            <td><input type="text" name="width" id="width" size="5" value=""/></td>
+            <td><input type="text" name="height" id="height" size="5" value=""/></td>
+        </tr>
+        <tr><td/><th>X</th><th>Y</th></tr>
+        <tr>
+            <td>Resolution (defaults to 90 dpi)</td>
+            <td><input type="text" name="dpi-x" id="dpi-x" size="5" value=""/></td>
+            <td><input type="text" name="dpi-y" id="dpi-y" size="5" value=""/></td>
+        </tr>
+        <tr>
+            <td>Zoom (defaults to 1.0)</td>
+            <td><input type="text" name="x-zoom" id="x-zoom" size="5" value=""/></td>
+            <td><input type="text" name="y-zoom" id="y-zoom" size="5" value=""/></td>
+        </tr>
+    </table>
+</div>

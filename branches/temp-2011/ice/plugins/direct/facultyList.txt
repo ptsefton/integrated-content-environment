@@ -1,0 +1,23 @@
+BUSST           Business Studies
+BUSSV           Business Services
+COLEG           Colleges
+CONTE           Transdisciplinary & Contin Edu
+DECNT           Distance Education Centre
+ELEPC           Eng Lang & Enabling Prog Cntr
+FOART           Faculty of Arts
+FOBUS           Faculty of Business
+FOCOM           Faculty of Commerce
+FOEDU           Faculty of Education
+FOENS           Faculty of Engineering & Surv
+FOSCI           Faculty of Sciences
+INFOT           School of Information Tech
+INTOF           International Office
+KUMBN           Kumbari Nurpai Lag
+LTSUN           Learning&TeachingSupportUnit
+OFFRE           Research Office
+OPAC1           OPACS Old
+OPACS           Prep and Academic Support
+REGOF           Registrar's Office
+RMC             Resource Materials Centre
+SPACT           Special Activities
+XFAC            Cross Faculty 

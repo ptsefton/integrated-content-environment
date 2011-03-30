@@ -1,0 +1,180 @@
+<div>
+## Cheetah Template - IMS Organizer
+ <form method="POST" name="editForm" action="">
+  <input type='hidden' name='ispostback' value='true'/>
+  <input type='hidden' name='state' value='$stateStr'/>
+  <input type='hidden' name='func' value='edit_manifest'/>
+  <input type='hidden' name='actx' value=''/>
+  <input type='hidden' name='data' value=''/>
+  <input type='hidden' name='movehere' value=''/>
+  <input type='hidden' name='movebefore' value=''/>
+  <script type='text/javascript'>
+    eForm = document.forms['editForm'];
+  </script>
+##
+  <a href="javascript:eForm.action='#topx';eForm.actx.value='expandAll';eForm.submit();"
+        class="app-expand-all" title="Expand all items" name="topx">
+        <span>Expand all</span></a>
+  |
+  <a href="javascript:eForm.action='#topx';eForm.actx.value='minimizeAll';eForm.submit();"
+        class="app-minimize-all" title="Minimize all items" name="topx"><span>Minimize all</span></a>
+  |
+  <a href="javascript:eForm.action='#topx';eForm.actx.value='edit';eForm.data.value='top';eForm.submit();"
+         class="app-edit" title="Edit the properties of the package"><span>Edit properties</span></a>
+  #if $editPackage
+    $getEditPackageProperties($package)
+  #end if
+## Title Div
+  <div class="app-Title">
+    <h1>$title</h1>
+  </div>
+  #set $addToParent = "<a href=\"javascript:eForm.action='#topx';eForm.movehere.value='top';eForm.submit();\" title='Move selected here' class='app-root-move'><img src='.skin/root-move-here.gif' alt='Move selected here' style='border:0px;'/></a>"
+  $getListItems($entries, $addToParent)
+  <br/>
+ </form>
+##
+##
+#def getListItems($entries, $addToParent)
+  #if $entries
+    <ul style="list-style-type: none;">
+     #for $item in $entries
+        $getListItem($item)
+     #end for
+     <li><div>## moveHere
+      $addToParent
+     </div></li>
+    </ul>
+  #end if
+#end def
+##
+##
+#def getListItem($item)
+      <li><div>## Move before
+        <a href="javascript:eForm.action='#$item.id';eForm.movebefore.value='$item.id';eForm.submit();"
+            name="$item.id" class="app-root-move" title="Move selected here" >
+            <img src='.skin/root-move-here.gif' alt='Move selected here' style='border:0px;'/>
+        </a>
+      </div></li>
+      <li>
+       <table class="app-item"><tbody>
+        <tr>
+          <td class='app-item-select'>## checkbox + title
+            <input type='checkbox' name='selected' value='$item.id' title='click to select or deselect item'/>
+            <a name='$item.id'><!-- --></a>
+          </td>
+          <td>
+            <span style='#if $item.isDefaultItem then "font-weight:bold;" else ""# #if $item.isVisible then "" else "color:#333366;" #' >
+              $item.title #if $item.isVisible then "" else " - Hidden" else "" #
+            </span>
+          </td>
+          <td class='right'>## move here and Expand/Minimize
+            <span class='hoverDisp'>
+                #set $addToParent = "<a href=\"javascript:eForm.action='#" + $item.id + "';eForm.movehere.value='" + $item.id + "';eForm.submit();\" title='Move selected as sub-level' class='app-move'><img src='.skin/move-here.gif' alt='Move selected here' style='border:0px;'/></a>"
+                $addToParent
+                #if $item.href then "" else " (Does not exist!)" #
+            </span>
+            ## Expand/Minimize
+            #if $item.entries
+              #if $item.expanded
+                <a href="javascript:eForm.action='#$item.id';eForm.actx.value='minmax';eForm.data.value='$item.id';eForm.submit();"
+                    class='app-minimize' title='Minimize items'>
+                    <img src='.skin/minimize.gif' alt='Minimize -' title='Minimize -' style='border:0px;'/>
+                </a>
+              #else
+                <a href="javascript:eForm.action='#$item.id';eForm.actx.value='minmax';eForm.data.value='$item.id';eForm.submit();"
+                    class='app-expand' title='Expand items'>
+                    <img src='.skin/expand.gif' alt='Expand +' title='Expand +' style='border:0px;'/>
+                </a>
+              #end if
+            #end if
+          </td>
+        </tr>
+        <tr>## set new rows and cells
+          <td>&#160;</td>
+          <td class='right app-item-options' colspan='2'>
+            <a href='$item.href' title='View this item'><span class='app-link'>View</span></a>
+            |
+            <a href="javascript:eForm.action='#$item.id';eForm.actx.value='edit';eForm.data.value='$item.id';eForm.submit();"
+                title="Edit the propeties of this item">Edit properties</a>
+          </td>
+        </tr>
+        #if $item.edit
+        <tr><td colspan='3'> 
+            $getEditProperties($item, $item.id)
+        </td></tr>
+        #end if
+       </tbody></table>
+       ## Recurse
+       #if $item.expanded and $item.entries
+        $getListItems($item.entries, $addToParent)
+       #end if
+      </li>
+#end def
+##
+##
+#def getEditPackageProperties($package)
+  <div id='editDiv'>
+   <input type='hidden' name='editId' value='package'/>
+   <div>
+    <h2 class='app-edit'>Edit properties</h2>
+   </div>
+   <div>## Title
+    <input type='text' size='58' name='title' value='$package.title'/>
+   </div>
+   <div>## HomePage (default page)
+    <input type='checkbox' name='homePage' #if $package.isDefaultItem then "checked='checked'" else ""# />
+    Set as Home page
+   </div>
+   <div class='right'>## submit & cancel buttons
+    <input type='submit' name='ok' value='OK' style='width:5em;'/>
+    <input type='submit' name='cancel' value='Cancel'/>
+   </div>
+   <script type="text/javascript">## set the focus to the title(text) field
+     setTimeout('document.editForm.title.focus();', 100);
+   </script>
+  </div>
+#end def
+##
+##
+#def getEditProperties($item, $anchorId)
+  <div id="editDiv">
+   <input type='hidden' name='editId' value='$item.id'><!-- --></input>
+   <div>
+    <h2 class='app-edit'>Edit properties</h2>
+   </div>
+   <div>## Title
+    Title: 
+    <input type='text' size='58' name='title' value='$item.eTitle'/>
+    <span style="display:none;"><input type="text" size="2" name="x" value="x"/></span>    
+   </div>
+   <div>## Hide
+    <input type='checkbox' name='hide' value='1' #if $item.isVisible then "" else "checked='checked'"# />
+    Hide
+   </div>
+   <div>## HomePage (default page)
+    <input type='checkbox' name='homePage' value='1' #if $item.isDefaultItem then "checked='checked'" else ""# />
+    Set as Home page
+   </div>
+   #if $item.isWordDoc
+   <div>## Render (ICE document)
+    <input type='checkbox' name='render' value='1' #if $item.convertFlag then "checked='checked'" else ""# />
+    Render (ICE document)
+   </div>
+   #end if
+   <div class='right'>## submit & cancel buttons
+    <input type='submit' name='ok' value='OK' style='width:5em;'/>
+    <input type='button' name='cancel' value='Cancel' onclick="javascript:document.getElementById('editDiv').style.display='none';"/>
+   </div>
+   <script type="text/javascript">## set the focus to the title(text) field
+     setTimeout('document.editForm.title.focus();', 100);
+   </script>
+  </div>
+#end def
+##
+</div>
+##
+##
+##
+##
+##
+##

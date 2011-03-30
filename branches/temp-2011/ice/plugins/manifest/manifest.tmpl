@@ -1,0 +1,196 @@
+<div>
+ ## Cheetah Template 
+ <div id='mi_root'>
+  #set home=''
+  #set homeSrc = 'skin/not_home_org.png'
+  #if $manifest.homePageItem and $manifest.homePageItem==$manifest
+   #set home='manifestHome'
+   #set homeSrc = 'skin/home_org.png'
+  #end if
+  <div class='manifestItem $home' style='background-color:white; padding:1em; width:670px;'>
+    <div style='float:right;'><span class='makeHome' title="Home"><img src='$homeSrc' alt="Home"/>&#160;</span></div>
+    <div style='float:right; padding-right:2em;'><span class='command edit' title='Edit'><img src="skin/edit.png"></img></span></div>
+    <div style='float:left;padding-top:.4em;padding-right:1em;'><span style=''>Package title:</span></div>
+    <span class='mTitle' style='font-size:120%;'>#if $manifest.title then $asHtml($manifest.title) else " "#</span>&#160;
+  </div>
+ </div>
+
+#def displayMItem($mItem)
+ <div id='mi_$mItem.itemGuid' class='mItem'>
+  <div class='dropBefore'>## drop before
+  </div>
+  #set home=''
+  #set homeSrc = 'skin/not_home_org.png'
+  #if $manifest.homePageItem and $manifest.homePageItem.itemGuid==$mItem.itemGuid
+   #set home='manifestHome'
+   #set homeSrc = 'skin/home_org.png'
+  #end if
+  <div class='draggable manifestItem dropInto $home'>
+    <div class='collapse command' style='float:left;visibility:#if $mItem.hasChildren then 'visible' else 'hidden'#;'><span><img src="skin/contracted.png"></img></span></div>
+    <div style='float:right;'><span class='makeHome' title='Home'><img src='$homeSrc' alt="Home"/>&#160;</span></div>
+    <div class='hideItem' style='float:right; font-weight:normal;'>
+     <label>
+      <input type='checkbox' #if $mItem.isHidden then "checked='checked'" else ''#><!-- --></input> 
+      Hide
+     </label>
+    </div>
+    <div style='float:right; padding-right:2em;'><span class='command edit' title='Edit'>
+        <img src="skin/edit.png"></img></span>
+    </div>
+##    <div style='float:right; padding-right:2em;'><a href='$asHtml($mItem.renditionName)'>view</a></div>
+    &#160; <span class='mTitle' title='$mItem.relPath'>$asHtml($mItem.title) </span>
+    <span class='docTitle' style='display:none;'>$asHtml($mItem.docTitle) </span>
+  </div>
+  <div style='display:none; margin-left:2em;' class='children'>##   Children items
+   #if $mItem.hasChildren
+     $displayChildren($mItem)
+   #end if
+  </div>
+ </div>
+#end def
+
+#def displayChildren($x)
+  #for $mItem in $x.children
+    $displayMItem($mItem)
+  #end for
+##  <div class='dropAdd'>
+##  </div>
+#end def
+
+$displayChildren($manifest)
+<div class='dropAdd'>
+</div>
+<div style='color:lightgray;padding-left:24em;'>- - -</div>
+
+ <script type="text/javascript" src="/skin/jquery-ui.js">// </script>
+ <script type="text/javascript"> 
+//<!--
+  var list = [];
+  function ajaxSubmit(cmd, arg1, arg2) {
+    jQ.get("", {"ajax":"manifest", "cmd":cmd, "arg1":arg1, "arg2":arg2}, ajaxCallback);
+  }
+  function drop(e, ui) {
+    var dest = jQ(this);             // dropped onto
+    var src = jQ(ui.draggable).parent();         // the dropped item
+    var srcParent = src.parent();
+    dest.removeClass("canDrop");
+    // Test to see if dest is a child of src (and do nothing if so)
+    if(src.find("#" + dest.parent().attr("id")).size()) { return; }
+    if(dest.hasClass("dropAdd")) { dropAdd(src, dest); }
+    else if(dest.hasClass("dropInto")) { dropInto(src, dest); }
+    else if(dest.hasClass("dropBefore")) { dropBefore(src, dest); }
+    checkSrcParent(srcParent);
+  }
+  function dropAdd(src, dest){
+    dest.before(src);
+    ajaxSubmit("dropAdd", src.attr("id"), dest.parent().attr("id"));
+  }
+  function dropBefore(src, dest){
+    dest.parent().before(src);
+    ajaxSubmit("dropBefore", src.attr("id"), dest.parent().attr("id"));
+  }
+  function dropInto(src, dest){
+    dest.parent().find(".children:eq(0)").append(src).show(); 
+    dest.children().eq(0).css("visibility", "visible"); 
+    dest.parent().find(".collapse:eq(0)").html("<img src='skin/expanded.png'></img>");
+    ajaxSubmit("dropInto", src.attr("id"), dest.parent().attr("id"));
+  }
+  function checkSrcParent(srcParent){
+    if(srcParent.children().size()==0){
+        srcParent.parent().find(".collapse:eq(0)").css("visibility", "hidden");
+    }
+  }
+  function ajaxCallback(responseData, statusCode) {
+    // update TOC
+    jQ("div.context-toc").html(responseData);
+  }
+  jQ(".draggable").draggable({
+        dragPrevention:"input, textarea, button, submit",
+        helper:"clone",
+        //handle:"div",
+        opacity:0.5,
+        //revert:"invalid",
+        scroll:true,
+        stop: function() { jQ(this).fadeTo(0, 1); },
+        start: function() { jQ(this).fadeTo(0, 0.5); }
+  });
+  jQ(".dropBefore, .dropAdd, .dropInto").droppable({
+        accept: ".draggable",
+        //hoverClass: "canDrop",
+        //activeClass: "",
+        tolerance:"pointer",
+        "drop": drop,
+        activate: function(){},
+        deactivate: function(){},
+        over: function(e, ui){ jQ(".canDrop").removeClass("canDrop"); jQ(this).addClass("canDrop"); },
+        out: function(e, ui){ jQ(this).removeClass("canDrop"); }
+  });
+
+  jQ(".makeHome").click(function(e) { 
+        var mi=jQ(this).parents(".manifestItem");
+        var t=true;
+        if(mi.hasClass("manifestHome")) t=false;
+        jQ(".manifestHome").removeClass("manifestHome");
+        jQ(".makeHome>img").attr("src","skin/not_home_org.png");
+        if(t){
+            mi.addClass("manifestHome");
+            jQ(this).children("img").attr("src","skin/home_org.png");    
+        } 
+        ajaxSubmit("home", mi.parent().attr("id"), t);
+  });
+  jQ(".collapse").click(function(e) { var c=jQ(this).parent().parent().find(".children:eq(0)").toggle(); 
+        jQ(this).html((c.css("display")=="none") ? "<img src='skin/contracted.png'></img>" : "<img src='skin/expanded.png'></img>");
+  });
+  jQ(".hideItem input").click(function(){ var arg2=jQ(this).attr("checked"); 
+        var arg1=jQ(this).parents(".mItem:eq(0)").attr("id");
+        ajaxSubmit("hide", arg1, arg2);
+  });
+  jQ(".edit").click(function(){ 
+        var that=jQ(this);
+        var d=that.hide().parent().parent();
+        var s=d.find(">span:first");
+        s.hide();
+        var safeValue=jQ("<s/>").text(s.html()).text();
+        var i=jQ("<input size='52' type='text' value='"+safeValue.replace(/'/g, "&apos;")+ "'></input>");
+        var ok=jQ("<span class='command ok'/>").append("OK");
+        var cancel=jQ("<span class='command cancel'/>").append("Cancel");
+        var restore=jQ("<span class='command restore' title='restore document title' />").append("Restore");
+        var h=jQ("<span/>").append(i).append(" ").append(ok).append("<br />&#160; &#160; &#160;").append(cancel);
+        var docTitle = d.find(">span:eq(1)").html();
+        if(s.html()!=docTitle && docTitle){ h.append(" ").append(restore); }
+        d.append(h);
+        i.focus();
+        ok.click(function(){ var v=jQ.trim(i.val()); h.remove(); that.show(); 
+            if(v=="") s.text(docTitle).show();
+            else s.text(v).show();
+            var id=d.parent().attr("id"); ajaxSubmit("updateTitle", id, v);
+        });
+        cancel.click(function(){ h.remove(); that.show(); s.show(); });
+        restore.click(function(){ h.remove(); that.show(); s.text(docTitle).show();
+             var id=d.parent().attr("id"); ajaxSubmit("updateTitle", id, "");
+        });
+        i.keypress(function(e) { if(e.which==13) ok.click(); if(e.keyCode==27)cancel.click(); });
+  });
+  jQ(".mTitle").dblclick(function() { jQ(this).parent().find(".edit").click(); });
+        
+ //-->
+</script>
+##
+#def includeStyle 
+    div.canDrop { border:1px solid black; }
+    .dropBefore { background:#f0f0f0; min-height:1.5em; width:680px; }
+    .dropAdd { background:#f0f0f0; min-height:1.5em; width:680px; }
+    .manifestItem { background:#e0e0e0; padding-top:0.2em; padding-bottom:0.4em; position:relative; width:680px; cursor:pointer; z-index:0 }
+    span.makeHome { padding-left:1.5em; padding-right:0.5em;}
+    .manifestHome span.mTitle { font-weight:bold; }
+    .manifestHome span.makeHome { font-weight:bold; padding-left:1.5em; }
+#end def 
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,537 @@
+/*button, .ice-tab-inactive, div.ice-taggedwith span.command, span.mytag, span.mytags,.ice-tab-whitespace span.command
+  { behavior: url('/skin/IEFixes.htc')
+  }
+*/
+body{
+      behavior: url(/skin/IEFixes.htc) /* - */
+}
+
+div.ice-toolbar, div.ice-toolbar td{
+	  font-family: arial, helvetica, sans-serif;
+      font-size: 11px;
+      color: black;
+      background-color: transparent;
+}
+
+/* Annotations */
+
+div.anno-info span.command {
+          color: black;
+          cursor: pointer;
+          background-color: #bdbdbd;
+          padding: 1px;
+          font-size: 1em;
+          margin-top: .1em;
+          border-left: 1px solid white;
+          border-top: 1px solid white;
+          border-right: 1px solid gray;
+          border-bottom: 1px solid gray;
+          padding-left: 2px;
+          padding-right: 2px;
+          
+      }
+      
+div.anno-info span.command:hover {
+          text-decoration:none;
+      }
+      
+
+/* Toolbar */
+
+.toolbar {
+        position:fixed;
+        top: 0px;
+        width:100%;
+        z-index: 9000;
+    }
+
+
+div.ice-toolbar .ice-tab-common-content-left {
+       position:relative;
+       float: left;
+       display: inline;
+       padding-top: 0px;
+       padding-bottom: 2px;
+       padding-left: 4px;
+       height: 1.8em;
+      }
+     
+div.ice-toolbar .ice-tab-common-content-right {
+       position:relative;
+       float: right;
+       display: inline;
+       padding-top: 1px;
+       height: 1.8em;
+     }
+     
+
+div.ice-toolbar button, .ice-toolbar input[type='submit']{
+	padding-left: 1px;
+	padding-right: 1px;
+	margin-left: 0px;
+	margin-right: 2px;
+}
+
+div.ice-toolbar input[type='text'] {
+	cursor: text;
+	height: 1.6em;	/* Added to let firefox to show better '_' (underscore) */
+}
+
+div.ice-toolbar .ice-tab-common-content form {
+        display:inline; 
+      }
+
+
+div.ice-toolbar, div.ice-toolbar td { 
+      background-color: gray;
+      color: black;
+      }
+      
+.ice-tab-content button.disabled { color:gray; cursor:auto; }
+
+div.ice-tab-common-content-right input[type='text'] {
+        display: inline;
+        position:relative;
+        top:1px;
+        margin-top: 0px;
+}
+
+span.toolbar-label {
+        color: black;
+        font-size: 1em;
+        margin-left: 15px;
+        margin-top: 0px;
+        padding: 0px;
+        
+}
+
+div.ice-tab-common-content-left span.ice-fm-home, div.ice-tab-common-content-left span.ice-fm-refresh {
+	position: relative;
+	margin-top: 4px;	
+	top: 3px;
+	height: 16px;
+}
+
+div.ice-tab-common-content button, .ice-tab-common-content span.command, .ice-tab-common-content span.app-button{
+        color: black;
+        font-size: 1em;
+        cursor: pointer;
+        padding-left: 1px;
+        padding-right: 1px;
+        display: inline;
+		background-color: transparent;
+        height: 1.8em;
+        border: 0px;
+        margin-left: 1px;
+        margin-right: 1px;
+      }
+      
+div.ice-tab-common-content button:hover, .ice-tab-common-content button.hover {
+        color: black;
+        background-color: #c0d0ff;
+      }
+
+/* Separated from the above button:hover to get the background-color: transparent */
+div.ice-tab-common-content span.command:hover, div.ice-tab-common-content span.command.hover{
+	background-color: transparent;
+}
+
+div.ice-tab-common-content button[disabled='disabled'],  div.ice-tab-common-content .disabled {
+	color: gray;
+}
+      
+div.ice-tab-common-content button[disabled='disabled']:hover, .ice-tab-common-content button[disabled='disabled'].hover {
+        color: gray;
+        cursor: default;
+      }
+
+
+img.ice-img-button {
+    position:relative;
+    display:inline;
+    margin-left: 2px;
+}
+
+div.ice-tab-common-content img:hover {
+    background-color: transparent;
+    /* background-color: red; */
+}
+         
+div.ice-tab-common-content {
+          margin-top: 1px;
+          height: 2.1em;
+          background: url('/skin/toolbar_bg.png') repeat-x;               
+          margin-bottom: 3px;
+      }
+
+        
+    .ice-taggedwith strong{
+        font-weight:500;
+        color: #006400;
+    }
+    
+    #fileAdd {
+        border: 1px solid gray;
+        float:none;
+    }
+    
+    div.ice-tab-content select[disabled='disabled'] {
+        color: gray;
+        cursor: pointer;
+    }
+    
+    .ice-tab-content button, .ice-tab-content submit, .ice-tab-content input.button {
+          color: black;
+          cursor: pointer;
+          background-color: #bdbdbd;
+          padding-left: 4px;
+          padding-right: 4px;
+          padding-top: 0px;
+	      padding-bottom: 0px;
+          font-size: 1em;
+          border-left: 1px solid white;
+          border-top: 1px solid white;
+          border-right: 1px solid gray;
+          border-bottom: 1px solid gray;
+          overflow:visible;
+		  float:left;
+		  margin-bottom:3px;
+      }
+          
+.ice-tab-content button[disabled='disabled'], .ice-tab-content button[disabled='disabled']:hover, .ice-tab-content button[disabled='disabled'].hover, .ice-common button[disabled='disabled'], .ice-common button[disabled='disabled']:hover, .ice-common button[disabled='disabled'].hover{
+        color:gray;
+    	cursor: pointer;
+    	padding-left: 4px;
+    	padding-right: 4px;
+    	padding-top: 0px;
+    	padding-bottom: 0px;
+     }
+      
+      .ice-tab-content select, .ice-toolbar select, div.ice-tab-common-content-right select  {
+        border: 0.1em solid gray;
+        color: #0d2474;
+        text-decoration: none;
+        text-align: left;
+        font-size: 1em;
+        height: 1.7em;
+        padding: .1em;
+        display: inline;  
+        float:left;
+		margin-bottom:3px;
+		margin-right:2px;
+		
+      }
+      div.ice-tab-common-content-right select  {
+	  float:none;
+	  }
+      
+    .ice-tab-common-content input, .ice-tab-common-content select, .ice-tab-content input{
+        color: black;
+        border: 1px solid gray;
+        font-size: 1em;
+        height: 1.5em;
+        background-color: white;
+        margin-right: 4px;
+        cursor: auto;
+    }
+     
+     div.ice-taggedwith span.command:hover, .ice-taggedwith span.command.hover, div.ice-tab-content span.mytag:hover, .ice-tab-content span.mytag.hover, div.ice-tab-content span.mytags:hover, .ice-tab-content span.mytags:hover, .ice-tab-whitespace span.command.hover{
+          cursor: pointer;
+          background-color: transparent;
+          text-decoration: underline;
+      }
+                
+     /* Tabs */
+    
+        
+     .ice-tab {
+       display: block;
+       cursor: auto; 
+       padding: 2px;
+       width: 6em;
+       font-size: 1em;
+     }
+     
+     .ice-tab-spacer{
+       display: block;
+       cursor: auto; 
+       padding-bottom: 3px;
+
+     }
+   
+     span.ice-tab-inactive {
+       padding-top: 4px;
+       padding-bottom: 4px;
+       background-color: #d9d9d9;
+       color: #0d2474;
+       background: url('/skin/tab_inactive.png') repeat; 
+       text-align: center;
+       font-size: 1em;
+       cursor: pointer;
+     }
+    
+     span.ice-tab-inactive:hover, span.ice-tab-inactive.hover { 
+       font-weight: normal;
+       padding-top: 4px;
+       padding-bottom: 4px;
+       color: #0d2474;
+       background: none;
+       background-color: #c0d0ff;
+       text-align: center;
+       font-size: 1em;
+       cursor: pointer;
+     }  
+ 
+	span.ice-tab-active { 
+       font-weight: normal;
+       border-bottom: 2px solid #d9d9d9;
+       padding-top: 4px;
+       padding-bottom: 3px;
+       color: gray;
+       background: none;
+       background-color: #d9d9d9;
+       text-align: center;
+       font-size: 1em;
+       cursor: pointer;
+       }
+
+    .ice-tab-content {
+      height: 4em;
+      padding: 4px;
+      background-color: #d9d9d9;
+      color: black;
+      font-size: 1em;
+      border-bottom: 1px solid gray;
+	}
+	
+	.ice-tab-content form select, .ice-tab-content select, .ice-tab-content button, .ice-tab-content form button{
+		float:none;
+	}
+	
+	.ice-tags {
+		padding-top: .6em;
+	}
+
+     
+ /* File manager */
+ #editDiv {
+    border:1px solid black; 
+    margin-left:2em; 
+    background-color:#D0D0D0; 
+    display:block; 
+    width: 500px; 
+    padding: 0.2em;
+    padding-left: 0.4em; 
+    margin-top: 0.5em; 
+  }
+
+  span.disabled {
+    color: gray;
+  }
+ 
+  span.command {
+    cursor: pointer;
+    color: blue;
+  }
+  
+  span.command:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+  }
+
+  img.command { cursor:pointer;}
+ 
+  tr.selected { background:#c0d0ff;}
+  tr.alt-selected { background: #c0d0ff; }
+  tr.alt { background:#e0f0ff; }
+  table.app-file-manager { border-spacing:0px; }
+  table.app-file-manager td { padding-right:1em; }
+  
+  /* Organizer */
+  
+.body table.app-item { 
+       background-color: #F5F5F5;
+       color: black;
+       padding-top: 0.4em;
+       width: 550px;
+       margin-top: 10px;
+              }
+.body table.app-item td {
+    vertical-align: top;
+}
+              
+.body td.app-item-select {text-align: left; width: 15px;} 
+ 
+.body a.app-expand {
+	vertical-align: top;
+}
+
+.body a:link:hover.app-expand{
+	background-color: transparent;
+}
+
+.body a.app-minimize {
+	vertical-align: top;
+}
+.body a:link:hover.app-minimize {
+	background-color: #F6F6F6;
+}
+
+.body a.app-root-move {
+	vertical-align: top;
+}
+
+.body a:link:hover.app-root-move{
+	background-color: white;
+}
+
+.body a.app-move {
+	vertical-align: top;
+    display: inline;
+}
+
+.body a:link:hover.app-move{
+	background-color: #F6F6F6;
+}
+
+/* svn status */
+
+div.ice-tab-common-content .app-login 
+{
+	color: blue;
+	/* background-color:inherit;     --> In opera the background color displayed differently */
+	background-color:transparent;
+	margin-right: 5px;
+}
+
+div.ice-tab-common-content .app-logout 
+{
+	color: green;
+	background-color:inherit;
+	margin-right: 5px;
+}
+
+
+span.app-in-sync, span.app-modifications, span.app-out-of-date, span.app-conflicts, span.app-offline, span.app-offline-modifications {
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	padding-top: 0px;
+	margin-top: 0px;
+	margin-left: 1px;
+	margin-bottom: 2px;
+	vertical-align: top;
+	width: 24px;
+	height: 24px;
+}
+
+span.app-online, span-app-offline, span.app-in-sync span, span.app-modifications span, span.app-out-of-date span, span.app-conflicts span, span.app-offline span, span.app-offline-modifications span{
+}
+
+span.app-in-sync {
+	background: url('ok.gif');
+	background-repeat: no-repeat;
+}
+
+
+span.app-modifications {
+	background: url('modifications.gif');
+	background-repeat: no-repeat;
+}
+
+span.app-out-of-date {
+	background: url('out-of-sync.gif');
+	background-repeat: no-repeat;
+}
+
+span.app-conflicts {
+	background: url('conflict.gif');
+	background-repeat: no-repeat;
+}
+
+span.app-offline {
+	background: url('offline.gif');
+	background-repeat: no-repeat;
+}
+
+span.app-offline-modifications {
+	background: url('offline-modifications.gif');
+	background-repeat: no-repeat;
+}
+
+.search-result {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.search-result-desc {
+    font-size: .8em;
+}
+
+ /* annotations */
+ 
+ .body span.command, .body span.command:hover {
+     cursor: pointer;
+ }
+ 
+.annotate-form {
+    background: rgb(224, 255, 224) none repeat scroll 0%;
+}
+  
+.inline-anno {
+     background-color:transparent; 
+}
+
+.inline-annotation {
+    margin-left: 5px;
+    border-left: 1px dotted black;
+    color: #006400;
+    background-color:#d9d9d9;
+    padding-left: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+}
+
+.inline-annotation-form {
+    background-color:#d9d9d9;
+    border: 1px solid #006400;
+    margin: 2px;
+    padding: 2px;
+}
+
+.inline-annotation-form .app-label {
+    font-weight: bold;
+}
+
+.anno-children {  
+    padding-left: 3px;
+    padding: 3px;
+    margin-top: 3px;   
+}
+
+.anno-info {
+    margin-bottom: 2px;
+    font-style:italic;
+    color: black;
+}
+
+.closed {
+    margin-top: 1px;
+    background-color:#F8F8F8;
+    color: #3CB371;
+    
+}
+
+.closed .anno-info {
+    color: #989898;
+}
+
+.orig-content {
+    background-color: transparent;
+    color: #484848;
+}
+
+div.inline-annotation-form div.annotateThis { display:none; }
+/* End Annotations */

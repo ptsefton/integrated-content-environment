@@ -1,0 +1,1197 @@
+<?xml version="1.0"?>
+<testData xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" office:version="1.0">
+    <!-- xmlns="http://www.w3.org/1999/xhtml" -->
+    <tests>
+        
+        <test name="Numbering1" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="h1n">And now numbered...Module One</text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>1 And now numbered...Module One</h1>
+                </body>
+            </expected>
+        </test>
+        <test name="Numbering2" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="h1n">And now numbered...Module One</text:p>
+                            <text:p text:style-name="h1n">Module Two</text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>1 And now numbered...Module One</h1>
+                    <h1>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>2 Module Two</h1>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="multi-level Numbering" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="h1n">And now numbered...Module One</text:p>
+                            <text:p text:style-name="h2n">Topic One</text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>1 And now numbered...Module One</h1>
+                    <h2>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>1.1 Topic One</h2>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Numbering with para" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="p">paragraph0</text:p>
+                            <text:p text:style-name="h1n">And now numbered...Module One</text:p>
+                            <text:p text:style-name="p">paragraph</text:p>
+                            <text:p text:style-name="h1n">Module Two</text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <p>paragraph0</p>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>1 And now numbered...Module One</h1>
+                    <p>paragraph</p>
+                    <h1>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>2 Module Two</h1>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Numbering with mixed headings" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="p">paragraph0</text:p>
+                            <text:p text:style-name="h1n">And now numbered...Module One</text:p>
+                            <text:p text:style-name="h-learning">Learning outcomes</text:p>
+                            <text:p text:style-name="h1n">Module Two</text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <p>paragraph0</p>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>1 And now numbered...Module One</h1>
+                    <h6>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>Learning outcomes</h6>
+                    <h1>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>2 Module Two</h1>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="get numbers for stuff" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <test-get-heading-number-mode>
+                                <table:table/>
+                            </test-get-heading-number-mode>
+                            <test-get-heading-number-mode>
+                                <text:p text:style-name="h1n">Module One</text:p>
+                            </test-get-heading-number-mode>
+                            <test-get-heading-number-mode>
+                                <text:span text:style-name="T2">-</text:span>
+                            </test-get-heading-number-mode>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <get-heading-number-mode><!--empty--></get-heading-number-mode>
+                    <get-heading-number-mode>0</get-heading-number-mode>
+                    <get-heading-number-mode><!--empty--></get-heading-number-mode>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="complicated multi-level numbering with paras" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="p" text:level="1">paragraph0</text:p>
+                            <text:p text:style-name="h1n">Module One</text:p>
+                            <text:p text:style-name="p">paragraph1</text:p>
+                            <text:h text:style-name="h1n" text:level="1">Objectivism and
+                                Constructivism</text:h>
+                            <!--<text:p text:style-name="h1n">Module Two</text:p>-->
+                            <text:p text:style-name="h2">Topic Two Point One Not Numbered</text:p>
+                            <text:p text:style-name="h-learning">Learning outcomes X</text:p>
+                            <text:p text:style-name="h2">Topic Two Point Two Not Numbered</text:p>
+                            <text:p text:style-name="h-learning">Learning outcomes Y</text:p>
+                            <text:p text:style-name="h-Objective">Objectives</text:p>
+                            <text:p text:style-name="p">paragraph2</text:p>
+                            <text:p text:style-name="h1n">Module Three</text:p>
+                            <text:p text:style-name="h2n">Topic Three Point One</text:p>
+                            <text:p text:style-name="h2n">Topic Three Point Two</text:p>
+                            <text:p text:style-name="h-Activity">Activity 1.1</text:p>
+                            <text:p text:style-name="h3n">Sub-Topic Three Point Two Point One</text:p>
+                            <text:p text:style-name="h3n">Sub-Topic Three Point Two Point Two</text:p>
+                            <text:p text:style-name="h4n">Idea Three Point Two Point Two Point One</text:p>
+                            <text:p text:style-name="h3n">Sub-Topic Three Point Two Point Three</text:p>
+                            <text:p text:style-name="h2n">Topic Three Point Three</text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <p>paragraph0</p>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>1 Module One</h1>
+                    <p>paragraph1</p>
+                    <h1>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>2 Objectivism and Constructivism</h1>
+                    <h2>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>Topic Two Point One Not Numbered</h2>
+                    <h6>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>Learning outcomes X</h6>
+                    <h2>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>Topic Two Point Two Not Numbered</h2>
+                    <h6>
+                        <a id="id6" name="id6">
+                            <!--id6-->
+                        </a>Learning outcomes Y</h6>
+                    <h6>
+                        <a id="id7" name="id7">
+                            <!--id7-->
+                        </a>Objectives</h6>
+                    <p>paragraph2</p>
+                    <h1>
+                        <a id="id8" name="id8">
+                            <!--id8-->
+                        </a>3 Module Three</h1>
+                    <h2>
+                        <a id="id9" name="id9">
+                            <!--id9-->
+                        </a>3.1 Topic Three Point One</h2>
+                    <h2>
+                        <a id="id10" name="id10">
+                            <!--id10-->
+                        </a>3.2 Topic Three Point Two</h2>
+                    <h6>
+                        <a id="id11" name="id11">
+                            <!--id11-->
+                        </a>Activity 1.1</h6>
+                    <h3>
+                        <a id="id12" name="id12">
+                            <!--id12-->
+                        </a>3.2.1 Sub-Topic Three Point Two Point One</h3>
+                    <h3>
+                        <a id="id13" name="id13">
+                            <!--id13-->
+                        </a>3.2.2 Sub-Topic Three Point Two Point Two</h3>
+                    <h4>
+                        <a id="id14" name="id14">
+                            <!--id14-->
+                        </a>3.2.2.1 Idea Three Point Two Point Two Point One</h4>
+                    <h3>
+                        <a id="id15" name="id15">
+                            <!--id15-->
+                        </a>3.2.3 Sub-Topic Three Point Two Point Three</h3>
+                    <h2>
+                        <a id="id16" name="id16">
+                            <!--id16-->
+                        </a>3.3 Topic Three Point Three</h2>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="numbering with text:h containing sub elements" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="h1">Module A</text:p>
+                            <text:p text:style-name="p" text:level="1">paragraph0</text:p>
+                            <text:p text:style-name="h1n">Module One</text:p>
+                            <text:p text:style-name="p">paragraph1</text:p>
+                            <text:h text:style-name="h1n" text:level="1">Objectivism and
+                                    Constructivism<text:span text:style-name="T2"/> stuff</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>Module A</h1>
+                    <p>paragraph0</p>
+                    <h1>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>1 Module One</h1>
+                    <p>paragraph1</p>
+                    <h1>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>2 Objectivism and Constructivism<span class="T2"><!--empty--></span> stuff</h1>
+                </body>
+            </expected>
+        </test>
+        
+        <!--
+        <test name="test preceding" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            <test-preceding>
+                                <text:h text:style-name="h1">Module A</text:h>
+                                <text:p text:style-name="p" text:level="1">paragraph0</text:p>
+                                <text:p text:style-name="h1n">Module One</text:p>
+                                <text:p text:style-name="p">paragraph1</text:p>
+                                <table:table/>
+                                <table:table/>
+                                <text:h text:style-name="h1n" text:level="1">Objectivism and
+                                    Constructivism <text:span text:style-name="T2">-</text:span>
+                                    stuff</text:h>
+                                <text:p text:style-name="p">paragraph2</text:p>
+                                <table:table/>
+                                <text:list>
+                                    <text:list-item>
+                                        <text:p text:style-name="li1b">list item 1</text:p>
+                                    </text:list-item>
+                                    <text:list-item>
+                                        <text:p text:style-name="li1b">list item 2</text:p>
+                                    </text:list-item>
+                                </text:list>
+                                <text:h text:style-name="h1n" text:level="1">Objectivism and
+                                    Constructivism 2</text:h>
+                                <text:p text:style-name="h2n">Topic Three Point Three</text:p>
+                                <test.me/>
+                            </test-preceding>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <preceding.elements>
+                        <el>test-preceding</el>
+                        <el>text:h</el>
+                        <el>text:p</el>
+                        <el>text:p</el>
+                        <el>text:p</el>
+                        <el>table:table</el>
+                        <el>table:table</el>
+                        <el>text:h</el>
+                        <el>text:p</el>
+                        <el>table:table</el>
+                        <el>text:list</el>
+                        <el>text:h</el>
+                        <el>text:p</el>
+                        <el>test.me</el>
+                    </preceding.elements>
+                </body>
+            </expected>
+        </test>
+        -->
+        
+        <test name="Basic Outline Numbering" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+                            <text:outline-level-style text:level="1" style:num-prefix="Module " style:num-suffix=" - " style:num-format="1" text:start-value="2"/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="6"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>2.1 Heading 1</h1>
+                    <h2>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>2.1.1 Heading 2</h2>
+                    <h3>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>2.1.1.1 Heading 3</h3>
+                    <h4>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>2.1.1.1.1 Heading 4</h4>
+                    <h5>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>2.1.1.1.1.1 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="No Outline Numbering start value" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style>
+                            <text:outline-level-style text:level="1" style:num-prefix="Module " style:num-suffix=" - " style:num-format="1"/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="6"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>1.1 Heading 1</h1>
+                    <h2>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>1.1.1 Heading 2</h2>
+                    <h3>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>1.1.1.1 Heading 3</h3>
+                    <h4>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>1.1.1.1.1 Heading 4</h4>
+                    <h5>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>1.1.1.1.1.1 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Outline Numbering start value level 2" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format=""/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="1" text:start-value="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="2"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>2 Heading 1</h1>
+                    <h2>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>2.1 Heading 2</h2>
+                    <h3>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>2.1.1 Heading 3</h3>
+                    <h4>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>2.1.1.1 Heading 4</h4>
+                    <h5>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>2.1.1.1.1 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Outline Numbering with multiple start values" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format=""/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="1" text:start-value="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="2" text:start-value="3"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>2 Heading 1</h1>
+                    <h2>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>2.3 Heading 2</h2>
+                    <h3>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>2.3.1 Heading 3</h3>
+                    <h4>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>2.3.1.1 Heading 4</h4>
+                    <h5>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>2.3.1.1.1 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Outline Numbering with no number format" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format=""/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="" text:display-levels="1" text:start-value="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="" text:display-levels="2" text:start-value="3"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="" text:display-levels="3"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="" text:display-levels="4"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="" text:display-levels="5"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>Heading 1</h1>
+                    <h2>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>Heading 2</h2>
+                    <h3>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>Heading 3</h3>
+                    <h4>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>Heading 4</h4>
+                    <h5>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Outline Numbering with no start value set" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format=""/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="1"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="2"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>1 Heading 1</h1>
+                    <h2>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>1.1 Heading 2</h2>
+                    <h3>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>1.1.1 Heading 3</h3>
+                    <h4>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>1.1.1.1 Heading 4</h4>
+                    <h5>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>1.1.1.1.1 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Fixed Word to OOo Outline Numbering start value level 2" normalize-white-spaces="true" skip="false">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style>
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format="" style:num-prefix="Module" text:start-value="2"/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="2" text:start-value="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="6"/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>2.2 Heading 1</h1>
+                    <h2>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>2.2.1 Heading 2</h2>
+                    <h3>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>2.2.1.1 Heading 3</h3>
+                    <h4>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>2.2.1.1.1 Heading 4</h4>
+                    <h5>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>2.2.1.1.1.1 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Outline Numbering with start values" normalize-white-spaces="true" skip="false">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Title">
+                            <style:paragraph-properties fo:break-before="page"/>
+                        </style:style>
+                        <text:outline-style>
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format="1"/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:start-value="3"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:start-value="4" text:display-levels="2"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>                        
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="P1">Outline numbering No Title Chapter</text:p>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading Level One</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading Level Two1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading Level Two again</text:h>
+                            <text:h text:style-name="h1n" text:outline-level="2">Head Level One again</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading Level Two</text:h>
+                            <text:p text:style-name="h2">Heading Level Two (not numbered)</text:p>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading Level Two again (and number on)</text:h>
+                            <text:p text:style-name="p"/>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1><a id="id2" name="id2"><!--id2--></a>3 Heading Level One</h1>
+                    <h2><a id="id3" name="id3"><!--id3--></a>3.4 Heading Level Two1</h2>
+                    <h2><a id="id4" name="id4"><!--id4--></a>3.5 Heading Level Two again</h2>
+                    <h1><a id="id5" name="id5"><!--id5--></a>4 Head Level One again</h1>
+                    <h2><a id="id6" name="id6"><!--id6--></a>4.4 Heading Level Two</h2>
+                    <h2><a id="id7" name="id7"><!--id7--></a>Heading Level Two (not numbered)</h2>
+                    <h2><a id="id8" name="id8"><!--id8--></a>4.5 Heading Level Two again (and number on)</h2>
+                    <p/>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Multiple h1n's" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format=""/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="1" text:start-value="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="2"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>2 Heading 1</h1>
+                    <h1>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>3 Heading 1</h1>
+                    <h2>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>3.1 Heading 2</h2>
+                    <h1>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>4 Heading 1</h1>
+                    <h2>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>4.1 Heading 2</h2>
+                    <h3>
+                        <a id="id6" name="id6">
+                            <!--id6-->
+                        </a>4.1.1 Heading 3</h3>
+                    <h4>
+                        <a id="id7" name="id7">
+                            <!--id7-->
+                        </a>4.1.1.1 Heading 4</h4>
+                    <h5>
+                        <a id="id8" name="id8">
+                            <!--id8-->
+                        </a>4.1.1.1.1 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Multiple level headings starting on level 2" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format=""/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="1" text:start-value="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="2"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h1n" text:outline-level="2">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="3">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="4">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="5">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="6">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>2 Heading 1</h1>
+                    <h1>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>3 Heading 1</h1>
+                    <h2>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>3.1 Heading 2</h2>
+                    <h2>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>3.2 Heading 2</h2>
+                    <h3>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>3.2.1 Heading 3</h3>
+                    <h3>
+                        <a id="id6" name="id6">
+                            <!--id6-->
+                        </a>3.2.2 Heading 3</h3>
+                    <h4>
+                        <a id="id7" name="id7">
+                            <!--id7-->
+                        </a>3.2.2.1 Heading 4</h4>
+                    <h4>
+                        <a id="id8" name="id8">
+                            <!--id8-->
+                        </a>3.2.2.2 Heading 4</h4>
+                    <h5>
+                        <a id="id9" name="id9">
+                            <!--id9-->
+                        </a>3.2.2.2.1 Heading 5</h5>
+                    <h5>
+                        <a id="id10" name="id10">
+                            <!--id10-->
+                        </a>3.2.2.2.2 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+        
+        <test name="Multiple level headings starting on level 1" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <text:outline-style xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+                            <text:outline-level-style text:level="1" style:num-suffix=" " style:num-format="1" text:display-levels="1" text:start-value="2"/>
+                            <text:outline-level-style text:level="2" style:num-suffix=" " style:num-format="1" text:display-levels="2"/>
+                            <text:outline-level-style text:level="3" style:num-suffix=" " style:num-format="1" text:display-levels="3"/>
+                            <text:outline-level-style text:level="4" style:num-suffix=" " style:num-format="1" text:display-levels="4"/>
+                            <text:outline-level-style text:level="5" style:num-suffix=" " style:num-format="1" text:display-levels="5"/>
+                            <text:outline-level-style text:level="6" style:num-suffix=" " style:num-format="1" text:display-levels="6"/>
+                            <text:outline-level-style text:level="7" style:num-format=""/>
+                            <text:outline-level-style text:level="8" style:num-format=""/>
+                            <text:outline-level-style text:level="9" style:num-format=""/>
+                            <text:outline-level-style text:level="10" style:num-format=""/>
+                        </text:outline-style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:h text:style-name="h1n" text:outline-level="1">Heading 1</text:h>
+                            <text:h text:style-name="h1n" text:outline-level="1">Heading 1</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="2">Heading 2</text:h>
+                            <text:h text:style-name="h2n" text:outline-level="2">Heading 2</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="3">Heading 3</text:h>
+                            <text:h text:style-name="h3n" text:outline-level="3">Heading 3</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="4">Heading 4</text:h>
+                            <text:h text:style-name="h4n" text:outline-level="4">Heading 4</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="5">Heading 5</text:h>
+                            <text:h text:style-name="h5n" text:outline-level="5">Heading 5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <h1>
+                        <a id="id1" name="id1">
+                            <!--id1-->
+                        </a>2 Heading 1</h1>
+                    <h1>
+                        <a id="id2" name="id2">
+                            <!--id2-->
+                        </a>3 Heading 1</h1>
+                    <h2>
+                        <a id="id3" name="id3">
+                            <!--id3-->
+                        </a>3.1 Heading 2</h2>
+                    <h2>
+                        <a id="id4" name="id4">
+                            <!--id4-->
+                        </a>3.2 Heading 2</h2>
+                    <h3>
+                        <a id="id5" name="id5">
+                            <!--id5-->
+                        </a>3.2.1 Heading 3</h3>
+                    <h3>
+                        <a id="id6" name="id6">
+                            <!--id6-->
+                        </a>3.2.2 Heading 3</h3>
+                    <h4>
+                        <a id="id7" name="id7">
+                            <!--id7-->
+                        </a>3.2.2.1 Heading 4</h4>
+                    <h4>
+                        <a id="id8" name="id8">
+                            <!--id8-->
+                        </a>3.2.2.2 Heading 4</h4>
+                    <h5>
+                        <a id="id9" name="id9">
+                            <!--id9-->
+                        </a>3.2.2.2.1 Heading 5</h5>
+                    <h5>
+                        <a id="id10" name="id10">
+                            <!--id10-->
+                        </a>3.2.2.2.2 Heading 5</h5>
+                </body>
+            </expected>
+        </test>
+
+        <test name="Heading in Def List" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+				<text:p text:style-name="dt1">Def term</text:p>
+				<text:p text:style-name="dd1">Definition</text:p>
+				<text:p text:style-name="h3">Heading 3</text:p>
+				<text:p text:style-name="p">Para.</text:p>
+				<text:p text:style-name="p"></text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+			<dl>
+			   <dt>Def term</dt>
+			   <dd>Definition</dd>
+			</dl>
+			<h3><a id="id2" name="id2"><!--id2--></a>Heading 3</h3>
+			<p>Para.</p>
+			<p/>
+                </body>
+            </expected>
+        </test>
+
+        <test name="Heading after BQ" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+<text:p text:style-name="bq1source">Blockquote source</text:p>
+<text:p text:style-name="h3">Heading Three</text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+		  <blockquote class="bqs">
+			<p>Blockquote source</p>
+     		  </blockquote>
+     		  <h3><a id="id2" name="id2"><!--id2--></a>Heading Three</h3>
+                </body>
+            </expected>
+        </test>
+
+
+
+	<test name="Multiple level headings starting on level 1 prefix" normalize-white-spaces="true">
+            <source>
+			<office:document-content>
+                    <office:automatic-styles>
+                    	<text:outline-style>
+	                    	<text:outline-level-style text:level="1" style:num-prefix="Module" style:num-suffix="-" style:num-format="1"/>
+							<text:outline-level-style text:level="2" style:num-prefix="S" style:num-suffix=" -" style:num-format="1" text:display-levels="2"/>
+							<text:outline-level-style text:level="3" style:num-prefix="S" style:num-suffix=" -" style:num-format="1" text:display-levels="3"/>
+							<text:outline-level-style text:level="4" style:num-prefix="S" style:num-suffix=" -" style:num-format="1" text:display-levels="4"/>
+							<text:outline-level-style text:level="5" style:num-prefix="S" style:num-suffix=" -" style:num-format="1" text:display-levels="5"/>
+							<text:outline-level-style text:level="6" style:num-prefix="S" style:num-suffix=" -" style:num-format="1" text:display-levels="6"/>
+							<text:outline-level-style text:level="7" style:num-format=""/>
+							<text:outline-level-style text:level="8" style:num-format=""/>
+							<text:outline-level-style text:level="9" style:num-format=""/>
+							<text:outline-level-style text:level="10" style:num-format=""/>
+						</text:outline-style>
+                        <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Header_20_right">
+							<style:paragraph-properties fo:margin-top="0pt" fo:margin-bottom="0pt"/>
+						</style:style>
+						<style:style style:name="P2" style:family="paragraph" style:parent-style-name="Header_20_right">
+							<style:paragraph-properties>
+								<style:tab-stops>
+									<style:tab-stop style:position="313.51pt"/>
+									<style:tab-stop style:position="382.71pt"/>
+									<style:tab-stop style:position="413.86pt" style:type="right"/>
+								</style:tab-stops>
+							</style:paragraph-properties>
+						</style:style>
+						<style:style style:name="P3" style:family="paragraph" style:parent-style-name="Header_20_left">
+							<style:text-properties fo:font-weight="normal" style:font-weight-asian="normal" style:font-weight-complex="normal"/>
+						</style:style>
+						<style:style style:name="P4" style:family="paragraph" style:parent-style-name="Title-chapter" style:master-page-name="Standard"/>
+						<style:style style:name="P5" style:family="paragraph" style:parent-style-name="Header_20_right">
+							<style:paragraph-properties>
+								<style:tab-stops>
+									<style:tab-stop style:position="313.51pt"/>
+									<style:tab-stop style:position="382.71pt"/>
+									<style:tab-stop style:position="413.86pt" style:type="right"/>
+								</style:tab-stops>
+							</style:paragraph-properties>
+						</style:style>
+						<style:style style:name="T1" style:family="text"/>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+							<text:h text:style-name="P4" text:outline-level="1">Welcome to module 2</text:h>
+							<text:p text:style-name="p">
+								Document using hn styles and numbering on the chapter title style starting at 2
+							</text:p>
+							<text:h text:style-name="h1n" text:outline-level="2">Heading1</text:h>
+							<text:h text:style-name="h2n" text:outline-level="3">Heading2 </text:h>
+							<text:h text:style-name="h3n" text:outline-level="4">Heading3</text:h>
+							<text:h text:style-name="h4n" text:outline-level="5">Heading4</text:h>
+							<text:h text:style-name="h5n" text:outline-level="6">Heading5</text:h>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+               		<p>
+					 Document using hn styles and numbering on the chapter title style starting at 2 
+					</p>
+					<h1>
+						<a id="id2" name="id2">
+							<!--id2-->
+						</a>S1.1 -Heading1</h1>
+					<h2>
+						<a id="id3" name="id3">
+							<!--id3-->
+						</a>S1.1.1 -Heading2 </h2>
+					<h3>
+						<a id="id4" name="id4">
+							<!--id4-->
+						</a>S1.1.1.1 -Heading3</h3>
+					<h4>
+						<a id="id5" name="id5">
+							<!--id5-->
+						</a>S1.1.1.1.1 -Heading4</h4>
+					<h5>
+						<a id="id6" name="id6">
+							<!--id6-->
+						</a>S1.1.1.1.1.1 -Heading5</h5>
+                </body>
+            </expected>
+        </test>
+
+        <test name="HeadingNumber after BQ or Definition" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                      <office:text>
+			<text:h text:style-name="h1n" text:outline-level="2">Heading One</text:h>
+			<text:p text:style-name="bq1">Blockquote1</text:p>
+			<text:p text:style-name="bq2">Blockquote2</text:p>
+			<text:h text:style-name="h1n" text:outline-level="2">Heading Level One 2</text:h>
+			<text:p text:style-name="dt1">Definition Term</text:p>
+			<text:h text:style-name="h1n" text:outline-level="2">Heading Level One 3</text:h>
+                      </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+			<h1><a id="id1" name="id1"><!--id1--></a>1 Heading One</h1>
+			<blockquote class="bq"><p>Blockquote1</p>
+				<blockquote class="bq"><p>Blockquote2</p></blockquote>
+			</blockquote>
+			<h1><a id="id4" name="id4"><!--id4--></a>2 Heading Level One 2</h1>
+			<dl><dt>Definition Term</dt></dl>
+			<h1><a id="id6" name="id6"><!--id6--></a>3 Heading Level One 3</h1>
+                </body>
+            </expected>
+        </test>
+
+        <test name="Title" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                      <office:text>
+                        <text:p text:style-name="h1">Heading 1</text:p>
+                        <text:p text:style-name="Title">First Title</text:p>
+                        <text:p text:style-name="Title">Title One</text:p>
+                        <text:h text:style-name="Title-chapter" text:outline-level="1">Ch-Title</text:h>
+                      </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+			<h1><a id="id1" name="id1"><!--id1--></a>Heading 1</h1>
+                        <p class="Title"><a id='id3' name='id3'><!--id3--></a>Title One</p>
+                        <p class="Title-chapter"><a id='id4' name='id4'><!--id4--></a>Ch-Title</p>
+                </body>
+            </expected>
+        </test>
+    </tests>
+</testData>
