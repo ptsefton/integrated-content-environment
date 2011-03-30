@@ -1,0 +1,254 @@
+## Cheetah Template
+#encoding UTF-8
+<html>
+	<head>
+		<title>Config editor 2</title>
+        <meta charset="utf-8"/>
+        <script src="/jquery.js" type="text/javascript"><!-- --></script>
+        <script src="/skin/jquery-ui.js" type="text/javascript"><!-- --></script>
+	    <script type="text/javascript">
+          <!--
+$javascript
+    	  -->
+		</script>
+        <link rel="stylesheet" type="text/css" media="screen" href="/skin/dialog.css"><!-- --></link>
+        <link rel="stylesheet" type="text/css" media="screen" href="/skin/accordion.css"><!-- --></link>
+	    <style>
+          	body {
+          		padding: 10px;
+          		margin-left: 10px;
+          		font-family: Verdana, Arial;
+          		font-size: small;
+          	}
+
+       	  	h1  {
+              	font-size: 1.6em;
+              	color: navy;
+              	font-family: Arial, Verdana, Helvetica, sans-serif;
+              	font-weight: bold;
+	            margin-top: 2px;
+          	}
+
+            h2  {
+              	font-family: Arial, Verdana, Helvetica, sans-serif;
+              	font-size: 1.4em;
+              	color: navy;
+              	font-weight: normal;
+	            margin-top: 2px;
+          	}
+            
+            h3 {
+              	font-family: Arial, Verdana, Helvetica, sans-serif;
+              	font-size: 1.2em;
+                color: #666666;
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+            }
+            
+            h6 {
+              	font-family: Arial, Verdana, Helvetica, sans-serif;
+              	font-size: 1.2em;
+            }
+
+          	td, th {
+          		font-size: small;
+          		text-align: left;
+          	}
+
+           	.title
+          	{
+              	font-family: serif, Arial,  Helvetica, sans-serif;
+              	font-size: 1.8em;
+              	font-weight: bold;
+              	color: #CC6600;
+	            margin-top: 5px;
+	            margin-bottom: 5px;
+	            padding: 0px;
+          	}
+
+          	.app-section {
+          		padding: 5px;
+          		margin-bottom: 15px;
+          	}
+            
+            span.help {
+                color: blue;
+                cursor: pointer;
+                text-decoration:underline;
+            }
+
+    	    table.new {
+		        border:1px solid green; 
+		        background: #E0FFE0;
+		        margin-top:1em; 
+		        padding:.2em;
+		    }
+
+            div.rep {
+                border:1px solid black;
+                margin-top:1em;
+                padding:.2em;
+                width:720px;
+            }
+
+            div.addNewRep {
+                border:1px solid grey;
+                padding:1em;
+            }
+
+            div.helptext {
+                display:none;
+            }
+
+            tr.default {
+                color: grey;
+            }
+        </style>
+	</head>
+	<body>
+      <div>
+		<h1 class="title">Config editor</h1>
+        <div style='display:none;'><div id="dialog">Dialog contents</div></div>
+        <form method="POST" action="editconfig2" name="formx">
+		    <input type="hidden" name="ispostback" value="1"/>
+		    <div class="app-section">
+     		    <h2>ICE Settings</h2>
+                <table><tbody>
+                    <tr>
+                        <td>ICE host address: </td>
+                        <td>
+							<input type="text" name="iceWebHost" id="iceWebHost"
+								value="$iceWebHost"/>
+                            <div class="helptext" title="ICE port number">
+                                <p>The address on which ICE is running.</p>
+                                <p>This is normally just 'localhost', but if you want it to be accessable from other computers you will need to change this to this machines IP address.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ICE (HTTP) port number: </td>
+                        <td>
+							<input type="text" name="iceWebPort" id="iceWebPort"
+								value="$iceWebPort"/>
+                            <div class="helptext" title="ICE host address">
+                                <p>The ICE port number is the HTTP port for the localhost URL which is set to 8000 by default. If you are running another server on port 8000 you can change this to another number to avoid conflict, for example:</p>
+                                <p>The default URL for ICE is http://localhost:8000</p>
+                                <p>If the port number was 1000 the URL for ICE would be http://localhost:1000</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+## Settings
+    <div class='accordion' style='padding-top:1em;'>
+        <div class='defaultSettings'>
+            <h6><a>Default additional settings:</a></h6>
+            $settingsHtml
+        </div>
+    </div>
+	<div style="padding: 2em;" class="message">
+        <button type="button" class="saveButton">Save</button>
+    </div>
+    <div>
+        <button type="button" id="testButton">Test</button
+    </div>
+##
+##  REPOSITORIES  ##
+##
+##                <hr style='margin-top:1.5em;'/>
+		        <h3>Repository(s) information and settings</h3>
+##    			<h4>Advanced repository settings</h4>
+				<div>Note: '~' = '$homePath' - your home directory</div>
+## Accordion
+                <div class='accordion'>
+                    <div class='addrep rep' id='addrep'>
+                        <h6><a>Add a new repository</a></h6>
+                        <div class="addNewRep">
+                            <table><tbody>
+                              <tr>
+                                <td colspan='2'>
+                                    Entry the URL (or the path of an existing checked out repository)
+                                    and optionally a new configuration name for the repository.
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Name:</td>
+                                <td>
+                                    <input type='text' size='20'/> (Optional)
+                                    <div class="helptext" title="New repository name">
+                                        <p>Enter the repoistory's local configuration name. </p>
+                                        <p>(Note:</p>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>New repository URL: </td>
+                                <td>
+                                    <input type='text' size='64'/>
+                                    <div class="helptext" title="New repository URL">
+                                        <p>Enter the root URL of your documents in your Subversion repository. 
+                                        ICE will configure a new repository using default settings.
+                                        These settings can be overwritten in the 'Advanced repository settings' area below if required.</p>
+                                        <p>For example: http://ice-sandbox.googlecode.com/svn/sample-content</p>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>or Path:</td>
+                                <td>
+                                    <input type='text' size='64'/>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td colspan='2'>
+						            <div style="padding-left:1em;display:none;" id="auth" class="">
+							            <table><tbody>
+								            <tr>
+									            <td rowspan="2">SVN requires authentication:</td>
+									            <td>Username: </td>
+									            <td>
+										            <input type="text" name="username" id="username"
+											            value="$username"/>
+									            </td>
+
+								            </tr>
+								            <tr>
+									            <td>Password: </td>
+									            <td>
+										            <input type="password" name="password" id="password"
+											            value=""/>
+									            </td>
+									            <td>
+										            <button type="button" name="authSubmit" id="authSubmit">Submit</button>
+									            </td>
+								            </tr>
+							            </tbody></table>
+						            </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td>
+                                    <button type="button" id="submitAddNewRep">Submit</button>
+                                    <button type="button" id="clearAddNewRep">Clear</button>
+                                </td>
+                              </tr>
+                            </tbody></table>
+                        </div>
+                    </div>
+## Repositories
+                    $repositoriesHtml
+                </div>
+            </div>
+        </form>
+
+        $versionInfoMethod()
+	  </div>
+	</body>
+#def versionInfoMethod()
+	<div class="app versionInfo" style="font-size: 11px;">	
+	  <a name="versionInfo"/>
+	  <hr/>
+	  <pre>${versionInfo, raw=True}</pre>
+	</div>
+#end def
+</html>

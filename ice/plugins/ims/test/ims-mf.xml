@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE manifest SYSTEM "imscp_rootv1p1.dtd">
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" identifier="MANIFEST-6971EFA4-1391-578F-D1CE-39875264E76A" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd">
+  <metadata>
+  <schema>IMS Content</schema>
+  <schemaversion>1.2.2</schemaversion>
+  </metadata>
+<organizations default="default"><organization identifier="default" structure=""><title>default</title><item identifier="default-d61210095c3fda149ee60940c2de7973-1" identifierref="d61210095c3fda149ee60940c2de7973" isvisible="True"><title>Note 1</title></item></organization></organizations><resources><resource identifier="44c402bc44a8c22a82eda4dd481f1f32" type="webcontent" href="testContent/FET5601/course_guide/course_intro/Course_Introduction.htm"><file href="testContent/FET5601/course_guide/course_intro/Course_Introduction.htm"/><file href="testContent/FET5601/course_guide/course_intro/Course_Introduction_files/3f96ae4a.png"/><file href="testContent/FET5601/course_guide/course_intro/Course_Introduction_files/7ae625c4.png"/></resource></resources></manifest>

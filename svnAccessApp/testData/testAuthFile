@@ -1,0 +1,61 @@
+# Comment line
+    # Spaces and then comment
+
+[groups]
+gOne = oneA, oneB, oneC
+
+#Blank line plus comment
+gTwo=twoA,twoB 	 ,  	twoC#Comment
+
+[/]	# Root
+*=
+@gOne=rw
+@gTwo 	= 	rw
+rootrw = rw
+rootRead=r
+god=rw
+
+[/common]
+rootrw=rw
+rootRead=r
+
+[/dirOne]
+*=r
+uOne=rw
+god=rw
+
+[/dirOne/one]
+* =  rw
+dirOneone=r
+god=rw
+
+[/dirOne/two]
+* = 	
+god=rw
+
+[/dirOne/three/one]
+* =
+god=rw
+
+[/dirTwo]
+*=
+@gTwo=rw
+god=rw
+
+[/dirTwo/one/one]
+@gTwo=
+
+[/one/two/three]
+*=rw
+
+[/test]
+uTest = 
+uTest = r
+uTest = rw
+uTest2 = rw
+uTest2 = r
+
+
+
+
+# The End

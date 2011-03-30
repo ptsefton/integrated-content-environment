@@ -1,0 +1,547 @@
+## Cheetah Template
+#encoding UTF-8
+<html>
+	<head>
+		<title>Config editor</title>
+	</head>
+	<script type="text/javascript">
+		<!--
+			
+			function whatsThis(value) {
+			newwindow2=window.open('','_blank','height=300,width=400,resizable=yes');
+			var tmp = newwindow2.document;
+			tmp.write('<html><head><title>What\'s this?</title>');
+			tmp.write('<style>.body { font-size: small; font-family: verdana;} h1 {font-size: 1.2em;}</style>');
+			tmp.write('</head><body class="body">');
+			if (value == 'name') {
+				tmp.write('<h1>The repository name</h1>');
+				tmp.write('<p>Provided there is more than one repository setup, the <i>name</i> is what appears in repository selection box in the toolbar. For example if ice-sandbox was used you would see the following:.</p>');
+				tmp.write('<p><form>&nbsp;Rep:<select name="repName" onchange="submit()"><option value="ice-sandbox">ice-sandbox</option><option value="Documents">Documents</option></select></form></p>');
+			}
+			else if (value == 'url') {
+				tmp.write('<h1>The SVN (Subversion\) URL</h1>');
+				tmp.write('<p>The SVN URL is the location of the Subversion repository directory, for example.</p>');
+				tmp.write('<p><b>A remote repository URL:</b><br/> http://ice-sandbox.googlecode.com/svn/sample-content/</p>');
+				tmp.write('<p><b>A Windows local repository URL:</b><br/> file:///c:/temp/local-rep</p>');
+				tmp.write('<p><b>A Mac local repository URL:</b><br/> file:///Users/Shared/local-rep</p>');
+			}
+			else if (value == 'path') {
+				tmp.write('<h1>The Path</h1>');
+				tmp.write('<p>The <i>path</i> is the location where you want the content checkout to on your system, examples include.</p>');
+				tmp.write('<p><b>Windows</b>');
+				tmp.write('<br/>c:/\ice/\ice-sandbox</p>');
+				tmp.write('<p><b>Mac</b>');
+				tmp.write('<br/>/Users/Shared/ice-sandbox</p>');
+				tmp.write('<p><b>Linux</b>');
+				tmp.write('<br/>/home/shared/ice-sandbox</p>');
+				tmp.write('<br/><p><b>Note:</b> You must have write permissions for the given directory</p>');
+			}
+			else if (value == 'template') {
+				tmp.write('<h1>The document template(s)</h1>');
+				tmp.write('<p>The templates are used for creating new files via the ICE file manager. The document template(s) is the directory where the templates are located relative to the <i>path</i>, for example:</p>');
+				tmp.write('<p>If the templates folder was "\/Documents\/ice-sandbox\/templates", the document template path would be "templates"</p>');
+				tmp.write('<p>If the templates folder was "\/Documents\/ice-sandbox\/documents\/my_templates", the document template path would be "documents\/my_templates"</p>');
+			}
+			else if (value == 'export') {
+				tmp.write('<h1>The export path</h1>');
+				tmp.write('<p>The export path is where the content is exported, and is an absolute path, examples include:</p>');
+				tmp.write('<p><b>Windows</b>');
+				tmp.write('<br/>c:/\ice/\exports</p>');
+				tmp.write('<p><b>Mac</b>');
+				tmp.write('<br/>/Users/Shared/exports</p>');
+				tmp.write('<p><b>Linux</b>');
+				tmp.write('<br/>/home/shared/exports</p>');
+				tmp.write('<p><b>Note:</b> The export path is not used if the content is set to export to a zip file. You must also have write permissions for the given directory</p>');
+			}
+			else if (value == 'default') {
+				tmp.write('<h1>Default</h1>');
+				tmp.write('<p>ICE will load the selected repostory on startup.</p>');
+			}
+			else if (value == 'port') {
+				tmp.write('<h1>ICE port number</h1>');
+				tmp.write('<p>The ICE port number is the HTTP port for the localhost URL which is set to 8000 by default. If you are running another server on port 8000 you can change this to another number to avoid conflict, for example:</p>');
+				tmp.write('<p>The default URL for ICE is http://localhost:8000</p>');
+				tmp.write('<p>If the port number was 1000 the URL for ICE would be http://localhost:1000</p>')
+			}
+			else if (value == 'oooPath') {
+				tmp.write('<h1>OpenOffice.org path</h1>');
+				tmp.write('<p>The OpenOffice.org path is where you have installed OpenOffice.org, examples include:</p>');
+				tmp.write('<p><b>Windows</b>');
+				tmp.write('<br/>c:/\Program Files/\OpenOffice.org 2.1/\</p>');
+				tmp.write('<p><b>Mac</b>');
+				tmp.write('<br/>/Applications/OpenOffice.org 2.0.app/Contents/MacOS</p>');
+				tmp.write('<p>(NB: The Mac OpenOffice.org path needs to be the exact location of the program files\).</p>')
+				tmp.write('<p><b>Ubuntu</b>');
+				tmp.write('<br/>/etc/OpenOffice.org2-1</p>');
+			}
+			else if (value == 'oooPort') {
+				tmp.write('<h1>OpenOffice.org port number</h1>');
+				tmp.write('<p>The port number is used to automate OpenOffice, this number needs to match the one set in OpenOffice. The default value is 2002.</p>');
+			}
+			else if (value == 'emailFrom') {
+				tmp.write('<h1>Email from address</h1>');
+				tmp.write('<p>This is only required if you need to send emails using ICE, such as newsletters, for eample:</p>');
+				tmp.write('<p>Your Name &lt;username@somewhere.com&gt;</p>');
+			}
+
+			else if (value == 'smtp') {
+				tmp.write('<h1>SMPT server</h1>');
+				tmp.write('<p>This is only required if you need to send emails using ICE. The SMPT server is the email server you wish to use.</p>');
+				tmp.write('<p>mail.somewhere.com</p>');
+			}
+			else if (value == 'emailUsername') {
+				tmp.write('<h1>Email username</h1>');
+				tmp.write('<p>This is only required if you need to send emails using ICE. The username is used to authenticate against the SMTP server, for example:</p>');
+				tmp.write('<p>If your email address was \'user@somewhere.com\', your username would be \'user\'.</p>');
+				
+			}			
+			
+			else if (value == 'new_rep') {
+				tmp.write('<h1>New repository URL</h1>');
+				tmp.write('<p>Enter the root URL of your documents in your Subversion repository. ICE will configure a new repository using default settings. ');
+				tmp.write('These settings can be overwritten in the \'Advanced repository settings\' area below if required.</p>');
+				tmp.write('<p>For example: http:\/\/ice-sandbox.googlecode.com\/svn\/sample-content</p>');
+			}	
+			tmp.write('<p style="text-align: right;"><a href="javascript:self.close()">close</a></p>');
+			tmp.write('</body></html>');
+			tmp.close();
+		}
+			-->
+		</script>
+	<style>
+  	div.ok { color:green; }
+  	div.error { color:red; }
+	div.hidden { display:none; }
+  	body {
+  		padding: 10px;
+  		margin-left: 10px;
+  		font-family: Verdana, Arial;
+  		font-size: small;
+  	}
+ 	input {
+		font-size: small;
+		}
+  	
+  	td, th {
+  		font-size: small;
+  		text-align: left;
+	
+  	}
+
+  	H1  {
+  	font-size: 1.6em;
+  	color: navy;
+  	font-family: Arial, Verdana, Helvetica, sans-serif;
+  	font-weight: bold;
+	margin-top: 2px;
+	
+  	}
+  	
+  	.title
+  	{
+  	font-family: serif, Arial,  Helvetica, sans-serif;
+  	font-size: 1.8em;
+  	font-weight: bold;
+  	color: #CC6600;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px;
+  	}
+  	
+  	H2  {
+  	font-family: Arial, Verdana, Helvetica, sans-serif;
+  	font-size: 1.4em;
+  	color: navy;
+  	font-weight: normal;
+	margin-top: 2px;
+  	
+  	}
+  	
+  	H3  {
+  	font-family: Arial, Verdana, Helvetica, sans-serif;
+  	font-size: 1.3em;
+  	color: #A34B4B;
+  	font-weight: normal;
+  	}
+  	
+  	H4  {
+  	font-family: Arial, Verdana, Helvetica, sans-serif;
+  	font-size: 1.2em;
+  	color: #685656;
+  	font-weight: normal;
+	margin-bottom: 2px;
+  	}
+  	
+  	.app-section {
+  		/* border: 1px solid black; */
+  		padding: 5px;
+  		margin-bottom: 15px;
+  	}
+	table.repository {
+		border:1px solid black; 
+		margin-top:1em; 
+		padding:.2em;
+		}
+	table.repositoryNew {
+		border:1px solid green; 
+		background: #E0FFE0;
+		margin-top:1em; 
+		padding:.2em;
+		}
+	table.repository td .rep-save {
+		display:none;
+		}
+	table.repositoryNew td .rep-save {
+		display:inline;
+		}
+	.repository .help {
+		display: none;
+		}
+		
+	.nameID0 .help{
+		display: inline;
+	}
+	.help a {
+		color: #6699CC;
+		}
+  	.save-buttons {
+  		text-align: right;
+  	}
+  </style>
+	<body>
+		<div>
+			<h1 class="title">Config editor</h1>
+			<form method="POST" action="#repositories" name="formx">
+   			    <input type="hidden" name="ispostback" value="1"/>
+                <input type="hidden" name="func" value="editconfig"/>
+				<div class="app-section">
+					<h2>ICE Settings</h2>
+					<table>
+						<!-- ICE HTTP Port Number -->
+						<tr>
+							<td>ICE (HTTP) port number: </td>
+							<td>
+								<input type="text" name="iceWebPort" id="iceWebPort"
+									value="$iceWebPort"/>
+								<b>$webPortFeedback</b>
+								<span class="help" title="What's this?"><a
+										href="javascript:whatsThis('port')"
+									>?</a>&#160;&#160;</span>
+							</td>
+						</tr>
+
+						<!-- OpenOffice.org path -->
+						<tr>
+							<td>Path to OpenOffice.org:</td>
+							<td>
+								<input type="text" size="75" name="oooPath" id="oooPath"
+									value="$oooPath"/>
+								<b>$oooPathFeedback</b>
+								<span class="help" title="What's this?"><a
+										href="javascript:whatsThis('oooPath')"
+									>?</a>&#160;&#160;</span>
+							</td>
+						</tr>
+
+						<!-- OpenOffice.org port number -->
+						<tr>
+							<td>OpenOffice.org port number: </td>
+							<td>
+								<input type="text" name="oooPort" id="oooPort"
+									value="$oooPort"/>
+								<b>$oooPortFeedback</b>
+								<span class="help" title="What's this?"><a
+										href="javascript:whatsThis('oooPort')"
+									>?</a>&#160;&#160;</span>
+							</td>
+						</tr>
+
+						<!-- Email From Address -->
+						<tr>
+							<td>Email From Address: </td>
+							<td>
+								<input type="text" name="emailFromAddress" id="emailFromAddress"
+									value="$emailFromAddress" size="50"/>
+								<b>$emailFromAddressFeedback</b>
+								<span style="font-size: .9em">Optional</span>
+								<span class="help" title="What's this?"><a
+										href="javascript:whatsThis('emailFrom')"
+									>?</a>&#160;&#160;</span>
+							</td>
+						</tr>
+						<!-- Email SMTP Server -->
+						<tr>
+							<td>Email SMTP Server: </td>
+							<td>
+								<input type="text" name="emailSmtpServer" id="emailSmtpServer"
+									value="$emailSmtpServer" size="50"/>
+								<b>$emailSmtpServerFeedback</b>
+								<span style="font-size: .9em">Optional</span>
+								<span class="help" title="What's this?"><a
+										href="javascript:whatsThis('smtp')"
+									>?</a>&#160;&#160;</span>
+							</td>
+						</tr>
+						<!-- Email username -->
+						<tr>
+							<td>Email username: </td>
+							<td>
+								<input type="text" name="emailUsername" id="emailUsername"
+									value="$emailUsername" size="50"/>
+								<b>$emailUsernameFeedback</b>
+								<span style="font-size: .9em">Optional</span>
+								<span class="help" title="What's this?"><a href="javascript:whatsThis('emailUsername')">?</a>&#160;&#160;</span>
+							</td>
+						</tr>
+						<tr><td colspan="2"><h4>Additional settings</h4></td></tr>
+#for $var in $vars.values
+						<tr>
+						  <td>
+						  #if $var.type=="boolean"
+						  <label for="_var_$var.name" title="$var.name">$var.desc:</label>
+						  #else
+						  <span title="$var.name">$var.desc:</span>
+						  #end if
+						  </td>
+						  <td>
+						  #if $var.type=="string"
+						  <input type="text" id="_var_$var.name" title="$var.name" name="$var.name"  value="$var.value" size="50"/>
+						  #elif $var.type=="boolean"
+						  <input type="checkbox" id="_var_$var.name" title="$var.name" name="$var.name" #if $var.value==True then checked="checked" else ""#/>
+						  #else
+						  $var.value
+						  #end if
+						  <input type="submit" name="_del_$var.name" value="Delete"
+						         onclick="document.forms[0].action='#';"/>
+						  </td>
+						</tr>
+#end for
+						<tr>
+						  <td>Add setting:</td>
+						  <td>
+						  <table class="repositoryNew">
+						    <tr>
+						      <td><label for="newVarName">Name:</label></td>
+						      <td>
+						        <input type="text" id="newVarName" name="newVarName" size="22"/>
+						        <label for="newVarType">Type:</label>
+						        <select name="newVarType">
+						          <option value="boolean">Boolean</option>
+						          <option value="string" selected="selected">String</option>
+						        </select>
+						      </td>
+						    </tr>
+						    <tr>
+						      <td><label for="newVarDesc">Description:</label></td>
+						      <td>
+						        <input type="text" id="newVarDesc" name="newVarDesc" size="38"/>
+						        <input type="submit" name="addVar" value="Add"
+						               onclick="document.forms[0].action='#';"/>
+						      </td>
+						    </tr>
+						  </table>
+						  #if $addVarMsg
+						  <div style="padding-top:1em;color:red">$addVarMsg</div>
+						  #end if
+						  </td>
+						</tr>
+<!--						<tr>
+							<td colspan="2">
+								<input type="submit" name="OK" value="Save" onclick="document.forms[0].action='#';"/>
+							</td>
+						</tr>
+-->
+					</table>
+
+					<a name="repositories"><!-- --></a>
+					<!-- Repository(s) -->
+					<h3>Repository(s) information</h3>
+					<div>
+						<div style="padding-left:1em;">New repository URL: <input type="text"
+								name="svnUrl" id="svnUrl" value="$svnUrl" size="50"/>
+							<input type="submit" name="addSvnUrl" id="addSvnUrl" value="Submit"/>
+							<span class="help" title="What's this?"><a href="javascript:whatsThis('new_rep')">?</a>&#160;&#160;</span>
+						</div>
+						<div style="padding-left:1em; color:red;" id="svnUrlFeedback" class="">
+							$svnUrlFeedback </div>
+#if $authRequired
+						<div style="padding-left:1em;" id="auth" class="">
+							<table>
+								<tr>
+									<td rowspan="2">SVN requires authentication:</td>
+									<td>Username: </td>
+									<td>
+										<input type="text" name="username" id="username"
+											value="$username"/>
+									</td>
+
+								</tr>
+								<tr>
+									<td>Password: </td>
+									<td>
+										<input type="password" name="password" id="password"
+											value=""/>
+									</td>
+									<td>
+										<input type="submit" name="authSubmit" id="authSubmit"
+											value="Checkout"/>
+									</td>
+									<td style="color:red;">$usernamePasswordFeedback</td>
+								</tr>
+							</table>
+						</div>
+#end if
+					</div>
+					<div style="text-align: left; padding-bottom:2em;">
+					#if $message
+						<div style="font-weight:bold;text-align:left;padding: 2px;" class="message $messageType">$message&#160;</div>
+					#end if
+						<br/>
+						<input type="submit" name="add" id="add" value="Add repository"/>
+						<input type="submit" name="OK" value="Save"/>
+                        <input type="submit" name="OK" value="Save and close editor"/>
+						<!-- <input type="button" Value="Close editor" onclick="document.location.href='./'"/> -->
+					</div>
+					
+					
+					<a name="rep_info"><!-- --></a>
+					#if $msg
+					<div style="padding-top:1em;color:red">$msg</div>
+					#end if
+					<h4>Advanced repository settings</h4>
+					<div>Note: '~' = '$homePath' - your home directory</div>
+					<table>
+#for $rep in $reps
+						<!-- Repository -->
+						<tr class="repository">
+							<td>
+								<div class="$rep.id">
+								<table class=#if $rep.new then "repositoryNew" else "repository"#>
+									<tr>
+										<td>Name:</td>
+										<td>
+											<input type="hidden" name="_$rep.id" id="_$rep.id"
+												value="$rep.name"/>
+											<input type="text" name="n_$rep.id" id="n_$rep.id"
+												value="$rep.name"/>
+											<span class="help" title="What's this?"><a
+												href="javascript:whatsThis('name')"
+												>?</a>&#160;&#160;</span>
+										</td>
+										<td><input type="radio"
+#if $defaultRepositoryName==$rep.name
+checked="checked" #slurp
+#end if
+												value="$rep.id" name="default"/>Default&#160;
+												<span class="help" title="What's this?">
+													<a href="javascript:whatsThis('default')">?</a>
+													&#160;&#160;
+												</span>
+										</td>
+									</tr>
+									<tr>
+										<td>SVN URL: </td>
+										<td colspan="2">
+											<input type="text" size="80" name="u_$rep.id" id="u_$rep.id"
+												value="$rep.url"/>
+											<span class="help" title="What's this?"><a
+												href="javascript:whatsThis('url')"
+												>?</a>&#160;&#160;</span>
+										</td>
+									</tr>
+									<tr>
+										<td>Path: </td>
+										<td colspan="2">
+											<input type="text" size="80" name="p_$rep.id" id="p_$rep.id"
+												value="$rep.path"/>
+											<span class="help" title="What's this?"><a
+												href="javascript:whatsThis('path')"
+												>?</a>&#160;&#160;</span>
+										</td>
+									</tr>
+									<tr>
+										<td>Document&#160;template<br/>
+											path:&#160; </td>
+										<td colspan="2">
+											<input type="text" size="80" name="d_$rep.id"
+												id="d_$rep.id" value="$rep.docTemplatePath"/>
+											<span class="help" title="What's this?"><a
+												href="javascript:whatsThis('template')"
+												>?</a>&#160;&#160;</span>
+										</td>
+									</tr>
+									<tr>
+										<td>Export path (Absolute): </td>
+										<td colspan="2">
+											<input type="text" size="60" name="x_$rep.id"
+												id="x_$rep.id" value="$rep.exportPath"/>
+											<span class="help" title="What's this?"><a
+												href="javascript:whatsThis('export')"
+												>?</a>&#160;&#160;</span>
+										</td>
+									</tr>
+									#if $rep.feedback or $rep.message
+									<tr>
+										<td/>
+										<td colspan="2">
+											<div>
+												<b>$rep.feedback</b>		
+											</div>
+										</td>
+										<td>
+											<div style="font-weight:bold;text-align:left;padding: 2px;" class="message $rep.messageType">$rep.message&#160;</div>
+											<!-- <input type='submit' value='Check'/> -->
+											<!-- <input type="submit" name="OK" value="Save"/> -->
+											
+										</td>
+									</tr>
+									#end if
+									<tr>
+										<td></td>
+										<td>
+											
+											
+										</td>
+										<td class="save-buttons">
+											<input type="button" name="Clear" value="Clear" 
+onclick="document.forms[0].n_${rep.id}.value=''; document.forms[0].u_${rep.id}.value=''; document.forms[0].p_${rep.id}.value=''; document.forms[0].u_${rep.id}.value=''; document.forms[0].d_${rep.id}.value=''; document.forms[0].x_${rep.id}.value='';"/>
+											<span class="rep-save">
+											<input type="submit" name="OK" value="Save"/>
+											</span>
+										</td>
+									</tr>
+								</table>
+							</div>
+							</td>
+						</tr>
+#end for
+						<tr>
+							<td>
+								<p><b>Note:</b> To remove a repository option clear the name field before clicking Save.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div style="font-weight:bold;text-align:left;" class="message"
+									>&#160;</div>
+								<div style="text-align: left;">
+									<input type="submit" name="add" id="add" value="Add"/>
+									<!-- <input type='submit' value='Check'/> -->
+									<input type="submit" name="OK" value="Save"/>
+									<input type="button" Value="Close editor"
+										onclick="document.location.href='../'"/>
+
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</form>
+		<div class="app versionInfo" style="font-size: 11px;">	
+		<a name="versionInfo"/>
+		<hr/>
+		<pre>${versionInfo, raw=True}</pre>
+		</div>
+		</div>
+	</body>
+</html>

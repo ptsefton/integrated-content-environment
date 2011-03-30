@@ -1,0 +1,1 @@
+--display -omith true --atoms -fsize 30 --molecules -labels true -bondlen 60 -hlenf 0.150 --bonds -multcol yellow -width 0.05

@@ -1,0 +1,494 @@
+## Cheetah Template
+#encoding UTF-8
+#set twoSpaces = "&#160;&#160;"
+#set newline = "<br><!-- --></br>"
+<div class='app-file-manager'>
+   <form enctype='multipart/form-data' method='POST' action='/rep.$repName$directory' name='formX' id='formX' >
+     <input type='hidden' name='ispostback' value='1' />
+     <input type='hidden' name='func' value='file_manager' />
+     <input type='hidden' name='actType' id='actType' value='' />
+     <input type='hidden' name='actSubType' id='actSubType' value='' />
+     <input type='hidden' name='actData' id='actData' value='' />
+     <input type='hidden' name='postCount' value='$postCount'/>
+##
+    #if $message
+    <div style='color:darkred;background-color:#F0F0F0;overflow:auto;padding:1em;font-weight:bold;'>${message, raw=False}</div>
+    #end if
+##
+     #if $resultError
+     <div style='color:red;background-color:#F0F0F0;overflow:auto;'>ERROR: <br />  ${resultError, raw=True}</div>
+     #end if
+##     
+     #if $resultWarning
+     <div style='color:darkred;background-color:#F0F0F0;overflow:auto;'>Warning: ${resultWarning, raw=False}</div>
+     #end if
+##
+##     ## linked context path
+##     #for $a, $n in $pathParts
+##        #if $a
+##<a href='$a'>$n</a>#slurp
+##	#else
+##$n#slurp
+##	#end if
+##     #end for
+##     $twoSpaces<img class="ice-fm-refresh" src="/skin/refresh.png" alt="Refresh"/>
+##     $newline
+##     $currentLinkedPath
+##     $newline
+
+#set divider = "<span class='app-divide'>&#160;| &#160;</span>"
+##
+## getActiveLink
+#def getActiveLink(text, action="", actData="", javascript=None, title="")
+  #if javascript==None:
+    #set javascript="xForm.actType.value='" + $action + "';xForm.actData.value='" + $actData + "';xForm.submit();"
+  #end if
+  <a href='javascript:${javascript, raw=False}' title='${title, raw=False}'>${text}</a>
+#end def
+##
+## getActiveCheckBox
+#def getActiveCheckBox(name, text, action="", actData="", javascript=None, title="", checked=False)
+  #set twoSpaces = "&#160;&#160;"
+  #if javascript==None:
+    #set javascript="xForm.actType.value='$action';xForm.actData.value='$actData';xForm.submit();"
+  #end if
+  <input type='checkbox' name='$name' #if checked then "checked='checked'" else "" # #slurp
+	onchange='javascript:${javascript, raw=False}' value='actData'>$text</input>$twoSpaces
+#end def
+##
+##
+## JavaScript
+<script type="text/javascript">//<!--
+	var files =0;
+    function addAnotherFile() {
+	d = jQ(".uploadFile");
+	d = d.eq(d.length-1);
+	c = d.clone();
+	d.after("\n");
+	d.after(c);
+	i = c.children().eq(0);
+	files += 1
+	id = "fileupload" + files;
+	i.attr("name", id);
+	i.attr("id", id);
+	i.attr("value", "");
+	var uploadFileWidth = jQ("div.uploadFile:last").width();
+	var btnWidth = jQ("button[@title='Upload File']").width();
+	var btnpos =jQ("button[@title='Upload File']").position();
+	var divpos = jQ("div.uploadFiles").position();
+	var curBtnLeft = btnpos.left;
+	var totalWidth = uploadFileWidth + btnWidth + curBtnLeft+50;
+	if( jQ("div.ice-tabs").width() > 700){
+		var diffTop = btnpos.top-divpos.top >=5;
+	}else{
+		//in case the window is too small and only have room from 1 line
+		var diffTop = divpos.top-btnpos.top >= 0;
+	}
+	if ((jQ("div.ice-tabs").width() <= totalWidth) && (diffTop)){
+		jQ("#addAnotherFile").toggle();
+	}
+
+	}
+    function showFileUpload(){
+	d=jQ(".uploadFiles").eq(0);
+	d.show();
+    }
+  function toggleAddNewFolder(){ jQ(".addNewFolder").eq(0).toggle(); }
+//-->
+</script>
+##
+## Command result
+#if $resultSummary
+<div>
+  <span class='app-label'>Action result(s): </span>${resultSummary, raw=False}
+  #if $resultDetails
+    ,<span> <a href='#details'>view details</a></span>
+  #end if
+  $newline
+</div>
+#end if
+$newline
+
+## Path
+<div class='app-nav'>
+  ##<span><img class="ice-fm-refresh" src="/skin/refresh.png" alt="Refresh" width="22px" height="22px" title="Refresh files displayed on path"/>&#160;</span>
+  ##<h1>$path</h1>
+  ##<a href="$path"><img src="/skin/refresh.png" alt="Refresh" width="22px" height="22px"title="Refresh files displayed on path" style="border: 0px"/></a>
+  
+  <span class='app-label'>Path: </span>
+  <span><a href="/">$repName</a>$currentLinkedPath</span>  <br/><br/>
+ #if $isVersioned
+  #if $workingOffline
+    <span><img src="/skin/sync-inactive.png" alt="Sync-inactive" width="22px" height="22px" title="Cannot sync when working offline"/>&#160;</span>
+  #else
+    <img class="ice-fm-sync command" title="Synchronize all or selected items with the repository and other users" src="/skin/sync.png" alt="Sync" width="22px" height="22px"/>&#160;
+  #end if
+ #end if
+  &#160; <img class="paste command" src="/skin/edit-paste.png"  width="22px" height="22px" alt="Paste" title="Paste"/>
+  
+  
+</div>
+
+
+<table class='ice-file-manager zebra'>
+  <tr>
+    <td>$checkAll</td>
+    <td>All</td>
+    <th>Name</th>
+    <th>Commands</th>
+    <th>Date</th>
+    #if $isVersioned then "<th>Status</th>" else "" #
+  </tr>
+  <tr>
+     <td></td>
+     <td><span class='app-parent'><span></span></span></td>
+     <td>
+	#if $parentDirectory
+         <a href='$parentDirectory' title='Parent folder'>../</a>
+	#else
+	 <span title="Parent folder">..</span>
+	#end if
+     </td>
+     <td><!-- Commands --></td>
+     <td><!-- Date --></td>
+    #if $isVersioned
+     <td><!-- Status -->
+     <input type='hidden' name='showStatus' id='showStatus' value='$showStatus'/>
+           <input type='checkbox'  title='Check to show Status' name='showStatusCheck' id='showStatusCheck' onclick='javascript:document.formX.showStatus.value=document.formX.showStatusCheck.checked;submit();'
+		#if $showStatus then "checked='checked'" else "" #
+		#if $workingOffline then "disabled='disabled'" else "" #/>
+	<label for='showStatus' #if $workingOffline then " style='color:gray;'" else "" #> Compare files to database</label>
+     </td>
+    #end if
+  </tr>
+  #for entry in $entries
+    $formatEntry(entry)
+  #end for
+</table>
+#if $resultDetails
+  $newline
+  <a name='details'/>
+  <div class='app-details'>
+    <span class='app-label'>Details:</span>
+    <div class="result-details"><pre>$resultDetails</pre></div>
+  </div>
+#end if
+##
+<hr/>
+</form>
+<p>$directory</p>
+<div class="annotateThis" id='annotateThis'><span>Comment on this:</span></div>
+</div>
+##
+##
+##
+## check ALL checkboxes
+#def checkAll
+  <input type='checkbox' id="selectAll" name='all' value='1' title='Check All' #if $all then "checked='checked' " else ""# />
+#end def
+##
+##
+## Format Entries
+#def formatEntry(entry)
+ #if $entry.status.lower().startswith("missing")
+    #if $entry.isDir	##############  Missing Directory entry  ######################
+      <tr class='missing dir' id='$entry.id'>
+        <td></td>
+        <td><img style='border:none;' src="/skin/folder-deleted.png" alt='$entry.getImageAlt()'/> </td>
+	    <td>$entry.name</td>
+	    <td class="ice-fm-cmd">
+	        <div class="options">
+                 #if $workingOffline
+                   <span class='disabled' title="Cannot update '$entry.name' when working offline!">Update</span>
+                 #else
+                   <span class="update" title="Update '$entry.name'">Update</span> 
+                 #end if
+	        </div>
+	    </td>
+	    <td></td>
+     	<td>&#160; Missing (out-of-date)</td>
+      </tr>
+    #else			################  Missing File entry  ##################
+      <tr class='missing file' id='$entry.id'>
+        <td></td>
+        <td><img style='border:none;' src="/skin/file-deleted.png" alt='$entry.getImageAlt()'/> </td> 
+        <td>$entry.name</td>
+	    <td class="ice-fm-cmd">
+	        <div class="options">
+                 #if $workingOffline
+                   <span class='disabled' title="Cannot update '$entry.name' when working offline!">Update</span>
+                 #else
+                   <span class="sync" title="Update '$entry.name'">Update</span> 
+                 #end if
+            	<span class="#if $entry.canRevert then 'revert' else 'disabled' #" title="Revert '$entry.name'">Revert</span> 
+	        </div>
+	    </td>
+	    <td></td>
+     	<td>&#160; missing</td>
+      </tr>
+     #end if
+ #elif $entry.status.lower().startswith("deleted") ##or entry.status.lower().startswith("missing")
+    #if $entry.isDir	##############  Deleted Directory entry  ######################
+      <tr class='deleted dir' id='$entry.id'>
+        <td></td>
+        <td><img style='border:none;' src="/skin/folder-deleted.png" alt='$entry.getImageAlt()'/> </td>
+	    <td>$entry.name</td>
+	    <td class="ice-fm-cmd">
+	        <div class="options">
+                 #if $workingOffline
+                   <span class='disabled' title="Cannot sync '$entry.name' when working offline!">Sync</span>
+                 #else
+                   <span class="sync" title="Sync '$entry.name'">Sync</span> 
+                 #end if
+            	<span class="#if $entry.canRevert then 'revert' else 'disabled' #" title="Revert '$entry.name'">Revert</span> 
+	        </div>
+	    </td>
+	    <td></td>
+     	<td>locally deleted</td>
+      </tr>
+    #else			################  Deleted File entry  ##################
+      <tr class='deleted file' id='$entry.id'>
+        <td></td>
+        <td><img style='border:none;' src="/skin/file-deleted.png" alt='$entry.getImageAlt()'/> </td> 
+        <td>$entry.name</td>
+	    <td class="ice-fm-cmd">
+	        <div class="options">
+                 #if $workingOffline
+                   <span class='disabled' title="Cannot sync '$entry.name' when working offline!">Sync</span>
+                 #else
+                   <span class="sync" title="Sync '$entry.name'">Sync</span> 
+                 #end if
+            	<span class="#if $entry.canRevert then 'revert' else 'disabled' #" title="Revert '$entry.name'">Revert</span> 
+	        </div>
+	    </td>
+	    <td></td>
+     	<td>locally deleted</td>
+      </tr>
+     #end if
+ #else
+  #if $entry.isDir	##############  Directory entry  ######################
+  <tr class='dir' id='$entry.id'>
+   <td><input title="Check '$entry.name'" type='checkbox' class='select' name='selected' value='$entry.name' #if $entry.selected then "checked='checked'" else '' #/></td>
+   <td><a href='$entry.fullPath'><img style='border:none' src='/skin/folder.png' alt='$entry.getImageAlt()' title='$entry.getImageAlt()'/></a></td>
+   <td><div class="entry-name"><a href='$entry.fullPath'>$entry.name</a></div></td>
+   <td class="ice-fm-cmd">
+     <img class="edit" src="/skin/open.png" alt="Open" title="Open system folder '$entry.name'"/>&#160;
+     <img class="cut" src="/skin/edit-cut.png" alt="Cut" title="Cut '$entry.name'"/>&#160;
+     <img class="copy" src="/skin/edit-copy.png" alt="Copy" title="Copy '$entry.name'"/>&#160;
+     <img class="paste" src="/skin/edit-paste.png" alt="Paste" title="Paste"/>
+##     <!-- <img class="delete" src="/skin/edit-delete.png" alt="Delete" title="Delete '$entry.name'"/>  -->
+     <img class="options" src="/skin/options.png" alt="Options" title="Options"/>
+     <div class="options" style='display:none'>
+     <span class="rename" title="Rename '$entry.name'">Rename</span>
+##
+  #if $isVersioned
+     #if $workingOffline
+        <span class='disabled' title="Cannot sync '$entry.name' when working offline!">Sync</span>
+     #else
+        <span class="sync" title="Sync '$entry.name'">Sync</span> 
+     #end if
+     <span class="#if $entry.canRevert then 'revert' else 'disabled' #" title="Revert '$entry.name'">Revert</span> <br/>
+     #if $workingOffline
+        <span class="disabled" title="Cannot view log of '$entry.name' when working offline!">Log</span>
+     #else
+        <span class="log" title="View log of '$entry.name'">Log</span>
+     #end if
+        <span class="delete" title="Delete '$entry.name'">Delete</span>
+     #if not ($isServer or $inPackage)
+       #if $workingOffline
+            <span class="disabled" title="Cannot shelve when working offline! (log in first)">Shelve</span>
+       #else
+            <span class="shelve" title="Shelve (remove contents) local working copy only">Shelve</span>
+       #end if
+     #end if
+  #end if
+##
+      </div>
+   </td>
+   <td class='date'>&#160;#if $entry.lastModified=="1970-01-01" then "" else $entry.lastModified #&#160;</td>
+    ## Status
+    <td>&#160; $entry.status.replace("(offline)", "<span class='app-status-offline' style='color:gray;'>(offline)</span>")</td>
+  </tr>   
+ #else			################  File entry  ##################
+ #set fileIcon = "/skin/file.png"
+ #set iconAlt = "File"
+ #set viewLinkTitle = ""
+  #if $entry.link!=None and $entry.hidden==False
+   #if $entry.viewAs=="pdf"
+     #set viewLinkTitle = "Click to view as PDF"
+     #set fileIcon = "/skin/pdf.png"
+     #set iconAlt = "PDF"
+     #set target = "_blank"
+   #elif $entry.viewAs=="html"
+     #set viewLinkTitle = "Click to view as HTML"
+     #set fileIcon = "/skin/html.png"
+     #set iconAlt = "HTML"
+     #set target = ""
+   #elif $entry.viewAs=="htm"
+     #set viewLinkTitle = "Click to view as HTML"
+     #set fileIcon = "/skin/html.png"
+     #set iconAlt = "HTML"
+     #set target = ""
+   #elif $entry.viewAs=="doc"
+     #set viewLinkTitle = "Click to view as .doc"
+     #set fileIcon = "/skin/doc.png"
+     #set iconAlt = "doc"
+     #set target = ""
+   #elif $entry.viewAs=="rtf"
+     #set viewLinkTitle = "Click to view as .rtf"
+     #set fileIcon = "/skin/doc.png"
+     #set iconAlt = ".rtf"
+     #set target = ""
+   #elif $entry.viewAs=="zip"
+     #set viewLinkTitle = "Click to view as zip"
+     #set fileIcon = "/skin/zip.png"
+     #set iconAlt = ".zip"
+     #set target = ""
+    #elif $entry.viewAs=="odt" or $entry.viewAs=="odp" or $entry.viewAs=="ods"
+     #set viewLinkTitle = "Click to view as odt"
+     #set fileIcon = "/skin/odt.png"
+     #set iconAlt = ".odt"
+     #set target = ""
+    #elif $entry.viewAs=="odp"
+     #set viewLinkTitle = "Click to view as odp"
+     #set fileIcon = "/skin/odp.png"
+     #set iconAlt = ".odp"
+     #set target = ""
+    #elif $entry.viewAs=="swf"
+     #set viewLinkTitle = "Click to view as swf"
+     #set fileIcon = "/skin/swf.png"
+     #set iconAlt = ".swf"
+     #set target = ""
+    #elif $entry.viewAs=="ppt"
+     #set viewLinkTitle = "Click to view as ppt"
+     #set fileIcon = "/skin/ppt.png"
+     #set iconAlt = ".ppt"
+     #set target = ""
+##   #elif $entry.viewAs=="manifest"
+##     #set viewLinkTitle = "Click to organize the manifest"
+   #else
+     #set viewLinkTitle = "Click to view"
+     #set fileIcon = "/skin/file.png"
+     #set iconAlt = "File"
+   #end if
+  #end if
+  ##
+  <tr class='file' id='$entry.id'>
+   <td><input type='checkbox' class='select' name='selected' value='$entry.name' #if $entry.selected then "checked='checked'" else '' #/></td>
+   <td><a href='$entry.link' title='$viewLinkTitle' target='$target'><img style='border:none' src='$fileIcon' alt='$iconAlt'/></a></td>
+   <td>
+    <a href='$entry.link' title='$viewLinkTitle'><!-- -->
+      #set untitledfile = $splitExt($entry.name)[0]
+      #if $untitledfile == ''
+        #set untitledfile = '[untitled]'
+      #end if
+     #if $entry.title then $entry.title else $untitledfile #
+    </a>
+    <div class="entry-name">$entry.name</div>
+   </td>
+   <td class="ice-fm-cmd">
+#if $entry.isBook
+     <img class="editBook" src="/skin/edit-book.png" alt="Edit book" title="Edit book '$entry.title'"/>&#160;
+#else
+    #if $isServer
+     <img class="download" src="/skin/download.png" alt="Download" title="Download '$entry.name'" id='$entry.idUrl'/>&#160;
+    #else
+     <img class="edit" src="/skin/edit.png" alt="Edit" title="Edit '$entry.name'"/>&#160;
+    #end if
+#end if
+     <img class="cut" src="/skin/edit-cut.png" alt="Cut" title="Cut '$entry.name'"/>&#160;
+     <img class="copy" src="/skin/edit-copy.png" alt="Copy" title="Copy '$entry.name'"/>&#160;
+     <!-- <img class="delete" src="/skin/edit-delete.png" alt="Delete" title="Delete '$entry.name'"/>  -->
+     <img class="options" src="/skin/options.png" alt="Options" title="Options"/>
+      <div class="options" style='display:none'>
+        <span class="rename" title="Rename '$entry.name'">Rename</span>
+  #if $isVersioned
+        #if $workingOffline
+         <span class='disabled' title="Cannot sync '$entry.name' when working offline!">Sync</span>
+        #else
+         <span class="sync" title="Sync '$entry.name'">Sync</span> 
+        #end if
+        <span class="#if $entry.canRevert then 'revert' else 'disabled' #" title="Revert '$entry.name'">Revert</span> <br/>
+        #if $workingOffline
+         <span class="disabled" title="Cannot view log of '$entry.name' when working offline!">Log</span>
+        #else
+         <span class="log" title="View log of '$entry.name'">Log</span>
+        #end if
+         <span class="delete" title="Delete '$entry.name'">Delete</span>
+        #for $option in $entry.extraOptions
+         <span class='$option.class' title='$option.title'>$option.name</span>
+        #end for
+  #end if
+        <div>
+#if $hasProperties
+  #if $entry.isIceDisplayable
+  ## ICE Content	[ice render] 
+  <label class='ice-content'><input type='checkbox' class='ice-content-cb' value=''
+	#if $entry.iceContent then "checked='checked'" else "" #/>&#160;Render&#160;for&#160;ICE</label>
+  #end if
+  
+  ## Display source in rendition page
+  #if $entry.displaySourceTypeOption
+  <br/>
+  <label class='display-source-type'><input type='checkbox' class='display-source-type-cb' value=''
+	#if $entry.displaySourceType then "checked='checked'" else "" #/>&#160;Display&#160;Source&#160;</label>
+  #end if
+  
+  ## Links as endnotes   [links as endnotes]
+  #if $entry.linkAsEndnoteOption
+  <br/>
+  <label class='links-as-endnotes'><input type='checkbox' class='links-as-endnotes-cb' value=''
+	#if $entry.endNoteselected then "checked='checked'" else "" #/>&#160;Links&#160;as&#160;endnotes</label>
+  #end if
+  ## Text to speech   [render audio]
+  #if $entry.renderAudioOption
+  <br/>
+  <label class='render-audio' style='#if $textToSpeechServiceAva then "" else "color:gray;" #'>
+  <input type='checkbox' class='render-audio-cb' value=''
+    #if $entry.renderAudioSelected then "checked='checked'" else "" #/>&#160;Text&#160;to&#160;speech</label>
+  #end if
+  ## Use as glossary   [glossary]
+  ## Use glossary terms  [glossary terms]
+  #if $entry.glossaryOption
+  <br/>
+  <label class='glossary'><input type='checkbox' class='glossary-cb' value=''
+    #if $entry.glossarySelected then "checked='checked'" else "" #/>&#160;Use&#160;as&#160;glossary</label>
+  <br/>
+  <label class='glossary-terms'><input type='checkbox' class='glossary-terms-cb' value=''
+    #if $entry.glossaryTermsSelected then "checked='checked'" else "" #/>&#160;Use&#160;glossary&#160;terms</label>
+  #end if
+  #if $entry.tocLevels or $entry.tocLevels==0
+  <br/>
+  <select class="tocLevels">
+    <option value="0" #if $entry.tocLevels=="0" then "selected='selected'" else "" #>No TOC</option>
+    <option value="1" #if $entry.tocLevels=="1" then "selected='selected'" else "" #>1 Level TOC</option>
+    <option value="2" #if $entry.tocLevels=="2" then "selected='selected'" else "" #>2 Level TOC (default)</option>
+    <option value="3" #if $entry.tocLevels=="3" then "selected='selected'" else "" #>3 Level TOC</option>
+  </select>
+  #end if
+#end if
+        </div>
+      </div>
+   </td>
+   <td class='date'>&#160;#if $entry.lastModified=="1970-01-01" then "" else $entry.lastModified #&#160;</td>
+    ## Status
+    <td>&#160; $entry.status.replace("(offline)", "<span class='app-status-offline' style='color:gray;'>(offline)</span>")</td>
+  </tr>
+ #end if
+##
+ #end if
+#end def
+##
+##
+##
+##
+##
+##
+#def includeStyle 
+@import url("/skin/iceapp.css");
+#end def
+
+
+
+
+

@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition"
+  xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+  xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+  xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+  xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+  xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+  xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+  xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+  xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+  xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+  xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+  xmlns:math="http://www.w3.org/1998/Math/MathML"
+  xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+  xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+  xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer"
+  xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events"
+  xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <utfx:stylesheet src="ooo2xhtml.xsl"/>
+  <!-- These unit tests are ones commented out for oo2xhtml.xsl and were in the other test files-->
+  <utfx:test>
+    <utfx:name>Preformatted text with line breaks (soft returns)</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="pre1">&lt;ol class=&quot;li-lower-roman&quot;&gt;<text:line-break/>
+          <text:s text:c="3"/>&lt;li&gt;<text:line-break/>
+          <text:s text:c="7"/>&lt;p&gt;list level 1&lt;/p&gt;<text:line-break/>
+          <text:s text:c="3"/>&lt;/li&gt;<text:line-break/>&lt;/ol&gt;</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <pre>&lt;ol class="li-lower-roman"&gt;
+          &#160;&#160;&#160;&#160;&lt;li&gt;
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;p&gt;list level 1&lt;/p&gt;
+          &#160;&#160;&#160;&#160;&lt;/li&gt;
+          &lt;/ol&gt;
+        </pre>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Preformatted text with breaks (hard returns)</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="pre1">&lt;ol class=&quot;li-lower-roman&quot;&gt;</text:p>
+        <text:p text:style-name="pre1"><text:s text:c="4"/>&lt;li&gt;</text:p>
+        <text:p text:style-name="pre1"><text:s text:c="8"/>&lt;p&gt;list level
+          1&lt;/p&gt;</text:p>
+        <text:p text:style-name="pre1"><text:s text:c="4"/>&lt;/li&gt;</text:p>
+        <text:p text:style-name="pre1">&lt;/ol&gt;</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <pre>&lt;ol class="li-lower-roman"&gt;</pre>
+        <pre>&#160;&#160;&#160;&lt;li&gt;</pre>
+        <pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;p&gt;list level 1&lt;/p&gt;</pre>
+        <pre>&#160;&#160;&#160;&lt;/li&gt;</pre>
+        <pre>&lt;/ol&gt;</pre>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- A table in the list caused the remain list items not to be rendered -->
+
+  <utfx:test>
+    <utfx:name>Table in list with missing list items</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="p">Paragraph</text:p>
+        <text:list text:style-name="li1b">
+          <text:list-item>
+            <text:p text:style-name="li1b">item 1 </text:p>
+          </text:list-item>
+        </text:list>
+        <table:table table:name="Table49" table:style-name="Table49">
+          <table:table-column table:style-name="Table49.A"/>
+          <table:table-column table:style-name="Table49.B"/>
+          <table:table-column table:style-name="Table49.C"/>
+          <table:table-row>
+            <table:table-cell table:style-name="Table49.A1" office:value-type="string">
+              <text:p text:style-name="Table_20_Contents">Cell 1</text:p>
+            </table:table-cell>
+            <table:table-cell table:style-name="Table49.A1" office:value-type="string">
+              <text:p text:style-name="Table_20_Contents">Cell 2</text:p>
+            </table:table-cell>
+            <table:table-cell table:style-name="Table49.C1" office:value-type="string">
+              <text:p text:style-name="Table_20_Contents">Cell 3</text:p>
+            </table:table-cell>
+          </table:table-row>
+        </table:table>
+
+        <text:p text:style-name="li1p"/>
+        <text:list text:style-name="li1b" text:test="Hello">
+          <text:list-item>
+            <text:p text:style-name="li1b">missing item 2</text:p>
+          </text:list-item>
+          <text:list-item>
+            <text:p text:style-name="li1b">missing item 3</text:p>
+          </text:list-item>
+        </text:list>
+        <text:p text:style-name="p">paragraph</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>Paragraph</p>
+        <ul class="lib">
+          <li>
+            <p>item 1</p>
+          </li>
+        </ul>
+        <div class="Table49" align="left">
+          <table class="Table49">
+            <tbody>
+              <tr>
+                <td class="Table49_A1">
+                  <p xmlns="">Cell 1</p>
+                </td>
+                <td class="Table49_A1">
+                  <p xmlns="">Cell 2</p>
+                </td>
+                <td class="Table49_C1">
+                  <p xmlns="">Cell 3</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="lib">
+          <li>
+            <p>missing item 2</p>
+          </li>
+          <li>
+            <p>missing item 3</p>
+          </li>
+        </ul>
+        <p>paragraph</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+
+<utfx:test>
+        <utfx:name>Merged Rows</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <table:table table:name="MergedRows" table:style-name="MergedRows">
+                    <table:table-column table:style-name="MergedRows.A"
+                        table:number-columns-repeated="3"/>
+                    <table:table-column table:style-name="MergedRows.D"/>
+                    <table:table-header-rows>
+                        <table:table-row>
+                            <table:table-cell table:style-name="MergedRows.A1"
+                                office:value-type="string">
+                                <text:p text:style-name="Table_20_Heading">Heading</text:p>
+                            </table:table-cell>
+                            <table:table-cell table:style-name="MergedRows.A1"
+                                office:value-type="string">
+                                <text:p text:style-name="Table_20_Heading">Headning</text:p>
+                            </table:table-cell>
+                            <table:table-cell table:style-name="MergedRows.A1"
+                                office:value-type="string">
+                                <text:p text:style-name="Table_20_Heading">Heading</text:p>
+                            </table:table-cell>
+                            <table:table-cell table:style-name="MergedRows.D1"
+                                office:value-type="string">
+                                <text:p text:style-name="Table_20_Heading">Heading</text:p>
+                            </table:table-cell>
+                        </table:table-row>
+                    </table:table-header-rows>
+                    <table:table-row>
+                        <table:table-cell table:style-name="MergedRows.A2" office:value-type="string">
+                            <text:p text:style-name="p">Merged Row</text:p>
+                        </table:table-cell>
+                        <table:table-cell table:number-columns-spanned="3">
+                            <table:table table:is-sub-table="true">
+                                <table:table-column table:style-name="MergedRows.A"
+                                    table:number-columns-repeated="2"/>
+                                <table:table-column table:style-name="MergedRows.D"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="MergedRows.B2.3.1"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="MergedRows.B2.3.1"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                        </table:table-cell>
+                        <table:covered-table-cell/>
+                        <table:covered-table-cell/>
+                    </table:table-row>
+                    <table:table-row>
+                        <table:table-cell table:number-columns-spanned="3">
+                            <table:table table:is-sub-table="true">
+                                <table:table-column table:style-name="MergedRows.A"
+                                    table:number-columns-repeated="3"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="MergedRows.A2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P3"/>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                        </table:table-cell>
+                        <table:covered-table-cell/>
+                        <table:covered-table-cell/>
+                        <table:table-cell table:style-name="MergedRows.B2.3.1"
+                            office:value-type="string">
+                            <text:p text:style-name="p">Merged row</text:p>
+                        </table:table-cell>
+                    </table:table-row>
+                </table:table>
+               
+            </utfx:source>
+            <utfx:expected validate="no">
+                <div align="left" class="MergedRows">
+                <table class="MergedRows"><tbody>
+                    <tr><th class="MergedRows_A1">
+                        <p >Heading</p></th>
+                        <th class="MergedRows_A1">
+                            <p>Headning</p></th>
+                        <th class="MergedRows_A1">
+                            <p>Heading</p></th>
+                        <th class="MergedRows_D1">
+                            <p>Heading</p></th>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="MergedRows_A2">
+                            <p>Merged Row</p></td>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td class="MergedRows_B2_3_1">
+                            <p>&#160;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td class="MergedRows_B2_3_1">
+                            <p>&#160;</p></td>
+                    </tr>
+                    <tr>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td rowspan="2" class="MergedRows_B2_3_1">
+                            <p>Merged row</p></td>
+                    </tr>
+                    <tr>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                        <td class="MergedRows_A2">
+                            <p>&#160;</p></td>
+                    </tr>
+                </tbody></table>
+                </div>
+              
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Merged Rows and Columns</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <table:table table:name="Table48" table:style-name="Table48">
+                    <table:table-column table:style-name="Table48.A"/>
+                    <table:table-column table:style-name="Table48.B"/>
+                    <table:table-column table:style-name="Table48.C"/>
+                    <table:table-column table:style-name="Table48.D"/>
+                    <table:table-header-rows>
+                        <table:table-row>
+                            <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+                                <text:p text:style-name="p-center">
+                                    <text:span text:style-name="i-b">Week</text:span>
+                                </text:p>
+                            </table:table-cell>
+                            <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+                                <text:p text:style-name="p-center">
+                                    <text:span text:style-name="i-b">Module</text:span>
+                                </text:p>
+                            </table:table-cell>
+                            <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+                                <text:p text:style-name="p-center">
+                                    <text:span text:style-name="i-b">Reading</text:span>
+                                </text:p>
+                            </table:table-cell>
+                            <table:table-cell table:style-name="Table48.D1" office:value-type="string">
+                                <text:p text:style-name="p-center">
+                                    <text:span text:style-name="i-b">Assessment</text:span>
+                                </text:p>
+                            </table:table-cell>
+                        </table:table-row>
+                    </table:table-header-rows>
+                    <table:table-row>
+                        <table:table-cell table:style-name="Table48.A2" office:value-type="string">
+                            <text:p text:style-name="p-center">
+                                <text:span text:style-name="i-b">3<text:line-break/>March</text:span>
+                            </text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table48.B2" office:value-type="string">
+                            <text:p text:style-name="p">3. Selling on the Web</text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table48.B2" office:value-type="string">
+                            <text:p text:style-name="P4">Chapter 3</text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table48.D2" office:value-type="string">
+                            <text:p text:style-name="p"/>
+                        </table:table-cell>
+                    </table:table-row>
+                    <table:table-row>
+                        <table:table-cell table:style-name="Table48.A2" office:value-type="string">
+                            <text:p text:style-name="p-center">
+                                <text:span text:style-name="i-b">4<text:line-break/>March</text:span>
+                            </text:p>
+                        </table:table-cell>
+                        <table:table-cell table:number-columns-spanned="3">
+                            <table:table table:is-sub-table="true">
+                                <table:table-column table:style-name="Table48.B"/>
+                                <table:table-column table:style-name="Table48.C"/>
+                                <table:table-column table:style-name="Table48.D"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table48.B2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="p">4. Marketing on the Web</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table48.B2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P4">Chapter 4</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table48.D2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="p"/>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table48.D2"
+                                        table:number-columns-spanned="3" office:value-type="string">
+                                        <text:p text:style-name="p-center"><text:span
+                                            text:style-name="i-b">Reminder:</text:span></text:p>
+                                    </table:table-cell>
+                                    <table:covered-table-cell/>
+                                    <table:covered-table-cell/>
+                                </table:table-row>
+                            </table:table>
+                        </table:table-cell>
+                        <table:covered-table-cell/>
+                        <table:covered-table-cell/>
+                    </table:table-row>
+                    <table:table-row>
+                        <table:table-cell table:style-name="Table48.A2" office:value-type="string">
+                            <text:p text:style-name="p-center">
+                                <text:span text:style-name="i-b">5<text:line-break/>April</text:span>
+                            </text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table48.B2" office:value-type="string">
+                            <text:p text:style-name="p">5. Business-to-Business Strategies</text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table48.B2" office:value-type="string">
+                            <text:p text:style-name="P4">Chapter 5</text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table48.D2" office:value-type="string">
+                            <text:p text:style-name="p"/>
+                        </table:table-cell>
+                    </table:table-row>
+                    <table:table-row>
+                        <table:table-cell table:style-name="Table48.A2" office:value-type="string">
+                            <text:p text:style-name="p-center">
+                                <text:span text:style-name="i-b">6-7<text:line-break/>April</text:span>
+                            </text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table48.B5" table:number-columns-spanned="3"
+                            office:value-type="string">
+                            <text:p text:style-name="p-center">RECESS/RESIDENTIAL SCHOOL</text:p>
+                        </table:table-cell>
+                        <table:covered-table-cell/>
+                        <table:covered-table-cell/>
+                    </table:table-row>
+                </table:table>
+            </utfx:source>
+            <utfx:expected validate="no">
+              <div align="left" class="Table48">
+                <table class="Table48">
+                  <tbody>
+                    <tr>
+                      <th class="Table48_A1">
+                        <p class="center"><b>Week</b></p></th>
+                      <th class="Table48_A1">
+                        <p class="center"><b>Module</b></p></th>
+                      <th class="Table48_A1">
+                        <p class="center"><b>Reading</b></p></th>
+                      <th class="Table48_D1">
+                        <p class="center"><b>Assessment</b></p></th>
+                    </tr>
+                    <tr>
+                      <td class="Table48_A2">
+                        <p class="center"><b>3<br/>March</b></p></td>
+                      <td class="Table48_B2">
+                        <p>3. Selling on the Web</p></td>
+                      <td class="Table48_B2">
+                        <p>Chapter 3</p></td>
+                      <td class="Table48_D2">
+                        <p></p></td>
+                    </tr>
+                    <tr>    
+                      <td class="Table48_A2" rowspan="2">
+                        <p><b>4<br/>March</b></p></td>
+                      <td class="Table48_B2">
+                        <p>4. Marketing on the Web</p></td>
+                      <td class="Table48_B2">
+                        <p>Chapter 4</p></td>
+                      <td class="Table48_D2">               
+                        <p></p></td>
+                    </tr>
+                    <tr>
+                      <td class="Table48_D2" colspan="3">
+                        <p class="center"><b>Reminder:</b></p></td>
+                    </tr>
+                    <tr>
+                      <td class="Table48_A2">
+                        <p class="center"><b>5<br/>April</b></p></td>
+                      <td class="Table48_B2">
+                        <p>5. Business-to-Business Strategies</p></td>
+                      <td class="Table48_B2">
+                        <p>Chapter 5</p></td>
+                      <td class="Table48_D2">
+                        <p xmlns=""></p></td>
+                    </tr>
+                    <tr>
+                      <td class="Table48_A2">
+                        <p class="center"><b><br/>April</b></p></td>
+                      <td class="Table48_B5" colspan="3">
+                        <p class="center">RECESS/RESIDENTIAL SCHOOL</p></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+                
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+   
+
+</utfx:tests>

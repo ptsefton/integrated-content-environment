@@ -1,0 +1,57 @@
+<table id='settings_$repName' class='settings'>
+## $repName, $settingsList
+  <tbody>
+#for name, value, desc, typeof, isDefaultValue in $settingsList
+    <tr id='$(repName)_$(name)' name='$name' class='setting $typeof #if $isDefaultValue then "default" else ""#' title='$desc'>
+        <td>$name:</td>
+        <td>$value</td>
+    </tr>
+#end for
+##
+##   ADD SETTINGS   ##
+##
+    <tr class='addSetting'>
+      <td>Add setting:</td>
+      <td>
+        <button type='button' class="addSettingButton" title='Add a new setting'>Add setting</button>
+        <table class="new" id='rep_$repName'>
+        <tr>
+          <td><label for="newVarName">Name:</label></td>
+          <td>
+            <input type="text" name="newVarName" size="22"/>
+            <label for="newVarType">Type:</label>
+            <select name="newVarType">
+              <option value="boolean">Boolean</option>
+              <option value="string" selected="selected">String</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="newVarDesc">Description:</label></td>
+          <td>
+            <input type="text" name="newVarDesc" size="38"/>
+          </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+              <button type="button" name="addVar" class="addVarButton">Add</button>
+              &#160;&#160;&#160;&#160;
+              <button type="button" name="cancel" class="cancelButton">Cancel</button>
+            </td>
+        </tr>
+        #if $addVarMsg
+        <tr><td>
+          <div style="padding-top:1em;color:red">$addVarMsg</div>
+        </td></tr>
+        #end if
+	    </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+

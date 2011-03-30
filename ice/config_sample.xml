@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<iceConfig>
+  <!-- ice web server port -->
+  <iceWebPort>8000</iceWebPort>
+  <!-- OOo listen port
+  NOTE if you change this value, 
+  you will need to RESTART OOo (and the OOo QuickStart) for this to take effect!
+-->
+  <oooPort>2002</oooPort>
+  <!-- The path to where OpenOffice.org is installed -->
+  <oooPath/>
+  <!-- Email From Address -->
+  <emailFromAddress/>
+  <!-- Email SMTP Server -->
+  <emailSmtpServer/>
+  <!-- Emial username -->
+  <emailUsername></emailUsername>
+  <!-- Repositories names, paths [, urls, exportPath, documentTemplatesPath] -->
+  <repositories default="Sample">
+    <repository url='http://ice.usq.edu.au/svn/ice/trunk/sample-content' path="C:/ice/sample" documentTemplatesPath="templates" name="Sample" exportPath="C:/ice/sampleExport"/>
+  </repositories>
+  <!-- Settings -->
+  <settings>
+    <var name="transformUsingPython" type="boolean" value="True"/>
+    <var name="host" type="string" value="localhost"/>
+    <var name="asServiceOnly" type="boolean" value="False"/>
+    <var name="enableExternalAccess" type="boolean" value="False"/>
+    <var name="displayTiming" type="boolean" value="False"/>
+    <var name="noVersionControl" type="boolean" value="False"/>
+  </settings>
+</iceConfig>

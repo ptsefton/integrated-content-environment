@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ $Id: utfx_tests.dtd,v 1.7 2005/03/23 02:32:57 jacekrad Exp $
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ $Source: /cvs/utf-x/framework/src/dtd/utfx_tests.dtd,v $
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ $Name:  $
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ Copyright (C) 2004-2005 University of Southern Queensland and others.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ UTF-X test file definition
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!ELEMENT utfx:tests (utfx:stylesheet, utfx:source-validation?,
+                      utfx:expected-validation?,
+                      utfx:source-builder?, utfx:test*)>
+
+<!ATTLIST utfx:tests xmlns:utfx CDATA #REQUIRED>
+
+<!ELEMENT utfx:stylesheet EMPTY>
+
+<!ATTLIST utfx:stylesheet src CDATA #REQUIRED
+                          output (xhtml | fo) #IMPLIED>
+
+<!ELEMENT utfx:source-validation (utfx:dtd) >
+
+<!ELEMENT utfx:expected-validation (utfx:dtd) >
+
+<!ELEMENT utfx:dtd EMPTY>
+
+<!ATTLIST utfx:dtd public CDATA #IMPLIED
+		           system CDATA #REQUIRED>
+
+<!ELEMENT utfx:source-builder (utfx:class-name, utfx:constructor-params)>
+
+<!ELEMENT utfx:class-name (#PCDATA)>
+
+<!ELEMENT utfx:constructor-params (utfx:param*)>
+
+<!ELEMENT utfx:param (#PCDATA)>
+
+<!ATTLIST utfx:param type (String | Integer | Boolean | Double) "String">
+
+<!ELEMENT utfx:test (utfx:name, utfx:source-builder?, 
+                     utfx:call-template?, utfx:assert-equal)>
+
+<!ELEMENT utfx:call-template EMPTY >
+
+<!ATTLIST utfx:call-template name CDATA #REQUIRED>
+
+<!ELEMENT utfx:name (#PCDATA)>
+
+<!ELEMENT utfx:assert-equal (utfx:source, utfx:expected, utfx:message?)>
+
+<!ELEMENT utfx:source ANY>
+
+<!ATTLIST utfx:source validate (yes | no) "yes"
+                      use-source-parser (yes | no) "no">
+
+<!ELEMENT utfx:expected ANY>
+
+<!ATTLIST utfx:expected validate (yes | no) "yes">
+
+<!ELEMENT utfx:message (#PCDATA)>
+

@@ -1,0 +1,73 @@
+<form method="post" name="_fx_" id="_fx_" action="">
+## Cheetah Template
+	<input type="hidden" name="ispostback" value="True" />
+	<input type="hidden" name="func" value="packageCopy" />
+	<input type="hidden" name="argPath" value="$argPath" />
+
+		#if $message
+			<div style="font-weight:bold;text-align:left;padding: 2px;">$message&#160;</div>
+		#else
+		<h2>From:</h2>
+		<table>
+			<tr>
+				<td width="100">Repository:</td>
+				<td><strong>$currentRepositoryName</strong></td>
+			</tr>
+			<tr>
+				<td>Package path:</td>
+				<td>$copyToPath</td>
+			</tr>
+		</table>
+		
+		<h2>To:</h2>
+		<table>	
+			<tr>
+				<td>Repository:</td>
+				<td>
+					<select name='copyToRep'>
+#for $rep in $reps
+		               <option value='$rep.name'
+#if $currentRepositoryName==$rep.name
+selected = "selected" #slurp
+#end if
+		               >$rep.configName ($rep.name)</option>
+#end for
+		            </select> 
+				</td>
+			</tr>
+			<tr>
+				<td width="100">Copy to path: </td>
+				<td>
+					<input type='text' name='copyToPath' value="$copyToPath" size='80'/>
+				</td>
+			</tr>
+			<tr>
+				<td>New subject:</td>
+				<td>
+					<input type='text' name='newSubject' size='80'/>
+				</td>
+			</tr>
+			<tr>
+				<td>Package Title:</td>
+				<td>
+					<input type='text' name='newPackageTitle' size='80'/>
+				</td>
+			</tr>
+			<tr>
+				<td valign='top'>Include:</td>
+				<td><input type='checkbox' name='annotation' />Comments<br />
+				#if $hasSkin 
+                                    <input type='checkbox' name='skin' />Skin
+				#end if
+				</td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td>
+					<input type="submit" name="submitBut" value="Copy" />
+				</td>
+			</tr>
+		</table>
+		#end if
+</form>
+

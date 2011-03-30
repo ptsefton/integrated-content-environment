@@ -1,0 +1,116 @@
+<div class="fileBrowser" style="padding-top:1em;">
+## Cheetah Template 
+## arguments 
+##  $display = True|False
+##  $fileBrowserPath = path
+##  $fileBroswerPathParts = list of path parts e.g. ["test", "subdir", "one"]
+##  $folders = list of tuples e.g. [(path, name), ("/test/subdir/one", "xxx")]
+##  $files = list of tuples e.g. [(path, name), ("/test/subdir/one", "xxx")]
+##    <input name="fileBrowser" type="hidden" value="$display"><!-- --></input>
+##    <input name="fileBrowserPath" type="hidden" value="$fileBrowserPath"><!-- --></input>
+<div class="show" style='padding:1em;display:#if $display then "block" else "none"#'>
+    <div>
+          File browser path: <span class="fileBrowserPath command" id="fbp-/">/</span>#slurp
+    #for part, path in $fileBrowserPathParts
+          <span class="fileBrowserPath command" id="fbp-$path">$part/</span>#slurp
+    #end for
+         <span style="padding-left:4em;"><button type="button" class="hideFileBrowser command"
+            title="Close the file browser">Close file browser</button>
+          </span>
+    </div>
+    <table><tbody>
+       <tr>
+        <td><span class="fileBrowserPath command" id="fbp-$parentPath">..</span></td>
+       </tr>
+        <tr><td>
+       
+            #set $count = 0
+            #for path, name in $files
+                #set $count = $count + 1
+            #end for
+            #if $count <> 0 
+               <input type="checkbox" name='selectAll' id='selectAll' title="Select all files"><!-- --></input>  Select all files
+            #else 
+                &#160;
+            #end if
+            
+            <script type="text/javascript">
+            <!--
+                var jQ = jQuery;
+        
+                jQ(function(){
+                    jQ("#selectAll").click(function(e){
+                        var checkAll = jQ("#selectAll").attr("checked");
+                        if( checkAll){
+                            var me=jQ("tr.selectable");
+                            if ((me.hasClass("selected")==false)){
+                                 me.css("background-color", "#dddddd"); 
+                                 me.addClass("selected"); 
+                            }
+                            jQ("INPUT[type='checkbox']").attr('checked', true);
+                            jQ("tr.selectable").find("td:last span").text("Add selected files");
+                        }else{
+                            var me=jQ("tr.selectable");
+                            if (me.hasClass("selected")){
+                                me.removeClass("selected");
+                                me.css("background-color", "");
+                            }
+                            jQ("INPUT[type='checkbox']").attr('checked', false);
+                            jQ("tr.selectable").find("td:last span").text("Add file");
+                        }
+                    });
+                });
+    
+            // -->
+            </script>
+        </td>
+        </tr>
+     
+        
+    #for path, name in $folders
+        <tr>
+            <td>&#160; </td>
+            <td>
+              <div>
+                <img style="vertical-align:middle;padding-right:1em;"
+                     src="/skin/FolderClosed.gif"><!-- --></img>
+                <span class="fileBrowserPath command" id="fbp-$path">$name</span>
+              </div>
+            </td>
+        </tr>
+    #end for
+    #for path, name in $files
+         <tr class='selectable'>
+           <td><input type='checkbox'><!-- --></input></td>
+           <td>
+             <div class="draggable fileBrowser" style="cursor:default;" id="p_$path">
+                <img style="vertical-align:middle;" src="/skin/File.gif"><!-- --></img>
+                $name
+            </div>
+           </td>
+           <td> &#160; <span class="addFile command" id="addFile-$path">Add file</span> &#160;</td>
+         </tr>
+    #end for
+    </tbody></table>
+   ##<div style='padding-top:1em;'>
+   ##   <span class="hideFileBrowser command" style="text-decoration:none"> 
+   ##   <button class="okFinishBut" type="button" title="Close file browser">Close file browser</button>
+   ##   </span>
+    ##</div>
+  </div>
+  
+  <div class="hide"
+            style="padding-left:2em;padding-bottom:1em;padding-top:1em;display:#if $display then "none" else "block"#">
+        <span class="showFileBrowser command"  style="text-decoration:none">
+         <button class="okFinishBut" type="button" title="Add documents" style="text-decoration:none">
+            Open file browser
+            </button>
+        </span>
+  </div>
+</div>
+##
+## The End
+##
+##
+##
+##

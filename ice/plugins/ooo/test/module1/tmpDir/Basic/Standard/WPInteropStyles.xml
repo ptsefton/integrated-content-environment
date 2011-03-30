@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="WPInteropStyles" script:language="StarBasic">
+       
+
+function SetStyle(style as string)
+rem ----------------------------------------------------------------------
+rem define variables
+dim document   as object
+dim dispatcher as object
+rem ----------------------------------------------------------------------
+rem get access to the document
+document   = ThisComponent.CurrentController.Frame
+dispatcher = createUnoService("com.sun.star.frame.DispatchHelper")
+
+rem ----------------------------------------------------------------------
+dim args1(1) as new com.sun.star.beans.PropertyValue
+args1(0).Name = "Template"
+args1(0).Value = style
+args1(1).Name = "Family"
+args1(1).Value = 2
+
+dispatcher.executeDispatch(document, ".uno:StyleApply", "", 0, args1())
+
+args1(1).Value = 1
+
+dispatcher.executeDispatch(document, ".uno:StyleApply", "", 0, args1())
+
+rem --- seeing if this does anything
+args1(1).Value = 3
+dispatcher.executeDispatch(document, ".uno:StyleApply", "", 0, args1())
+
+rem --- it seems if both 3 and 16 "styles" are applied, this breaks li p styles 
+rem --- (li p styles get preceding list styles which means double indent, numbering etc.)
+rem --- but if just one (either one) are applied, then it's ok
+rem --- args1(1).Value = 16
+rem --- dispatcher.executeDispatch(document, ".uno:StyleApply", "", 0, args1())
+
+rem TODO try applying list style as well Family=3?
+
+end function
+
+ 
+        
+Sub p() 
+         SetStyle("p" ) 
+end Sub 
+    
+    
+   
+        
+Sub pcenter() 
+         SetStyle("p-center" ) 
+end Sub 
+    
+    
+   
+        
+Sub pright() 
+         SetStyle("p-right" ) 
+end Sub 
+    
+    
+   
+        
+Sub title() 
+         SetStyle("Title" ) 
+end Sub 
+    
+    
+   
+        
+Sub Titlechapter() 
+         SetStyle("Title-chapter" ) 
+end Sub 
+    
+    
+   
+        
+Sub Titlebook() 
+         SetStyle("Title-book" ) 
+end Sub 
+    
+    
+   
+        
+Sub h1() 
+         SetStyle("h1" ) 
+end Sub 
+    
+    
+   
+        
+Sub h1n() 
+         SetStyle("h1n" ) 
+end Sub 
+    
+    
+   
+        
+Sub h1chapter() 
+         SetStyle("h1-chapter" ) 
+end Sub 
+    
+    
+   
+        
+Sub h2() 
+         SetStyle("h2" ) 
+end Sub 
+    
+    
+   
+        
+Sub h2n() 
+         SetStyle("h2n" ) 
+end Sub 
+    
+    
+   
+        
+Sub h2chapter() 
+         SetStyle("h2-chapter" ) 
+end Sub 
+    
+    
+   
+        
+Sub h3() 
+         SetStyle("h3" ) 
+end Sub 
+    
+    
+   
+        
+Sub h3n() 
+         SetStyle("h3n" ) 
+end Sub 
+    
+    
+   
+        
+Sub h3chapter() 
+         SetStyle("h3-chapter" ) 
+end Sub 
+    
+    
+   
+        
+Sub h4() 
+         SetStyle("h4" ) 
+end Sub 
+    
+    
+   
+        
+Sub h4n() 
+         SetStyle("h4n" ) 
+end Sub 
+    
+    
+   
+        
+Sub h4chapter() 
+         SetStyle("h4-chapter" ) 
+end Sub 
+    
+    
+   
+        
+Sub h5() 
+         SetStyle("h5" ) 
+end Sub 
+    
+    
+   
+        
+Sub h5n() 
+         SetStyle("h5n" ) 
+end Sub 
+    
+    
+   
+        
+Sub h5chapter() 
+         SetStyle("h5-chapter" ) 
+end Sub 
+    
+    
+   
+        
+Sub li1b() 
+         SetStyle("li1b" ) 
+end Sub 
+    
+    
+   
+        
+Sub li1n() 
+         SetStyle("li1n" ) 
+end Sub 
+    
+    
+   
+        
+Sub li1p() 
+         SetStyle("li1p" ) 
+end Sub 
+    
+    
+   
+        
+Sub li1a() 
+         SetStyle("li1a" ) 
+end Sub 
+    
+    
+   
+        
+Sub li1alpha() 
+         SetStyle("li1A" ) 
+end Sub 
+    
+    
+   
+        
+Sub li1i() 
+         SetStyle("li1i" ) 
+end Sub 
+    
+    
+   
+        
+Sub li1rom() 
+         SetStyle("li1I" ) 
+end Sub 
+    
+    
+   
+        
+Sub dt1() 
+         SetStyle("dt1" ) 
+end Sub 
+    
+    
+   
+        
+Sub dd1() 
+         SetStyle("dd1" ) 
+end Sub 
+    
+    
+   
+        
+Sub li2b() 
+         SetStyle("li2b" ) 
+end Sub 
+    
+    
+   
+        
+Sub li2n() 
+         SetStyle("li2n" ) 
+end Sub 
+    
+    
+   
+        
+Sub li2p() 
+         SetStyle("li2p" ) 
+end Sub 
+    
+    
+   
+        
+Sub li2a() 
+         SetStyle("li2a" ) 
+end Sub 
+    
+    
+   
+        
+Sub li2alpha() 
+         SetStyle("li2A" ) 
+end Sub 
+    
+    
+   
+        
+Sub li2i() 
+         SetStyle("li2i" ) 
+end Sub 
+    
+    
+   
+        
+Sub li2rom() 
+         SetStyle("li2I" ) 
+end Sub 
+    
+    
+   
+        
+Sub dt2() 
+         SetStyle("dt2" ) 
+end Sub 
+    
+    
+   
+        
+Sub dd2() 
+         SetStyle("dd2" ) 
+end Sub 
+    
+    
+   
+        
+Sub li3b() 
+         SetStyle("li3b" ) 
+end Sub 
+    
+    
+   
+        
+Sub li3n() 
+         SetStyle("li3n" ) 
+end Sub 
+    
+    
+   
+        
+Sub li3p() 
+         SetStyle("li3p" ) 
+end Sub 
+    
+    
+   
+        
+Sub li3a() 
+         SetStyle("li3a" ) 
+end Sub 
+    
+    
+   
+        
+Sub li3alpha() 
+         SetStyle("li3A" ) 
+end Sub 
+    
+    
+   
+        
+Sub li3i() 
+         SetStyle("li3i" ) 
+end Sub 
+    
+    
+   
+        
+Sub li3rom() 
+         SetStyle("li3I" ) 
+end Sub 
+    
+    
+   
+        
+Sub dt3() 
+         SetStyle("dt3" ) 
+end Sub 
+    
+    
+   
+        
+Sub dd3() 
+         SetStyle("dd3" ) 
+end Sub 
+    
+    
+   
+        
+Sub li4b() 
+         SetStyle("li4b" ) 
+end Sub 
+    
+    
+   
+        
+Sub li4n() 
+         SetStyle("li4n" ) 
+end Sub 
+    
+    
+   
+        
+Sub li4p() 
+         SetStyle("li4p" ) 
+end Sub 
+    
+    
+   
+        
+Sub li4a() 
+         SetStyle("li4a" ) 
+end Sub 
+    
+    
+   
+        
+Sub li4alpha() 
+         SetStyle("li4A" ) 
+end Sub 
+    
+    
+   
+        
+Sub li4i() 
+         SetStyle("li4i" ) 
+end Sub 
+    
+    
+   
+        
+Sub li4rom() 
+         SetStyle("li4I" ) 
+end Sub 
+    
+    
+   
+        
+Sub dt4() 
+         SetStyle("dt4" ) 
+end Sub 
+    
+    
+   
+        
+Sub dd4() 
+         SetStyle("dd4" ) 
+end Sub 
+    
+    
+   
+        
+Sub li5b() 
+         SetStyle("li5b" ) 
+end Sub 
+    
+    
+   
+        
+Sub li5n() 
+         SetStyle("li5n" ) 
+end Sub 
+    
+    
+   
+        
+Sub li5p() 
+         SetStyle("li5p" ) 
+end Sub 
+    
+    
+   
+        
+Sub li5a() 
+         SetStyle("li5a" ) 
+end Sub 
+    
+    
+   
+        
+Sub li5alpha() 
+         SetStyle("li5A" ) 
+end Sub 
+    
+    
+   
+        
+Sub li5i() 
+         SetStyle("li5i" ) 
+end Sub 
+    
+    
+   
+        
+Sub li5rom() 
+         SetStyle("li5I" ) 
+end Sub 
+    
+    
+   
+        
+Sub dt5() 
+         SetStyle("dt5" ) 
+end Sub 
+    
+    
+   
+        
+Sub dd5() 
+         SetStyle("dd5" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq1() 
+         SetStyle("bq1" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq1source() 
+         SetStyle("bq1source" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq2() 
+         SetStyle("bq2" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq2source() 
+         SetStyle("bq2source" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq3() 
+         SetStyle("bq3" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq3source() 
+         SetStyle("bq3source" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq4() 
+         SetStyle("bq4" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq4source() 
+         SetStyle("bq4source" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq5() 
+         SetStyle("bq5" ) 
+end Sub 
+    
+    
+   
+        
+Sub bq5source() 
+         SetStyle("bq5source" ) 
+end Sub 
+    
+    
+   
+        
+Sub pre1() 
+         SetStyle("pre1" ) 
+end Sub 
+    
+    
+   
+        
+Sub pre2() 
+         SetStyle("pre2" ) 
+end Sub 
+    
+    
+   
+        
+Sub pre3() 
+         SetStyle("pre3" ) 
+end Sub 
+    
+    
+   
+        
+Sub pre4() 
+         SetStyle("pre4" ) 
+end Sub 
+    
+    
+   
+        
+Sub pre5() 
+         SetStyle("pre5" ) 
+end Sub 
+    
+    
+   
+        
+Sub iii() 
+         SetStyle("i-i" ) 
+end Sub 
+    
+    
+   
+        
+Sub iib() 
+         SetStyle("i-b" ) 
+end Sub 
+    
+    
+   
+        
+Sub iicode() 
+         SetStyle("i-code" ) 
+end Sub 
+    
+    
+   
+        
+Sub iisub() 
+         SetStyle("i-sub" ) 
+end Sub 
+    
+    
+   
+        
+Sub iisup() 
+         SetStyle("i-sup" ) 
+end Sub 
+    
+    
+   
+</script:module>

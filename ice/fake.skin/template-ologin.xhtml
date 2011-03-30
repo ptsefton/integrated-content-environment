@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<title class="ins title">ICE Login</title>
+		<link class="sub css" rel="stylesheet" href="/skin/default.css"/>
+        <script src="/jquery.js" type="text/javascript"><!-- --></script><script src="/ice.js" type="text/javascript"><!-- --></script>
+        <script type="text/javascript">
+            var jQ = jQuery;
+            jQ(function(){
+                jQ("#username input").focus();
+            });
+        </script>
+	</head>
+	<body style="padding: 5px;">
+		<div>
+			<h1 class="ins title">Login</h1>
+			<form method="POST">
+				<input type="hidden" name="login" value="login"/>
+				<table style="border:1px solid black;">
+					<tr id='username'>
+						<td> Username: </td>
+						<td>
+							<input type="text" name="username" value=""/>
+						</td>
+					</tr>
+					<tr id='password'>
+						<td> Password: </td>
+						<td>
+							<input type="password" name="password" value=""/>
+						</td>
+					</tr>
+                    <tr>
+                        <td></td>
+                        <td>OR</td>
+                    </tr>
+                    <tr id='openid'>
+                        <td>
+                            <img src='/skin/openid_logo.png' style='vertical-align:middle;'/>
+                            <span>OpenID URL:</span>
+                        </td>
+                        <td><input type='text' name='openIdUri' value='' size='32'/></td>
+                    </tr>
+                    <tr id='sopenid' style='color:blue; cursor:pointer; display:none;'>
+                        <td colspan='2'>
+                            <img src='/skin/openid_logo.png' style='vertical-align:middle;'/>
+                            <span>or login using OpenID</span>
+                        </td>
+                    </tr>
+					<tr>
+						<td>&#160;</td>
+						<td>
+							<input type="submit" name="submitBut" value="Submit"/>
+							&#160; 
+							<input type="submit" name="workOffline" value="Work offline"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<div>
+    <style type="text/css">
+        span.TEX { letter-spacing: -0.125em; }
+        span.TEX span.E { position: relative; top: 0.5ex; left: -0.0417em; }
+        span.LATEX { font-family: serif }
+        span.LATEX span.A { position: relative; top: -0.5ex; left: -0.4em; font-size: 85%; }
+        span.LATEX span.TEX { position: relative; left: -0.4em; }
+    </style>
+    <table>
+        <tr><td colspan="2" class="sect-title">
+          <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span class="E">E</span>X</span></span> options
+        </td></tr>
+        <tr><td colspan="2" class="sub-title">Template</td></tr>
+        <tr><td colspan="2"><textarea name="template" rows="5" cols="60">$template</textarea></td></tr>
+        <tr>
+            <td>or Upload</td>
+            <td><input type="file" name="templatefile" size="30"/></td>
+        </tr>
+    </table>
+    <table>
+        <tr><td colspan="2" class="sub-title">Rendition</td></tr>
+        <tr><td>
+            <input type="checkbox" name="pdflink" id="pdflink"/>
+            <label for="pdflink">Include link to PDF rendition</label>
+        </td></tr>
+        <tr><td>
+            <input type="checkbox" name="zip" id="zip"/>
+            <label for="zip">Return as ZIP package</label>
+        </td></tr>
+    </table>
+</div>

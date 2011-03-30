@@ -1,0 +1,119 @@
+## Cheetah template
+#if $success
+<div>
+    <p>SWORD deposit was successful!</p>
+    <p>Content link: <a href="$contentLink">$contentLink</a> (not always correct)</p>
+    <hr/>
+    $docBody
+</div>
+#else
+<form style="display: inline;" method="post">
+    <script type="text/javascript">
+    function setDisable(id,state){document.getElementById(id).disabled=state;}
+    </script>
+    <input type="hidden" name="postback" value="True" />
+    <input type="hidden" name="func" value="swordDeposit" />
+    <input type="hidden" name="page" value="select" />
+    <input type="hidden" name="argPath" value="$argPath" />
+    <table>
+        <tr>
+            <td colspan="2">
+                #if $error
+                <span style="color:red;">
+                    <p>$error</p>
+                </span>
+                #if $response==None or $response==""
+                <p>Server did not respond.</p>
+                #else
+                <p>Server response: <pre>$response</pre></p>
+                #end if
+                #end if
+            </td>
+        </tr>
+        <tr><td colspan="2">&#160;</td></tr>
+        <tr><td colspan="2">Enter the SWORD service document location to list available collections for deposit</td></tr>
+        <tr>
+            <td>URL:</td>
+            <td>
+                <input type="text" name="url" id="url" value="$url" size="60"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Authentication:</td>
+            <td>
+                <input type="radio" name="authtype" id="none" value="None"
+                       onclick="setDisable('_username',true);setDisable('password',true);"
+                       #if $authtype=="none"
+                       checked="checked" #slurp
+                       #end if
+                />
+                <label for="none">None</label>
+                <input type="radio" name="authtype" id="basic" value="Basic"
+                       onclick="setDisable('_username',false);setDisable('password',false);"
+                       #if $authtype=="basic"
+                       checked="checked" #slurp
+                       #end if
+                />
+                <label for="basic">Basic</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>
+                <input type="text" name="username" id="_username" value="$username"
+                       #if $authtype=="none"
+                       disabled="disabled"
+                       #end if
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <input type="password" name="password" id="password" value="$password"
+                       #if $authtype=="none"
+                       disabled="disabled"
+                       #end if
+                />
+            </td>
+        </tr>
+        <tr>
+            <td/>
+            <td>
+                <button type="submit" name="doGetCollections" title="Get collections">Get collections</button>
+            </td>
+        </tr>
+        #if $collections is not None and len($collections) > 0
+        <tr><td colspan="2">&#160;</td></tr>
+        <tr><td colspan="2">Select the collection to deposit to</td></tr>
+        <tr>
+            <td>Collection:</td>
+            <td>
+                <select name="collection">
+                    #for $col in $collections
+                    <option value="$col.href"
+                    #if not $col.supported
+                    disabled="disabled"
+                    #end if
+                    #if $col.href==$collection
+                    selected="selected"
+                    #end if
+                    >$col.title</option>
+                    #end for
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Title:</td>
+            <td><input type="text" name="title" id="title" value="$title" size="60" /></td>
+        </tr>
+        <tr>
+            <td/>
+            <td>
+                <button type="submit" name="doDeposit" title="Deposit">Deposit</button>
+            </td>
+        </tr>
+        #end if
+    </table>
+</form>
+#end if

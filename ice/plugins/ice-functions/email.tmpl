@@ -1,0 +1,73 @@
+## Cheetah template
+#if $configError
+<div>
+ <h4>Email configuration problem</h4>
+ <div style='padding-bottom:1em;'>
+  <p>$configErrorMessage</p>
+  <p>Please go to the <a href="edit-config" style='text-decoration:underline;'>ICE configuration editor</a> to correct this.</p>
+ </div>
+</div>
+#elif $success
+<p>Successfully sent email(s).</p>
+#else
+<form style="display: inline;" method="post">
+<input type="hidden" name="postback" value="True"/>
+<input name="func" value="mailThis" type="hidden"/>
+<table>
+  #if $error
+  <tr>
+    <td colspan="2"><span style="color:red;">$error</span></td>
+  </tr>
+  #end if
+  <tr>
+    <td>Template:</td>
+    <td>
+      <select id="template" name="template">
+        <option value="default" #if $selected=='default' then "selected='selected'" else ""#>Default</option>
+        #for $t in $templates
+        <option value="$t" #if $selected==$t then "selected='selected'" else ""#>$t</option>
+        #end for
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Email username:</td>
+    <td><input type='text' name='username' id='username' value='$username' /></td>
+  </tr>
+  <tr>
+    <td>Email password:</td>
+    <td><input type='password' name='password' id='password' value='$password' /></td>
+  </tr>
+  <tr>
+    <td>From:</td>
+##    <td><input type='text' name='from' id='from' value='$from' /></td>
+    <td>$from</td>
+  </tr>
+  #if $isClient
+  <tr>
+    <td>To:</td>
+    <td><textarea rows="4" cols="50" name="to" id="to">#if $to=="" then " " else $to#</textarea></td>
+  </tr>
+  #else
+  <tr>
+    <td>To:</td>
+    <td>$to</td>
+  </tr>
+  #end if
+  <tr>
+    <td>Subject: </td>
+    <td><input type="text" name="subject" id="subject" value="$subject" size="50"/></td>
+  </tr>
+  #if $isClient
+  <tr>
+    <td></td>
+    <td>Email addresses need to be separated by a space, comma, semicolon or a newline.</td>
+  </tr>
+  #end if
+  <tr>
+    <td></td>
+    <td><button type="submit" name="do" title="email this" accesskey="">Send</button></td>
+  </tr>
+</table>
+</form>
+#end if

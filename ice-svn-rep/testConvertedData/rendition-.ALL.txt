@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<title>Module 2 &#x2013; Word processing with OpenOffice.org (OOo) Writer</title><style type="text/css">table {border-spacing: 0;empty-cells: show;} table.Table54 {width:100%; } div.Table54 {width: 100%; margin: 0px; padding: 0px; } th.Table54_A1, td.Table54_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } table.Table53 {width:100%; } div.Table53 {width: 100%; margin: 0px; padding: 0px; } th.Table53_A1, td.Table53_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } table.Table49 {width:100%; } div.Table49 {width: 100%; margin: 0px; padding: 0px; } th.Table49_A1, td.Table49_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } table.Table56 {width:14.601cm; } div.Table56 {width: 100%; margin: 0px; padding: 0px; } th.Table56_A1, td.Table56_A1 {vertical-align: top;padding:0.097cm; border-left:0.002cm solid #000000; border-right:none; border-top:0.002cm solid #000000; border-bottom:0.002cm solid #000000; } th.Table56_B1, td.Table56_B1 {vertical-align: top;padding:0.097cm; border:0.002cm solid #000000; } th.Table56_A2, td.Table56_A2 {vertical-align: top;padding:0.097cm; border-left:0.002cm solid #000000; border-right:none; border-top:none; border-bottom:0.002cm solid #000000; } th.Table56_B2, td.Table56_B2 {vertical-align: top;padding:0.097cm; border-left:0.002cm solid #000000; border-right:0.002cm solid #000000; border-top:none; border-bottom:0.002cm solid #000000; } table.Table48 {width:100%; } div.Table48 {width: 100%; margin: 0px; padding: 0px; } th.Table48_A1, td.Table48_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } table.Table58 {width:100%; } div.Table58 {width: 100%; margin: 0px; padding: 0px; } th.Table58_A1, td.Table58_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } table.Table50 {width:100%; } div.Table50 {width: 100%; margin: 0px; padding: 0px; } th.Table50_A1, td.Table50_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } table.Table55 {width:100%; } div.Table55 {width: 100%; margin: 0px; padding: 0px; } th.Table55_A1, td.Table55_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } table.Table52 {width:100%; } div.Table52 {width: 100%; margin: 0px; padding: 0px; } th.Table52_A1, td.Table52_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } th.Table52_B1_1_2, td.Table52_B1_1_2 {vertical-align: top;background-color:transparent; padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } table.Table51 {width:100%; } div.Table51 {width: 100%; margin: 0px; padding: 0px; } th.Table51_A1, td.Table51_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } div.Table57 {width: 100%; margin: 0px; padding: 0px; } th.Table57_A1, td.Table57_A1 {vertical-align: top;padding-left:0cm; padding-right:0cm; padding-top:0.101cm; padding-bottom:0.101cm; border:none; } p.P3 {keep-together:always; } p.P8 {keep-together:always; } p.P11 {keep-together:always; } p.P16 {keep-together:always; } p.P17 {margin-top:0.21cm; margin-bottom:0.21cm; } span.T1 {font-style:normal; } span.T2 {font-family:; } span.T3 {font-family:; font-style:normal; }</style>
+</head>
+<body>
+<h1>
+<a name="id2391871" id="id2391871"><!--id2391871--></a>Module overview</h1><p>In this module you will learn how to use OpenOffice.org (OOo) Writer to write your content for the Integrated Content Environment (ICE) system.</p><p/><div align="left" class="Table54"><table class="Table54 note"><tbody>
+
+<tr>
+<td class="Table54_A1">
+<p><a name="Note icon" id="Note icon"/><img alt="Note icon" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table54_A1">
+<h6>
+<a name="id2391964" id="id2391964"><!--id2391964--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table54_A1">
+<p>If an OpenOffice.org &#x2013; Security Warning dialog box displays, click the Enable Macros button.</p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h1>
+<a name="id2391985" id="id2391985"><!--id2391985--></a>2.1 Working with templates</h1><p>Templates define the layout and styles in a document. You can use a template over and over again to create documents with a consistent design.</p><h2>
+<a name="id2391998" id="id2391998"><!--id2391998--></a>2.1.1 Default template</h2><p>When OpenOffice.org is installed on your computer, a template called &#x2018;ice-template.ott&#x2019; will be assigned as the default. Each time you create a new text document, it will be based on the template. Use the following process if you don&#x2019;t have the correct default assigned.</p><ol class="lin"><li><p>From the Menu, select File...Templates...Organize. The Template Management window displays.</p></li><li><p><span class="T1">From the left hand pane, open the My Templates folder then click the template name to select it. </span></p></li><li><p><span class="T1">Click the </span>Commands button<span class="T1"> to display the options.</span></p></li><li><p><span class="T1">Select </span>Set As Default Template,<span class="T1"> then click the </span>Close button.</p></li></ol><h2>
+<a name="id2392078" id="id2392078"><!--id2392078--></a>2.1.2 Template association</h2><p>Documents based on a template created using the process of File...Templates...Save, will retain an association with the template. If a template saved in this way is altered, associated documents will display a message when opened to indicate that styles do not match the template. You can choose to update the styles from the template. Templates created in this process may also be known as &#x2018;sticky&#x2019;.</p><p>Documents based on a template created using the process of File...Save As...Document Template, will not retain an association with the template.</p><p>It is possible to check if a document is associated with a template.</p><p>From the Menu, select File...Properties...General tab.</p><p>At the bottom of the dialog box there is a Template section. If the document is associated with a template, the template name will be displayed.</p><h1>
+<a name="id2392129" id="id2392129"><!--id2392129--></a>2.2 Understand the environment</h1><p>If you have used other word processing software (e.g. Microsoft Word), you will see similarities in OOo Writer. Your toolbar configuration may be different to the screen grab below.</p><p class="center"><a name="OpenOffice.org Writer environment" id="OpenOffice.org Writer environment"/><img alt="OpenOffice.org Writer environment" class="fr2" src="module02_files/2fd541e5_507x171.gif" width="507" height="171"/></p><p>From the Menu, select View...Toolbars. Active toolbars will display a tick beside the name.</p><p><b>Menus</b> supply access to functionality related to what you are doing in your document. Unrelated items will not be accessible in the menu.</p><p><b>Toolbars</b> <span class="T2">display icons and textboxes which offer a fast way to choose some operations without using the menus.</span> To display tips, rest your mouse over a toolbar icon. When using some of OOo Writer&#x2019;s functions (e.g. working in a table), a floating toolbar relevant to that function may display. </p><p>The <b>Status bar </b>displays information relating to the document (e.g. page count at the bottom left) and special functions.</p><h1>
+<a name="id2392235" id="id2392235"><!--id2392235--></a>2.3 New and existing OOo Writer documents</h1><h2>
+<a name="id2392240" id="id2392240"><!--id2392240--></a>2.3.1 New OOo Writer document</h2><p class="P3">When you create a new text document, it is based on the Default template. The ICE template should be assigned as your default.</p><ol class="lin"><li><p>From the Menu, select File...New...Text Document.</p></li><li><p>If the Security Warning dialog displays, click the Enable Macros button.</p></li><li><p>From the Menu, select File...Save As.</p></li><li><p>Select the Save in path...Name the file...Save as type...Select OpenDocument&#xA0;Text&#xA0;(.odt)...Click the Save button. </p></li><li><p>From the Menu, select File...Properties...Description tab. </p></li><li><p>In the Title textbox, type in the document Title. This will automatically be included in the right-hand header using a field (e.g. Module 1 &#x2013; Installation and setup). </p></li><li><p>In the Subject textbox, type in the Subject. This will automatically be included in the left-hand header using a field (e.g. FET8611 &#x2013; Emerging environments for learning).</p></li><li><p>Click the OK button.</p></li><li><p>From the Menu, select File...Save.</p></li></ol><p/><div align="left" class="Table53"><table class="Table53 note"><tbody>
+
+<tr>
+<td class="Table53_A1">
+<p><a name="graphics3" id="graphics3"/><img alt="graphics3" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table53_A1">
+<h6>
+<a name="id2392412" id="id2392412"><!--id2392412--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table53_A1">
+<ol class="lin"><li><p>Do not create a new document from the Text Document option when right clicking the Quickstarter on the Windows Taskbar. Macros are not activated so you will not be able to apply styles using the Styles menu. </p></li><li><p>It is possible to use the Quickstarter to create a new document from a template. </p><p>Right click the Quickstarter...Select the From Template option...From the left menu, click Templates...In the Title section, click &#x2018;ice-template&#x2019; then click the Open button.</p></li></ol></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h2>
+<a name="id2392460" id="id2392460"><!--id2392460--></a>2.3.2 Existing OOo Writer document</h2><p class="P3">Some existing documents will be part of the sample course provided to assist you with maintaining consistent directory and content structure.</p><ol class="lin"><li><p>From the Menu, select File...Open.</p></li><li><p>If the Security Warning dialog displays, click the Enable Macros button.</p></li><li><p>Locate the file then click the Open button. </p><p>If you have previously set up the properties, you may not need to perform Steps 3&#x2013;6. </p><p>If starting with the sample course structure, you will need to perform Steps 3&#x2013;6 as the correct information for your files will not be included yet.</p></li><li><p>From the Menu, select File...Properties...Description tab. </p></li><li><p>In the Title textbox, type in the document Title. This will automatically be included in the right-hand header using a field (e.g. Module 1 &#x2013; Installation and setup).</p></li><li><p>In the Subject textbox, type in the Subject. This will automatically be included in the left-hand header using a field (e.g. FET8611 &#x2013; Emerging environments for learning).</p></li><li><p>Click the OK button.</p></li><li><p>Make edits as required.</p></li><li><p>From the Menu, select File...Save.</p></li></ol><h1>
+<a name="id2392576" id="id2392576"><!--id2392576--></a>2.4 Using the changes function</h1><p>There are instances when keeping track of changes made in a document can be beneficial. For example, when several colleagues are reviewing and editing a document.</p><p>Not all changes are recorded when using the Changes function. For example, changes to tabs or formulas.</p><h2>
+<a name="id2392596" id="id2392596"><!--id2392596--></a>2.4.1 Activate</h2><p class="P5">If you wish to track the changes made in a document, the Changes function needs to be activated prior to editing.</p><p>From the Menu, select Edit...Changes...Record.</p><h2>
+<a name="id2392614" id="id2392614"><!--id2392614--></a>2.4.2 Accept or reject</h2><p>Editorial changes made to a document with Changes activated can be accepted or rejected. You can choose to accept or reject changes individually or all at once. </p><p>From the Menu, select Edit...Changes...Accept or Reject.</p><h1>
+<a name="id2392633" id="id2392633"><!--id2392633--></a>2.5 Check document spelling</h1><h2>
+<a name="id2392639" id="id2392639"><!--id2392639--></a>2.5.1 Spellcheck</h2><p>Spellcheck allows you to check a document for errors. It is possible to add words, abbreviations etc. to the dictionary to avoid repetition of suspected errors. The Thesaurus can also be accessed from within Spellcheck.</p><p>From the Menu, select Tools...Spellcheck or use the Spellcheck <a name="Spellcheck icon" id="Spellcheck icon"/><img alt="Spellcheck icon" class="fr1" src="module02_files/m3b38cb36_16x16.gif" width="16" height="16"/> icon on the Standard toolbar.</p><h2>
+<a name="id2392692" id="id2392692"><!--id2392692--></a>2.5.2 AutoSpellcheck</h2><p>When AutoSpellcheck is activated, it checks the document for errors as you type. Suspected errors are indicated by a red wavy underline. The red underline does not print.</p><p class="P3">To activate AutoSpellcheck, click the AutoSpellcheck <a name="AutoSpellcheck icon" id="AutoSpellcheck icon"/><img alt="AutoSpellcheck icon" class="fr1" src="module02_files/m236bb6e0_16x16.gif" width="16" height="16"/> icon on the Standard toolbar. The icon displays a blue border when activated.</p><h1>
+<a name="id2392745" id="id2392745"><!--id2392745--></a>2.6 Using styles</h1><p class="P3">Many formatting specifications can be defined and called a style. When you use styles to format a document, it ensures consistency and saves time. The styles will stay with the document.</p><p>When a document is formatted manually (not using styles), remembering previously used formatting properties and keeping consistency is nearly impossible.</p><p class="P5">Some of the benefits of using templates with styles include:</p><ul class="lib"><li><p>removal of repetitive tasks, like formatting headings individually </p></li><li><p>consistent appearance for documents</p></li><li><p>assistance with product quality.</p></li></ul><h2>
+<a name="id2392798" id="id2392798"><!--id2392798--></a>2.6.1 Custom styles menu</h2><p>A custom Styles menu is included with the ICE template. We recommend that you use the Styles menu to apply the ICE paragraph and character styles.</p><p>Do not apply character styles (e.g. <b>B </b>and <i>I</i>) from the toolbar icons. There are character styles included in the Styles menu.</p><p>Do not apply paragraph alignment (e.g. align right or centered) from the toolbar icons. There are paragraph styles included in the Styles menu.</p><h3>
+<a name="id2392837" id="id2392837"><!--id2392837--></a>Menu access using the keyboard</h3><p>If you prefer not to use the mouse to access the Styles menu, it is possible to use the keyboard. The following is an example for using the keyboard to apply the &#x2018;p&#x2019; style to a paragraph.</p><p>&lt;Alt&gt; + &lt;S&gt;...&lt;P&gt;...&lt;P&gt;</p><h3>
+<a name="id2392860" id="id2392860"><!--id2392860--></a>Example style usage</h3><p>A document without numbered headings (e.g. introduction, assessment)</p><p>Title, h1, h2, h3</p><p>A document that includes numbered headings (e.g. modules)</p><p>Title-chapter, h1 (only if numbering is not required e.g. learning outcomes heading), h1-chapter, h2-chapter, h3-chapter</p><h2>
+<a name="id2392890" id="id2392890"><!--id2392890--></a>2.6.2 Using the styles and formatting window</h2><p>The Styles and Formatting window can be used for easy access to apply, create, edit, add and remove formatting styles. The style categories of Paragraph, Character, Frame, Page and List styles are available from icons at the top of the window. </p><p>From the Menu, select Format...Styles and Formatting or press &lt;F11&gt; on the keyboard.</p><p/><div align="left" class="Table49"><table class="Table49 note"><tbody>
+
+<tr>
+<td class="Table49_A1">
+<p><a name="graphics4" id="graphics4"/><img alt="graphics4" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table49_A1">
+<h6>
+<a name="id2392990" id="id2392990"><!--id2392990--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table49_A1">
+<p>We do not recommend using this tool until you are very familiar with the ICE styles. You will then be able to determine the OOo Writer default styles to ignore in the list.</p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<p/><p>If you do use the Styles and Formatting window, select Custom Styles from the drop down list at the bottom of the window. This should help eliminate most unwanted styles from displaying.</p><h2>
+<a name="id2393023" id="id2393023"><!--id2393023--></a>2.6.3 Default formatting</h2><p>Use the Default Formatting option when you want to remove extra formatting that has been attached to a style. For example, when bold, italic or a link has been added to a style.</p><ol class="lin"><li><p>Select the text.</p></li><li><p>Right click on the selection then select Default Formatting (or from the Menu, select Format...Default Formatting.).</p></li></ol><h1>
+<a name="id2393056" id="id2393056"><!--id2393056--></a>2.7 Working with tables</h1><p>Tables are commonly used to display data, but can also play an important part in controlling page layout. Using Tabs to control layout is not recommended.</p><p>From the Menu, select Table...Insert...Table.</p><p>The Insert Table dialog box lets you specify a Name (assigning a name makes it easy to identify specific tables when listed in the Navigator), Size (specify the amount of columns and rows) and Options (relating to header, splitting and borders). </p><h2>
+<a name="id2393084" id="id2393084"><!--id2393084--></a>2.7.1 Modify styles</h2><p>We recommend that you remove the default styles used by OOo Writer in tables. </p><p/><div align="left" class="Table56"><table class="Table56"><tbody>
+
+<tr>
+<td class="Table56_A1">
+<p class="center"><b>OOo Writer default style</b></p></td>
+<td class="Table56_B1">
+<p class="center"><b>Change to</b></p></td>
+</tr>
+<tr>
+<td class="Table56_A2">
+<p class="P7">Table Heading</p></td>
+<td class="Table56_B2">
+<p class="P7">p-center then add i-b </p></td>
+</tr>
+<tr>
+<td class="Table56_A2">
+<p class="P7">Table Contents</p></td>
+<td class="Table56_B2">
+<p class="P7">p</p></td>
+</tr>
+</tbody></table></div>
+<p/><h2>
+<a name="id2393200" id="id2393200"><!--id2393200--></a>2.7.2 Modify table properties</h2><p class="P5">After a table has been inserted into a document, it is easy to change how it displays by changing the properties. </p><p>Right click inside a table then select Table. </p><p>Tabs give you access to the properties related to that table. For example, the Table tab lets you specify the alignment.</p><h2>
+<a name="id2393225" id="id2393225"><!--id2393225--></a>2.7.3 Merge or split cells</h2><p class="P3">Each table starts with the same number of columns per row. It is possible to change the layout of a table by merging cells.</p><p>Highlight the required cells. Right click in the selection then select Cell...Merge.</p><p>If you change your mind about the layout you created with the merged cells, it is possible to split the cells.</p><p>Right click inside the merged cells then select Cell...Split. Specify the number of cells and the direction.</p><p/><div align="left" class="Table48"><table class="Table48 note"><tbody>
+
+<tr>
+<td class="Table48_A1">
+<p><a name="graphics5" id="graphics5"/><img alt="graphics5" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table48_A1">
+<h6>
+<a name="id2393336" id="id2393336"><!--id2393336--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table48_A1">
+<p>Be aware that merging and splitting cells can become very confusing. Think carefully about your layout requirements before attempting this.</p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h1>
+<a name="id2393357" id="id2393357"><!--id2393357--></a>2.8 Working with pictures</h1><p/><div align="left" class="Table58"><table class="Table58 note"><tbody>
+
+<tr>
+<td class="Table58_A1">
+<p><a name="graphics10" id="graphics10"/><img alt="graphics10" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table58_A1">
+<h6>
+<a name="id2393440" id="id2393440"><!--id2393440--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table58_A1">
+<p>ICE can not handle transparent images at this point. The development team are working on this.</p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h2>
+<a name="id2393460" id="id2393460"><!--id2393460--></a>2.8.1 Insert a picture</h2><p>When you create pictures in other programs (e.g. Corel, Paint Shop Pro) to use in OpenOffice.org (OOo) Writer, save or export to PNG, GIF or JPG.</p><ol class="lin"><li><p>When you have a separate file for a picture, place it in the &#x2018;images&#x2019; folder which is located inside the &#x2018;media&#x2019; directory for your ICE course.</p></li><li><p>From the Menu, select Insert...Picture...From File. </p></li><li><p>Locate the file, ensure the Link option is not selected then click the Open button.</p></li><li><p>Modify the picture properties as required. For example, add alternate text and select anchor type (e.g. As character).</p></li></ol><h3>
+<a name="id2393512" id="id2393512"><!--id2393512--></a>Modify picture properties</h3><p>Properties can be modified after a picture has been inserted into a document.</p><p>Right click on the picture then select Picture. The Picture dialog box displays with a variety of tabs to select the required options.</p><p/><div align="left" class="Table50"><table class="Table50 note"><tbody>
+
+<tr>
+<td class="Table50_A1">
+<p><a name="graphics6" id="graphics6"/><img alt="graphics6" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table50_A1">
+<h6>
+<a name="id2393608" id="id2393608"><!--id2393608--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table50_A1">
+<p>We recommend that all pictures inserted into your OOo Writer documents have a Name inserted (use the picture options) to conform to Web Content Accessibility Guidelines. (If you are familiar with mark up languages, OOo uses the Name option in the same manner as Alternate Text.) This means that a text description of the image is available if a person does not display images in their browser or a screen reader is used.</p><ol class="lin"><li><p>Right click on the picture then select Picture.</p></li><li><p>From the Options tab, locate the Names section and insert a concise meaningful description in the Name text box.</p></li></ol></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h2>
+<a name="id2393653" id="id2393653"><!--id2393653--></a>2.8.2 Inline picture</h2><p>An inline picture is one that appears in the flow of text. The following options are recommended when inserting an inline picture. </p><ol class="lin"><li><p>After inserting a picture, right click on it then select Picture.</p></li><li><p>Select the Type tab.</p></li><li><p>From the Anchor section, select the As character option then click the OK button.</p></li><li><p>While the picture is highlighted, from the Menu, select Edit...Cut.</p></li><li><p>Place your cursor in the paragraph location.</p></li><li><p>From the Menu, select Edit...Paste. Use the &lt;Alt&gt; + Arrow keys to manipulate position.</p></li><li><p>Right click on the picture then select Picture.</p></li><li><p>From the Options tab, locate the Names section and insert a concise meaningful description in the Name text box.</p></li></ol><h2>
+<a name="id2393729" id="id2393729"><!--id2393729--></a>2.8.3 Insert a Microsoft Word drawing</h2><p>If you have drawn a diagram in Microsoft Word using its drawing tools, it is possible using the following process to include the diagram in your Writer document.</p><ol class="lin"><li><p>Save the Word file containing the drawing into the &#x2018;src&#x2019; folder which is located inside your course media/images directory. The source file can be accessed when changes are required.</p><p>Ensure that all of the drawing components are grouped to make one item.</p></li><li><p>With OpenOffice.org Writer open, from the Menu, select File...Open. </p></li><li><p>Locate the Word file then click the Open button. </p></li><li><p>Select the grouped drawing then from the Menu, select Edit...Copy. </p></li><li><p>In your working file, place the cursor where the image is to be inserted. </p></li><li><p>From the Menu, select Edit...Paste Special. Using the Paste option will not give optimum results.</p></li><li><p>In the Selection section, click Bitmap then click the OK button. </p></li><li><p>Right click on the picture then select Picture.</p></li><li><p>From the Options tab, locate the Names section and insert a concise meaningful description in the Name text box.</p></li></ol><h2>
+<a name="id2393833" id="id2393833"><!--id2393833--></a>2.8.4 Linked and embedded pictures</h2><p>The ICE system requires pictures to be embedded and not linked to an external file. Even though you will not link to the external file, it is a good idea to keep the file in case manipulation is required. For example, it might be possible to brighten a dark photograph if you have the file.</p><h3>
+<a name="id2393848" id="id2393848"><!--id2393848--></a>Check if a picture is linked</h3><ol class="lin"><li><p>Right click on the picture then select Picture.</p></li><li><p>From the Picture tab, look at the Link section. A path will be included in the File name text box if the picture is linked.</p></li></ol><h3>
+<a name="id2393873" id="id2393873"><!--id2393873--></a>Remove picture link</h3><ol class="lin"><li><p>From the Menu, select Edit...Links. (The Links option will only be visible if there are linked pictures in the document.) The Edit Links dialog box displays. </p></li><li><p>Select the required file/s then click the Break Link button.</p></li><li><p>When asked to confirm the action, select Yes.</p></li><li><p>Click the Close button.</p></li></ol><h1>
+<a name="id2393913" id="id2393913"><!--id2393913--></a>2.9 Create lists</h1><p class="P5">We will discuss three list types: bulleted list, numbered list and definition list.</p><p class="P5"/><div align="left" class="Table55"><table class="Table55 note"><tbody>
+
+<tr>
+<td class="Table55_A1">
+<p><a name="graphics7" id="graphics7"/><img alt="graphics7" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table55_A1">
+<h6>
+<a name="id2394003" id="id2394003"><!--id2394003--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table55_A1">
+<ol class="lin"><li><p>After applying the required bulleted list or numbered list style, it may be necessary to use the Bullets On/Off or Numbering On/Off function on the Formatting bar to display the bullet or number. </p></li><li><p>If a bulleted list or numbered list item requires paragraphs below the item (see the following paragraph as an example), use the list paragraph style related to the relevant level. </p><p>For example, from the Styles menu, select List Item - li...Level 1 - li1...Paragraph 1 - li1p.</p></li></ol></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h2>
+<a name="id2394046" id="id2394046"><!--id2394046--></a>2.9.1 Bulleted list</h2><p>The following process will assist you to create a bulleted list similar to the example. </p><h3>
+<a name="id2394057" id="id2394057"><!--id2394057--></a>Example</h3><ul class="lib"><li><p>Level 1 item</p><ul class="lib"><li><p>Level 2 item</p></li></ul></li></ul><h3>
+<a name="id2394084" id="id2394084"><!--id2394084--></a>Process</h3><ol class="lin"><li><p>Place your cursor in a blank paragraph or existing text.</p></li><li><p>From the Styles menu, select List Item - li...Level 1 - li1...Bullet 1 - li1b. This will make a level 1 bulleted item.</p></li><li><p>If the style has been applied but you do not see a bullet on your list, click the Bullets On/Off icon on the Formatting bar. With your cursor inside the bulleted style, you should be able to see the correct style listed in the Applied Style list at the left of the Formatting bar. </p></li><li><p>Type your text if you have not already done so.</p></li><li><p>To add another level 1 bulleted item, place your cursor at the end of the list item then press the &lt;Enter&gt; key on the keyboard.</p></li><li><p>To change the list item from level 1 to level 2 (if required), from the Styles menu, select List Item - li...Level 2 - li2...Bullet 2 - li2b.</p></li><li><p>If the list item does not appear at the correct level, click the Bullets On/Off icon on the Formatting bar twice.</p></li></ol><p>You may also need to use the Bullets On/Off function for a following style when your list is finished.</p><h2>
+<a name="id2394160" id="id2394160"><!--id2394160--></a>2.9.2 Numbered list</h2><p>The following process will assist you to create a numbered list similar to the example. </p><h3>
+<a name="id2394172" id="id2394172"><!--id2394172--></a>Example</h3><ol class="lin"><li><p>Level 1 item</p><ol class="li-lower-alpha"><li><p>Level 2 item</p></li></ol></li></ol><h3>
+<a name="id2394198" id="id2394198"><!--id2394198--></a>Process</h3><ol class="lin"><li><p>Place your cursor in a blank paragraph or existing text.</p></li><li><p>From the Styles menu, select List Item - li...Level 1 - li1...Numbered 1 - li1n. This will make a level 1 numbered item.</p></li><li><p>If the style has been applied but you do not see a number on your list, click the Numbering On/Off icon on the Formatting bar. With your cursor inside the numbered style, you should be able to see the correct style listed in the Applied Style list at the left of the Formatting bar. </p></li><li><p>Type your text if you have not already done so.</p></li><li><p>To add another level 1 numbered item, place your cursor at the end of the list item then press the &lt;Enter&gt; key on the keyboard.</p></li><li><p>To change the list item from level 1 to level 2 and use alphabet (if required), from the Styles menu, select List Item - li...Level 2 - li2...Lowercase Alpha 2 - li2a.</p></li><li><p>If the list item does not appear at the correct level, click the Numbering On/Off icon on the Formatting bar twice.</p></li></ol><p>You may also need to use the Numbering On/Off function for a following style when your list is finished.</p><p/><div align="left" class="Table52"><table class="Table52 note"><tbody>
+
+<tr>
+<td class="Table52_A1">
+<p><a name="graphics8" id="graphics8"/><img alt="graphics8" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table52_A1">
+<h6>
+<a name="id2394354" id="id2394354"><!--id2394354--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table52_B1_1_2">
+<ol class="lin"><li><p>To restart your numbered list from 1, use the Restart Numbering <a name="Restart numbering icon" id="Restart numbering icon"/><img alt="Restart numbering icon" class="fr2" src="module02_files/m43251e1f_16x16.gif" width="16" height="16"/> icon on the Bullets and Numbering bar. </p></li><li><p>Numbered list styles are also available for lower and upper case alphabet and Roman numerals.</p></li><li><p>If a table follows a list, you need to include an empty paragraph with the &#x2018;p&#x2019; style attached between the end of the list and the start of the table. If the list and table are not separated, there is confusion during conversion and content is duplicated.</p></li></ol></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h2>
+<a name="id2394434" id="id2394434"><!--id2394434--></a>2.9.3 Definition list</h2><p class="P5">A definition list item consists of a term (dt) and description (dd).</p><h3>
+<a name="id2394446" id="id2394446"><!--id2394446--></a>Example</h3><dl><dt>Term</dt><dd>Description of the term.</dd></dl><h3>
+<a name="id2394462" id="id2394462"><!--id2394462--></a>Process</h3><ol class="lin"><li><p>Place your cursor in a blank paragraph or existing text.</p></li><li><p>From the Styles menu, select List Item - li...Level 1 - li1...Definition Term 1 - dt1.</p></li><li><p>Type your text if you have not already done so.</p></li><li><p>To add the description, place your cursor at the end of the term then press the &lt;Enter&gt; key on the keyboard.</p></li><li><p>Type your description.</p></li></ol><h1>
+<a name="id2394509" id="id2394509"><!--id2394509--></a>2.10 Creating hyperlinks</h1><p>Hyperlinks take you to information within the same document or to other files.</p><p>From the Menu, select Insert...Hyperlink.</p><h2>
+<a name="id2394527" id="id2394527"><!--id2394527--></a>2.10.1 URL recognition</h2><p>If the option for URL recognition is activated, a URL will be automatically linked after you type it with a concluding space or return. </p><p>From the Menu, select Tools...AutoCorrect...Options tab.</p><h2>
+<a name="id2394546" id="id2394546"><!--id2394546--></a>2.10.2 Link to a URL</h2><p>Use a URL to link to a file or server on the Internet. Example format is:</p><p>.... at USQ &lt;<a href="http://www.usq.edu.au/">http://www.usq.edu.au</a>&gt;....</p><p>The following process is for linking text to a URL.</p><ol class="lin"><li><p>Select the text to be linked.</p></li><li><p>From the Menu, select Insert...Hyperlink. The Hyperlink dialog box displays.</p></li><li><p>From the left frame, select Internet.</p></li><li><p>From the Hyperlink type section, select the required option (e.g. Web).</p></li><li><p>In the Target textbox, insert the URL.</p></li><li><p>From the Further settings section, make a selection from the Frame drop down list if required.</p></li><li><p>Click the Apply button then click the Close button. </p></li></ol><p/><div align="left" class="Table51"><table class="Table51 note"><tbody>
+
+<tr>
+<td class="Table51_A1">
+<p><a name="graphics9" id="graphics9"/><img alt="graphics9" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table51_A1">
+<h6>
+<a name="id2394712" id="id2394712"><!--id2394712--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table51_A1">
+<p>It is not necessary to close the Hyperlink dialog box every time you insert a link.</p><p>As long as you click the Apply button after inserting each link, the dialog box can stay open until you are finished.</p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h2>
+<a name="id2394739" id="id2394739"><!--id2394739--></a><a name="targetframe" id="targetframe"><!--targetframe--></a>2.10.3 Target frame</h2><p>In the Hyperlink dialog, a frame can be assigned to a hyperlink to specify where it will open. Make a selection from the drop down list or type the frame name if you are using framesets. If a frame is not specified, the file/URL opens in the current browser window. </p><ul class="lib"><li><p><b>A named frame</b> &#x2013; Loads in the named frame in the site.</p></li><li><p><b>_blank</b> &#x2013; Loads the file/URL in a new browser window. This is often useful when the link is external to your site.</p></li><li><p><b>_parent</b> &#x2013; Loads in the parent frame when working with framesets.</p></li><li><p><b>_self</b> &#x2013; Loads in the current frame or window.</p></li><li><p><b>_top</b> &#x2013; Loads in the current window and useful for breaking out of a frameset.</p></li></ul><h2>
+<a name="id2394830" id="id2394830"><!--id2394830--></a><a name="linkanotherfile" id="linkanotherfile"><!--linkanotherfile--></a>2.10.4 Link to another file in your content structure</h2><p>You can link between files in your content structure. The ICE system requires you to include the absolute URL of a document within the ICE structure. When content is exported, the system automatically converts links from absolute to relative. </p><ol class="lin"><li><p>Open the ICE site for your content in a browser.</p></li><li><p>Locate the file you want to make a link to.</p></li><li><p>From the Address text box in your browser, select then copy the URL.</p></li><li><p>Open the document that you want to link from.</p></li><li><p>Select the text to be linked.</p></li><li><p>From the Menu, select Insert...Hyperlink. The Hyperlink dialog box displays.</p></li><li><p>From the left frame, select Internet.</p></li><li><p>From the Hyperlink type section, select the required option (e.g. Web).</p></li><li><p>In the Target textbox, paste the URL you copied.</p></li><li><p>Click the Apply button then click the Close button.</p></li></ol><h2>
+<a name="id2394926" id="id2394926"><!--id2394926--></a>2.10.5 Link within a document</h2><p>You can link from one area to another in the same document. The first step is to create a bookmark at the target location.</p><ol class="lin"><li><p>Place the cursor at the target location.</p></li><li><p>From the Menu, select Insert...Bookmark. The Insert Bookmarks dialog box displays.</p></li><li><p>Type the bookmark name. Keep it brief and relevant.</p></li><li><p>Click the OK button.</p></li></ol><p>A hyperlink can now be created to point to the bookmark.</p><ol class="lin"><li><p>Select the text to be linked.</p></li><li><p>From the Menu, select Insert...Hyperlink. The Hyperlink dialog box displays.</p></li><li><p>From the left frame, select Document.</p></li><li><p>From the Target in document section, click the Target in Document <a name="Target in Document icon" id="Target in Document icon"/><img alt="Target in Document icon" class="fr1" src="module02_files/m7e526c9f_25x24.gif" width="25" height="24"/> icon. The Target in Document dialog box displays.</p></li><li><p>Click the plus sign next to Bookmarks to display the list of created bookmarks.</p></li><li><p>Select the required bookmark name then click the Apply button. Click the Close button in the Target in Document dialog box.</p></li><li><p>In the Hyperlink dialog box, click the Apply button then click the Close button.</p></li></ol><h2>
+<a name="id2395068" id="id2395068"><!--id2395068--></a>2.10.6 Edit a hyperlink</h2><p>When you edit the displayed text of a hyperlink, it does not alter the associated URL. The best option is to use the Hyperlink Dialog to alter the displayed text or URL.</p><ol class="lin"><li><p>Select the text. It is important to click and drag from left to right when selecting the text.</p></li><li><p>From the Menu, select Edit...Hyperlink. The Hyperlink dialog box displays.</p></li><li><p>Modify the Target and/or Text as required.</p></li><li><p>Click the Apply button then click the Close button.</p></li></ol><h2>
+<a name="id2395115" id="id2395115"><!--id2395115--></a>2.10.7 Remove a hyperlink</h2><p>You may want the displayed text to remain in the document, but remove the associated hyperlink.</p><ol class="lin"><li><p>Select the text.</p></li><li><p>Right click on the selection then select Default Formatting. (Or from the Menu, select Format...Default Formatting.)</p></li></ol><h2>
+<a name="id2395146" id="id2395146"><!--id2395146--></a>2.10.8 Link to media files</h2><p class="P3">There are two main methods that can be used to link to media files such as Flash, audio and video. One is to directly link to the media file and the second is a slightly different method which will embed the media file in the HTML.</p><h3>
+<a name="id2395160" id="id2395160"><!--id2395160--></a>Link directly to a media file</h3><p>If you link directly to the media object in your content structure (see <a href="#linkanotherfile">section 2.10.4</a>), navigation will be lost unless you set the target to _blank (see <a href="#targetframe">section 2.10.3</a>). </p><h4>
+<a name="id2395192" id="id2395192"><!--id2395192--></a>Example of linking directly to a media file</h4><p><b>Text: </b>Flash link</p><p><b>URL:</b> http://localhost:8000/packages/ice-guide/media/flash/flash.swf</p><p><b>Target:</b> _blank</p><p><a href="../media/flash/flash.swf" target="_blank">Flash Link</a> [new window]</p><h3>
+<a name="id2395249" id="id2395249"><!--id2395249--></a>Embed a media file in the HTML</h3><p>To embed media in the HTML, link directly to the media file with the parameters of embed, width and height on the end of the URL. Either text or an image can be linked to display as the object in the HTML.</p><p>Linking an image to an object using this method allows you have have a print version of the media file in the document and have the media object appear in the HTML. </p><p class="P3">For example, you can&#x2019;t print a video file but you can insert an image that represents the video &#xA0;with a link to the video. The HTML will contain the video and the document will contain the image for printing.</p><h4>
+<a name="id2395284" id="id2395284"><!--id2395284--></a>Example of embedding a media file</h4><ol class="lin"><li><p>Link an image or text with the URL for the required object in your content structure (see <a href="#linkanotherfile">section 2.10.4</a>) (e.g. http://localhost:8000/packages/ice-guide/media/flash/flash.swf). </p></li><li><p>The parameters of embed, width and height need to be added to the end of the URL. Use the Hyperlink dialog box to add the parameters to the URL. For example, at the end of the URL include <b>?embed&amp;width300&amp;height=120</b>. The full URL becomes:</p><p>http://localhost:8000/packages/ice-guide/media/flash/flash.swf?embed&amp;width=300&amp;height=120</p></li></ol><p>The following example is an image linked to a Flash file. Note the height and width parameters are used to set the size of the object. If the parameters are not included, it will default to width 320 and height 240. </p><p class="P7"><embed src="../media/flash/flash.swf" name="" height="120" auotstart="false" width="300" controller="true"/></p><h1>
+<a name="id2395386" id="id2395386"><!--id2395386--></a>2.11 Insert AutoText</h1><p class="P3">AutoText entries are predefined text, tables etc. that can be inserted into a document. They are helpful to maintain consistency and are quick to insert.</p><p>The ICE default template contains empty and example AutoText entries for activities and notes.</p><ol class="lin"><li><p>Place your cursor in the required location in your document.</p></li><li><p>From the Menu, select Edit...AutoText.</p></li><li><p>If the Security Warning dialog displays, click the Enable Macros button.</p></li><li><p>If necessary, click the plus sign next to the category to expand the entries.</p></li><li><p>Click on the required entry then click the Insert button.</p></li><li><p>Insert information in the cell below the heading in the right hand column. Number the activity headings sequentially by module and type. For example, discussion and learning activities in module 1 would be numbered: Discussion 1.1, Discussion 1.2 etc. and Learning activity 1.1, Learning activity 1.2 etc.</p></li></ol><h1>
+<a name="id2395458" id="id2395458"><!--id2395458--></a>2.12 Microsoft Word to OOo Writer</h1><p>We do not recommend copying from Word and pasting directly into OOo Writer. Opening the Word document within OOo Writer before copying gives a much better translation. </p><ol class="lin"><li><p>Open OOo Writer. </p></li><li><p>From the Menu, select File...Open...Locate the Word file then click the Open button. </p></li><li><p>Select the required content then from the Menu, select Edit...Copy. </p></li><li><p>From the Menu, select File...New. This should open a new document based on the ICE template which should have been set as your default. </p><p>Or, from the Menu, select File...Open. Locate the file then click the Open button. This will open an existing document.</p></li><li><p>With you cursor in the required location of your document, from the Menu, select Edit...Paste. </p></li><li><p>From the Menu, select File...Save As if this is a new document and follow the next few steps.</p><p>If pasting into an existing document, you may only need to go to Step 12 to save.</p></li><li><p>Select the Save in path...Name the file...Save as type...Select OpenDocument&#xA0;Text&#xA0;(.odt)...Click the Save button. </p></li><li><p>From the Menu, select File...Properties...Description tab. </p></li><li><p>In the Title textbox, type in the document Title. This will automatically be included in the right-hand header using a field (e.g. Module 1 &#x2013; Installation and setup). </p></li><li><p>In the Subject textbox, type in the Subject. This will automatically be included in the left-hand header using a field (e.g. FET8611 &#x2013; Emerging environments for learning).</p></li><li><p>Click the OK button.</p></li><li><p>From the Menu, select File...Save.</p></li></ol><h1>
+<a name="id2395604" id="id2395604"><!--id2395604--></a>2.13 MathType equations</h1><p>It is possible to insert an equation created in MathType into your OpenOffice.org Writer document when you have MathType installed.</p><p>If you copy an equation from MathType then paste into a Writer document, the equation is inserted as an image. To insert an equation that can be edited using MathType, follow the instructions below.</p><p/><div align="left" class="Table57"><table class="Table57 note"><tbody>
+
+<tr>
+<td class="Table57_A1">
+<p><a name="graphics2" id="graphics2"/><img alt="graphics2" class="fr1" src="module02_files/11167e99_57x57.png" width="57" height="57"/></p></td>
+<td>
+<table><tbody>
+
+<tr>
+<td class="Table57_A1">
+<h6>
+<a name="id2395703" id="id2395703"><!--id2395703--></a>Note </h6></td>
+</tr>
+<tr>
+<td class="Table57_A1">
+<p>MathType equations do not convert through ICE correctly at this point. ICE does not accept transparent images. This is on the development list.</p></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></div>
+<h2>
+<a name="id2395724" id="id2395724"><!--id2395724--></a>2.13.1 Insert an equation</h2><ol class="lin"><li><p>Place your cursor in the required location in your document.</p></li><li><p>From the Menu, select Insert...Object...OLE Object. An Insert OLE Object dialog box displays.</p></li><li><p>Select the Create New option.</p></li><li><p>From the Object type section, select Further Objects then click the OK button. The Insert Object dialog box displays.</p></li><li><p>Select the Create New option.</p></li><li><p>From the Object Type section, select MathType Equation then click the OK button. MathType opens.</p></li><li><p>Create the equation then from the MathType Menu, select File...Exit.</p></li><li><p>Click the Yes button to save the equation in the document. The equation object will be displayed in your Writer document.</p></li></ol><h2>
+<a name="id2395795" id="id2395795"><!--id2395795--></a>2.13.2 Edit an equation</h2><p>With MathType installed, it is possible to easily edit an equation that is inserted in a Writer document.</p><ol class="lin"><li><p>Double click on the equation in your Writer document. MathType will open.</p></li><li><p>Make the edits then from the MathType Menu, select File...Exit.</p></li><li><p>Click the Yes button to save the equation edits in the document.</p></li></ol><h2>
+<a name="id2395833" id="id2395833"><!--id2395833--></a>2.13.3 Inline equation</h2><p>An inline equation is one that appears in the flow of text. The following options are recommended when inserting an inline equation. </p><ol class="lin"><li><p>After inserting an equation, right click on it then select Object.</p></li><li><p>Select the Type tab.</p></li><li><p>From the Anchor section, select the As character option then click the OK button.</p></li><li><p>While the equation is highlighted, from the Menu, select Edit...Cut.</p></li><li><p>Place your cursor in the paragraph location.</p></li><li><p>From the Menu, select Edit...Paste. Use the &lt;Alt&gt; + Arrow keys to manipulate position.</p></li></ol><h1>
+<a name="id2395895" id="id2395895"><!--id2395895--></a>2.14 Master documents</h1><p>A master document is a container to hold documents that need to be combined in order to create a book. The individual files used to build the master document are called subdocuments. The content of subdocuments cannot be edited directly within the master document but you can use the Navigator to access subdocuments for editing. When edits are made to a subdocument, they are not automatically reflected in the master document. An update is needed.</p><p>Use the Navigator to manage subdocuments of a master document. The Navigator has a row of icons at the top for a variety of functions.</p><p>Subdocument headers and footers are ignored by a master document. Headers and footers need to be set up in a Master document. </p><p>The following instructions are for the use of a sample master document that has been created as a template framework. </p><ol class="lin"><li><p>A master document will be copied from the sample course area.</p></li><li><p>With OpenOffice.org Writer open, from the Menu, select File...Open.</p></li><li><p>For the initial setup, when asked to update links, click the No button. </p><p>If Yes is selected, the link path to the subdocuments will go to the original path the document was copied from instead of where you are copying to.</p><p>After the master document has been set up specifically for a course, select Yes when asked to update links.</p></li><li><p>If the Security Warning dialog displays, click the Enable Macros button.</p></li><li><p>Ensure the Navigator is open. To open the Navigator, from the Menu, select Edit...Navigator.</p><p>At this point, the master document is displaying the contents of the sample course it was copied from. This will be updated in the following steps.</p></li><li><p>Set up the required subdocuments for your course. You may need to link, add, remove or reorder through the Navigator.</p><p>Edit link &#x2013; To view the link path for a subdocument, hover your cursor over a file name in the Navigator. If a subdocument link path needs to be modified, right click on the file name then select Edit Link. The Edit Sections dialog displays. Select a file name then click the button to change the path. Click the OK button.</p><p>Add &#x2013; Click and hold down the Insert icon then select File. Locate the path of the file/s. Select the file/s then click the Insert button. The inserted subdocuments will display in the Navigator.</p><p>Reorder &#x2013; Click a subdocument to select it, then use the Move Up and Move Down icons until the correct position is located.</p><p>Delete &#x2013; Right click on a subdocument then select Delete. The deletion only removes the subdocument from the master document.</p><p>Update &#x2013; With the subdocuments included, the master document needs to be updated so it is reading the correct contents of each subdocument. </p><p>Click and hold down the Update icon then select All. When asked to &#x2018;Update all links?&#x2019;, click the Yes button.</p><p>Update All updates all of the contents in the master document, including the table of contents. Update Links updates the links to the subdocuments but does not update the table of contents.</p><p>Insert text &#x2013; You can not write content directly into a master document unless you insert a text place holder. This is how the cover, copyright and table of contents have been set up in the sample master document.</p><p>Click and hold down the Insert icon then select Text. Move the order if needed using the Move Up and Move Down icons.</p></li><li><p>Edit the file properties of the master document. The Title and Subject properties must be included. Header fields reflect these properties.</p><p>From the Menu, select File...Properties. The Properties dialog box will display. Select the Description tab. Insert the course code and name in both the Title and Description text boxes (e.g. CIS3002 &#x2013; Advanced systems analysis and design). Click the OK button.</p></li><li><p>In the master document, ensure that the Writer default character style called &#x2018;Internet Link&#x2019; has underlining removed. Underlining of links is not used for print documents.</p><p>From the Menu, select Format...Styles and Formatting. Click the Character Styles icon at the top of the window. Right click on the Internet Link style then select Modify. Select the Font Effects tab. From the Underlining drop down list, select (Without).</p></li><li><p>Work through the master document from beginning to end to ensure the text and subdocuments are structured correctly. For example, is there a subdocument that must start on a new page.</p><p>Cover &#x2013; (Using First Page as the Page Style which has no header.) Edit the course code, course name, faculty, department, semester and year as required.</p><p>Copyright &#x2013; (Using Copyright Page as the Page Style which has no header.) Edit the year and semester. This page will print directly behind the cover page. </p><p>Table of contents &#x2013; (Using TOC Page as the Page Style which has no header.) You may need to update the automatically generated table of contents.</p><p>Right click inside the gray region then select Update Index/Table. Ensure the table of contents starts on a right hand page and ends on a left hand page. You may need to insert a blank page. </p><p>Main content &#x2013; (Using Default as the Page Style which uses a header.) Check that the content is flowing correctly in the master document. </p><p>You may need to force some content to start on a new page. If so, open the subdocument. Right click on the paragraph then select Paragraph from the list. Select the Text Flow tab. In the Breaks section, click the checkbox next to Insert. For the Type, select Page. For the Position, select Before. Click the OK button. From the Menu, select File...Save. </p></li><li><p>In the Navigator, click and hold down the Update icon then select All. This will update the master <span class="T3">document</span> to display the changes you did.</p></li></ol><p/></body>
+</html>
