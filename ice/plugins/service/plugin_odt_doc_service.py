@@ -259,7 +259,7 @@ class OdtDocService(object):
 		_, name, _ = fs.splitPathFileExt(filename)
 		htmlFile = "%s.htm" % fs.absPath(name)
 		epubFile = "%s.epub" % fs.absPath(name)
-		command = """ebook-convert %s.htm %s.epub --chapter "//*[name()='h1']" --max-levels 0 """ % (htmlFile, epubFile) 
+		command = """ebook-convert %s %s --chapter "//*[name()='h1']" --max-levels 0 """ % (htmlFile, epubFile) 
 		print command
 		retcode = subprocess.call([command] , shell=True)  
 		if not(zip):
