@@ -21,10 +21,6 @@
 import re
 import zipfile
 from time import gmtime, strftime
-import os.path 
-import os
-import uuid
-from xml.etree import ElementTree as ElementTree
 import subprocess
 
 
@@ -81,7 +77,7 @@ class OdtDocService(object):
     
     def __init__(self, iceContext):
         self.iceContext = iceContext
-        self.__includeExts = [".htm", ".odt", ".doc", ".docx", ".rtf", ".pdf", ".slide.htm"]
+        self.__includeExts = [".htm", ".odt", ".doc", ".docx", ".rtf", ".pdf", ".slide.htm", ".epub"]
     
     def service(self, document, options, request, response):
     
@@ -130,7 +126,6 @@ class OdtDocService(object):
         OdtDocConverter = self.iceContext.getPlugin("ice.ooo.OdtDocConverter").pluginClass
         app = OdtDocConverter(self.iceContext, tmpFs, template)
         status, htmlFile, _ = app.convert(docFilePath, toDir, options)
-        
         if status == "ok":
             #self.__removeLocalhostLinks(htmlFile, app.meta)
             contentFile, mimeType = self.__createPackage(tmpFs, filename, app.meta)
@@ -139,6 +134,8 @@ class OdtDocService(object):
                 mimeType = self.iceContext.MimeTypes[".html"]
         else:
             raise self.iceContext.IceException(status)
+
+
         
         return tmpFs.readFile(contentFile), mimeType
     
@@ -206,6 +203,7 @@ class OdtDocService(object):
         rdf = self.__options.get("rdf", False)
         sourcelink = self.__options.get("sourcelink", "off")
         slidelink = self.__options.get("slidelink", "off")
+	epub = self.__options.get("epub", False)
         includeSkin = self.__options.get("includeSkin",False)
         contentFile = None
         mimeType = None
@@ -255,7 +253,18 @@ class OdtDocService(object):
 #                fs.writeFile("rdf.xml", rdf)
 #                contentFile = fs.absPath("rdf.xml")
 #                mimeType = self.iceContext.MimeTypes[".xml"]
-        
+      	
+	if epub:
+		print "Running calibre"
+		_, name, _ = fs.splitPathFileExt(filename)
+		htmlFile = "%s.htm" % fs.absPath(name)
+		epubFile = "%s.epub" % fs.absPath(name)
+		command = """ebook-convert %s.htm %s.epub --chapter "//*[name()='h1']" --max-levels 0 """ % (htmlFile, epubFile) 
+		print command
+		retcode = subprocess.call([command] , shell=True)  
+		if not(zip):
+			return epubFile, "application/epub+zip"
+
         if zip or epub:
             _, name, _ = fs.splitPathFileExt(filename)
 	    mainFile = None
