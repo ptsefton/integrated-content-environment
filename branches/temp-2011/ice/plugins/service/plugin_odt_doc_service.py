@@ -272,18 +272,13 @@ class OdtDocService(object):
 		print command
 		retcode = subprocess.call([command] , shell=True)  
 		if not(zip):
+			self.__response.setDownloadFilename(name.replace(" ", "_") + ".epub")
 			return epubFile, "application/epub+zip"
 
-        if zip or epub:
+        if zip:
             _, name, _ = fs.splitPathFileExt(filename)
-	    mainFile = None
             #name = name.replace(" ", "_")
-            zipext = "zip"
-            if epub:
- 		zipext = "epub"
-		
-            zipName = "%s.%s" % (name, zipext)
-           
+            zipName = "%s.zip" % name
             zipFilePath = fs.absPath(zipName)
             
             mediaFiles = fs.glob("%s/%s_files/*" % (toDir, name))
@@ -294,7 +289,7 @@ class OdtDocService(object):
             files = []
             for mFile in mediaFiles:
                 files.append(fs.absPath(mFile))
-            if includeSkin and not(epub):
+            if includeSkin:
                 for sFile in skinFiles:
                     if not fs.isDirectory(sFile):
                         files.append(fs.absPath(sFile))
@@ -307,18 +302,8 @@ class OdtDocService(object):
             
             for ext in self.__includeExts:
                 includeFile = name + ext
-		if epub and ext == ".htm":
-			html = fs.absPath(includeFile)
-			xhtml = fs.absPath(includeFile) + ".xhtml"
-			print "Running tidy"
-			retcode = subprocess.call(["tidy", "-asxml", "-m", '-n', html])
-			
-		 	ds = DocSplitter(toDir,html,meta)
-			contentDocs = ds.splitIt()
-			
-                elif fs.exists(includeFile):
+                if fs.exists(includeFile):
                     files.append(fs.absPath(includeFile))
-		
             if mods: files.append(fs.absPath("mods.xml"))
             if mets: files.append(fs.absPath("mets.xml"))
             if dc:   files.append(fs.absPath("dc.xml"))
@@ -337,7 +322,7 @@ class OdtDocService(object):
                     files.remove(sourceFile)
                     
             #slidelink
-            if slidelink == "off" or epub: #Hey why are we REMOVING stuff here? (ptsefton)
+            if slidelink == "off":
                 slideFile = "%s/%s.slide.htm" % (toDir, name)
                 slidetemplate = "%s/%s_files/slide.xhtml" % (toDir, name)
                 slidejs = "%s/%s_files/slideous.js" % (toDir, name)
@@ -354,46 +339,12 @@ class OdtDocService(object):
                 
             
             zipFile = zipfile.ZipFile(zipFilePath, "w", zipfile.ZIP_DEFLATED)
-            if epub:
-		#First file in the Zip must be mimetype and it must not be compressed
-	    	zipFile.writestr("mimetype", "application/epub+zip")
-                zipFile.getinfo("mimetype").compress_type = zipfile.ZIP_DEFLATED
-                #Todo META-INF
-	
-		zipFile.writestr("META-INF/container.xml" ,"""<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>""")
- 		
-
-            epubFiles = []
             for file in files:
                 arcname = file.split(toDir + "/")[1]
-                if epub:
-			epubFiles.append(arcname)
-			arcname = "OEBPS/%s" % arcname
-			
                 try:
                     zipFile.write(file, arcname)
                 except Exception,e:
                     print "Error in zipping file - %s: %s"% (file, str(e))
-	    if epub:
-		for i in range(0, len(contentDocs)):
-			plainFileName = contentDocs[i][0].split(toDir + "/")[1]
-			fullFilePath = contentDocs[i][0]
-			epubFiles.append(plainFileName) #for manifest
-			contentDocs[i][0] = plainFileName #for Toc
-			arcname = "OEBPS/%s" % plainFileName
- 			try:
-                   		zipFile.write(fullFilePath, arcname)
-                	except Exception,e:
-                    		print "Error in zipping file - %s: %s"% (file, str(e))
-			
-		
-	    #TODO - call the epub maker and get toc etc
-	    if epub:
-		mimeTypePluginClass = self.iceContext.getPluginClass("ice.mimeTypes")
-		
-		ep = EpubMaker(files=epubFiles, mimetypes=mimeTypePluginClass(), contentDocs=contentDocs, metadata=meta)
-		zipFile.writestr("/OEBPS/content.opf", ep.content)	
-		zipFile.writestr("/OEBPS/toc.ncx", ep.toc)
             zipFile.close()
 
             contentFile = zipFilePath
@@ -535,250 +486,7 @@ class MetsCreator(object):
                     self.mets.addFptr(div2, file2.id)
         
         return self.mets.getXml()
-
-class EpubMaker(object):
-	def __init__(self, files=[], metadata={}, mimetypes=None, contentDocs=["index.html"]):
-		self.files = files
-		self.meta = metadata
-		self.mimetypes = mimetypes 
-		self.contentDocs = contentDocs
-		self.createToc()
-        	
-       		
-	def createToc(self):
-                
-        
-       		#### Creating toc.ncx ####
-       		tocXml = ElementTree.Element("ncx", {"version": "2005-1", "xml:lang":"en", "xmlns":"http://www.daisy.org/z3986/2005/ncx/"})
-		#tocXml = ElementTree.XML("""<ncx version="2005-1" xml:lang="en"></ncx>""")
-		#tocXml.set("xmlns": "http://www.daisy.org/z3986/2005/ncx/")
-		
-		headNode = ElementTree.Element("head")
-		tocXml.append(headNode)
-		
-		headNode.append(ElementTree.Element("meta", {"name": "dtb:uid", "content": "1"}))
-		headNode.append(ElementTree.Element("meta", {"name": "dtb:depth", "content": "1"}))
-		headNode.append(ElementTree.Element("meta", {"name": "dtb:totalPageCount", "content": "1"}))
-		headNode.append(ElementTree.Element("meta", {"name": "dtb:maxPageNumber", "content": "1"}))
-		headNode.append(ElementTree.Element("meta", {"name": "dtb:generator", "content": "ICE v2"}))
-		
-		#docTitle
-		title = self.meta.get("title", "Untitled")
-		print "Title: " + title
-		docTitle = ElementTree.Element("docTitle")
-		textNode = ElementTree.Element("text")
-		textNode.text = title
-		docTitle.append(textNode)
-		tocXml.append(docTitle)
-		
-		#docAuthor
-		
-		
-		#navMap
-		navMap = ElementTree.Element("navMap")
-		tocXml.append(navMap)
-		
-
-		#### Creating content.opf ####
-		contentXml = ElementTree.Element("package", {"version": "2.0", "xmlns":"http://www.idpf.org/2007/opf",
-		                                             "unique-identifier":"BookId"})
-		
-		metadataNode = ElementTree.Element("metadata", {"xmlns:dc": "http://purl.org/dc/elements/1.1/", 
-		                                                "xmlns:opf": "http://www.idpf.org/2007/opf"})
-		contentXml.append(metadataNode)
-		
-		#metadata information
-		metadata = ElementTree.Element("dc:title")
-		metadata.text = title
-		metadataNode.append(metadata)
-		
-		metadata = ElementTree.Element("dc:language")
-		metadata.text = "en-AU"
-		metadataNode.append(metadata)
-		
-		for author in self.meta.get("authors", []):
-			auth = author.get("name", "")
-			print "Author: " + auth
-			#content
-			metadata = ElementTree.Element("dc:creator", {"opf:role":"aut"})
-			metadata.text = auth
-			metadataNode.append(metadata)
-			#toc
-			docAuthor = ElementTree.Element("docAuthor")
-			textNode = ElementTree.Element("text")
-			textNode.text = auth
-			docAuthor.append(textNode)
-			tocXml.append(docAuthor)
-		
-		metadata = ElementTree.Element("dc:publisher")
-		metadata.text = "Publisher unknown"
-		metadataNode.append(metadata)
-		
-		metadata = ElementTree.Element("dc:identifier", {"id":"BookId"})
-		metadata.text = str(uuid.uuid1())
-		metadataNode.append(metadata)
-		
-		#manifest
-		manifest = ElementTree.Element("manifest")
-		contentXml.append(manifest)
-		
-		spine = ElementTree.Element("spine", {"toc":"ncx"})
-		
-		playOrder = 1
-		for c in self.contentDocs:
-			print "CONTENT:" + repr(c)
-			itemRef = ElementTree.Element("itemref", {"idref":c[0]})
-			spine.append(itemRef)
-			navPoint = ElementTree.Element("navPoint", {"id":c[0], "playOrder":repr(playOrder)})
-			navLabel = ElementTree.Element("navLabel")	
-			navPoint.append(navLabel)
-			text = ElementTree.Element("text")
-			text.text = c[1]
-			navLabel.append(text)
-			content = ElementTree.Element("content", {"src": c[0]})
-			navPoint.append(content)
-			playOrder = playOrder + 1
-			navMap.append(navPoint);
-		contentXml.append(spine)
-		item = ElementTree.Element("item", {"id":"ncx", "href":"toc.ncx", "media-type":"application/x-dtbncx+xml"})
-		manifest.append(item)
-
-		#Don't think we need these - ptsefton
-		#css = ElementTree.Element("item", {"id":"style", "href":"epub.css", "media-type":"text/css"})
-		#manifest.append(css)
-		for f in self.files:
-			ext = os.path.splitext(f)[1]
-			
-			mime = self.mimetypes.get(ext)
-                       
-			item = ElementTree.Element("item", {"id":f, "href":f, "media-type":mime})
-			manifest.append(item)
-
-
-		self.content = ElementTree.tostring(contentXml)
-		self.toc = ElementTree.tostring(tocXml)
-
-class DocSplitter(object):
-	def __init__(self, workingPath, docPath, meta):
-		html = ElementTree.parse(docPath)
-		print html
-		
-		divs = html.findall("//{http://www.w3.org/1999/xhtml}div")
-		for div in divs:
-			if div.get("class") == "body":
-				self.body  = div.find("{http://www.w3.org/1999/xhtml}div")
-			
-		self.meta = meta	
-		self.workingPath = workingPath
-		self.epubTitlePageTemplate = """<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>Title Page</title>
-</head>
-<body>
-  
     
-
-    <h1>Sample Book</h1>
-
-    <h2>By Yoda47</h2>
- 
-</body>
-</html>"""
-
-
-		self.epubChapterTemplate = """<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>Chapter 1</title>
-</head>
-<body>
-  
-</body>
-</html>
-
-"""
-		
-		self.docs = [] 
-		self.anchors = dict()
-
-	def splitIt(self, firstPass = True):
-		
-		
-		def returnChapter(chapterTemplate = self.epubChapterTemplate):
-			chapter = ElementTree.ElementTree(ElementTree.fromstring(chapterTemplate))
-               		return (chapter, chapter.find("{http://www.w3.org/1999/xhtml}body"))
-
-		def saveChapter(chbody, title, chapterNum):
-			chFileName = "chapter%s.xhtml" % repr(chapterNum)
-			chFilePath = os.path.join(self.workingPath,chFileName )
-			chapter.find("//{http://www.w3.org/1999/xhtml}title").text = title
-			if firstPass:
-				#Find and remember anchors
-				for a in chapter.findall("//{http://www.w3.org/1999/xhtml}a"):
-					
-					name = a.get("name")
-					
-					if name:
-						self.anchors["#%s" % name] = chFileName
-						print "Remembering name: " + name
-				#Remove redundant Foonotes
-				for s in chapter.findall("//{http://www.w3.org/1999/xhtml}span"): 
-					if s.get("class") == "footnote-text":
-						s.clear() #TODO figure out how to remove
-					
-
-			else:
-				#rewrite links
-				for a in chapter.findall("//{http://www.w3.org/1999/xhtml}a"): 
-					href= a.get("href")
-					
-					if href != None and href.startswith("#") and self.anchors.has_key(href):
-						newhref = "./%s%s" % (self.anchors[href], href)
-						a.set("href", newhref)
-						print "Changing link to name: " + newhref
-				chapter.write(chFilePath)
-				self.docs.append([chFilePath,title])
-			
-
-		
-		chapterNum = 0	
-		#First make a title page - content goes into this until we hit a heading
-		(chapter, chbody) = returnChapter(self.epubTitlePageTemplate);
-		
-		title = self.meta.get("title", "Untitled")
-		chbody.find("{http://www.w3.org/1999/xhtml}h1").text = title
-		authorNames = []
-		for author in self.meta.get("authors", []):
-			auth = author.get("name", "")
-			authorNames.append(auth)
-		chbody.find("{http://www.w3.org/1999/xhtml}h2").text = ", ".join(authorNames)
-		#TODO - Add metadata to our title page
-			
-		print "Starting split"
-		for elementOfSomeKind in self.body.findall("*"):
-			elementOfSomeKind.set("xmlns", "http://www.w3.org/1999/xhtml")
-			if elementOfSomeKind.tag == "{http://www.w3.org/1999/xhtml}h1": #TODO: How to get text from title?
-				
-				saveChapter(chapter, title, chapterNum)
-                                chapterNum = chapterNum + 1
-				#HACK - probably need to change this all over to a better XML library
-				r = re.compile("<.*?>")
-				title = ElementTree.tostring(elementOfSomeKind)
-				title = r.sub("", title)
-				(chapter, chbody) = returnChapter();
-			else:	
-				#HACK serialize and parse to get the thing into the right namespace. Yes, yuck.
-				#xhtmlElement = ElementTree.XML(ElementTree.tostring(elementOfSomeKind))
-				chbody.append(elementOfSomeKind)
-
-		saveChapter(chapter, title, chapterNum)
-		#Do it again - this time writing out files
-		if firstPass:
-			self.splitIt(False)
-		return self.docs
 
 		
 		
