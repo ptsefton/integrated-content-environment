@@ -21,7 +21,19 @@
         </tr>
     </table>
     <table>
-        <tr><td colspan="2" class="sub-title">Rendition</td></tr>
+<tr><td colspan="2" class="sub-title">Rendition</td></tr>
+ 	<tr><td>NEW: 
+            <input type="checkbox" name="epub" id="epub" checked="checked"/>
+            <label for="epub">Make epub rendition</label>
+        </td></tr>
+	<tr>
+	<td>
+<p>This is an experimental feature added to the ICE open source content conversion service. It splits documents into parts based on the use of Heading 1 style (or h1 in the ICE template). Try it out by uploading a .doc or .odt file. (DOCX does not work very well)</p>
+<p>You can try this test document: <a href="http://dl.dropbox.com/u/24994372/JISCPub-wpack3-post1.doc">http://dl.dropbox.com/u/24994372/JISCPub-wpack3-post1.doc</a>
+<p>Warning - this is slow and it may crash. If the service gives you problems <a href="mailto:pt@ptsefton.com">mail Peter Sefton</a>.</td>
+
+	</tr>
+        
         <tr><td>
             <input type="checkbox" name="pdflink" id="pdflink"/>
             <label for="pdflink">Include link to PDF rendition</label>
@@ -30,10 +42,7 @@
             <input type="checkbox" name="slidelink" id="slidelink"/>
             <label for="slidelink">Include link to slide rendition</label>
         </td></tr>
-        <tr><td>
-            <input type="checkbox" name="epub" id="epub"/>
-            <label for="epub">Make epub rendition</label>
-        </td></tr>
+       
         <tr><td>
             <input type="checkbox" name="toc" id="toc" checked="checked"/>
             <label for="toc">Generate table of contents</label>
@@ -62,9 +71,6 @@
             <input type="checkbox" name="zip" id="zip"/>
             <label for="zip">Return as ZIP package</label>
         </td></tr>
-\        <tr><td>
-            <input type="checkbox" name="epub" id="epub"/>
-            <label for="epub">Return as ePub electronic book</label>
-        </td></tr>
+\       
     </table>
 </div>

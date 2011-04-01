@@ -259,7 +259,16 @@ class OdtDocService(object):
 		_, name, _ = fs.splitPathFileExt(filename)
 		htmlFile = "%s.htm" % fs.absPath(name)
 		epubFile = "%s.epub" % fs.absPath(name)
-		command = """ebook-convert "%s" "%s" --chapter "//*[name()='h1']" --max-levels 0 """ % (htmlFile, epubFile) 
+		title = meta.get("title", "")
+		publisher = meta.get("publisher","")
+		date = meta.get("date","")
+		authors = []
+		for author in meta.get("authors", []):
+           		authorName = author.get("name", "") #TODO will have probs if there is an ampersand here
+			authors.append(authorName)
+		
+		command = """ebook-convert "%s" "%s" --chapter "//*[name()='h1']" --max-levels 0  --title "%s" --authors "%s" --publisher "%s" --pubdate "%s" """\
+			 % (htmlFile, epubFile, title, "&".join(authors), publisher, date) 
 		print command
 		retcode = subprocess.call([command] , shell=True)  
 		if not(zip):
