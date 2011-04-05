@@ -267,7 +267,7 @@ class OdtDocService(object):
            		authorName = author.get("name", "") #TODO will have probs if there is an ampersand here
 			authors.append(authorName)
 		
-		command = """ebook-convert "%s" "%s" --chapter "//*[name()='h1']" --max-levels 0  --title "%s" --authors "%s" --publisher "%s" --pubdate "%s" """\
+		command = """ebook-convert "%s" "%s"  --chapter "//*[name()='h1']"  --level1-toc "//*[name()='h1']" --level2-toc "//*[name()='h2']" --title "%s" --authors "%s" --publisher "%s" --pubdate "%s" """\
 			 % (htmlFile, epubFile, title, "&".join(authors), publisher, date) 
 		print command
 		retcode = subprocess.call([command] , shell=True)  

@@ -54,7 +54,7 @@ class footnoteState(stateObject):
         
         s2 = element("span")
         s2.setAttribute("class", "footnote-text")
-        span.addChild(s2)
+        #span.addChild(s2) Removing - not useful in a service
         self.footnoteTextElement = s2
         
     def createNewState(self, klass, name, attrs, style=None):
