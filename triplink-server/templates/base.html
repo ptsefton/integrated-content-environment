@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+
+    <style type="text/css">
+
+      body {
+        background: #FFFFFF;
+        color: #000080;
+        font-family: sans-serif;
+        font-size: medium;
+        margin: 20px;
+      }
+      
+      hr {
+        border: 0;
+        color: #B0C4DE;
+        background-color: #B0C4DE;
+        height: 1px;
+      }
+
+      table {
+        border-collapse: collapse;
+        border: 1px solid #000000;
+        padding: 0px;
+        margin-bottom: 10px;
+        color: #000000; 
+        background: #E6E6FA;
+      }
+
+      td {
+        border: 1px solid #000000;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        border: 1px solid #000000;
+        padding: 10px;
+        color: #008080;
+        background: #B0E0E6;
+      }
+      
+      .footer {
+        font-size: 70%;
+        color: #B0C4DE;
+        text-align: center;
+      }
+
+    </style>
+
+    <title>
+      {% block title %}No Title{% endblock %}
+    </title>
+<script type='text/javascript' src='http://anotar.ptsefton.com/wp-includes/js/jquery/jquery.js?ver=1.4.4'></script> 
+<script type='text/javascript' src='http://anotar.ptsefton.com/wp-includes/js/json2.js?ver=20110113'></script> 
+
+<script type='text/javascript' src='http://anotar.ptsefton.com/wp-content/plugins/cml/js/jmol/Jmol.js?ver=3.1'></script> 
+<script type='text/javascript' src='http://anotar.ptsefton.com/wp-content/plugins/cml/js/jmol/jquery.jmol.js?ver=3.1'></script> 
+<script type='text/javascript' src='http://anotar.ptsefton.com/wp-content/plugins/cml/js/cml.js?ver=3.1'></script> 
+<script>
+var jmolPath = 'http://anotar.ptsefton.com/wp-content/plugins/cml/js/jmol/';
+</script>
+  </head>
+
+  <body>    
+    {% block main %}
+
+    {% endblock %}
+    <hr/>    
+    <p class="footer">
+      
+   
+    </p>
+  </body>
+
+</html>

@@ -1,0 +1,122 @@
+
+
+sampleLink1 = "http://ontologize.me/meta/?tl_p=http://purl.org/dc/terms/creator&tl_o=http://trove.nla.gov.au/people/541658&triplink=http://purl/triplink/v/0.1"
+
+# Server mode:
+#           href, [referer] -> referer/subject, predicate, object
+# Format html mode:
+#           change a elements into rdfa via template & other metadata
+
+from urlparse import urlsplit, parse_qs, urlunsplit
+from urllib import urlencode
+import types, json 
+import re, os
+
+class Triple (object):
+    def __init__(self, params, urlParts, referer=None, forceValid=False):
+        self.__params = params
+        self.__urlParts = urlParts
+        if referer is None:
+            referer = "."
+        self.__referer = referer
+
+  
+    
+    @property
+    def subject(self):
+        return self.getParam("tl_s", self.__referer)
+    
+    @property
+    def predicate(self):
+        return self.getParam("tl_p", None)
+    
+    @property
+    def object(self):
+        obj = self.getParam("tl_o", None)
+        if obj is None:
+            params = self.__params.copy()
+            if params.has_key("tl_p"):
+                params.pop("tl_p")
+            if params.has_key("tl_s"):
+                params.pop("tl_p")
+            params.pop("triplink")
+            query = urlencode(params)
+            obj = urlunsplit((self.__urlParts.scheme, self.__urlParts.netloc, 
+                    self.__urlParts.path, query, self.__urlParts.fragment))
+        return obj
+    
+    @property
+    def isValid(self):
+        return self.getParam("triplink", "").startswith("http://purl.org/triplink/v/0.1")
+    
+    def getParam(self, name, default=None):
+        p = self.__params.get(name, [])
+        if(len(p)>0):
+            return p[0]
+        return default
+
+
+class TripLink(object):
+    def __init__(self, defaultTemplate=None):
+        self.tripLinkTemplate = None
+        
+        if defaultTemplate is None:
+            defaultTemplate = os.path.abspath("triplinkTemplate.json")
+        self.setTemplate(defaultTemplate)
+    
+    def setTemplate(self, defaultTemplate):
+        if defaultTemplate:
+            f = None
+            try:
+                f = open(defaultTemplate, "rb")
+                self.tripLinkTemplate = json.loads(f.read())
+            finally:
+                if f is not None:
+                    f.close()
+
+    def aTagProcess(self, a):
+        # just use regex for now
+        href = ""
+        content = ""
+        m = re.search(r"href\s*=\s*('|\")([^\1]*)\1", a)
+        if m:
+            href = m.group(2)
+        m = re.search(r"\<a\s+[^\>]*\>(.*?)\</a\s*\>", a)
+        if m:
+            content = m.group(1)
+        return self.process(href, content)
+
+    def process(self, link, referer=None):
+
+        urlParts = urlsplit(link)
+        query = urlParts.query
+        params = parse_qs(query)
+        if referer is None:
+            referer = "."
+        triple = Triple (params, urlParts, referer)
+        
+        if triple.isValid:
+            
+                
+            tempData = self.tripLinkTemplate.get(triple.predicate, {})
+            if tempData:
+                tempData = dict(tempData)       # create a working copy
+                for key, value in tempData.iteritems():
+                    if type(value) is types.ListType:
+                        tempData[key] = [self.render(i, triple, link) for i in value]
+                    else:
+                        tempData[key] = self.render(value, triple, link)
+            return tempData
+        else:
+            return {}
+        
+    def render(self, temp, triple, link):
+        return temp.replace("$predicate", triple.predicate). \
+                    replace("$object", triple.object). \
+                    replace("$content", triple.object). \
+                    replace("$url", link). \
+                    replace("$subject", triple.subject)
+
+
+
+
