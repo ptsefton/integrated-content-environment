@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Ontologize.me{% endblock %}
+
+{% block main %}
+  <h1>Ontologize.me</h1>
+ 
+  <h2>
+    {{ statement }}
+  </h2>
+
+ {{ RDFaTemplate|safe }}
+
+
+<table>
+<tr>
+<td>Use this link in your wordprocessor, blog or email:</td>
+<td> <textarea rows="3" cols="80">
+  {{ url }}
+ </textarea>
+  </td>
+<tr>
+<td> Copy and paste this Scholarly HTML into your HTML page:</td>
+ <td> <textarea rows="6" cols="80">
+   {{ RDFaTemplate }}
+  </textarea></td>
+</tr>
+
+
+<tr>
+<td colspan="2">Use these bookmarklets to create RDF statements encoded in links. Drag them to your bookmark toolbar then visit a URL that describes a person, subject or publication and click to create an RDF statement encoded in a link.</td>
+</tr>
+<tr><td>Create an link for an author:</td>
+<td><a href="javascript:(function(){window.open('http://ontologize.me/?tl_p=http://purl.org/dc/terms/creator&triplink=http://purl.org/triplink/v/0.1&tl_o='+location.href);})();">Authorize.me</a></td></tr>
+<tr><td>Create a link for a subject:</td>
+<td><a href="javascript:(function(){window.open('http://ontologize.me/?tl_p=http://purl.org/dc/terms/subject&triplink=http://purl.org/triplink/v/0.1&tl_o='+location.href);})();">Subjectize.me</a></td></tr>
+<tr><td>Create a link for a citation:</td>
+<td><a href="javascript:(function(){window.open('http://ontologize.me/?tl_p=http://purl.org/spar/cito/cites&triplink=http://purl.org/triplink/v/0.1&tl_o='+location.href);})();">Cite.me</a></td></tr>
+<tr><td> Do a chemsitry experiment </td>
+<td><a href="javascript:(function(){window.open('http://ontologize.me/?tl_p=http://www.xml-cml.org/convention/crystallographyExperiment&triplink=http://purl.org/triplink/v/0.1&tl_o='+location.href);})();">Crystalize me</a></td></tr>
+</table>
+
+
+
+
+
+<p>Brought to you by the World Wide Scholarly HTML movement. Taking us 'Beyond the PDF' since 2011. </p>
+ <p>Remember: "There's a <i>meaningful</i> way to do it."</p>
+{% endblock %}
+

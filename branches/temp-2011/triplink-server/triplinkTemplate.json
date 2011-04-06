@@ -1,0 +1,61 @@
+{
+    "http://purl.org/dc/terms/creator": {
+        "statement": "The person or agent $object is a creator of this resource: $subject",
+        "urltitle": "This person or agent is a creator of this resource: ($object)",
+        "readableMetadata": ["author", "$text ($object)"],
+        "dc_metadata": ["creator", "$text ($object)"],
+        "dc": "<dc:creator xmlns:dc='http://purl.org/dc/elements/1.1/'>$text ($object)<dc:creator>",
+        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/creator' resource='$object'><span property='http://xmlns.com/foaf/0.1/name' resource='$object'>$content</span></span>"
+    },
+ "http://purl.org/dc/terms/publisher": {
+        "statement": "The entity $object is the publisher of this resource: $subject",
+        "urltitle": "This entity is the publisher of this resource: ($object)",
+        "readableMetadata": ["publisher", "$text ($object)"],
+        "dc_metadata": ["publisher", "$text ($object)"],
+        "dc": "<dc:publisher xmlns:dc='http://purl.org/dc/elements/1.1/'>$text ($object)<dc:publisher>",
+        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/publisher' resource='$object'><span property='http://xmlns.com/foaf/0.1/name' resource='$object'>$content</span></span>"
+    },
+"http://purl.org/dc/terms/date": {
+        "statement": "The marked text is the date for this resource: $subject",
+        "urltitle": "Date: $text",
+        "readableMetadata": ["date", "$text"],
+        "dc_metadata": ["date", "$text"],
+        "dc": "<dc:date xmlns:dc='http://purl.org/dc/elements/1.1/'>$text<dc:date>",
+        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/date'>$content</span>"
+    },
+
+    "http://purl.org/dc/terms/subject": {
+        "statement": "The work $object  is about $subject",
+        "urltitle": "This work is about $object",
+        "readableMetadata": ["subject", "$text ($object)"],
+        "dc_metadata": ["subject", "$object"],
+        "dc": "<dc:subject xmlns:dc='http://purl.org/dc/elements/1.1/'>$text ($object)<dc:subject>",
+        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/subject'>$content</span>"
+    },
+   "http://purl.org/spar/cito/cites":  {
+        "statement": "The work ($subject) ites this: ($object)",
+        "urltitle": "This work cites this: ($object)",
+        "readableMetadata": ["citation", "$text ($object)"],
+        "dc_metadata": ["relation", "citation::$object"],
+        "dc": "<dc:relation>$text ($object)</dc:relation>",
+        "RDFaTemplate": "<span rel=''http://purl.org/spar/cito/cito:cites' resource='$object'><a href='$url'>$text</a></span>"
+    },
+
+  "http://www.xml-cml.org/convention/crystallographyExperiment":  {
+        "statement": "The work ($subject) links to this chemistry experiment: $object)",
+        "urltitle": "This work links to this chemistry experiment: $object)",
+        "readableMetadata": ["$predicate", "$text ($object)"],
+        "dc_metadata": ["relation", "$predicate::$object'$text"],
+        "dc": "<dc:relation>$predicate::$object'$text</dc:relation>",
+        "RDFaTemplate": "<span rel='$predicate' resource='$object'><a href='$object'>$text</a></span>" 
+    },
+
+    "default":  {
+        "statement": "Subject: $subject Predicate: $predicate Object: $object)",
+        "urltitle": "Predicate: $predicate Object: $object)",
+        "readableMetadata": ["$predicate", "$text ($object)"],
+        "dc_metadata": ["relation", "$predicate::$object'$text"],
+        "dc": "<dc:relation>$predicate::$object'$text</dc:relation>",
+        "RDFaTemplate": "<span rel='$predicate' resource='$object'>$content</span>"
+    }
+}

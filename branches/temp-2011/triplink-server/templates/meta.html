@@ -1,0 +1,31 @@
+
+{% load i18n %}
+<html>
+
+<title>Metadata assertion @ Ontologize.me</title>
+</head>
+
+{% block head_title %}
+
+{% endblock %}
+<body>
+<h1>Metadata assertion @ Ontologize.me</h1>
+
+
+
+
+
+{% block body %}
+    {% blocktrans %}
+
+<p><a href="{{s}}">{{s}}</a> </p>
+<p> {{ r }} </p>
+<p>     <i>identified by</i>  the URI <a href="{{o}}">{{o}}</a> </p>
+
+
+  <p>Demos:</p>
+        <ul>
+        <li><a href="/meta/?r=http://purl.org/dc/terms/creator&o=http://ptsefton.com">Assert authorship using a URL</a></li>
+</ul>
+    {% endblocktrans %}
+{% endblock %}
