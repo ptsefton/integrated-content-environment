@@ -56,6 +56,7 @@ def standardStates(currentState, name, attrs, etest):
         #<text:p text:style-name="P1">
         #<text:h text:style-name="h1n">
         styleName = attrs.get("text:style-name", "")
+	
         style = currentState.o.styles.getOooStyle(styleName)
         #print "name='%s', style=%s" % (name, style)
         if style.family=="p":
@@ -64,8 +65,12 @@ def standardStates(currentState, name, attrs, etest):
             newState = currentState.createNewState(titleState, name, attrs)
         elif style.family=="h":
             #print "Heading"
+	    outlineNumbered = attrs.get("text:outline-level", "")
+	    if outlineNumbered!="" and style.type=="u":
+		style.setNumbered()
             if style.type=="slide":
                 newState = currentState.createNewState(slideState, name, attrs, style=style)
+		
             else:
                 newState = currentState.createNewState(headingState, name, attrs, style=style)
         elif style.family=="pre":
@@ -273,7 +278,7 @@ class Ooo2xhtml(object, xml.sax.ContentHandler):
         # abstract & keywords - append
         # all others - last only for now
         meta = self.__meta
-#        print "Adding MetaName='%s', value='%s'" % (name, value)
+        print "Adding MetaName='%s', value='%s'" % (name, value)
 #        print "meta: ", meta
         nameParts = name.split("-")
         name = nameParts.pop(0)
@@ -306,13 +311,15 @@ class Ooo2xhtml(object, xml.sax.ContentHandler):
             
             meta["authors"] = self.__metaAuthor
         elif name=="issued" or name=="date":
+	    print "Setting date"
             newName = name
             while len(nameParts)>0:
                 name = nameParts.pop(0)
                 newName = "%s-%s" % (newName, name)
-                
+                print "in loop" + newName
             if not meta.has_key(newName):
                 meta[newName] = value
+		print "setting now"
         elif name=="abstract" or name=="keywords":
             n = meta.get(name, "")
             if len(n)>0:

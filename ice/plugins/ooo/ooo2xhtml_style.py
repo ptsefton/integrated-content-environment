@@ -58,7 +58,8 @@ class _oooStyle(object):
     @property
     def level(self):
         return self.__level
-    
+    def setNumbered(self):
+	self.__type = "number"
     @property
     def type(self):
         return self.__type

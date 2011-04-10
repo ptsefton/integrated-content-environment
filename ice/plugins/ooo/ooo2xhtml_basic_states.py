@@ -184,6 +184,7 @@ class paragraphState(stateObject):
                 self.currentElement = p
                 
             elif style.type!="" and style.family!="bq":
+               
                 if style.name.startswith("p-meta"):
                     self.__metaName = style.name[len("p-meta-"):]
                 p.setAttribute("class", style.type)
@@ -278,8 +279,9 @@ class tabState(stateObject):
 
 class spanState(stateObject):
     def __init__(self, parentState, name, atts, style=None):
+	self.__metaName = None
         stateObject.__init__(self, parentState, name, atts, style=style)
-    
+    	
     
     def processElement(self, name, attrs):
         e2 = None
@@ -300,6 +302,9 @@ class spanState(stateObject):
                 if name=="":
                     name = styleName
                 if name.startswith("i-"):
+                    
+ 		    if name.startswith("i-meta"):
+                    	self.__metaName = name[len("i-meta-"):]
                     name = name[2:]
                 css = self.o.styles.getCssStyle("span." + name)
                 
@@ -378,47 +383,18 @@ class spanState(stateObject):
                 self.stateElement = stateElement
                 self.currentElement = currentElement
 
-                #else:
-                #    stateElement.setAttribute("class", name)
-                #    if css!="":
-                #        stateElement.setAttribute("style", css)
-                #self.stateElement = stateElement    # Note: also set self.currentElement
-                #self.currentElement = currentElement
-                
-                #if family=="p" and t=="":
-                #    if bold:
-                #        t = "b"
-                #    if italic:
-                #        t += "i"
-                #    if underline:
-                #        pass
-                # ---
-                #elif t=="bi":
-                #    e = element("b")
-                #    e2 = element("i")
-
-##                elif t=="i" or t=="b" or t=="code" or t=="sub" or t=="sup":
-##                    e = element(t)
-##                elif t=="bi":
-##                    e = element("b")
-##                    e2 = element("i")
-##                elif t=="latex":
-##                    e = element("span")
-##                    e.setAttribute("class", t)
-##                elif t=="underline":
-##                    print "span underline"
-##                    e = element("span")
-##                    e.setAttribute("class", t)
-##                    e.setAttribute("style", "text-decoration: underline;")
-##                    e2 = element("span")
-##                elif t=="double-underline":
-##                    e = element("span")
-##                    e.setAttribute("class", t)
-##                    e.setAttribute("style", \
-##                        "border-bottom: 1px solid; text-decoration: underline; padding-bottom: .2em;")
-##                    e2 = element("span")
             else:
                 self.stateElement = element("span")
+	    name = style.name
+	  
+	 
+	    
+    	    if name.startswith("i-meta"):
+	    	#self.stateElement.__metaName = name[len("i-meta-"):]
+		#self.currentElement.__metaName = name[len("i-meta-"):]
+		self.__metaName = name[len("i-meta-"):]
+		
+		
     
     
     def createNewState(self, klass, name, attrs, style=None):
@@ -431,6 +407,13 @@ class spanState(stateObject):
     
     
     def closingState(self):
+	
+	if self.__metaName is not None:
+            value = self.data
+	    print dir(self)
+	    print value
+            self.o.addMeta(self.__metaName, value)
+	   
         if self.data!="":
             self.currentElement.addChild(self.data)
         if self.style.textDisplay=="none":
