@@ -335,6 +335,7 @@ class cleanUpStyles(object):
         elif styleName.lower().find("title") != -1:
             iceStyleName = "Title"
         elif paraType =="heading" or styleName.lower().find("heading") != -1:
+            #TODO: find out if heading is numbe
             family = "h"
             try:
                 level = int(styleName.split(" ")[1])
@@ -344,13 +345,19 @@ class cleanUpStyles(object):
                 level = 5
             if level < 1:
                 level = 1
-            iceStyleName = "%s%s" % (family,level)
+            iceStyleName = "%s%su" % (family,level) #Flag this as an unknown style
+	  
+        elif styleName.lower().find("p-meta") != -1:
+	    iceStyleName = styleName
         elif styleName.lower().find("quote") != -1:
             iceStyleName ="bq1"
         elif styleName.lower().find("title") != -1 and styleName.lower().find("subtitle")==-1:
             iceStyleName = styleName
+	#TODO: ptsefton - why are para and char styles mixed up here?
         elif styleName.lower().find("emphasis") != -1 and styleName.lower().find("strong") != -1:
             iceStyleName="i-bi" 
+  	elif styleName.lower().find("i-") != -1:
+            iceStyleName = styleName
         elif styleName.lower().find("emphasis") != -1:
             iceStyleName = "i-i"
         elif styleName.lower().find("strong") != -1:

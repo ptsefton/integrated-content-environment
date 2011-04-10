@@ -262,6 +262,8 @@ class OdtDocService(object):
 		title = meta.get("title", "")
 		publisher = meta.get("publisher","")
 		date = meta.get("date","")
+		print "DATE:" + date
+                print "ABS: " + meta.get("abstract", "")
 		authors = []
 		for author in meta.get("authors", []):
            		authorName = author.get("name", "") #TODO will have probs if there is an ampersand here
