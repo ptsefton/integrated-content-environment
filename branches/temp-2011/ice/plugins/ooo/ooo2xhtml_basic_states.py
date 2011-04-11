@@ -390,8 +390,6 @@ class spanState(stateObject):
 	 
 	    
     	    if name.startswith("i-meta"):
-	    	#self.stateElement.__metaName = name[len("i-meta-"):]
-		#self.currentElement.__metaName = name[len("i-meta-"):]
 		self.__metaName = name[len("i-meta-"):]
 		
 		
@@ -410,8 +408,6 @@ class spanState(stateObject):
 	
 	if self.__metaName is not None:
             value = self.data
-	    print dir(self)
-	    print value
             self.o.addMeta(self.__metaName, value)
 	   
         if self.data!="":

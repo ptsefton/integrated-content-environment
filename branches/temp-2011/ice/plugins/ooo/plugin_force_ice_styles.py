@@ -112,12 +112,23 @@ class cleanUpStyles(object):
                                         
                          
                             elif not self.isIceStyle(baseStyleName):
+				
                                 styleName=self.checkInStyleXML(baseStyleName,paraType,styleNode)
+				
                                 family, _,_ =self.__getFamilyLevelType(styleName)
                                 if family == "h" or family == "li":
                                     outlineLists.append(styleName)
 #                                    style = self.fixupOutline(styleName,contentXml)
                                 #set it directly to the paragraph
+				    if family == "h":
+					parentNode = self.styleXml.getNode("//style:style[@style:name='%s']" % baseStyleName)
+					if parentNode:                       
+						outlineLevel = parentNode.getAttribute("default-outline-level")
+						if outlineLevel != None:
+							outlineNode = self.styleXml.getNode("//text:outline-level-style[@text:level='%s']" % outlineLevel)
+							if outlineNode!=None and outlineNode.getAttribute("num-format")!="": #TODO - other kinds of heading numbering?
+								styleName = styleName + "n"
+
                                 node.setAttribute("style-name",styleName)
                                        
                     else:
@@ -286,7 +297,7 @@ class cleanUpStyles(object):
                      if outline is not None:
                          outlineStyleName = outline.getFirstChild().getAttribute("style-name")
                          if outlineStyleName is not None:
-                             if outlineStyleName.find("Numbering")!=-1:
+                             if outlineStyleName.lower().find("num")!=-1:
                                  iceStyleName =iceStyleName+"n"
                  styleName = iceStyleName
                  self._copyICEStyle(styleName)            
@@ -335,9 +346,10 @@ class cleanUpStyles(object):
         elif styleName.lower().find("title") != -1:
             iceStyleName = "Title"
         elif paraType =="heading" or styleName.lower().find("heading") != -1:
-            #TODO: find out if heading is numbe
+            #TODO: find out if heading is numbered
             family = "h"
             try:
+		#TODO - try with a regex to improve match
                 level = int(styleName.split(" ")[1])
             except:
                 level = 0
@@ -345,7 +357,10 @@ class cleanUpStyles(object):
                 level = 5
             if level < 1:
                 level = 1
-            iceStyleName = "%s%su" % (family,level) #Flag this as an unknown style
+            iceStyleName = "%s%s" % (family,level) #Flag this as an unknown style	
+	  
+	  
+
 	  
         elif styleName.lower().find("p-meta") != -1:
 	    iceStyleName = styleName
