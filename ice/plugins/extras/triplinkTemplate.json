@@ -5,7 +5,7 @@
         "readableMetadata": ["author", "$text ($object)"],
         "dc_metadata": ["creator", "$text ($object)"],
         "dc": "<dc:creator xmlns:dc='http://purl.org/dc/elements/1.1/'>$text ($object)<dc:creator>",
-        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/creator' resource='$object'><span property='http://xmlns.com/foaf/0.1/name' resource='$object'>$content</span></span>"
+        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/creator' resource='$object'><span property='http://xmlns.com/foaf/0.1/name' resource='$object'>$text</span></span>"
     },
  "http://purl.org/dc/terms/publisher": {
         "statement": "The entity $object is the publisher of this resource: $subject",
@@ -20,8 +20,17 @@
         "urltitle": "Date: $text",
         "readableMetadata": ["date", "$text"],
         "dc_metadata": ["date", "$text"],
-        "dc": "<dc:date xmlns:dc='http://purl.org/dc/elements/1.1/'>$text<dc:date>",
-        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/date'>$content</span>"
+        "dc": "<dc:date xmlns:dc='http://purl.org/dc/elements/1.1/'>$text</dc:date>",
+        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/date'>$text</span>"
+    },
+
+"http://creativecommons.org/licence": {
+        "statement": "The entity $subject is licensed under the creative commonse license : $object",
+        "urltitle": "Licence: $text  ($object)",
+        "readableMetadata": ["licence", "$text  ($object)"],
+        "dc_metadata": ["licence", "$text  ($object)"],
+        "dc": "<dc:relation xmlns:dc='http://purl.org/dc/elements/1.1/'>$text  ($object)</dc:relation>",
+        "RDFaTemplate": "<span rel='http://creativecommons.org/licence'>$text</span>"
     },
 
     "http://purl.org/dc/terms/subject": {
@@ -30,7 +39,7 @@
         "readableMetadata": ["subject", "$text ($object)"],
         "dc_metadata": ["subject", "$object"],
         "dc": "<dc:subject xmlns:dc='http://purl.org/dc/elements/1.1/'>$text ($object)<dc:subject>",
-        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/subject'>$content</span>"
+        "RDFaTemplate": "<span rel='http://purl.org/dc/elements/1.1/subject'>$text</span>"
     },
    "http://purl.org/spar/cito/cites":  {
         "statement": "The work ($subject) ites this: ($object)",
@@ -56,6 +65,6 @@
         "readableMetadata": ["$predicate", "$text ($object)"],
         "dc_metadata": ["relation", "$predicate::$object'$text"],
         "dc": "<dc:relation>$predicate::$object'$text</dc:relation>",
-        "RDFaTemplate": "<span rel='$predicate' resource='$object'>$content</span>"
+        "RDFaTemplate": "<span rel='$predicate' resource='$object'>$text</span>"
     }
 }
