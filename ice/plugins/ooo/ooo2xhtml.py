@@ -278,7 +278,7 @@ class Ooo2xhtml(object, xml.sax.ContentHandler):
         # abstract & keywords - append
         # all others - last only for now
         meta = self.__meta
-        print "Adding MetaName='%s', value='%s'" % (name, value)
+        #print "Adding MetaName='%s', value='%s'" % (name, value)
 #        print "meta: ", meta
         nameParts = name.split("-")
         name = nameParts.pop(0)
