@@ -392,6 +392,8 @@ class text(node):
     
     def __init__(self, value="", parent=None):
         node.__init__(self, "text", parent)
+	if type(value) is types.UnicodeType:
+           value = value.encode("utf-8")
         self.__value = value
         
     def __getValue(self):
@@ -404,6 +406,7 @@ class text(node):
 
     def __str__(self):
         s = escape(self.__value)
+	
         return s
 
 
@@ -417,6 +420,8 @@ class rawText(node):
     
     def __init__(self, value="", parent=None):
         node.__init__(self, "text", parent)
+	if type(value) is types.UnicodeType:
+           value = value.encode("utf-8")
         self.__value = value
         
     def __getValue(self):
@@ -434,6 +439,8 @@ class rawText(node):
 class comment(node):
     def __init__(self, value="", parent=None):
         node.__init__(self, "comment", parent)
+	if type(value) is types.UnicodeType:
+           value = value.encode("utf-8")
         self.__value = value
         
     def __getValue(self):
