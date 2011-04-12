@@ -18,6 +18,11 @@ sudo apt-get install subversion
 sudo apt-get install daemon
 }}}
 
+==== Install Calibre to make ebooks ====
+{{{
+sudo apt-get install calibre
+}}}
+
 ==== Install python libraries ====
  1. Add the following via Synaptic Package manager or sudo aptitude install command:
 {{{
