@@ -88,7 +88,7 @@ class Epub2Html(object):
 			item = ET.Element("item", {"id":str(uuid.uuid1()), "href":path, "media-type":mime})   
 			
 			self.__contString = self.__contString.replace("</manifest>","%s\n</manifest>" % ET.tostring(item)) #HACK!
-		        self.__manifest.append(item) # TODO can't serialize senisbly
+		        self.__manifest.append(item) # TODO can't serialize sensisbly using ElementTree
 
 
 		
@@ -99,7 +99,7 @@ class Epub2Html(object):
 		self.__mimeTypes[".js"] = "application/javascript"
 		(filePart,ext) = os.path.splitext(filename)
 		if outputFilename == None:
-			outputFilename = "%s-html.%s" % (filePart, ext)
+			outputFilename = "%s-html%s" % (filePart, ext)
 		if outputFilename != filename:
 			shutil.copyfile(filename, outputFilename)
 
