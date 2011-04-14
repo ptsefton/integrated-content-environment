@@ -1,4 +1,4 @@
-//Modified by Peter Sefton to remove namespaces from XML file, and to overwrite existing TOC
+2	//Modified by Peter Sefton to remove namespaces from XML file, and to overwrite existing TOC
 
 var page_stack = new Array();
 var oebps_dir = '';
@@ -212,7 +212,7 @@ function removeNs(f) {
 }
 
 /* Open the TOC, get the first item and open it */
-function toc(f) { alert(removeNs(f));
+function toc(f) { 
    $('#toc').empty() 
    $(removeNs(f)).find('navPoint').each(function() {
             var s = $('<span/>').text($(this).find('text:first').text());

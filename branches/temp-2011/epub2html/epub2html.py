@@ -20,6 +20,7 @@ import shutil
 import os
 import uuid
 import sys
+import urllib 
 
 class Toc(object):
         def __init__(self, tocFile, contentDir):
@@ -35,9 +36,12 @@ class Toc(object):
 				self.__html += "<ol>"
                         for nav in navNodes:
 			    link = nav.find("./{http://www.daisy.org/z3986/2005/ncx/}content").get("src")
+	 	            link = "./" + urllib.pathname2url(link)
+                            print link
 			    #Make path relative to dir where content.opf is
 			    link = os.path.relpath(os.path.join(contentDir, link))
 			    text = nav.find("./{http://www.daisy.org/z3986/2005/ncx/}navLabel/{http://www.daisy.org/z3986/2005/ncx/}text").text
+			    text = text.encode("utf-8")
 			    self.__html += "<li><a href='%s' target='content-frame'>%s</a>" % (link, text)
 			    tocEntry = dict();
 			    tocEntry["visible"] = True
