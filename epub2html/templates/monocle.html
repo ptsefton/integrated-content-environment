@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>%(title)s</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   
+    <script type="text/javascript" src="Monocle/src/monocle.js"></script> 
+    <script type="text/javascript" src="Monocle/src/controls/spinner.js"></script> 
+    <script type="text/javascript" src="Monocle/src/controls/placesaver.js"></script> 
+    <script type="text/javascript" src="Monocle/src/controls/contents.js"></script> 
+    <script type="text/javascript" src="Monocle/src/controls/magnifier.js"></script> 
+    <script type="text/javascript" src="Monocle/src/controls/scrubber.js"></script> 
+    <script type="text/javascript" src="Monocle/src/book.js"></script> 
+ 
+    <link rel="stylesheet" type="text/css" href="http://monocle.inventivelabs.com.au/static/styles/oldbook.css" /> 
+ 
+    <style type="text/css"> 
+      .cover {
+  text-transform: uppercase;
+  text-align: center;
+}
+.cover h1 {
+  letter-spacing: 0.2em;
+  font-size: 2em;
+  margin-bottom: 2em;
+}
+.cover h2 {
+  font-size: 1em;
+  margin-bottom: 3em;
+}
+.cover h2 span {
+  font-size: 0.8em;
+  display: block;
+  font-weight: normal;
+}
+.cover h3 {
+  font-weight: normal;
+  font-size: 2em;
+}
+.cover p {
+  text-transform: none;
+  font-size: 11px;
+}
+    </style> 
+ 
+    <script type="text/javascript"> 
+      // An AJAX-based bookdata object
+      var bookData = {
+        getComponents: function () {
+          return %(spine-data)s;
+        },
+        getContents: function () {
+          return %(contents-data)s;
+        },
+        getComponent: function (componentId) {
+          return this.getViaAjax(componentId);
+        },
+        getMetaData: function(key) {
+          return {
+            title: "%(title)s",
+            creator: "%(author)s"
+          }[key];
+        },
+        getViaAjax: function (path) {
+          var ajReq = new XMLHttpRequest();
+          ajReq.open("GET", path, false);
+          ajReq.send(null);
+          return ajReq.responseText;
+        }
+      }
+ 
+     
+
+ // Initialize the reader element.
+  Monocle.addListener(
+    window,
+    'load',
+    function () {
+      /* Initialize the reader */
+      window.reader = Monocle.Reader('reader', bookData);
+
+      /* Because the 'reader' element changes size on window resize,
+       * we should notify it of this event. */
+      Monocle.addListener(
+        window,
+        'resize',
+        function () { window.reader.resized() }
+      );
+
+
+      /* SPINNER */
+      var spinner = Monocle.Controls.Spinner(window.reader);
+      window.reader.addControl(spinner, 'page', { hidden: true });
+      spinner.listenForUsualDelays();
+
+
+      /* PLACE SAVER */
+      var placeSaver = new Monocle.Controls.PlaceSaver(reader);
+      reader.addControl(placeSaver, 'invisible');
+      var lastPlace = placeSaver.savedPlace();
+      if (lastPlace) {
+        placeSaver.restorePlace();
+      }
+
+
+      /* MAGNIFIER CONTROL */
+      var magnifier = new Monocle.Controls.Magnifier(reader);
+      reader.addControl(magnifier, 'page');
+
+
+      /* BOOK TITLE RUNNING HEAD */
+      var bookTitle = {}
+      bookTitle.contentsMenu = Monocle.Controls.Contents(reader);
+      reader.addControl(bookTitle.contentsMenu, 'popover', { hidden: true });
+      bookTitle.createControlElements = function () {
+        var cntr = document.createElement('div');
+        cntr.className = "bookTitle";
+        var runner = document.createElement('div');
+        runner.className = "runner";
+        runner.innerHTML = reader.getBook().getMetaData('title');
+        cntr.appendChild(runner);
+
+        Monocle.addListener(
+          cntr,
+          typeof Touch == "object" ? "touchstart" : "mousedown",
+          function (evt) {
+            if (evt.preventDefault) {
+              evt.stopPropagation();
+              evt.preventDefault();
+            } else {
+              evt.returnValue = false;
+            }
+            reader.showControl(bookTitle.contentsMenu);
+          }
+        );
+
+        //Monocle.addListener(cntr, evtType, createToC, false);
+        return cntr;
+      }
+      reader.addControl(bookTitle, 'page');
+
+
+      /* CHAPTER TITLE RUNNING HEAD */
+      var chapterTitle = {
+        runners: [],
+        createControlElements: function (page) {
+          var cntr = document.createElement('div');
+          cntr.className = "chapterTitle";
+          var runner = document.createElement('div');
+          runner.className = "runner";
+          cntr.appendChild(runner);
+          this.runners.push(runner);
+          this.update(page);
+          return cntr;
+        },
+        update: function (page) {
+          var place = reader.getPlace(page);
+          this.runners[page.pageIndex].innerHTML = place.chapterTitle();
+        }
+      }
+      reader.addControl(chapterTitle, 'page');
+      reader.addListener(
+        'monocle:pagechange',
+        function (evt) { chapterTitle.update(evt.monocleData.page); }
+      );
+
+
+      /* PAGE NUMBER RUNNING HEAD */
+      var pageNumber = {
+        runners: [],
+        createControlElements: function (page) {
+          var cntr = document.createElement('div');
+          cntr.className = "pageNumber";
+          var runner = document.createElement('div');
+          runner.className = "runner";
+          cntr.appendChild(runner);
+          this.runners.push(runner);
+          this.update(page);
+          return cntr;
+        },
+        update: function (page) {
+          var place = reader.getPlace(page);
+          this.runners[page.pageIndex].innerHTML = place.pageNumber();
+        }
+      }
+      reader.addControl(pageNumber, 'page');
+      reader.addListener(
+        'monocle:pagechange',
+        function (evt) { pageNumber.update(evt.monocleData.page) }
+      );
+
+
+      /* Scrubber */
+      var scrubber = new Monocle.Controls.Scrubber(reader);
+      reader.addControl(scrubber, 'page', { hidden: true });
+      var showFn = function (evt) {
+        evt.stopPropagation();
+        reader.showControl(scrubber);
+        scrubber.updateNeedles();
+      }
+      var eType = (typeof(Touch) == "object" ? "touchstart" : "mousedown");
+      for (var i = 0; i < chapterTitle.runners.length; ++i) {
+        Monocle.addListener(chapterTitle.runners[i].parentNode, eType, showFn);
+        Monocle.addListener(pageNumber.runners[i].parentNode, eType, showFn);
+      }
+      var hideScrubber = function (evt) {
+        evt.stopPropagation();
+        reader.hideControl(scrubber);
+      }
+      reader.addListener('monocle:contact:start', hideScrubber);
+    }
+  );
+})();
+    </script> 
+
+  </head>
+  <body>
+ 
+
+   <div id="readerBg"> 
+      <div class="board"></div>
+      <div class="jacket"></div> 
+      <div class="dummyPage"></div> 
+      <div class="dummyPage"></div> 
+      <div class="dummyPage"></div> 
+      <div class="dummyPage"></div> 
+      <div class="dummyPage"></div> 
+
+    </div> 
+     <div id="readerCntr"> 
+      <div id="reader"></div> 
+    </div> 
+   <p>Read this in <a href="index.html">plain HTML</a></p>
+  
+  </body>
+</html>  
