@@ -151,6 +151,8 @@ class OOoConverter(object):
         toc = self.__getOptionValue(options, "toc")
         if toc:  
             pageToc = convertedData.getMeta("toc")
+	    if pageToc == "<ul/>":
+		toc = pageToc=""
         else:
             pageToc = ""
             

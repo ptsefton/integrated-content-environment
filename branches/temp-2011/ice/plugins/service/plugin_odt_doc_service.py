@@ -21,6 +21,7 @@
 import re
 import zipfile
 from time import gmtime, strftime
+import time
 import subprocess
 
 
@@ -72,6 +73,10 @@ class OdtDocService(object):
     <div class="ins body"></div>
   </body>
 </html>"""
+    xhtmlDeclaration = """
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+"""
     
     exts = [".odt", ".doc", ".docx", ".rtf"]
     
@@ -88,14 +93,16 @@ class OdtDocService(object):
         # Note: 'templateString' is deprecated but still in use by Moodle
         url = options.get("url")
         template = options.get("template", options.get("templateString", None))
+	
         if template == None or template == "":
             # make sure there is a default template
             # TODO check if template was uploaded
             template = self.defaultTemplate
+	    
             options.update({"template": template})
-
+        
         #print "template='%s'" % template
-        if options.has_key("includetitle"):
+        if not options.has_key("includetitle"):
             options.update({"includetitle": False})
         if not options.has_key("toc"):
             options.update({"toc": False})
@@ -135,9 +142,10 @@ class OdtDocService(object):
         else:
             raise self.iceContext.IceException(status)
 
-
+	
         
-        return tmpFs.readFile(contentFile), mimeType
+		
+        return  tmpFs.readFile(contentFile), mimeType
     
     def options(self):
         tmpl = self.iceContext.HtmlTemplate(templateFile = "plugins/service/odt-doc-service.tmpl")
@@ -197,6 +205,7 @@ class OdtDocService(object):
     def __createPackage(self, fs, filename, meta):
         zip = self.__options.get("zip", False)
 	epub = self.__options.get("epub", False)
+	
         mets = self.__options.get("mets", False)
         mods = self.__options.get("mods", mets)    # MODS always created with METS
         dc = self.__options.get("dc", False)
@@ -255,7 +264,7 @@ class OdtDocService(object):
 #                mimeType = self.iceContext.MimeTypes[".xml"]
       	
 	if epub:
-		print "Running calibre"
+		
 		_, name, _ = fs.splitPathFileExt(filename)
 		htmlFile = "%s.htm" % fs.absPath(name)
 		epubFile = "%s.epub" % fs.absPath(name)
@@ -268,7 +277,15 @@ class OdtDocService(object):
 		for author in meta.get("authors", []):
            		authorName = author.get("name", "") #TODO will have probs if there is an ampersand here
 			authors.append(authorName)
-		
+
+		hf = open(htmlFile,"r")
+		htmlString = hf.read()
+		hf.close
+		htmlString = htmlString.replace("<html>", self.xhtmlDeclaration)
+		hf = open(htmlFile,"w")
+		hf.write(htmlString)
+		hf.close()
+                print "Running calibre"
 		command = """ebook-convert "%s" "%s"  --chapter "//*[name()='h1']"  --level1-toc "//*[name()='h1']" --level2-toc "//*[name()='h2']" --title "%s" --authors "%s" --publisher "%s" --pubdate "%s" """\
 			 % (htmlFile, epubFile, title, "&".join(authors), publisher, date) 
 		print command

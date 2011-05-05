@@ -81,7 +81,7 @@ class footnoteState(stateObject):
         if self.__citation is not None:
             self.currentElement.addChild(self.__citation.data)
             self.__a.addChild(self.__citation.data)
-        span = element("span")
+        span = element("div")
         span.setAttribute("class", "footnote-defined")
         #div.addChild(self.__a)
         if self.__body is not None:
@@ -156,8 +156,8 @@ class endnoteState(stateObject):
         if self.__citation is not None:
             self.currentElement.addChild(self.__citation.data)
             self.__a.addChild(self.__citation.data)
-        span = element("span")
-        span.setAttribute("class", "endnote")
+        span = element("div") #Ends up containing p so cannot be span
+        span.setAttribute("class", "endnote-defined")
         #div.addChild(self.__a)
         if self.__body is not None:
             #print "has body", len(self.__body.currentElement.items)
