@@ -72,7 +72,7 @@ class headingState(stateObject):
         id = self.getID()
         self.__id = id
         a.setAttribute("id", id)
-        a.setAttribute("name", id)
+        #a.setAttribute("name", id)
         a.addChild(comment(id))
         h.addChild(a)
         if style.type=="number":
@@ -875,7 +875,7 @@ class imageState(stateObject):
                 nameNoSpace = splitPathFileExt(nameNoSpace)[1] + splitPathFileExt(nameNoSpace)[2]
             nameNoSpace = nameNoSpace.replace(" ", "_");
             nameNoSpace = nameNoSpace.replace("/", ":");
-            a.setAttribute("name", nameNoSpace)
+            #a.setAttribute("name", nameNoSpace)
             a.addChild(comment(" "))
             #try to add a new line after each image in case image and text are in same paragraph.
             #lineBR = element("br")
@@ -975,7 +975,8 @@ class bookmarkState(stateObject):
             name = attrs["text:name"]
             a = element("a")
             self.stateElement = a
-            a.setAttribute("name", name)
+            #a.setAttribute("name", name)
+	    a.setAttribute("id", name)
             a.addChild(comment(name))
 
     def closingState(self):

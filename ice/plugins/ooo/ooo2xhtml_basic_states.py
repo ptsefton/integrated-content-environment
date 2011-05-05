@@ -88,8 +88,8 @@ class titleState(stateObject):
         a = element("a")
         id = self.getID()
         self.__id = id
-        a.setAttribute("id", id)
-        a.setAttribute("name", id)
+        a.setAttribute("id", id) 
+        #a.setAttribute("name", id) #Deprecated, and confuses HTML tidy to have both id and name
         a.addChild(comment(id))
         p.addChild(a)
 
