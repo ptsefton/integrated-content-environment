@@ -1,0 +1,154 @@
+<div class="book-section">
+## Cheetah Template
+    <div class="app-section-title" style='color:darkblue;font-size:100%;padding-top:0.5em;padding-bottom:0.8em'>
+      <span style='font-weight:bold;'>Title: </span><span id='bookTitle' style='cursor:pointer;'>$title</span>
+      <span class='command edit' title='Edit'><img src="skin/edit.png"></img></span>
+    </div>
+    <div>
+    
+       #if $needsBuilding
+             <span class="renderBook command">Rebuild &amp; render book</span>
+             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+       #else
+         #if $needsRendering
+             <span class="renderBook command">Render book</span>
+             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         #else
+             #if $renderAsHtml
+               <a href="$htmlLink" title="View the HTML rendition of this book">View HTML book</a>
+               &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+             #end if
+             <a href="$pdfLink" title="View the PDF rendition of this book" target="_blank">View PDF book</a>
+             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+         #end if
+       #end if
+       #if $isServer
+         <span class="editBook command" 
+            title="Download for editing" id="$bookFileName">Download $bookFileName</span>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+       #else
+         <span class="editBook command" 
+            title="Open for editing in default wordprocessor" id="$bookFileName">Open $bookFileName</span>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+       #end if
+         &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+        <span class="rebuildBook command" title="Force a rebuild of the book">Rebuild book</span>
+        &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+        <button class="okFinishBut" type="button"
+            title="Return to file view">Close</button>
+    </div>
+
+    <input id="pdfOnly" name="radioButton" class="pdfOnly" value="pdfOnly" type="radio"
+        #if $pdfOnly then "checked='checked'" else ""#><!-- --></input>
+    <label for="pdfOnly"> Render as PDF only </label>
+    <input id="renderAsHtml" name="radioButton" class="renderAsHtml" value="renderAsHtml" type="radio"
+        #if $renderAsHtml then "checked='checked'" else ""#><!-- --></input>
+    <label for="renderAsHtml"> Render as HTML and PDF </label>
+    <input id="pageRef" name="radioButton" class="pageRef" value="pageRef" type="radio"
+        #if $pageRef then "checked='checked'" else ""#><!-- --></input>
+    <label for="pageRef"> Render as PDF with page references </label>
+    <div style="border:#cccccc solid 1px;margin-top:0.5em;">
+        <table class='sortable' id='docsTable'>
+          <thead>
+            <tr>
+              <td>&#160;</td>
+              <td>&#160;&#160;<span><span class="app-label">Documents</span></span></td>
+              #if not $isServer
+              <td>&#160;<span><span class="app-lable">Edit</span></span>&#160;</td>
+              #end if
+              <td>&#160;&#160;<span><span class="app-label">Page options</span></span></td>
+              <td>&#160;&#160;<span><span class="app-label">Page orientations</span></span></td>
+              <td>&#160;</td>
+            </tr>
+          </thead>
+          <tbody>
+           $docsDisplay($docs)
+          </tbody>
+        </table>
+    </div>
+    <span style="color:red;padding-left:1em;"><span class="message">$message<!-- --></span></span>
+</div>
+##
+##
+#######################################
+######## Display Documents ############
+#######################################
+#def docsDisplay($docs)
+  #for doc in $docs
+    $docRowDisplay($doc)
+  #end for
+        <tr>
+            <td colspan="6">
+                <div class="dropAdd" id="dropAdd_9999" style="background-color:#eeeeee;">&#160;</div>
+            </td>
+        </tr>
+#end def
+##
+#######################################
+######### Display a Document ##########
+#######################################
+#def docRowDisplay($doc)
+        <tr>
+            <td colspan="6">
+                <div class="dropBefore" id="dropBefore_$doc.count"
+                     style="background-color:#eeeeee;">&#160;</div>
+            </td>
+        </tr>
+        <tr id='id#_$doc.count'>
+          <td>
+##            &#160;&#160;<input id="num$doc.count" name="num$doc.count" size="3" value="$doc.count" type="text"><!-- --></input>
+                <span style="color:gray;">$doc.count</span>
+          </td>
+          <td>
+            <div class="draggable" style="cursor:default;" id="docId_$doc.count">
+                <img style="vertical-align:middle;" src="/skin/File.gif"><!-- --></img>
+                   <span title="$doc.name">$doc.title</span>
+            </div>
+          </td>
+          #if not $isServer
+          <td>
+              <span class="editDoc" id="edit_$doc.count">
+                <img style="border:none;" src="/skin/edit.png"><!-- --></img>
+              </span>
+          </td>
+          #end if
+          <td>
+            &#160;&#160;
+            <select class="pageBreakType" id="pageBreakType#$doc.count" name="pageBreakType#$doc.count">
+              <option value="" #if doc.pageBreakType=="" then "selected='selected'" else ""#>No page break</option>
+              <option value="PageBreak" #if doc.pageBreakType=="PageBreak" then "selected='selected'" else ""#>Page break before</option>
+              <option value="Odd" #if doc.pageBreakType=="Odd" then "selected='selected'" else ""#>Start on an odd page #</option>
+              <option value="Even" #if doc.pageBreakType=="Even" then "selected='selected'" else ""#>Start on an even page #</option>
+            </select>
+          </td>
+          <td>
+            &#160;&#160;
+            <select class="pageOrientation" id="pageOrientation#$doc.count" name="pageOrientation#$doc.count">
+              <option value=""  #if doc.pageOrientation=="" then "selected='selected'" else ""#>As in Document</option>
+              <option value="Standard" #if doc.pageOrientation=="Standard" then "selected='selected'" else ""# >Portrait</option>
+              <option value="Landscape" #if doc.pageOrientation=="Landscape" then "selected='selected'" else ""#>Landscape</option>
+            </select>
+          </td>
+          <td>
+            &#160;&#160;
+            <span class="removeFile command" id="remove#$doc.count">Remove</span>
+          </td>
+          <td>
+        	#if doc.missing
+        		&#160;&#160;<span><span class="app-label">Missing!</span></span>
+        	#else
+        		&#160;&#160;
+        	#end if
+          </td>
+        </tr>
+#end def
+##
+##
+## End of main HTML section
+##
+##
+##
+##
+##
+##
+##

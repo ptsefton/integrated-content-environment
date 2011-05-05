@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition"
+  xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+  xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+  xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+  xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+  xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+  xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+  xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+  xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+  xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+  xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+  xmlns:math="http://www.w3.org/1998/Math/MathML"
+  xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+  xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+  xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer"
+  xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events"
+  xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <utfx:stylesheet src="ooo2xhtml.xsl"/>
+  <utfx:test>
+    <utfx:name>P Styles</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="p"/>
+        <text:p text:style-name="p">Left align</text:p>
+        <text:p text:style-name="p-center">Center</text:p>
+        <text:p text:style-name="p-right">Right</text:p>
+        <text:p text:style-name="p-latex">LaTex</text:p>
+        <text:p text:style-name="p-nowrap">nowrap</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p/>
+        <p>Left align</p>
+        <p class="center">Center</p>
+        <p class="right">Right</p>
+        <p class="latex">LaTex</p>
+        <p class="nowrap" style="white-space: nowrap;">nowrap</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+
+  <utfx:test>
+    <utfx:name>Three paras</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <div>
+          <text:p text:style-name="p">Heading coming:</text:p>
+          <text:p text:style-name="p">Heading 1</text:p>
+          <text:p text:style-name="p">Heading gone</text:p>
+        </div>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>Heading coming:</p>
+        <p>Heading 1</p>
+        <p>Heading gone</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <utfx:test>
+    <utfx:name>Headings</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <div>
+          <text:p text:style-name="p">Heading coming:</text:p>
+          <text:p text:style-name="h1">Heading 1</text:p>
+          <text:p text:style-name="p">Heading gone</text:p>
+        </div>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>Heading coming:</p>
+        <h1><a name="test"><!--test--></a>Heading 1</h1>
+        <p>Heading gone</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <utfx:test>
+    <utfx:name>Simple Blockquote</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <div>
+          <text:p text:style-name="bq1">Aenean tristique. Nullam at sem et mauris scelerisque tempor.</text:p>
+        </div>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <blockquote class="bq">
+          <p>Aenean tristique. Nullam at sem et mauris scelerisque tempor.</p>
+        </blockquote>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <utfx:test>
+    <utfx:name>Simple Blockquote with source</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <div>
+          <text:p text:style-name="bq1">Aenean tristique. Nullam at sem et mauris scelerisque tempor.</text:p>
+          <text:p text:style-name="bq1source">Blockquote source</text:p>
+        </div>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <blockquote class="bq">
+          <p>Aenean tristique. Nullam at sem et mauris scelerisque tempor.</p>
+        </blockquote>
+        <blockquote class="bqs">
+          <p>Blockquote source</p>
+        </blockquote>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Multiple Paragraph Blockquote with source</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <div>
+          <text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+          <text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+          <text:p text:style-name="bq1source">Blockquote source</text:p>
+        </div>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <blockquote class="bq">
+          <p>Sed a quam non urna hendrerit nonummy.</p>
+          <p>Sed a quam non urna hendrerit nonummy.</p>
+        </blockquote>
+        <blockquote class="bqs">
+          <p>Blockquote source</p>
+        </blockquote>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Multiple Paragraph Blockquote with Centered text</utfx:name>
+    <!-- Added as something strange was happening when centered text was b/w blockquotes -->
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <div>
+          <text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+          <text:p text:style-name="p-center">Sed a quam non urna hendrerit nonummy.</text:p>
+          <text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+          <text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+          <text:p text:style-name="bq1source">Blockquote source</text:p>
+        </div>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <blockquote class="bq">
+          <p>Sed a quam non urna hendrerit nonummy.</p>
+        </blockquote>
+        <p class="center">Sed a quam non urna hendrerit nonummy.</p>
+        <blockquote class="bq">
+          <p>Sed a quam non urna hendrerit nonummy.</p>
+          <p>Sed a quam non urna hendrerit nonummy.</p>
+        </blockquote>
+        <blockquote class="bqs">
+          <p>Blockquote source</p>
+        </blockquote>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Preformat with a tab</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="p">Here is some code</text:p>
+        <text:p text:style-name="pre1">pre 1 </text:p>
+        <text:p text:style-name="pre1"><text:tab/>Curabitur pharetra laoreet augue.</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>Here is some code</p>
+        <pre>pre 1 
+&#160;&#160;&#160;&#160;Curabitur pharetra laoreet augue.</pre>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <utfx:test>
+    <utfx:name>Simple preformat - known issue 2004-09-22</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <div>
+          <text:p text:style-name="p">Here's some code:</text:p>
+          <text:p text:style-name="pre1">Blah blah blah code 1</text:p>
+          <text:p text:style-name="pre1">Blah blah blah code 2</text:p>
+          <!-- <text:p text:style-name="bq2">Block quote level 2</text:p> -->
+          <text:p text:style-name="bq1">Block quote level 1</text:p>
+        </div>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>Here's some code:</p>
+        <pre>
+Blah blah blah code 1
+Blah blah blah code 2
+        </pre>
+        <blockquote class="bq">
+          <p>Block quote level 1</p>
+        </blockquote>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <utfx:test>
+    <utfx:name>para P1 then headings then para</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="p">Module 1 Instructional Design and Flexible Learning</text:p>
+        <text:h text:style-name="h1n" text:level="1">Sub-heading</text:h>
+        <text:h text:style-name="h1n" text:level="1">Sub-heading Two</text:h>
+        <text:p text:style-name="p">paragraph</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>Module 1 Instructional Design and Flexible Learning</p>
+        <h1><a name="test"><!--test--></a>1 Sub-heading</h1>
+        <h1><a name="test"><!--test--></a>2 Sub-heading Two</h1>
+        <p>paragraph</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>headings then paras</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:h text:style-name="h1n" text:level="1">Sub-heading</text:h>
+        <text:p text:style-name="p">Module 1 Instructional Design and Flexible Learning</text:p>
+        <text:p text:style-name="p">paragraph</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <h1><a name="test"><!--test--></a>1 Sub-heading</h1>
+        <p>Module 1 Instructional Design and Flexible Learning</p>
+        <p>paragraph</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>heading then para</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:h text:style-name="h1n" text:level="1">Sub-heading</text:h>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <h1><a name="test"><!--test--></a>1 Sub-heading</h1>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Inline Styles</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-i">Italics</text:span>
+        </text:p>
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-b">Bold</text:span>
+        </text:p>
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-bi">Bold/Italics</text:span>
+        </text:p>
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-code">Code</text:span>
+        </text:p>
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-sub">Subscript</text:span>
+        </text:p>
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-sup">Superscript</text:span>
+        </text:p>
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-latex">LaTex</text:span>
+        </text:p>
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-underline">Underline</text:span>
+        </text:p>
+        <text:p text:style-name="p">
+          <text:span text:style-name="i-double-underline">Double Underline</text:span>
+        </text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>
+          <i>Italics</i>
+        </p>
+        <p>
+          <b>Bold</b>
+        </p>
+        <p>
+          <b><i>Bold/Italics</i></b>
+        </p>
+        <p>
+          <code>Code</code>
+        </p>
+        <p>
+          <sub>Subscript</sub>
+        </p>
+        <p>
+          <sup>Superscript</sup>
+        </p>
+        <p>
+          <span class="latex">LaTex</span>
+        </p>
+        <p>
+          <span class="underline" style="text-decoration: underline;"><span>Underline</span></span>
+        </p>
+        <p>
+          <span class="double-underline" style="border-bottom: 1px solid; text-decoration: underline; padding-bottom: .2em;"><span>Double Underline</span></span>
+        </p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <!--  Commented out as this is not scheduled to be fixed until version 2 see ticket #3271 -->
+  <!--
+  <utfx:test>
+    <utfx:name>Preformatted text with line breaks (soft returns)</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="pre1">&lt;ol class=&quot;li-lower-roman&quot;&gt;<text:line-break/>
+          <text:s text:c="3"/>&lt;li&gt;<text:line-break/>
+          <text:s text:c="7"/>&lt;p&gt;list level 1&lt;/p&gt;<text:line-break/>
+          <text:s text:c="3"/>&lt;/li&gt;<text:line-break/>&lt;/ol&gt;</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <pre>&lt;ol class="li-lower-roman"&gt;
+          &#160;&#160;&#160;&#160;&lt;li&gt;
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;p&gt;list level 1&lt;/p&gt;
+          &#160;&#160;&#160;&#160;&lt;/li&gt;
+          &lt;/ol&gt;
+        </pre>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Preformatted text with breaks (hard returns)</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="pre1">&lt;ol
+          class=&quot;li-lower-roman&quot;&gt;</text:p>
+        <text:p text:style-name="pre1"><text:s text:c="4"/>&lt;li&gt;</text:p>
+        <text:p text:style-name="pre1"><text:s text:c="8"/>&lt;p&gt;list level
+          1&lt;/p&gt;</text:p>
+        <text:p text:style-name="pre1"><text:s text:c="4"/>&lt;/li&gt;</text:p>
+        <text:p text:style-name="pre1">&lt;/ol&gt;</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <pre>&lt;ol class="li-lower-roman"&gt;</pre>
+        <pre>&#160;&#160;&#160;&lt;li&gt;</pre>
+        <pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;p&gt;list level 1&lt;/p&gt;</pre>
+        <pre>&#160;&#160;&#160;&lt;/li&gt;</pre>
+        <pre>&lt;/ol&gt;</pre>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  -->
+  <utfx:test>
+    <utfx:name>OOo footnotes</utfx:name>
+    <utfx:call-template name="root-test"/>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <office:document-content>
+          <office:body>
+            <office:text>
+              <text:p text:style-name="p">Aliquam erat volutpat. Morbi eget sapien ac elit imperdiet egestas.
+              <text:note text:id="ftn0" text:note-class="footnote">
+                  <text:note-citation>1</text:note-citation>
+                  <text:note-body>
+                    <text:p text:style-name="Footnote">This is a footnote</text:p>
+                  </text:note-body>
+                </text:note></text:p>
+              <text:p text:style-name="p">Aliquam erat volutpat. Morbi eget sapien ac elit imperdiet</text:p>
+            </office:text>
+          </office:body>
+        </office:document-content>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <html>
+          <head>
+            <title>Untitled</title>
+            <style type="text/css">table {border-spacing: 0;empty-cells: show;}</style>
+          </head>
+          <body>
+            <p>Aliquam erat volutpat. Morbi eget sapien ac elit imperdiet egestas.<a href="#ftn0"
+                name="ftn0-text">
+                <span style="vertical-align: super;">
+                  <span class="footnote">1</span>
+                </span>
+              </a>
+            </p>
+            <p>Aliquam erat volutpat. Morbi eget sapien ac elit imperdiet</p>
+            <hr/>
+            <div style="font-size: .9em;">
+              <div class="footnote">
+                <a href="#ftn0-text" name="ftn0">1</a> This is a footnote <br/>
+              </div>
+            </div>
+          </body>
+        </html>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <utfx:test>
+    <utfx:name>OOo endnotes</utfx:name>
+    <utfx:call-template name="root-test"/>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <office:document-content>
+          <office:body>
+            <office:text>
+              <text:p text:style-name="p">Proin gravida gravida dui. Maecenas augue. <text:note
+                  text:id="ftn1" text:note-class="footnote">
+                  <text:note-citation>1</text:note-citation>
+                  <text:note-body>
+                    <text:p text:style-name="Footnote">Paragraph 1 this is a <text:span text:style-name="i-b">footnote</text:span></text:p>
+                  </text:note-body>
+                </text:note></text:p>
+              <text:p text:style-name="P2">Lorem ipsum dolor sit amet <text:note text:id="ftn3"
+                  text:note-class="endnote">
+                  <text:note-citation text:label="d">d</text:note-citation>
+                  <text:note-body>
+                    <text:p text:style-name="Endnote">Endnote d (first)</text:p>
+                  </text:note-body>
+                </text:note></text:p>
+            </office:text>
+          </office:body>
+        </office:document-content>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <html>
+          <head>
+            <title>Untitled</title>
+            <style type="text/css">table {border-spacing: 0;empty-cells: show;}</style>
+          </head>
+          <body>
+            <p>Proin gravida gravida dui. Maecenas augue.<a href="#ftn1" name="ftn1-text">
+                <span style="vertical-align: super;">
+                  <span class="footnote">1</span>
+                </span>
+              </a></p>
+            <p>Lorem ipsum dolor sit amet<a href="#ftn3" name="ftn3-text">
+                <span style="vertical-align: super;">
+                  <span class="endnote">d</span>
+                </span>
+              </a></p>
+            <hr/>
+            <div style="font-size: .9em;">
+              <div class="footnote"><a href="#ftn1-text" name="ftn1">1</a>Paragraph 1 this is a <b>footnote</b><br/></div>
+            </div>
+            <hr/>
+            <div style="font-size: .9em;">
+              <div class="endnote"><a href="#ftn3-text" name="ftn3">d</a>Endnote d (first)<br/></div>
+            </div>
+          </body>
+        </html>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+</utfx:tests>

@@ -1,0 +1,427 @@
+Attribute VB_Name = "StyleTestCommon"
+#Const MSWD = True
+#Const OOO = Not MSWD
+
+Dim errMsg As String
+
+Sub printResult(message As String)
+    Dim oSelection As Object
+    Dim oCursor As Object
+
+    #If OOO Then
+        oSelection = ThisComponent.getCurrentSelection().getByIndex(0)
+        
+        If oSelection.GetText().compareRegionStarts(oSelection.getEnd(), oSelection) >= 0 Then
+            oCursor = oSelection.GetText().createTextCursorByRange(oSelection.getStart())
+        Else
+            oCursor = oSelection.GetText().createTextCursorByRange(oSelection.getEnd())
+        End If
+    
+        ThisComponent.getText().insertControlCharacter(oCursor,  com.sun.star.text.ControlCharacter.PARAGRAPH_BREAK, False)
+        oCursor.setString (message)
+    #Else
+        Selection.Range.InsertParagraph
+        If Not fnHasStyle("p") Then
+            subCreateMissingStyle ("p")
+        End If
+        Selection.Range.style = "p"
+        Selection.Range.Text = message
+        Selection.Range.Font.Color = wdColorRed
+        Exit Sub
+    #End If
+End Sub
+
+Sub subSetErrMsg(value As String)
+    errMsg = value
+End Sub
+
+Function fnGetErrMsg() As String
+    fnGetErrMsg = errMsg
+End Function
+
+
+Sub setMessage(style As String, result As Boolean)
+    If result Then
+        message = style + " Style  is OK."
+    Else
+        message = style + " style has wrong property values or does not exist. "
+    End If
+    Selection.Range.InsertParagraphAfter
+    printResult (message)
+End Sub
+
+Function fnGetTestCases(sBtnName As String) As Variant
+
+    Rem List of Test Cases
+    Rem param : sBtnName - Button Name
+    Rem return testArray Array of test cases
+    Rem testArray = Array of testCase(ButtonName,sStyle,sPrevStyle,sResultStyle)
+    Rem word does not like long array thus each is limited to 10 test cases.
+    
+    Dim testArray() As Variant
+    
+    Select Case LCase(sBtnName)
+        
+        Case "demotebutton"
+                ReDim testArray(0 To 36)
+                Rem test 29 won't work if we just test with subTests().
+                Rem this is controlled by eventDemoteButton rather than fnDemotebutton
+                testArray(0) = Array("DemoteButton : 1", "li1b", Array("p"), "li1b")
+                testArray(1) = Array("DemoteButton : 2", "li1b", Array("h1"), "li1b")
+                testArray(2) = Array("DemoteButton : 3", "li1b", Array("li1b"), "li2b")
+                testArray(3) = Array("DemoteButton : 4", "li1n", Array("li1n"), "li2i")
+                testArray(4) = Array("DemoteButton : 5", "li2b", Array("li3b"), "li3b")
+                testArray(5) = Array("DemoteButton : 6", "p", Array("li3b"), "li3p")
+                testArray(6) = Array("DemoteButton : 7", "p", Array("bq2"), "bq2")
+                testArray(7) = Array("DemoteButton : 8", "p", Array("dt1"), "dd1")
+                testArray(8) = Array("DemoteButton : 9", "p", Array("h1"), "p-indent")
+                testArray(9) = Array("DemoteButton : 10", "p", Array("p"), "p-indent")
+                testArray(10) = Array("DemoteButton : 11", "bq1", Array("bq1"), "bq2")
+                testArray(11) = Array("DemoteButton : 12", "bq1", Array("h1"), "bq1")
+                testArray(12) = Array("DemoteButton : 13", "pre1", Array(""), "pre1")
+                testArray(13) = Array("DemoteButton : 14", "pre1", Array("pre1"), "pre2")
+                testArray(14) = Array("DemoteButton : 15", "pre1", Array("li1b"), "pre2")
+                testArray(15) = Array("DemoteButton : 16", "pre2", Array("li1b"), "pre2")
+                testArray(16) = Array("DemoteButton : 17", "li5b", Array("li5b"), "li5b")
+                testArray(17) = Array("DemoteButton : 18", "h1", Array("p"), "h1")
+                testArray(18) = Array("DemoteButton : 19", "h1n", Array("p"), "h1n")
+                testArray(19) = Array("DemoteButton : 20", "h2", Array("p", "p"), "h2")
+                testArray(20) = Array("DemoteButton : 21", "h5n", Array("p"), "h5n")
+                testArray(21) = Array("DemoteButton : 22", "h1", Array("h1"), "h2")
+                testArray(22) = Array("DemoteButton : 23", "h2", Array("h1"), "h2")
+                testArray(23) = Array("DemoteButton : 24", "h3", Array("h5"), "h4")
+                testArray(24) = Array("DemoteButton : 25", "h5", Array("h5"), "h5")
+                testArray(25) = Array("DemoteButton : 26", "Title", Array("p"), "h1")
+                testArray(26) = Array("DemoteButton : 27", "p-center", Array("p-right"), "p-center")
+                testArray(27) = Array("DemoteButton : 28", "p-indent", Array("p-center"), "p-indent")
+                testArray(28) = Array("DemoteButton : 29", "p-right", Array("p"), "p-right")
+                testArray(29) = Array("DemoteButton : 30", "p-right", Array("li1b"), "li1p")
+                testArray(30) = Array("DemoteButton : 31", "p-right", Array("dt1"), "dd1")
+                testArray(31) = Array("DemoteButton : 32", "p-right", Array("dd1"), "dd1")
+                testArray(32) = Array("DemoteButton : 33", "p-indent", Array(""), "p-indent")
+                testArray(33) = Array("DemoteButton : 34", "p-right", Array("bq1"), "bq1")
+                testArray(34) = Array("DemoteButton : 35", "p-center", Array("bq1", "bq1source"), "p-center")
+                testArray(35) = Array("DemoteButton : 36", "p", Array("li1n", "pre2"), "pre2")
+                testArray(36) = Array("DemoteButton : 37", "p-right", Array("p-right"), "p-right")
+                
+        Case "promotebutton"
+                ReDim testArray(0 To 23)
+                testArray(0) = Array("PromoteButton : 1", "li1b", Array("p"), "p")
+                testArray(1) = Array("PromoteButton : 2", "li1b", Array("h1"), "p")
+                testArray(2) = Array("PromoteButton : 3", "li2b", Array("li2b"), "li1b")
+                testArray(3) = Array("PromoteButton : 4", "li2b", Array("li3b"), "li1b")
+                testArray(4) = Array("PromoteButton : 5", "li3p", Array("li1b", "li2i", "li3b"), "li2p")
+                testArray(5) = Array("PromoteButton : 6", "bq2", Array("bq2"), "bq1")
+                testArray(6) = Array("PromoteButton : 7", "dd1", Array("p"), "p")
+                testArray(7) = Array("PromoteButton : 8", "bq1", Array("p"), "p")
+                testArray(8) = Array("PromoteButton : 9", "bq2", Array("bq1"), "bq1")
+                testArray(9) = Array("PromoteButton : 10", "bq1", Array("h1"), "p")
+                testArray(10) = Array("PromoteButton : 11", "bq2", Array("h1"), "bq1")
+                testArray(11) = Array("PromoteButton : 12", "pre1", Array("pre1"), "p")
+                testArray(12) = Array("PromoteButton : 13", "pre2", Array("li1b"), "pre1")
+                testArray(13) = Array("PromoteButton : 14", "pre2", Array("li1b"), "pre1")
+                testArray(14) = Array("PromoteButton : 15", "li1b", Array("li1b"), "p")
+                testArray(15) = Array("PromoteButton : 16", "h1", Array("p"), "Title")
+                testArray(16) = Array("PromoteButton : 17", "h1n", Array(""), "Title-chapter")
+                testArray(17) = Array("PromoteButton : 18", "h2", Array("p"), "h1")
+                testArray(18) = Array("PromoteButton : 19", "h5n", Array("p"), "h4n")
+                testArray(19) = Array("PromoteButton : 20", "h2", Array("h1"), "h1")
+                testArray(20) = Array("PromoteButton : 21", "h4", Array("li1b"), "h3")
+                testArray(21) = Array("PromoteButton : 22", "h3", Array("h5"), "h2")
+                testArray(22) = Array("PromoteButton : 23", "h2", Array("h1"), "h1")
+                testArray(23) = Array("PromoteButton : 24", "h1", Array("h1"), "Title")
+
+        Case "titlebutton"
+            ReDim testArray(0 To 5)
+            testArray(0) = Array("TitleButton : 1", "Title", Array("Title"), "p")
+            testArray(1) = Array("TitleButton : 2", "Title", Array("p"), "p")
+            testArray(2) = Array("TitleButton : 3", "p", Array("p"), "Title")
+            testArray(3) = Array("TitleButton : 4", "li1n", Array("Title"), "Title-chapter")
+            testArray(4) = Array("TitleButton : 5", "p", Array("Title"), "Title")
+            testArray(5) = Array("TitleButton : 6", "p", Array("Title-chapter"), "Title-chapter")
+                            
+        Case "headingbutton"
+            ReDim testArray(0 To 21)
+            testArray(0) = Array("HeadingButton : 1", "p", Array("p"), "h1")
+            testArray(1) = Array("HeadingButton : 2", "h1", Array("h1"), "p")
+            testArray(2) = Array("HeadingButton : 3", "h1", Array("h2"), "p")
+            testArray(3) = Array("HeadingButton : 4", "h1", Array("p"), "p")
+            testArray(4) = Array("HeadingButton : 5", "h2", Array("h1"), "p")
+            testArray(5) = Array("HeadingButton : 6", "h2", Array("h2"), "p")
+            testArray(6) = Array("HeadingButton : 7", "h2", Array("p"), "p")
+            testArray(7) = Array("HeadingButton : 8", "h1n", Array("h1n"), "p")
+            testArray(8) = Array("HeadingButton : 9", "h1n", Array("h2n"), "p")
+            testArray(9) = Array("HeadingButton : 10", "h1n", Array("p"), "p")
+            testArray(10) = Array("HeadingButton : 11", "h2n", Array("h1n"), "p")
+            testArray(11) = Array("HeadingButton : 12", "h2n", Array("h2n"), "p")
+            testArray(12) = Array("HeadingButton : 13", "h2n", Array("p"), "p")
+            testArray(13) = Array("HeadingButton : 14", "li1n", Array("h1"), "h1n")
+            testArray(14) = Array("HeadingButton : 15", "li2n", Array("h2n"), "h2n")
+            testArray(15) = Array("HeadingButton : 16", "li2i", Array("h2n"), "h2n")
+            testArray(16) = Array("HeadingButton : 17", "p", Array("h1"), "h1")
+            testArray(17) = Array("HeadingButton : 18", "p", Array("h2"), "h2")
+            testArray(18) = Array("HeadingButton : 19", "p", Array("h1n"), "h1n")
+            testArray(19) = Array("HeadingButton : 20", "p", Array("h2n"), "h2n")
+            testArray(20) = Array("HeadingButton : 21", "li2a", Array("h2"), "h2")
+            testArray(21) = Array("HeadingButton : 22", "li2i", Array(""), "h1")
+                        
+        Case "leftalignedbutton"
+            ReDim testArray(0 To 1)
+            testArray(0) = Array("LeftAlignedButton : 1", "p-center", Array(""), "p")
+            testArray(1) = Array("LeftAlignedButton : 2", "bq1", Array(""), "p")
+            
+        Case "indentbutton"
+            ReDim testArray(0 To 2)
+            testArray(0) = Array("IndentButton : 1", "p", Array(""), "p-indent")
+            testArray(1) = Array("IndentButton : 2", "bq1", Array(""), "p-indent")
+            testArray(2) = Array("IndentButton : 3", "p-indent", Array(""), "p")
+                        
+        Case "centeralignedbutton"
+            ReDim testArray(0 To 2)
+            testArray(0) = Array("CenterAlignedButton : 1", "p", Array(""), "p-center")
+            testArray(1) = Array("CenterAlignedButton : 2", "bq1", Array(""), "p-center")
+            testArray(2) = Array("CenterAlignedButton : 3", "p-center", Array(""), "p")
+            
+        Case "rightalignedbutton"
+            ReDim testArray(0 To 2)
+            testArray(0) = Array("RightAlignedButton : 1", "p", Array(""), "p-right")
+            testArray(1) = Array("RightAlignedButton : 2", "li3b", Array(""), "p-right")
+            testArray(2) = Array("RightAlignedButton : 3", "p-right", Array(""), "p")
+            
+        Case "blockqoutebutton"
+            ReDim testArray(0 To 40)
+            testArray(0) = Array("BlockQuoteButton : 1", "p", Array(""), "bq1")
+            testArray(1) = Array("BlockQuoteButton : 2", "h1", Array(""), "bq1")
+            testArray(2) = Array("BlockQuoteButton : 3", "h2", Array(""), "bq1")
+            testArray(3) = Array("BlockQuoteButton : 4", "h1n", Array(""), "bq1")
+            testArray(4) = Array("BlockQuoteButton : 5", "h2n", Array(""), "bq1")
+            testArray(5) = Array("BlockQuoteButton : 6", "pre1", Array(""), "bq1")
+            testArray(6) = Array("BlockQuoteButton : 7", "pre2", Array("bq1"), "bq1")
+            testArray(7) = Array("BlockQuoteButton : 8", "pre2", Array("p"), "bq1")
+            testArray(8) = Array("BlockQuoteButton : 9", "pre2", Array("li1b"), "bq2")
+            testArray(9) = Array("BlockQuoteButton : 10", "dd2", Array("dt1"), "bq2")
+            testArray(10) = Array("BlockQuoteButton : 11", "li1b", Array("li1b"), "bq2")
+            testArray(11) = Array("BlockQuoteButton : 12", "li2b", Array("li2b"), "bq3")
+            testArray(12) = Array("BlockQuoteButton : 13", "li1p", Array("li1p"), "bq2")
+            testArray(13) = Array("BlockQuoteButton : 14", "li2p", Array("li2p"), "bq3")
+            testArray(14) = Array("BlockQuoteButton : 15", "bq2", Array("p"), "p")
+            testArray(15) = Array("BlockQuoteButton : 16", "bq2", Array("bq2"), "bq2source")
+            testArray(16) = Array("BlockQuoteButton : 17", "bq2source", Array("li1n"), "bq2")
+            testArray(17) = Array("BlockQuoteButton : 18", "bq1", Array("li1p"), "li1p")
+            testArray(18) = Array("BlockQuoteButton : 19", "bq3", Array("li2p"), "li2p")
+            testArray(19) = Array("BlockQuoteButton : 20", "bq2", Array("li1b"), "li1b")
+            testArray(20) = Array("BlockQuoteButton : 21", "bq3", Array("li2b"), "li2b")
+            testArray(21) = Array("BlockQuoteButton : 22", "bq1", Array("h1"), "p")
+            testArray(22) = Array("BlockQuoteButton : 23", "bq2", Array("h2"), "p")
+            testArray(23) = Array("BlockQuoteButton : 24", "bq1", Array("h1n"), "p")
+            testArray(24) = Array("BlockQuoteButton : 25", "bq1", Array("h2n"), "p")
+            testArray(25) = Array("BlockQuoteButton : 26", "bq1", Array("dd1"), "dd1")
+            testArray(26) = Array("BlockQuoteButton : 27", "bq1", Array("pre1"), "pre1")
+            testArray(27) = Array("BlockQuoteButton : 28", "bq2", Array("pre2"), "pre2")
+            testArray(28) = Array("BlockQuoteButton : 29", "bq1", Array("p"), "p")
+            testArray(29) = Array("BlockQuoteButton : 30", "bq1source", Array("li1p"), "bq2")
+            testArray(30) = Array("BlockQuoteButton : 31", "bq2source", Array("li2p"), "bq3")
+            testArray(31) = Array("BlockQuoteButton : 32", "bq1source", Array("li1b"), "bq2")
+            testArray(32) = Array("BlockQuoteButton : 33", "bq2source", Array("li2b"), "bq3")
+            testArray(33) = Array("BlockQuoteButton : 34", "bq1source", Array("h1"), "bq1")
+            testArray(34) = Array("BlockQuoteButton : 35", "bq2source", Array("h2"), "bq1")
+            testArray(35) = Array("BlockQuoteButton : 36", "bq1source", Array("h1n"), "bq1")
+            testArray(36) = Array("BlockQuoteButton : 37", "bq2source", Array("h2n"), "bq1")
+            testArray(37) = Array("BlockQuoteButton : 38", "bq1source", Array("dd1"), "bq2")
+            testArray(38) = Array("BlockQuoteButton : 39", "bq1source", Array("pre1"), "bq2")
+            testArray(39) = Array("BlockQuoteButton : 40", "bq2source", Array("pre2"), "bq3")
+            testArray(40) = Array("BlockQuoteButton : 41", "bq1source", Array("p"), "bq1")
+            
+        
+        Case "definitionbutton"
+            ReDim testArray(0 To 37)
+            testArray(0) = Array("DefinitionButton : 1", "p", Array("p"), "dt1")
+            testArray(1) = Array("DefinitionButton : 2", "p", Array("li1b"), "dt2")
+            testArray(2) = Array("DefinitionButton : 3", "h1", Array("h1"), "dt1")
+            testArray(3) = Array("DefinitionButton : 4", "h2", Array("h2"), "dt1")
+            testArray(4) = Array("DefinitionButton : 5", "h1n", Array("h1n"), "dt1")
+            testArray(5) = Array("DefinitionButton : 6", "h2n", Array("h2n"), "dt1")
+            testArray(6) = Array("DefinitionButton : 7", "li1b", Array("li1b"), "dt2")
+            testArray(7) = Array("DefinitionButton : 8", "bq1", Array("bq1"), "dt1")
+            testArray(8) = Array("DefinitionButton : 9", "bq1", Array("p"), "dt1")
+            testArray(9) = Array("DefinitionButton : 10", "p", Array("dt1"), "dd1")
+            testArray(10) = Array("DefinitionButton : 11", "bq2", Array("dt2"), "dd2")
+            testArray(11) = Array("DefinitionButton : 12", "li2b", Array("dt2"), "dd2")
+            testArray(12) = Array("DefinitionButton : 13", "p", Array("dd1"), "dt1")
+            testArray(13) = Array("DefinitionButton : 14", "li1p", Array("dd1"), "dt1")
+            testArray(14) = Array("DefinitionButton : 15", "bq2", Array("dd1"), "dt1")
+            testArray(15) = Array("DefinitionButton : 16", "bq2source", Array(""), "dt1")
+            testArray(16) = Array("DefinitionButton : 17", "bq2source", Array("li1b"), "dt2")
+            testArray(17) = Array("DefinitionButton : 18", "li2p", Array("li2b"), "dt3")
+            testArray(18) = Array("DefinitionButton : 19", "dt1", Array("pre1"), "pre1")
+            testArray(19) = Array("DefinitionButton : 20", "dd2", Array("pre3"), "dt2")
+            testArray(20) = Array("DefinitionButton : 21", "dd1", Array("h1"), "dt1")
+            testArray(21) = Array("DefinitionButton : 22", "dt2", Array("h2"), "dt1")
+            testArray(22) = Array("DefinitionButton : 23", "dd2", Array("h1n"), "dt1")
+            testArray(23) = Array("DefinitionButton : 24", "dt1", Array("h2n"), "p")
+            testArray(24) = Array("DefinitionButton : 25", "dd2", Array("li1b"), "dt2")
+            testArray(25) = Array("DefinitionButton : 26", "dt3", Array("li2b"), "li2b")
+            testArray(26) = Array("DefinitionButton : 27", "dd3", Array("li2p"), "dt3")
+            testArray(27) = Array("DefinitionButton : 28", "dt2", Array("li1p"), "li1p")
+            testArray(28) = Array("DefinitionButton : 29", "dd2", Array("bq1"), "dt1")
+            testArray(29) = Array("DefinitionButton : 30", "dd3", Array("bq2"), "dt2")
+            testArray(30) = Array("DefinitionButton : 31", "dd1", Array("p"), "dt1")
+            testArray(31) = Array("DefinitionButton : 32", "dd2", Array("li1n"), "dt2")
+            testArray(32) = Array("DefinitionButton : 33", "dt1", Array("li2a"), "li2a")
+            testArray(33) = Array("DefinitionButton : 34", "dt1", Array("dt1"), "dd1")
+            testArray(34) = Array("DefinitionButton : 35", "dd1", Array("dt1"), "dt2")
+            testArray(35) = Array("DefinitionButton : 36", "dt1", Array("dd1"), "dd1")
+            testArray(36) = Array("DefinitionButton : 37", "dd1", Array("dd1"), "dt1")
+            testArray(37) = Array("DefinitionButton : 34", "li1b", Array("li1b"), "dt2")
+            
+        Case "preformattedbutton"
+            ReDim testArray(0 To 27)
+            testArray(0) = Array("PreformattedButton : 1", "h1", Array("h1"), "pre1")
+            testArray(1) = Array("PreformattedButton : 2", "h2", Array("h2"), "pre1")
+            testArray(2) = Array("PreformattedButton : 3", "h1n", Array("h1n"), "pre1")
+            testArray(3) = Array("PreformattedButton : 4", "h2n", Array("h2n"), "pre1")
+            testArray(4) = Array("PreformattedButton : 5", "li1b", Array("li1b"), "pre2")
+            testArray(5) = Array("PreformattedButton : 6", "li2b", Array("li2b"), "pre3")
+            testArray(6) = Array("PreformattedButton : 7", "li1p", Array("li1b"), "pre2")
+            testArray(7) = Array("PreformattedButton : 8", "li2p", Array("li2p"), "pre3")
+            testArray(8) = Array("PreformattedButton : 9", "bq1", Array("bq1"), "pre2")
+            testArray(9) = Array("PreformattedButton : 10", "bq1", Array("p"), "pre1")
+            testArray(10) = Array("PreformattedButton : 11", "bq2", Array("bq2"), "pre3")
+            testArray(11) = Array("PreformattedButton : 12", "bq2", Array("p"), "pre1")
+            testArray(12) = Array("PreformattedButton : 13", "p", Array("p"), "pre1")
+            testArray(13) = Array("PreformattedButton : 14", "p", Array("li1b"), "pre2")
+            testArray(14) = Array("PreformattedButton : 15", "pre1", Array("h1"), "p")
+            testArray(15) = Array("PreformattedButton : 16", "pre2", Array("h2"), "p")
+            testArray(16) = Array("PreformattedButton : 17", "pre1", Array("h1n"), "p")
+            testArray(17) = Array("PreformattedButton : 18", "pre2", Array("h2n"), "p")
+            testArray(18) = Array("PreformattedButton : 19", "pre2", Array("li1b"), "li1b")
+            testArray(19) = Array("PreformattedButton : 20", "pre3", Array("li2b"), "li2b")
+            testArray(20) = Array("PreformattedButton : 21", "pre2", Array("li1p"), "li1p")
+            testArray(21) = Array("PreformattedButton : 22", "pre3", Array("li2p"), "li2p")
+            testArray(22) = Array("PreformattedButton : 23", "pre2", Array("bq1"), "bq1")
+            testArray(23) = Array("PreformattedButton : 24", "pre3", Array("bq2"), "bq2")
+            testArray(24) = Array("PreformattedButton : 25", "pre1", Array("p"), "p")
+            testArray(25) = Array("PreformattedButton : 26", "pre2", Array("li1n"), "li1n")
+            testArray(26) = Array("PreformattedButton : 27", "pre1", Array("li2a"), "li2a")
+            testArray(27) = Array("PreformattedButton : 28", "pre2", Array("pre3"), "pre3")
+                            
+        Case "bulletbutton"
+            ReDim testArray(0 To 21)
+            testArray(0) = Array("BulletButton : 1", "p", Array("p"), "li1b")
+            testArray(1) = Array("BulletButton : 2", "p", Array("li1b"), "li1b")
+            testArray(2) = Array("BulletButton : 3", "p", Array("li2b"), "li2b")
+            testArray(3) = Array("BulletButton : 4", "li1b", Array("p"), "p")
+            testArray(4) = Array("BulletButton : 5", "li1b", Array("li1b"), "li1p")
+            testArray(5) = Array("BulletButton : 6", "li2b", Array("p"), "p")
+            testArray(6) = Array("BulletButton : 7", "li2b", Array("li2b"), "li2p")
+            testArray(7) = Array("BulletButton : 8", "p", Array("h2"), "li1b")
+            testArray(8) = Array("BulletButton : 9", "li1n", Array("li1n", "li2b"), "li2b")
+            testArray(9) = Array("BulletButton : 10", "li1b", Array("li1b", "li2b"), "li1p")
+            testArray(10) = Array("BulletButton : 11", "li2b", Array("li1b"), "li1p")
+            testArray(11) = Array("BulletButton : 12", "p", Array("li1n"), "li2b")
+            testArray(12) = Array("BulletButton : 13", "li2n", Array("li1n"), "li2b")
+            testArray(13) = Array("BulletButton : 14", "li3b", Array("li2b"), "li2p")
+            testArray(14) = Array("BulletButton : 15", "li1p", Array("li1b"), "li1b")
+            testArray(15) = Array("BulletButton : 16", "li1p", Array("li1p"), "li1b")
+            testArray(16) = Array("BulletButton : 17", "pre3", Array("li2i", "pre3"), "li1b")
+            testArray(17) = Array("BulletButton : 18", "pre3", Array("li2b", "pre3"), "li2b")
+            testArray(18) = Array("BulletButton : 19", "pre3", Array("dd2", "pre3"), "li1b")
+            testArray(19) = Array("BulletButton : 20", "pre1", Array("p-center", "pre1"), "li1b")
+            testArray(20) = Array("BulletButton : 21", "p", Array("li1i"), "li2b")
+            testArray(21) = Array("BulletButton : 22", "li1b", Array("h1"), "p")
+            
+                            
+        Case "numberisebutton"
+            ReDim testArray(0 To 28)
+            testArray(0) = Array("NumberiseButton : 1", "p", Array("p"), "li1n")
+            testArray(1) = Array("NumberiseButton : 2", "p", Array("li1n"), "li1n")
+            testArray(2) = Array("NumberiseButton : 3", "p", Array("li2n"), "li1n")
+            testArray(3) = Array("NumberiseButton : 4", "li1n", Array("p"), "p")
+            testArray(4) = Array("NumberiseButton : 5", "li1n", Array("li1n"), "li1p")
+            testArray(5) = Array("NumberiseButton : 6", "li2i", Array("p"), "p")
+            testArray(6) = Array("NumberiseButton : 7", "li2i", Array("p"), "p")
+            testArray(7) = Array("NumberiseButton : 8", "li2n", Array("li2n"), "li2p")
+            testArray(8) = Array("NumberiseButton : 9", "p", Array("h2"), "li1n")
+            testArray(9) = Array("NumberiseButton : 10", "li1n", Array("li2n"), "li2p")
+            testArray(10) = Array("NumberiseButton : 11", "li2i", Array("li1n"), "li1p")
+            testArray(11) = Array("NumberiseButton : 12", "p", Array("li1b"), "li2i")
+            testArray(12) = Array("NumberiseButton : 13", "li2b", Array("li1b"), "li2i")
+            testArray(13) = Array("NumberiseButton : 14", "li3a", Array("li2n"), "li2p")
+            testArray(14) = Array("NumberiseButton : 15", "li2p", Array("li2n"), "li2n")
+            testArray(15) = Array("NumberiseButton : 16", "li1p", Array("li1p"), "li1n")
+            testArray(16) = Array("NumberiseButton : 17", "pre3", Array("pre3"), "li3a")
+            testArray(17) = Array("NumberiseButton : 18", "p", Array("li1i"), "li1i")
+            testArray(18) = Array("NumberiseButton : 19", "li3b", Array("li1b", "li2a"), "li3a")
+            testArray(19) = Array("NumberiseButton : 20", "li2i", Array("li2i"), "li2p")
+            testArray(20) = Array("NumberiseButton : 21", "h2n", Array("h1n"), "h2")
+            testArray(21) = Array("NumberiseButton : 22", "h2", Array("h1"), "h2n")
+            testArray(22) = Array("NumberiseButton : 23", "Title-chapter", Array("Title-chapter"), "Title")
+            testArray(23) = Array("NumberiseButton : 24", "Title", Array("Title"), "Title-chapter")
+            testArray(24) = Array("NumberiseButton : 25", "li1p", Array("li1b", "li2i", "li1b"), "li2i")
+            testArray(25) = Array("NumberiseButton : 26", "li2i", Array("li1b", "li2i", "li1b"), "li1p")
+            testArray(26) = Array("NumberiseButton : 27", "p", Array("li1b", "h1"), "li1n")
+            testArray(27) = Array("NumberiseButton : 28", "li3b", Array("li1b", "li2i", "li3b"), "li4I")
+            testArray(28) = Array("NumberiseButton : 29", "p", Array("li1b", "p"), "li1n")
+                            
+        Case "fnneedsrestart"
+            ReDim testArray(0 To 7)
+            testArray(0) = Array("fnNeedsRestart : 1", "li2n", Array("li1n"), CStr(True))
+            testArray(1) = Array("fnNeedsRestart : 2", "li2a", Array("li1n"), CStr(True))
+            testArray(2) = Array("fnNeedsRestart : 3", "li3i", Array("li2a"), CStr(True))
+            testArray(3) = Array("fnNeedsRestart : 4", "li2i", Array("li2i"), CStr(False))
+            testArray(4) = Array("fnNeedsRestart : 5", "li1n", Array("li1n"), CStr(False))
+            testArray(5) = Array("fnNeedsRestart : 6", "li2b", Array("li1b"), CStr(False))
+            testArray(6) = Array("fnNeedsRestart : 7", "li1p", Array("li1p"), CStr(False))
+            testArray(7) = Array("fnNeedsRestart : 8", "bq1", Array("p"), CStr(False))
+                            
+        Case "fngetfamily"
+            ReDim testArray(0 To 11)
+            testArray(0) = Array("Family for bq1", "bq1", Array(""), "bq")
+            testArray(1) = Array("Family for pre2", "pre2", Array(""), "pre")
+            testArray(2) = Array("Family for non-ICE style", "Some other style", Array(""), "p")
+            testArray(3) = Array("Family for p", "p", Array(""), "p")
+            testArray(4) = Array("Family for li2b", "li2b", Array(""), "li")
+            testArray(5) = Array("Family for dd1", "dd1", Array(""), "dd")
+            testArray(6) = Array("Family for dt3", "dt3", Array(""), "dt")
+            testArray(7) = Array("Family for h1", "h1", Array(""), "h")
+            testArray(8) = Array("Family for h3", "h3", Array(""), "h")
+            testArray(9) = Array("Family for Title", "Title", Array(""), "Title")
+            testArray(10) = Array("Family for Title-chapter", "Title-chapter", Array(""), "Title")
+            testArray(11) = Array("Family for i-code", "i-code", Array(""), "i")
+                            
+        Case "fngetlevel"
+            ReDim testArray(0 To 7)
+            testArray(0) = Array("level for bq1", "bq1", Array(""), CStr(1))
+            testArray(1) = Array("level for pre2", "pre2", Array(""), CStr(2))
+            testArray(2) = Array("level for non-ICE style", "Some other style", Array(""), CStr(0))
+            testArray(3) = Array("level for p", "p", Array(""), CStr(0))
+            testArray(4) = Array("level for li2b", "li2b", Array(""), CStr(2))
+            testArray(5) = Array("level for dd1", "dd1", Array(""), CStr(1))
+            testArray(6) = Array("level for dt3", "dt3", Array(""), CStr(3))
+            testArray(7) = Array("level for h4", "h4", Array(""), CStr(4))
+                            
+        Case "fngettype"
+            ReDim testArray(0 To 9)
+            testArray(0) = Array("type for bq1", "bq1", Array(""), "")
+            testArray(1) = Array("type for pre2", "pre2", Array(""), "")
+            testArray(2) = Array("type for non-ICE style", "Some other style", Array(""), "")
+            testArray(3) = Array("type for p-center", "p-center", Array(""), "center")
+            testArray(4) = Array("type for p", "p", Array(""), "")
+            testArray(5) = Array("type for li2b", "li2b", Array(""), "b")
+            testArray(6) = Array("type for dd1", "dd1", Array(""), "")
+            testArray(7) = Array("type for dt3", "dt3", Array(""), "")
+            testArray(8) = Array("type for Title-chapter", "Title-chapter", Array(""), "chapter")
+            testArray(9) = Array("type for i-code", "i-code", Array(""), "code")
+                            
+        Case "fnmakestylename"
+            ReDim testArray(0 To 5)
+            testArray(0) = Array("Make style name: bq1", fnMakeStyleName("bq", 1, ""), Array(""), "bq1")
+            testArray(1) = Array("Make style name: p-center", fnMakeStyleName("p", 0, "center"), Array(""), "p-center")
+            testArray(2) = Array("Make style name: p-indent", fnMakeStyleName("p", 0, "indent"), Array(""), "p-indent")
+            testArray(3) = Array("Make style name: p", fnMakeStyleName("p", 0, ""), Array(""), "p")
+            testArray(4) = Array("Make style name: Title", fnMakeStyleName("Title", 0, ""), Array(""), "Title")
+            testArray(5) = Array("Make style name: Title-chapter", fnMakeStyleName("Title", 0, "chapter"), Array(""), "Title-chapter")
+    End Select
+    fnGetTestCases = testArray
+     
+End Function

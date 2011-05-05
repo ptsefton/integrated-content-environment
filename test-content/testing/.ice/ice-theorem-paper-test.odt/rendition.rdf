@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:ore="http://www.openarchives.org/ore/terms/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs1="http://www.w3.org/2001/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/slide/slideous.js">
+    <dc:format>application/x-javascript</dc:format>
+    <dc:title>[ICE.skin] slide/slideous.js</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tr.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tm.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/default.css">
+    <dc:format>text/css</dc:format>
+    <dc:title>[ICE.skin] default.css</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/mr.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/closebox.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/next.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] next.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.slide.htm">
+    <dc:format>text/html</dc:format>
+    <dc:title>Slideshow</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/br.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/br.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/m39dc5912_311x211.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_up.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] inactive_up.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/slideicon.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] slideicon.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.rdf">
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/ResourceMap"/>
+    <ore:describes rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.rdf#aggregation"/>
+    <dc:format></dc:format>
+    <dcterms:modified>2009-05-27T11:27:24</dcterms:modified>
+    <dcterms:created>2009-05-27T11:27:24</dcterms:created>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/ml.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/slide/slide.css">
+    <dc:format>text/css</dc:format>
+    <dc:title>[ICE.skin] slide/slide.css</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/ml.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/up.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] up.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.pdf">
+    <dc:format>application/pdf</dc:format>
+    <dc:title>ICE-Theorem - End to end semantically aware eResearch infrastructure for theses (PDF)</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tl.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/fancyzoom.js">
+    <dc:format>application/x-javascript</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/fancyzoom.js</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/pdf.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] pdf.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tr.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_next.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] inactive_next.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.htm?exportVersion=1">
+    <dc:format>text/html</dc:format>
+    <dc:title>ICE-Theorem - End to end semantically aware eResearch infrastructure for theses</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.dc">
+    <dc:format>text/xml</dc:format>
+    <dc:title>Dublin Core Metadata</dc:title>
+    <dcterms:conformsTo>http://www.openarchives.org/OAI/2.0/oai_dc/</dcterms:conformsTo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/br.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/br.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tl.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/previous.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] previous.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.rdf#aggregation">
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dc:format>application/rdf+xml</dc:format>
+    <dc:title>ICE-Theorem - End to end semantically aware eResearch infrastructure for theses</dc:title>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/slide/slideous.js"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/m49e18d81_484x268.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.slide.htm"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/br.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/magnifier.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/m39dc5912_311x211.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/slide/slide.css"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/7f96103a.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.pdf"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/default.css"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/fancyzoom.js"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/pdf.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.htm?exportVersion=1"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test.dc"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/br.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/m4a8b40fb_484x270.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/66552810_484x87.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/262c2e2b_484x351.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/33a2f848_484x299.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/jquery.js"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/75192453_484x289.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/med0b729_484x164.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/3dd37572_203x194.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/73164c30_381x206.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/slideicon.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_previous.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/m49e18d81_484x268.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/66552810_484x87.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/bm.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/262c2e2b_484x351.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/bm.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/bl.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/mr.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/33a2f848_484x299.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/jquery.js">
+    <dc:format>application/x-javascript</dc:format>
+    <dc:title>[ICE.skin] jquery.js</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/75192453_484x289.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tm.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/Aggregation">
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+    <rdfs1:label>Aggregation</rdfs1:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/m4a8b40fb_484x270.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/med0b729_484x164.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/3dd37572_203x194.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/7f96103a.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/ice-theorem-paper-test_files/73164c30_381x206.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:title>[image]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/bl.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/magnifier.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] magnifier.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/closebox.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/ResourceMap">
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+    <rdfs1:label>ResourceMap</rdfs1:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_previous.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] inactive_previous.gif</dc:title>
+  </rdf:Description>
+</rdf:RDF>

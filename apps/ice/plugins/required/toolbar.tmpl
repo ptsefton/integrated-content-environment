@@ -1,0 +1,363 @@
+<div> 
+## Cheetah Template 
+#encoding UTF-8 
+<script type="text/javascript">  jQ("body").hide();   </script>
+<form enctype="multipart/form-data" method="post" action="$path" name="formXT" id="formXT" style="display:none">
+  <input name="ispostback" value="1" type="hidden"/>
+     
+  <input name="func" value="file_manager" type="hidden"/>
+     
+  <input name="actType" id="actType" value="" type="hidden"/>
+    
+  <input name="actSubType" id="actSubType" value="" type="hidden"/>
+     
+  <input name="actData" id="actData" value="" type="hidden"/>
+     
+  <input name="postCount" value="0" type="hidden"/>
+ 
+</form>
+<div class='ice-toolbar' style='font-size: 11px;'>
+    <div>
+    <!-- new toolbar -->
+    <table style="width: 100%; padding:0px; margin: 0px;" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+          <!-- common content -->
+          <table width="100%" border="0" cellpadding="0" cellspacing="0" id="topMenu">
+            <tr>
+               <td>
+                <div class="ice-tab-common-content" >
+                  <div class="ice-tab-common-content-left">
+                    <span class="ice-fm-home"><a href="/"><img class="ice-img-button" src="/skin/home.png" alt="Home" width="16px" height="16px" title="Home" style="border: 0px;"/></a></span>
+                    <span class="ice-fm-refresh command ice-app-link" id="refreshThis"><img class="ice-img-button" src="/skin/refresh.png" alt="Refresh" width="16px" height="16px" title="Refresh the current page" style="border: 0px"/></span>
+            <script type="text/javascript">
+<!-- 
+var jQ = jQuery;
+jQ("#refreshThis").click(function(){
+	setCookie("scrollTopLoc",jQ(window).scrollTop());
+	location.reload();
+	jQ(window).scrollTop(readCookie("scrollTopLoc"));
+	deleteCookie("scrollTopLoc");
+});
+// -->
+</script>
+            #if $isPackage
+                #set x="this package content"
+            #else 
+                #set x="content"
+            #end if
+            <button #if $workingOffline then 'disabled="disabled"' else 'class="ice-fm-sync"'#
+                    title="Synchronize $x with the server and other users (Alt+S)">
+                <u>S</u>ynchronize #if $isPackage then 'package' else ''#
+            </button>
+            
+		    #set editThis = $getToolbarGroup("common", "editThis")
+	                #if $editThis
+                        #if $isServer
+                            
+			<form style="display:inline;" action="$itemIdPath" method="POST">
+                                <button #if $editThis.enabled and $itemPath then '' else 'disabled="disabled"' # type="submit" name="do" 
+                                    title="Download source for editting. (Alt+D)" accesskey="D"><u>D</u>ownload</button>
+                            </form>
+                        #else
+                            $editThis.asHtml($context)
+                        #end if
+                    #end if
+			## Access key 'V'
+			<form style="display:inline;" action="$path" method="POST"><button style="padding: 1px; margin:1px;" type="submit" name="fileview" title="Display the file manager (Alt+f)" accesskey="f"><u>F</u>ile view</button></form>
+	                #set editManifest = $getToolbarGroup("common", "editManifest")
+	                #if $editManifest
+                        $editManifest.asHtml($context)
+                    #end if
+                  </div>
+                  <div class="ice-tab-common-content-right">                    
+                    #set $fl=["editThis", "fileView", "sync", "editManifest"] 
+                    #for $i in $getToolbarGroup("common") 
+                      #if $i.name not in $fl then $i.asHtml($context) else ""# 
+                    #end for 
+##
+##                    <label for='workingOffline' style='color:black;font-size:smaller;'>work offline</label><input type='checkbox' name='workingOffline' id='workingOffline' checked='checked'><!-- --></input>
+##
+## Log in/out
+                    <form style='display:inline;' method='POST'>
+                    #if $loginLogout:
+                      #if $workingOffline and $loggedIn==False
+                        <button type='submit' name='login' title='Login' class='app-login'>Login: $username</button>
+                      #else
+                        <button type='submit' name='logout' title='Logout' class='app-logout'>Logout: $username</button>
+                      #end if
+                    #end if
+                    </form>
+                  </div>
+                </div>
+              </td>
+            
+            </tr>
+          </table>
+          <!-- start tabs -->
+          <div class="ice-tabs">
+           <table width="100%" border="0" cellpadding="0" cellspacing="0" id="new" class="ice-tab-table">
+            <tr>
+              <td>
+                <span title="Add new content" class="ice-tab ice-tab-default" id="ice-tab-add">Add</span> 
+                
+              </td>
+              <td class="ice-tab-spacer">&#160;</td>
+              <td>
+                <span title="Manage content files" class="ice-tab ice-tab-inactive ice-fm-fv" id="ice-tab-manage">Manage</span>
+               
+              </td>
+              <td class="ice-tab-spacer">&#160;</td>
+              <td>
+                <span
+                  title="Publish the content" class="ice-tab ice-tab-inactive" id="ice-tab-publish">Publish</span>
+               
+              </td>
+              <td class="ice-tab-spacer">&#160;</td>
+              <td>
+                <span title="Advanced options" class="ice-tab ice-tab-inactive" id="ice-tab-advanced">Advanced</span>
+                
+              </td>
+              <td class="ice-tab-whitespace" style="width:100%;text-align:right;"><span style='color:#000080;' class="hideShowAnnotations command">Hide comments</span> &#160;</td>
+            </tr>
+           </table>
+        ## 
+        ## Add ## 
+          <div id="ice-tab-add-content" class="ice-tab-content"> 
+            #for $i in $getToolbarGroup("add") 
+              $i.asHtml($context) 
+            #end for 
+            #set disabled = not $context.isFileView 
+            #set disabled = False
+            &#160;Type: 
+#if not $context.isFileView
+## Add a dummy xForm form
+
+ <form method="POST" action="$path" name="xForm" id="xForm" style="display:none;">
+  <input type="hidden" name="actType" value=""><!-- --></input>
+  <input type="hidden" name="actSubType" value=""><!-- --></input>
+  <input type="hidden" name="actData" value=""><!-- --></input>
+ </form>
+#end if
+              ## 
+              ##<!-- Comment required for XML validator
+              <select title="File Type" id="fileAdd" name="fileAdd" #if $disabled then "disabled='disabled'" else ""#>
+                <option value="folder">folder</option>
+                #for $n, $v in $Add.get("addTemplates",[])
+                  <option value="$v">$n</option>
+                #end for
+              </select>
+              ## -->
+            Name: <input type="text" id="addName" name="addName" size="32" title="File Name"><!-- --></input>
+            <button class="button" title="Submit" style="padding: 1px; margin:1px;" type="" 
+                onclick="javascript:xForm.actType.value='add'; xForm.actSubType.value=jQ('#fileAdd').val(); xForm.actData.value=jQ('#addName').val(); xForm.submit();"
+                >Submit</button>
+            &#160;&#160; <form enctype="multipart/form-data"
+              method="POST" action="$path" name="uploadForm" id="uploadForm"
+              style="display:inline;"> 
+              Upload file: <input type="hidden" name="ispostback" value="1"/>
+              <input type="hidden" name="func" value="file_manager"/>
+              <input type="hidden" name="actType" id="actType" value="upload"/>
+              <div class="uploadFiles" style="display:inline;">
+                <div class="uploadFile" style="display:inline;">
+                  <input title="Upload File Path" type="file" style="height: 21px;" class="multi" name="fileupload0" id="fileupload0"/>
+                </div> 
+                ## 
+                  &#160;<button class="button" style="padding: 1px; margin:1px;" type="Submit" title="Upload File">Submit</button>
+                  <a id="addAnotherFile" href="javascript:addAnotherFile();">Add another file</a>
+              </div>
+            </form>
+#if $enableTags
+	    #set tags = $getToolbarGroup("tag", "myTags")
+	    #if $tags
+            <div class='ice-tags'>
+              <div class='ice-taggedwith'>&#160;<span class='command'>Tagged with:</span>
+                #for $t in $tags.taggedWith
+                 #if $t in $tags.myTaggedWith
+                  <strong>$t</strong>
+                 #else
+                  <span>$t</span>
+                 #end if
+                #end for
+              </div>
+              <div class="ice-mytags"> 
+                <form style='display:inline;' method='POST' action='$uri'>
+                  <span style='padding-left:1ex;'>
+                    <input type='hidden' name='func' value='myTags'><!-- --></input>
+                    <input type='text' name='myTags' id='myTags' size='60' value='${" ".join(tags.myTaggedWith)}'><!-- --></input>
+                    <button class="button" type="Submit" name='submitMyTags' id='submitMyTags'>Update tags</button>
+                    <!-- <input type='submit' name='submitMyTags' id='submitMyTags' value='Update tags' title=''></input> -->
+                    <span class='mytags command'>MyTags:</span>
+                    #for $t in $tags.myTags
+                    <span class='mytag command'>$t</span>
+                    #end for
+                  </span>
+                </form>
+              </div>
+            </div>
+        #end if
+#end if
+          </div> 
+          ## 
+          ## Manage ## 
+          <div id="ice-tab-manage-content" class="ice-tab-content" style="padding-top: 5px;">
+            <input type="hidden" id="directory" value="$context.directory"><!-- --></input>
+            #if $context.isFileView 
+              #set d="" 
+            #else 
+              #set d="disabled='disabled'" 
+            #end if 
+            ## <!-- Comment required for validator
+          <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id='cutSelected' title="" $d>Cut</button>
+          <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id='copySelected' title="" $d>Copy</button>
+          #if $enablePaste
+            #set d2=""
+          #else
+            #set d2="disabled='disabled'" 
+          #end if
+           <button class="ice-fm-btn ice-fm-bAdd ice-fm-paste" id='paste' title="" $d2>Paste</button>
+          <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id='deleteSelected' title="" $d>Delete</button>
+          #if $loggedIn
+            <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id='updateSelected' title="Get changes to all selected items" $d>Update selected</button>
+          #else
+            #set d="disabled='disabled'"
+            <button class="ice-fm-btn ice-fm-bAdd" id='updateSelected' title="this option not available offline" $d>Update selected</button>
+          #end if
+            ##<button class="ice-fm-btn ice-fm-bAdd" id="testSelected" title="Test">Test selected</button>
+          ## -->
+            #for $i in $getToolbarGroup("manage") 
+              $i.asHtml($context) 
+            #end for 
+#if $enableTags
+            <div class='ice-tags'>
+              <div class='ice-taggedwith'>&#160;<span class='command'>Tagged with:</span>
+                #for $t in $tags.taggedWith
+                #if $t in $tags.myTaggedWith
+                <strong>$t</strong>
+                #else
+                <span>$t</span>
+                #end if
+                #end for
+              </div>
+              <div class="ice-mytags"> 
+                <form style='display:inline;' method='POST' action='$uri'>
+                  <span style='padding-left:1ex;'>
+                    <input type='hidden' name='func' value='myTags'><!-- --></input>                   
+                    <input type='text' name='myTags' id='myTags' size='60' value='${" ".join(tags.myTaggedWith)}'><!-- --></input>
+                    <button class="button" type="Submit" name='submitMyTags' id='submitMyTags'>Update tags</button>
+                    <!-- <input type='submit' name='submitMyTags' id='submitMyTags' value='Update tags' title=''></input>  -->
+                    <span class='mytags command'>MyTags:</span>
+                    #for $t in $tags.myTags
+                    <span class='mytag command'>$t</span>
+                    #end for
+                  </span>
+                </form>
+              </div>
+            </div>
+#end if
+          </div> 
+          ## 
+          ## Publish ## 
+            <div id="ice-tab-publish-content" class="ice-tab-content" style="padding-top: 4px;"> 
+            #for $i in $getToolbarGroup("publish") 
+              $i.asHtml($context) 
+            #end for 
+#if $enableTags
+            <div class='ice-tags'>
+              <div class='ice-taggedwith'>&#160;<span class='command'>Tagged with:</span>
+                #for $t in $tags.taggedWith
+                #if $t in $tags.myTaggedWith
+                <strong>$t</strong>
+                #else
+                <span>$t</span>
+                #end if
+                #end for
+              </div>
+              <div class="ice-mytags"> 
+                <form style='display:inline;' method='POST' action='$uri'>
+                  <span style='padding-left:1ex;'>
+                    <input type='hidden' name='func' value='myTags'></input>
+                    <input type='text' name='myTags' id='myTags' size='60' value='${" ".join(tags.myTaggedWith)}'></input>
+                    <button class="button" type="Submit" name='submitMyTags' id='submitMyTags'>Update tags</button>
+                    <!-- <input type='submit' name='submitMyTags' id='submitMyTags' value='Update tags' title=''></input> -->
+                    <span class='mytags command'>MyTags:</span>
+                    #for $t in $tags.myTags
+                    <span class='mytag command'>$t</span>
+                    #end for
+                  </span>
+                </form>
+              </div>
+            </div>
+#end if
+          </div> 
+          ## 
+          ## Advanced ## 
+          <!-- Advanced -->
+            <div id="ice-tab-advanced-content" class="ice-tab-content" style="padding-top: 6px;">
+          	#set $count = 0
+          	#for $i in $getToolbarGroup("advanced")
+          		 #set $count = $count + 1
+          	 	#if $count==12 
+          	 		<script type="text/javascript">  alert("Too Many Buttons to fix in the toolbar.");   </script>
+          	 	#end if
+ 			 	$i.asHtml($context)
+	          #end for
+    	
+    	   <!--br style="line-height: .6em"/><br style="line-height: .6em"/-->
+            
+            #if $context.isFileView 
+              #set d="" 
+            #else 
+              #set d="disabled='disabled'" 
+            #end if
+            ## <!-- Comments required for validator
+           <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id="reRenderSelected" title="Render all selected items" $d>Render selected</button>
+           <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id="forceReRenderSelected" title="Force re-render all selected items" $d>Force render selected</button>
+           #if $workingOffline
+            #set d2="disabled='disabled'"
+            <button class="ice-fm-btn ice-fm-bAdd" id="forceSyncSelected" title="Force sync all selected items" $d2>Force sync selected</button>
+           #else
+            <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id="forceSyncSelected" title="Force sync all selected items" $d>Force sync selected</button>
+           #end if
+          
+           <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id="revertSelected" title="" $d>Revert selected</button>
+           
+          <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id="convertSelectedToOOo" title="" $d>Convert selected to Writer</button>
+          <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id="convertSelectedToWord" title="" $d>Convert selected to Word</button>
+          
+          
+          <select id="changeTemplate" class="ice-fm-dropBox ice-fm-selected" name="changeTemplate" $d>
+          		<option value="">- None -</option>
+	            <option value="selected">- Selected -</option>
+	            #for $n, $v in $odtTemplates
+	            	#set selected=""
+	            	#if $v==$currentTemplate
+	            		#set selected="selected='selected'"
+	            	#end if
+	            	<option value="$v" $selected>$n</option>
+	            #end for
+          </select>
+          
+          <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id="repairSelected" title="" $d>Repair selected</button>
+          
+          <!--<button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" type="" title="" $d
+                  onclick="javascript:alert(jQ('#changeTemplate').val());xForm.actType.value='repairSelected'; xForm.actData.value=jQ('#changeTemplate').val(); xForm.submit()" >Repair selected</button>-->
+          <button class="ice-fm-btn ice-fm-bAdd ice-fm-selected" id="svnCleanup" title="" $d>SVN cleanup</button>
+          
+          
+          ## -->
+          </div>
+##
+        </div>
+    <!-- end new toolbar -->
+        </td>
+      </tr>
+    </table>
+    </div> 
+  </div>
+  #def includeStyle 
+    @import url("/skin/iceapp.css"); 
+  #end def 
+##
+  ##<div id="ice_toolbar_status" class="banner workingStatus $workingStatusUpdate" style="border-bottom:0px;color:green;"><!-- ajax status messages -->$workingStatus</div>
+</div>

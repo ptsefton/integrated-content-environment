@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Standard.P1 {font-size:9pt; text-align:start; }
+Header_20_left.P2 {font-weight:normal; }
+Header_20_right.P4 {margin-bottom:0cm; margin-top:0cm; }
+span.T3 {font-size:11pt; }</style></head><body><h1><a id="id1" name="id1"><!--id1--></a>Type of copyright</h1><p>If the Copyright isn't reproduced with permission and if we have the file for any SRMS, ICE outputs copyright code and checks the copyright code</p><p>If the Copyright IS reproduced without permission get the copyright notice.</p><h1><a id="id2" name="id2"><!--id2--></a>Check the copyright code.</h1><p>If there is something in the code field:</p><p>Copyright code is valid if we find "Commonwealth of Australia" or "WARNING"</p><p>If the code is "no copyright code" AND copyright notice doesn't have "Commonwealth of Australia" or "WARNING" treat it as Special</p><p>If the copyright code is <span class="spCh spChx201c">&#x201C;</span>RWP" and there is no copyright notice then an error is generated - "Reproduce with Permission copyright code found but do not copyright notice"</p><p>If the copyright code isn't "RWP" and there is no copyright notice, then an error is generated - "No copyright code but has a standard copyright notice"</p><p>If there's no code and no notice, an error is generated - "No copyright code and copyright notice"</p><p class="P1"/><p/></body></html>

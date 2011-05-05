@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<testData xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" office:version="1.0">
+    <!-- xmlns="http://www.w3.org/1999/xhtml" -->
+    
+    <tests>
+    <test name="Track changes: Deletion" normalize-white-spaces="true">
+<source><office:document-content><office:body><office:text>
+        <text:changed-region text:id="ct410650368">
+          <text:deletion>
+            <office:change-info>
+              <dc:creator>Authors Name</dc:creator>
+              <dc:date>2006-10-25T09:23:00</dc:date>
+            </office:change-info>
+            <text:p text:style-name="p">Lorem ipsum dolor sit amet, consectetuer</text:p>
+          </text:deletion>
+        </text:changed-region>
+      </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+        <div class="deletion" style="color: red; text-decoration: line-through;" title="Deletion: Authors Name 2006-10-25 09:23:00">
+          <div><p>Lorem ipsum dolor sit amet, consectetuer</p></div></div>
+      </body></expected>
+</test>
+<test name="Annotation" normalize-white-spaces="true">
+<source><office:document-content><office:body><office:text>
+          <office:annotation>
+            <dc:creator>Authors Name</dc:creator>
+            <dc:date>2006-10-25T01:00:00</dc:date>
+            <text:p>This is a comment</text:p>
+          </office:annotation>
+      </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+        <div class="annotation" style="color: black; border: 1px solid #C0C0C0; padding: 1px; margin: 1px; background: #F1F1F1; font-size: .9em;">
+          <div>
+            <span class="annotation-heading" style="font-weight: bold;">
+               <span>Annotation: Authors Name 2006-10-25 01:00:00</span>
+            </span>
+            <p>This is a comment</p></div></div>
+      </body></expected>
+</test>
+
+<test name="Slide" normalize-white-spaces="true">
+  <source>
+    <office:document-content>
+      <office:automatic-styles>
+        <style:style style:name="Table1" style:family="table">
+          <style:table-properties style:width="9.359cm" fo:margin-left="0.318cm" table:align="left" style:writing-mode="lr-tb"/>
+        </style:style>
+        <style:style style:name="Table1.A" style:family="table-column">
+          <style:table-column-properties style:column-width="9.359cm"/>
+        </style:style>
+        <style:style style:name="Table1.1" style:family="table-row">
+          <style:table-row-properties style:row-height="0.843cm" style:keep-together="false"/>
+        </style:style>
+        <style:style style:name="Table1.A1" style:family="table-cell">
+          <style:table-cell-properties style:vertical-align="top" fo:background-color="#374f5a" fo:padding="0cm" fo:border="none" style:writing-mode="lr-tb">
+            <style:background-image/>
+          </style:table-cell-properties>
+        </style:style>
+        <style:style style:name="Table1.2" style:family="table-row">
+          <style:table-row-properties style:min-row-height="0.238cm" style:keep-together="false"/>
+        </style:style>
+        <style:style style:name="Table1.A2" style:family="table-cell">
+          <style:table-cell-properties style:vertical-align="top" fo:background-color="#ffeebc" fo:padding="0cm" fo:border="none" style:writing-mode="lr-tb">
+            <style:background-image/>
+          </style:table-cell-properties>
+        </style:style>
+        <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Title" style:master-page-name="Standard"/>
+        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="h-slide">
+          <style:paragraph-properties style:snap-to-layout-grid="false"/>
+        </style:style>
+        <style:style style:name="P3" style:family="paragraph" style:parent-style-name="p">
+          <style:paragraph-properties fo:margin-left="0.199cm" fo:margin-right="0.101cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+        </style:style>
+      </office:automatic-styles>
+      <office:body>
+        <office:text>
+          <text:p text:style-name="P1"/>
+          <table:table table:name="Table1" table:style-name="Table1">
+            <table:table-column table:style-name="Table1.A"/>
+            <table:table-row table:style-name="Table1.1">
+              <table:table-cell table:style-name="Table1.A1" office:value-type="string">
+                <text:p text:style-name="P2">Slide</text:p>
+              </table:table-cell>
+            </table:table-row>
+            <table:table-row table:style-name="Table1.2">
+              <table:table-cell table:style-name="Table1.A2" office:value-type="string">
+                <text:list text:style-name="li1b">
+                  <text:list-item>
+                    <text:p text:style-name="li1b">One</text:p>
+                  </text:list-item>
+                  <text:list-item>
+                    <text:p text:style-name="li1b">Two</text:p>
+                  </text:list-item>
+                  <text:list-item>
+                    <text:p text:style-name="li1b">Three</text:p>
+                  </text:list-item>
+                </text:list>
+              </table:table-cell>
+            </table:table-row>
+          </table:table>
+          <text:p text:style-name="P3"/>
+        </office:text>
+      </office:body>
+    </office:document-content>
+  </source>
+  <expected match="/html:html/html:body"><body>
+      <div class="slide">
+        <h1>Slide</h1>
+        <ul class="lib">
+          <li>
+            <p>One</p>
+          </li>
+          <li>
+            <p>Two</p>
+          </li>
+          <li>
+            <p>Three</p>
+          </li>
+        </ul>
+      </div>
+      <p class="P3"/>
+  </body></expected>
+</test>
+
+<test name="Do not render Table-Of-Contents" normalize-white-spaces="true">
+  <source>
+    <office:document-content>
+      <office:automatic-styles>
+      </office:automatic-styles>
+      <office:body>
+        <office:text>
+	  <text:p text:style-name="P5">Paragraph</text:p>
+
+	  <text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Table of Contents1">
+	    <text:table-of-content-source text:outline-level="10">
+		<text:index-title-template text:style-name="Contents_20_Heading">Table of Contents</text:index-title-template>
+		  	<text:table-of-content-entry-template text:outline-level="1" text:style-name="Contents_20_1">
+		  	<text:index-entry-chapter/>
+		  	<text:index-entry-text/>
+		  	<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+		  	<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="2" text:style-name="Contents_20_2">
+		  	<text:index-entry-chapter/>
+		  	<text:index-entry-text/>
+		  	<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+		  	<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="3" text:style-name="Contents_20_3">
+		  	<text:index-entry-chapter/>
+		  	<text:index-entry-text/>
+		  	<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+		  	<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="4" text:style-name="Contents_20_4">
+			<text:index-entry-chapter/>
+			<text:index-entry-text/>
+			<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+			<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="5" text:style-name="Contents_20_5">
+			<text:index-entry-chapter/>
+			<text:index-entry-text/>
+			<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+			<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="6" text:style-name="Contents_20_6">
+			<text:index-entry-chapter/>
+			<text:index-entry-text/>
+			<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+			<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="7" text:style-name="Contents_20_7">
+			<text:index-entry-chapter/>
+			<text:index-entry-text/>
+			<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+			<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="8" text:style-name="Contents_20_8">
+			<text:index-entry-chapter/>
+			<text:index-entry-text/>
+			<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+			<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="9" text:style-name="Contents_20_9">
+			<text:index-entry-chapter/>
+			<text:index-entry-text/>
+			<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+			<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+		<text:table-of-content-entry-template text:outline-level="10" text:style-name="Contents_20_10">
+			<text:index-entry-chapter/>
+			<text:index-entry-text/>
+			<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+			<text:index-entry-page-number/>
+		</text:table-of-content-entry-template>
+	    </text:table-of-content-source>
+	    <text:index-body>
+		<text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
+			<text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
+		</text:index-title>
+	    </text:index-body>
+	  </text:table-of-content>
+	  <text:p text:style-name="p">The End.</text:p>
+        </office:text>
+      </office:body>
+    </office:document-content>
+  </source>
+  <expected match="/html:html/html:body">
+    <body>
+	<p>Paragraph</p>
+	<p>The End.</p>
+    </body>
+  </expected>
+</test>
+
+<test name="Caption" normalize-white-spaces="true">
+	<source>	
+		<office:document-content>
+			<office:automatic-styles>
+				<style:style style:name="P5" style:family="paragraph" style:parent-style-name="Caption" style:master-page-name="Standard"/>
+				<style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
+					<style:paragraph-properties fo:margin-left="0.6cm" fo:margin-right="0cm" fo:margin-top="0.212cm" fo:margin-bottom="0.212cm" fo:text-indent="0cm" style:auto-text-indent="false" text:number-lines="false" text:line-number="0" style:writing-mode="lr-tb"/>
+					<style:text-properties fo:font-size="10pt" fo:font-style="italic" fo:font-weight="bold" style:font-size-asian="10pt" style:font-style-asian="italic" style:font-name-complex="Tahoma2" style:font-size-complex="10pt" style:font-style-complex="italic"/>
+				</style:style>
+			</office:automatic-styles>
+			<office:body>
+				<office:text>
+					<text:p text:style-name="Caption">
+						<draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="paragraph" svg:width="9.763cm" svg:height="9.208cm" draw:z-index="0">
+							<draw:image xlink:href="Pictures/10000000000001710000015C294B33DE.gif" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+						</draw:frame>
+						This is a test caption for the picture above.
+					</text:p>
+					<text:p text:style-name="P4"/>
+					<text:p text:style-name="P5">
+						<draw:frame draw:style-name="fr2" draw:name="graphics2" text:anchor-type="paragraph" svg:width="13.591cm" svg:height="11.7cm" draw:z-index="1">
+							<draw:image xlink:href="Pictures/1000000000000241000001F11C277EA3.gif" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+						</draw:frame>
+						Another test caption for a picture that has been resized to 89%.
+					</text:p>
+				</office:text>
+			</office:body>
+		</office:document-content>
+	</source>
+	<expected match="/html:html/html:body">	
+		<body>
+				<p class="Standard.Caption" style="font-size:10pt; font-style:italic; font-weight:bold; margin-bottom:0.212cm; margin-left:0.6cm; margin-right:0cm; margin-top:0.212cm; text-indent:0cm; ">
+					<span style="display: block">
+						<a name='graphics1'><!-- --></a><img alt="graphics1" class="fr1" height="348" src="Pictures/10000000000001710000015C294B33DE.gif" style="border:0px; vertical-align: top" width="369"/>
+					</span>
+					This is a test caption for the picture above.
+				</p>
+			<p/>
+				<p class="Standard.Caption" style="font-size:10pt; font-style:italic; font-weight:bold; margin-bottom:0.212cm; margin-left:0.6cm; margin-right:0cm; margin-top:0.212cm; text-indent:0cm; ">
+					<span style="display: block">
+						<a name='graphics2'><!-- --></a><img alt="graphics2" class="fr2" height="442" src="Pictures/1000000000000241000001F11C277EA3.gif" style="border:0px; vertical-align: top" width="514"/>
+					</span>
+					Another test caption for a picture that has been resized to 89%.
+				</p>
+      	</body>
+	</expected>
+</test>
+
+<test name="Caption3" normalize-white-spaces="true">
+	<source>	
+		<office:document-content>
+			<office:automatic-styles>
+				<style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Standard" style:class="extra">
+					<style:text-properties fo:font-size="10pt" fo:font-weight="bold" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+				</style:style>
+			</office:automatic-styles>
+			<office:body>
+				<office:text>
+					<text:p text:style-name="P1">
+						<draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="8.202cm" svg:height="9.499cm" draw:z-index="0">
+							<draw:image xlink:href="Pictures/10000000000001360000016790E3B444.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+						</draw:frame>
+					</text:p>
+					<text:p text:style-name="Caption">
+						Figure 
+						<text:sequence text:ref-name="refFigure0" text:name="Figure" text:formula="ooow:Figure+1" style:num-format="1">1</text:sequence>
+					</text:p>
+				</office:text>
+			</office:body>
+		</office:document-content>
+	</source>
+	<expected match="/html:html/html:body">	
+		<body>
+			<p>
+				<a name="graphics1"><!-- --></a>
+				<img alt="graphics1" class="fr1" height="359" src="Pictures/10000000000001360000016790E3B444.png" style="border:0px; vertical-align: top" width="310"/>
+			</p>
+				<p class="Standard.Caption" style="font-size:10pt; font-weight:bold; ">
+					 Figure 1 
+				</p>
+		</body>
+	</expected>
+</test>
+
+
+</tests>
+</testData>

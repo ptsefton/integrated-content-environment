@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+span.P2 {text-align:center; }
+span.P3 {font-size:18pt; text-align:center; }
+span.T1 {font-weight:bold; }
+span.gr2 {padding-bottom:0.125cm; padding-left:0.25cm; padding-right:0.25cm; padding-top:0.125cm; wrap-option:wrap; }</style></head><body><p class="P1"><p/>Benzene 1-(4-acetylphenyl)-4-piperidinecarboxylic acid</p><p>is a compound and H 2 O 1 is another.</p><p/><p><a name=""/><img alt="" class="gr2" height="147" src="Benzene2_files/m6b75fe4.gif" style="border:0px; vertical-align: top" width="212"/><p/></p><p/><p>This is <b>compound 1</b> in the current document 1-(4-acetylphenyl)-1H-pyrrole-2,5-dione xxx melting point    xxx</p><p/><p/></body></html>

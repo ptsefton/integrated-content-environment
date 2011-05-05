@@ -1,0 +1,2142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Toolbar" script:language="StarBasic">#Const MSWD = False
+#Const OOO = Not MSWD
+
+Rem *********************************************************************
+Rem    Copyright (C) 2006  Distance and e-Learning Centre,
+Rem    University of Southern Queensland
+Rem
+Rem    This program is free software; you can redistribute it and/or modify
+Rem    it under the terms of the GNU General Public License as published by
+Rem    the Free Software Foundation; either version 2 of the License, or
+Rem    (at your option) any later version.
+Rem
+Rem    This program is distributed in the hope that it will be useful,
+Rem    but WITHOUT ANY WARRANTY; without even the implied warranty of
+Rem    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+Rem    GNU General Public License for more details.
+Rem
+Rem    You should have received a copy of the GNU General Public License
+Rem    along with this program; if not, write to the Free Software
+Rem    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+Rem
+Rem *********************************************************************
+
+Global oCaptureDocView
+Global oCaptureKeyHandler
+
+Sub PressEscThenForwardSlashForHelp()
+    Rem Do Nothing
+End Sub
+
+
+Sub Promote()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventPromoteButton
+End Sub
+
+
+Sub Demote()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventDemoteButton
+End Sub
+
+Sub Code()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    toggleCode
+End Sub
+
+Sub Bullets()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventBulletButton
+End Sub
+
+
+Sub Numbering()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventNumberiseButton
+End Sub
+
+
+Sub ChangeListStyle()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventChangeListTypeDlg
+End Sub
+
+
+Sub LeftAlignedParagraph()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventLeftButton
+End Sub
+
+Sub IndentParagraph()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventIndentButton
+End Sub
+
+Sub CenterAlignedParagraph()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventCenterButton
+End Sub
+
+
+Sub RightAlignedParagraph()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventRightButton
+End Sub
+
+
+Sub Title()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventTitleButton
+End Sub
+
+
+Sub Heading()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventHeadingButton
+End Sub
+
+
+Sub BlockQuote()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventBlockQuoteButton
+End Sub
+
+
+Sub Definition()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventDefinitionButton
+End Sub
+
+Sub Superscript()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    toggleSup
+End Sub
+
+Sub Subscript()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    toggleSub
+End Sub
+
+
+Sub Preformatted()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventPreformmatedButton
+End Sub
+
+
+Sub DefaultFormatting()
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Sub
+        End If
+    #End If
+    eventDefaultFormattingButton
+End Sub
+
+
+Sub Help()
+    eventShowShortcuts
+End Sub
+
+
+Sub eventKeyControl()
+    Rem Inspired and informed by examples in http://www.pitonyak.org/AndrewMacro.odt
+    #If OOO Then
+        Rem Take control and listen for the next key stroke
+        oCaptureDocView = ThisComponent.getCurrentController
+        oCaptureKeyHandler = createUnoListener(&quot;Capture_&quot;, _
+        &quot;com.sun.star.awt.XKeyHandler&quot;)
+        oCaptureDocView.addKeyHandler (oCaptureKeyHandler)
+
+    #End If
+End Sub
+
+
+
+
+Function Capture_keyReleased(oEvt) As Boolean
+    #If OOO Then
+        Capture_keyReleased = False
+    #End If
+End Function
+
+
+Function Capture_keyPressed(oEvt) As Boolean
+    #If MSWD Then
+        isFile = fnIsThereAFile()
+        If Not isFile Then
+            Exit Function
+        End If
+    #End If
+    Rem capture the key pressed event.
+    #If OOO Then
+        skey = Right(oEvt.KeyChar, 1)
+    #End If
+    #If MSWD Then
+        skey = oEvt
+    #End If
+    Select Case Asc(skey)
+    Rem use ascii code as tab key has the problem
+    Case 104, 72
+    Rem Case &quot;h&quot;, &quot;H&quot;
+        Call eventHeadingButton
+    Case 46, 62
+    Rem Case &quot;.&quot;, &quot;&gt;&quot;
+        Call eventDemoteButton
+    Case 44, 60
+    Rem Case &quot;,&quot;, &quot;&lt;&quot;
+        Call eventPromoteButton
+    Case 56, 42
+    Rem Case &quot;8&quot;, &quot;*&quot;
+        Call eventBulletButton
+    Case 35, 110, 78
+    Rem Case &quot;#&quot;, &quot;n&quot;, &quot;N&quot;
+        Call eventNumberiseButton
+    Case 49
+    Rem Case &quot;1&quot;
+        Call subChangeListType(&quot;n&quot;)
+    Case 50
+    Rem Case &quot;2&quot;
+        Call subChangeListType(&quot;i&quot;)
+    Case 51
+    Rem Case &quot;3&quot;
+        Call subChangeListType(&quot;a&quot;)
+    Case 52
+    Rem Case &quot;4&quot;
+        Call subChangeListType(&quot;I&quot;)
+    Case 53
+    Rem Case &quot;5&quot;
+        Call subChangeListType(&quot;A&quot;)
+    Case 108, 76
+    Rem Case &quot;l&quot;, &quot;L&quot;
+        Call eventChangeListTypeDlg
+    Case 102, 70
+    Rem Case &quot;f&quot;, &quot;F&quot;
+        Call eventPreformmatedButton
+    Case 112, 80
+    Rem case &quot;p&quot;, &quot;P&quot;
+        Call eventLeftButton
+    Case 9
+        Rem Case vbTab
+        Call eventIndentButton
+    Case 91, 123
+    Rem case &quot;[&quot;, &quot;{&quot;
+        Call eventCenterButton
+    Case 93, 125
+    Rem Case &quot;]&quot;, &quot;}&quot;
+        Call eventRightButton
+    Case 100, 68
+    Rem Case &quot;d&quot;, &quot;D&quot;
+        Call eventDefinitionButton
+    Case 113, 81
+    Rem Case &quot;q&quot;, &quot;Q&quot;
+        Call eventBlockQuoteButton
+    Case 116, 84
+    Rem Case  &quot;t&quot;, &quot;T&quot;
+        Call eventTitleButton
+    Case 98, 66
+    Rem Case &quot;b&quot;, &quot;B&quot;
+        Call toggleBold
+    Case 105, 73
+    Rem Case  &quot;i&quot;, &quot;I&quot;
+        Call toggleItalic
+    Case 99, 67
+    Rem Case  &quot;c&quot;, &quot;C&quot;
+        Call toggleCode
+    Case 43, 61
+    Rem Case  &quot;+&quot;, &quot;=&quot;
+        Call toggleSup
+    Case 45, 95
+    Rem Case &quot;-&quot;, &quot;_&quot;
+        Call toggleSub
+    Case 114, 82
+    Rem Case &quot;r&quot;, &quot;R&quot;
+        Call eventRestartNumberingButton
+    Case 101, 69
+    Rem case  &quot;e&quot;, &quot;E&quot;
+        Call eventDefaultFormattingButton
+    Case 120, 88
+    Rem Case &quot;x&quot;, &quot;X&quot;
+        Call CrossReference
+    Case 47, 63
+    Rem Case &quot;/&quot;, &quot;?&quot;
+        Call eventShowShortcuts
+    End Select
+    Capture_keyPressed = True
+    #If OOO Then
+        On Error Resume Next
+        oCaptureDocView.removeKeyHandler (oCaptureKeyHandler)
+    #End If
+End Function
+
+
+
+Sub expt()
+    Form.Show
+End Sub
+
+
+Sub eventShowShortcuts()
+    #If MSWD Then
+        Set oDialog = frmShortcuts
+        Application.OnTime TimeValue(&quot;00:00:10&quot;), 5
+        oDialog.Show
+    #Else
+        DialogLibraries.LoadLibrary (&quot;IceLibrary&quot;)
+        oDialog = CreateUnoDialog(DialogLibraries.IceLibrary.dlgShortcuts)
+        oDialog.Execute
+        oDialog.dispose
+    #End If
+End Sub
+
+
+Sub subTimeEventHideForm()
+    frmShortcuts.hide
+    Unload frmShortcuts
+End Sub
+
+
+Function fnGetViewCursor()
+    #If OOO Then
+        oVC = ThisComponent.getCurrentController.getViewCursor()
+        fnGetViewCursor = oVC
+    #Else
+        Set fnGetViewCursor = Selection.Range
+    #End If
+End Function
+
+
+Function fnGetParaStyleName(Optional oCursor)
+    If IsEmpty(oCursor) Or IsMissing(oCursor) Then
+        Set oCursor = fnGetViewCursor()
+        
+    End If
+    #If OOO Then
+        fnGetParaStyleName = oCursor.paraStyleName
+    #Else
+        On Error GoTo MultipleRange
+        fnGetParaStyleName = oCursor.ParagraphFormat.style
+        Exit Function
+MultipleRange:
+        On Error GoTo errMsg
+        Rem MsgBox Selection.Range.Paragraphs.count
+        If oCursor.Paragraphs.count &gt;= 1 Then
+            fnGetParaStyleName = oCursor.Paragraphs(1).Range.ParagraphFormat.style
+        Else
+            fnGetParaStyleName = Selection.ParagraphFormat.style
+        End If
+    #End If
+    Exit Function
+errMsg:
+    printMsgbox (&quot;Error in getting paragraph style: Try deselecting&quot;)
+        
+End Function
+
+
+Sub subSetParaStyleName(oCursor, sStyle)
+Rem     On Error GoTo errHandler1:
+    Dim isBold As Boolean, isItalic As Boolean
+    Rem force them to have false in case the variable exist.
+    isBold = False
+    isItalic = False
+
+    If Not fnHasStyle(sStyle) Then
+        subCreateMissingStyle (sStyle)
+    End If
+
+    #If OOO Then
+        Dim isStart, isEnd As Boolean
+        Dim oTC
+        isStart = False
+        isEnd = False
+        Rem move the cursor if it is in either end.
+
+        If Not testmode Then
+            If oCursor.supportsService(&quot;com.sun.star.text.Paragraph&quot;) Then
+                oTC = ThisComponent.Text().createTextCursorByRange(ThisComponent.getCurrentSelection().getByIndex(0))
+            ElseIf oCursor.supportsService(&quot;com.sun.star.text.TextTable&quot;) Then
+                oTC = ThisComponent.Text().createTextCursorByRange(oCursor.Text().getByIndex(0))
+            Else
+                GoTo skip
+            End If
+            If oTC.isStartOFParagraph And oTC.isEndOfParagraph Then
+                Rem if empty paragraph
+                Rem do nothing
+            ElseIf oTC.isStartOFParagraph() Then
+                isStart = True
+                oCursor.goRight(1,False)
+            ElseIf oTC.isEndOfParagraph() Then
+                isEnd = True
+                oCursor.goLeft(1,False)
+            End If
+        End If
+skip:
+        sFamily = fnGetFamily(oCursor.paraStyleName)
+        isBold = fnIsBold(oCursor) And sFamily &lt;&gt; &quot;dt&quot; And sFamily &lt;&gt; &quot;h&quot; And sFamily &lt;&gt; &quot;Title&quot;
+        isItalic = fnIsItalic(oCursor) And sFamily &lt;&gt; &quot;bq&quot;
+
+		REm remove the numberingstylename incase there is no numbering style
+        oCursor.NumberingStyleName = &quot;&quot;   
+        If fnGetFamily(sStyle) = &quot;li&quot; And fnGetType(sStyle) &lt;&gt; &quot;p&quot; Then
+            oCursor.NumberingStyleName = sStyle
+        End If
+        
+        Rem Set the paragraph style
+        oCursor.paraStyleName = sStyle
+
+        Rem reset bold or italic
+        If isBold Then
+            oCursor.CharWeight = 150
+        End If
+        If isItalic Then
+            oCursor.CharPosture = 2
+        End If
+        Rem Move the cursor back to where it was
+        If isEnd Then
+            oCursor.goRight(1,False)
+         End If
+        If isStart Then
+            oCursor.goLeft(1,False)
+        End If
+    #Else
+        Rem remember the cursor location
+        Selection.Bookmarks.Add (&quot;CurrentPos&quot;)
+        If oCursor.Text = &quot;&quot; Then
+            Rem if paragraph is not selected, then select it.
+            Rem word does not apply bold if not selected.
+            nIndex = fnGetCurrentParagraphNumber
+            ActiveDocument.Paragraphs(nIndex).Range.Select
+        End If
+        On Error Resume Next
+        sCurrentStyle = oCursor.style
+        If sCurrentStyle = &quot;&quot; Or IsEmpty(sCurrentStyle) Then
+            Rem just to avoid oCursor.style returning Nothing.
+            sCurrentStyle = &quot;p&quot;
+        End If
+        sFamily = fnGetFamily(sCurrentStyle)
+        &apos;to do check if a list style is created in ooo. can it work in word?
+        isBold = fnIsBold(Selection.Range) And sFamily &lt;&gt; &quot;dt&quot; And sFamily &lt;&gt; &quot;h&quot; And sFamily &lt;&gt; &quot;Title&quot;
+        isItalic = fnIsItalic(Selection.Range) And sFamily &lt;&gt; &quot;bq&quot;
+        
+        oCursor.style = sStyle
+        
+        Rem reset the bold and italic.
+        If isBold Then
+            Rem has to be selection.range.
+            Rem oCursor doesn&apos;t work in this case. don&apos;t know why.
+            Selection.Range.Font.Bold = isBold
+        End If
+        If isItalic Then
+            Rem has to be selection.range.
+            Rem oCursor doesn&apos;t work in this case. don&apos;t know why.
+            Selection.Range.Font.Italic = isItalic
+        End If
+
+
+         Rem reset the current position and then delete the bookmark
+        Selection.GoTo what:=wdGoToBookmark, Name:=&quot;CurrentPos&quot;
+        ActiveDocument.Bookmarks(&quot;CurrentPos&quot;).Delete
+    #End If
+    If fnGetFamily(sStyle) = &quot;li&quot; And Not (fnGetType(sStyle) = &quot;b&quot; Or fnGetType(sStyle) = &quot;p&quot;) Then
+        Set oVC = fnGetViewCursor()
+            #If MSWD Then
+                If fnNeedsRestart(sStyle, fnFindPrevStyleName(oVC)) Then
+                    subRestartNumbering (True)
+                End If
+            #Else
+                subRestartNumbering (fnNeedsRestart(sStyle, fnFindPrevStyleName(oVC)))
+            #End If
+    End If
+    GoTo finish:
+
+errHandler1:
+    #If MSWD Then
+        If fnGetFamily(sStyle) = &quot;li&quot; Then
+            printMsgbox (&quot;Style &apos;&quot; + sStyle + &quot;&apos; creation is completed with error. Try apply the style again.&quot;)
+        Else
+            printMsgbox (&quot;Style &apos;&quot; + sStyle + &quot;&apos; could not be created. Try using the template.&quot;)
+        End If
+    #Else
+        printMsgbox (&quot;Style &apos;&quot; + sStyle + &quot;&apos; could not be applied. Try deselecting any objects.&quot;)
+    #End If
+finish:
+End Sub
+
+
+Function fnNeedsRestart(sStyle, sPrevStyle)
+    fnNeedsRestart = fnGetFamily(sStyle) = &quot;li&quot; And _
+                     Not (fnGetType(sStyle) = &quot;p&quot; Or fnGetType(sStyle) = &quot;b&quot;) And _
+                     fnGetLevel(sStyle) &gt; fnGetLevel(sPrevStyle)
+End Function
+
+Sub toggleItalic()
+    #If OOO Then
+        oCurSelection = ThisComponent.getCurrentSelection()
+        If oCurSelection.supportsService(&quot;com.sun.star.text.TextRanges&quot;) Then
+            If oCurSelection.count = 1 Then
+                oTextRange = oCurSelection.getByIndex(0)
+            Else
+                oTextRange = oCurSelection.getByIndex(1)
+            End If
+            dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+            Dim args1(0) As New com.sun.star.beans.PropertyValue
+            args1(0).Name = &quot;Italic&quot;
+            args1(0).value = oTextRange.CharPosture &lt;&gt; 2
+            dispatcher.executeDispatch(ThisComponent.CurrentController.Frame, &quot;.uno:Italic&quot;, &quot;&quot;, 0, args1())
+        ElseIf oCurSelection.supportsService(&quot;com.sun.star.text.TextTableCursor&quot;) Then
+            processTextTableCursor(oCurSelection, &quot;i-i&quot;,Array())
+        Else
+            printMsgbox (&quot;Error in getting selection range. Try deselecting.&quot;)
+
+        End If
+
+    #Else
+        Selection.Font.Italic = wdToggle
+    #End If
+End Sub
+
+Sub toggleBold()
+    #If OOO Then
+        oCurSelection = ThisComponent.getCurrentSelection()
+        If oCurSelection.supportsService(&quot;com.sun.star.text.TextRanges&quot;) Then
+            If oCurSelection.count = 1 Then
+                oTextRange = oCurSelection.getByIndex(0)
+            Else
+                oTextRange = oCurSelection.getByIndex(1)
+            End If
+            dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+            Dim args1(0) As New com.sun.star.beans.PropertyValue
+            args1(0).Name = &quot;Bold&quot;
+            args1(0).value = oTextRange.CharWeight &lt;&gt; 150
+            dispatcher.executeDispatch(ThisComponent.CurrentController.Frame, &quot;.uno:Bold&quot;, &quot;&quot;, 0, args1())
+        ElseIf oCurSelection.supportsService(&quot;com.sun.star.text.TextTableCursor&quot;) Then
+            processTextTableCursor(oCurSelection, &quot;i-b&quot;,Array())
+        Else
+            printMsgbox (&quot;Error in getting selection range. Try deselecting.&quot;)
+        End If
+    #Else
+        Selection.Font.Bold = wdToggle
+    #End If
+End Sub
+
+
+Sub toggleCode()
+    #If OOO Then
+        subToggleCharacterStyles(&quot;i-code&quot;, array(&quot;CharFontCharSet&quot;,&quot;CharFontFamily&quot;,&quot;CharFontName&quot;,&quot;CharFontPitch&quot;))
+    #Else
+        subToggleCustomCharStyle (&quot;i-code&quot;)
+    #End If
+End Sub
+
+
+Sub toggleSub()
+    #If OOO Then
+        subToggleCharacterStyles(&quot;i-sub&quot;, array(&quot;CharAutoEscapement&quot;,&quot;CharEscapement&quot;,&quot;CharEscapementHeight&quot;))
+    #Else
+        subToggleCustomCharStyle (&quot;i-sub&quot;)
+    #End If
+End Sub
+
+
+Sub toggleSup()
+    #If OOO Then
+        subToggleCharacterStyles(&quot;i-sup&quot;, array(&quot;CharAutoEscapement&quot;,&quot;CharEscapement&quot;,&quot;CharEscapementHeight&quot;))
+    #Else
+        subToggleCustomCharStyle (&quot;i-sup&quot;)
+    #End If
+End Sub
+
+
+Sub toggleLatex()
+    #If OOO Then
+        subToggleCharacterStyles(&quot;i-latex&quot;, array(&quot;CharFontCharSet&quot;,&quot;CharFontFamily&quot;,&quot;CharFontName&quot;,&quot;CharFontPitch&quot;))
+    #Else
+        subToggleCustomCharStyle (&quot;i-latex&quot;)
+    #End If
+End Sub
+
+
+Sub subToggleCustomCharStyle(sCharStyle)
+    If Not fnHasStyle(sCharStyle) Then
+        subCreateMissingStyle (sCharStyle)
+    End If
+    For i = 1 To Selection.Paragraphs.count()
+        s = Selection.Paragraphs(i)
+        If s = sCharStyle Then
+            s.style = ActiveDocument.Styles(&quot;Default Paragraph Font&quot;)
+        Else
+            s.style = ActiveDocument.Styles(sCharStyle)
+        End If
+    Next i
+End Sub
+Sub eventDemoteButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sPrevStyle = fnFindPrevStyleName(oVC)
+    If fnGetFamily(sStyle) = &quot;h&quot; Then
+        sNewStyle = fnDemote(sStyle, fnFindPrevHeadingStyleName(oVC))
+    Else
+        sNewStyle = fnDemote(sStyle, fnFindPrevStyleName(oVC))
+    End If
+    If sNewStyle = sStyle Then
+        printMsgbox (&quot;Cannot demote any further.&quot;)
+    Else
+        If fnGetFamily(sNewStyle) = &quot;li&quot; And Not (fnGetType(sNewStyle) = &quot;b&quot; Or fnGetType(sNewStyle) = &quot;p&quot;) Then
+            subSetParaStyleName oVC, fnMakeStyleName(&quot;li&quot;, fnGetLevel(sNewStyle), &quot;p&quot;)
+            sNewStyle = fnNumberise(fnMakeStyleName(&quot;li&quot;, fnGetLevel(sNewStyle), &quot;p&quot;), fnFindPrevListStyleName(oVC))
+        End If
+        subSetParaStyleName oVC, sNewStyle
+    End If
+End Sub
+
+
+
+Function fnDemote(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    nLev = fnGetLevel(sStyle)
+    If sFamily &lt;&gt; &quot;h&quot; And sPrevFamily = &quot;h&quot; Then
+        nPrevLev = 0
+    Else
+        nPrevLev = fnGetLevel(sPrevStyle)
+    End If
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+
+
+    If nLev &gt;= 5 Then
+        Rem no more than Level 5 allowed on any sStyle
+        fnDemote = sStyle
+        
+    ElseIf sFamily = &quot;h&quot; Then
+        If nLev &lt;= nPrevLev Then
+            fnDemote = fnMakeStyleName(sFamily, nLev + 1, sTyp)
+        Else
+            fnDemote = fnMakeStyleName(sFamily, nLev, sTyp)
+        End If
+    ElseIf sFamily = &quot;Title&quot; And sTyp = &quot;chapter&quot; Then
+        fnDemote = fnMakeStyleName(&quot;h&quot;, 1, &quot;n&quot;)
+    ElseIf sFamily = &quot;Title&quot; Then
+        fnDemote = &quot;h1&quot;
+    ElseIf nLev &gt; nPrevLev Then
+        Rem Not allowed to fnDemote if you&apos;re already fnDemoted one or more than the previous
+        fnDemote = sStyle
+    ElseIf nLev &lt; nPrevLev Then
+        If sPrevFamily = &quot;dt&quot; Or sPrevFamily = &quot;dd&quot; Then
+            fnDemote = fnMakeStyleName(&quot;dd&quot;, nPrevLev, sPrevTyp)
+        ElseIf sPrevFamily = &quot;li&quot; Then
+            If sFamily &lt;&gt; sPrevFamily Then
+                fnDemote = fnMakeStyleName(&quot;li&quot;, nPrevLev, &quot;p&quot;)
+            Else
+                fnDemote = fnMakeStyleName(&quot;li&quot;, nPrevLev, sPrevTyp)
+            End If
+        ElseIf sPrevFamily = &quot;bq&quot; And sPrevTyp &lt;&gt; &quot;source&quot; Then
+            fnDemote = fnMakeStyleName(sPrevFamily, nPrevLev, &quot;&quot;)
+        ElseIf sPrevFamily = &quot;bq&quot; And sPrevTyp = &quot;source&quot; And sFamily = &quot;p&quot; Then
+            If sStyle = &quot;p&quot; Then
+                fnDemote = &quot;p-indent&quot;
+            Else
+                fnDemote = sStyle
+            End If
+        ElseIf sPrevFamily = &quot;pre&quot; Then
+            fnDemote = fnMakeStyleName(sPrevFamily, nPrevLev, sPrevTyp)
+        Else
+            fnDemote = fnMakeStyleName(&quot;li&quot;, nLev + 1, &quot;b&quot;)
+        End If
+    ElseIf sFamily = &quot;li&quot; Then
+        If sPrevFamily &lt;&gt; &quot;li&quot; And sPrevFamily &lt;&gt; &quot;dt&quot; And sPrevFamily &lt;&gt; &quot;dd&quot; And sPrevFamily &lt;&gt; &quot;pre&quot; Then
+            fnDemote = fnMakeStyleName(sFamily, nLev, sTyp)
+        ElseIf sTyp &lt;&gt; &quot;b&quot; Then
+            fnDemote = fnMakeStyleName(sFamily, nLev + 1, sPrevTyp)
+        Else
+            fnDemote = fnMakeStyleName(sFamily, nLev + 1, &quot;b&quot;)
+        End If
+    ElseIf sStyle = &quot;p&quot; And sPrevFamily &lt;&gt; &quot;dt&quot; And sPrevFamily &lt;&gt; &quot;li&quot; And sPrevFamily &lt;&gt; &quot;bq&quot; And sPrevFamily &lt;&gt; &quot;Pre&quot; Then
+        fnDemote = &quot;p-indent&quot;
+    ElseIf sStyle = &quot;p-indent&quot; Or sStyle = &quot;p-center&quot; Or sStyle = &quot;p-right&quot; Then
+        fnDemote = sStyle
+    Else
+        fnDemote = fnMakeStyleName(sFamily, nLev + 1, sTyp)
+    End If
+End Function
+
+Sub eventPromoteButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sPrevStyle = fnFindPrevParentStyleName(oVC)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+    nLev = fnGetLevel(sPrevStyle)
+    sNewStyle = fnPromote(sStyle, fnFindPrevParentStyleName(oVC))
+    If sNewStyle = sStyle Then
+        printMsgbox (&quot;Cannot promote any further&quot;)
+    ElseIf sPrevFamily = &quot;li&quot; And sTyp &lt;&gt; &quot;p&quot; Then
+        subSetParaStyleName oVC, fnMakeStyleName(&quot;li&quot;, nLev, sPrevTyp)
+    ElseIf sPrevFamily = &quot;li&quot; And sTyp = &quot;p&quot; Then
+        subSetParaStyleName oVC, fnMakeStyleName(&quot;li&quot;, nLev, sTyp)
+    ElseIf sPrevFamily = &quot;bq&quot; Then
+        subSetParaStyleName oVC, fnMakeStyleName(&quot;bq&quot;, nLev, &quot;&quot;)
+    Else
+        subSetParaStyleName oVC, sNewStyle
+    End If
+End Sub
+
+Function fnPromote(sStyle, sPrevStyle)
+    If sStyle = sPrevStyle Then
+        fnPromote = sStyle
+    End If
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    nLev = fnGetLevel(sStyle)
+    If sFamily &lt;&gt; &quot;h&quot; And sPrevFamily = &quot;h&quot; Then
+        nPrevLev = 1
+    Else
+        nPrevLev = fnGetLevel(sPrevStyle)
+    End If
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+    
+    If sFamily = &quot;h&quot; And nLev = 1 And sTyp = &quot;&quot; Then
+        fnPromote = fnMakeStyleName(&quot;Title&quot;, 0, &quot;&quot;)
+    ElseIf sFamily = &quot;h&quot; And nLev = 1 And sTyp = &quot;n&quot; Then
+        fnPromote = fnMakeStyleName(&quot;Title&quot;, 0, &quot;chapter&quot;)
+    ElseIf (sFamily = &quot;li&quot; And nLev = 1) Or sTyp = &quot;p&quot; Then
+        fnPromote = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+    ElseIf sFamily = &quot;bq&quot; And (sPrevFamily &lt;&gt; &quot;bq&quot; Or nLev = 1) Then
+        fnPromote = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+    ElseIf sPrevFamily = &quot;dd&quot; Then
+        fnPromote = fnMakeStyleName(&quot;dt&quot;, nPrevLev, sPrevTyp)
+    Else
+        If nLev &gt; 1 Then
+            nLevAdjust = 1
+            If (nLev - nPrevLev) &gt; 1 And sFamily = sPrevFamily Then
+                nLevAdjust = nLev - nPrevLev - 1
+            End If
+            fnPromote = fnMakeStyleName(sFamily, nLev - nLevAdjust, sTyp)
+        Else
+            If nPrevLev = 0 Then
+                fnPromote = sPrevStyle
+            Else
+                fnPromote = fnMakeStyleName(sFamily, nLev, sTyp)
+            End If
+        End If
+    End If
+End Function
+
+
+Sub eventTitleButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnTitle(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnTitle(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    nLev = fnGetLevel(sStyle)
+    nPrevLev = fnGetLevel(sPrevStyle)
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+
+    If sFamily &lt;&gt; &quot;Title&quot; Then
+        If sPrevFamily &lt;&gt; &quot;Title&quot; Then
+            fnTitle = fnMakeStyleName(&quot;Title&quot;, 0, &quot;&quot;)
+        End If
+        If sTyp = &quot;n&quot; Then
+            sPrevTyp = &quot;chapter&quot;
+        End If
+        If sPrevTyp &lt;&gt; &quot;chapter&quot; And sPrevTyp &lt;&gt; &quot;book&quot; Then
+            Rem to prevent title other than chapter and book.
+            sPrevTyp = &quot;&quot;
+        End If
+        fnTitle = fnMakeStyleName(&quot;Title&quot;, 0, sPrevTyp)
+    Else
+        fnTitle = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+    End If
+End Function
+
+
+Sub eventHeadingButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnHeading(sStyle, fnFindPrevHeadingStyleName(oVC))
+    Rem if the current style is li2  style, and set heading, this remove the previous Numbering style and allow the h-n style to continue from the previous list.
+    subSetParaStyleName oVC, &quot;h1&quot;
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnHeading(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    nLev = fnGetLevel(sStyle)
+    nPrevLev = fnGetLevel(sPrevStyle)
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+    
+    If sFamily &lt;&gt; &quot;h&quot; Then
+        If sPrevFamily &lt;&gt; &quot;h&quot; Then
+            fnHeading = fnMakeStyleName(&quot;h&quot;, 1, &quot;&quot;)
+        End If
+        If nPrevLev &lt; 1 Then
+            nPrevLev = 1
+        End If
+        If sTyp = &quot;n&quot; Then
+            sPrevTyp = &quot;n&quot;
+        End If
+        fnHeading = fnMakeStyleName(&quot;h&quot;, nPrevLev, sPrevTyp)
+    Else
+        fnHeading = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+    End If
+End Function
+
+
+Sub eventBlockQuoteButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnBlockQuote(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnBlockQuote(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    If sFamily = &quot;h&quot; Then
+        nLev = 1
+    Else
+        nLev = fnGetLevel(sStyle)
+        If nLev &lt; 1 Then
+            nLev = 1
+        End If
+    End If
+    If sPrevFamily = &quot;h&quot; Then
+        nPrevLev = 1
+    Else
+        nPrevLev = fnGetLevel(sPrevStyle)
+    End If
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+
+
+    If sFamily = &quot;bq&quot; And sTyp = &quot;&quot; Then
+        If sPrevFamily = &quot;bq&quot; And nLev = nPrevLev Then
+            fnBlockQuote = fnMakeStyleName(&quot;bq&quot;, nLev, &quot;source&quot;)
+        Else
+           If sPrevFamily = &quot;h&quot; Then
+                fnBlockQuote = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+            Else
+                fnBlockQuote = fnMakeStyleName(sPrevFamily, nPrevLev, sPrevTyp)
+            End If
+        End If
+    ElseIf sFamily = &quot;bq&quot; And sTyp = &quot;source&quot; Then
+        If sPrevFamily = &quot;li&quot; Or sPrevFamily = &quot;dt&quot; Or sPrevFamily = &quot;dd&quot; Or sPrevFamily = &quot;pre&quot; Then
+            fnBlockQuote = fnMakeStyleName(&quot;bq&quot;, nPrevLev + 1, &quot;&quot;)
+        ElseIf nLev = nPrevLev Then
+            fnBlockQuote = fnMakeStyleName(&quot;bq&quot;, nLev, &quot;&quot;)
+        ElseIf sPrevFamily = &quot;h&quot; Or sPrevFamily = &quot;Title&quot; Or sPrevFamily = &quot;p&quot; Then
+&apos;       If sPrevFamily = &quot;h&quot; or sPrevFamily = &quot;Title&quot; or sPrevFamily = &quot;p&quot; Then
+            fnBlockQuote = fnMakeStyleName(&quot;bq&quot;, 1, &quot;&quot;)
+        Else
+            fnBlockQuote = fnMakeStyleName(sPrevFamily, nPrevLev, sPrevTyp)
+        End If
+    ElseIf sPrevFamily = &quot;li&quot; Then
+        fnBlockQuote = fnMakeStyleName(&quot;bq&quot;, nPrevLev + 1, &quot;&quot;)
+    Else
+        If sPrevFamily = &quot;bq&quot; Then
+            fnBlockQuote = fnMakeStyleName(sPrevFamily, nPrevLev, sPrevTyp)
+        ElseIf sPrevFamily = &quot;p&quot; Or sPrevFamily = &quot;h&quot; Or sPrevFamily = &quot;Title&quot; Then
+            fnBlockQuote = fnMakeStyleName(&quot;bq&quot;, 1, &quot;&quot;)
+        Else
+            fnBlockQuote = fnMakeStyleName(&quot;bq&quot;, nLev, &quot;&quot;)
+        End If
+    End If
+End Function
+
+
+Sub eventPreformmatedButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnPreformatted(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnPreformatted(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    If sFamily = &quot;h&quot; Then
+        nLev = 0
+    Else
+        nLev = fnGetLevel(sStyle)
+    End If
+    If sPrevFamily = &quot;h&quot; Then
+        nPrevLev = 0
+    Else
+        nPrevLev = fnGetLevel(sPrevStyle)
+    End If
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+
+    If sFamily = &quot;pre&quot; Then
+        If sPrevFamily = &quot;h&quot; Then
+            fnPreformatted = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+        ElseIf sPrevFamily = &quot;pre&quot; Then
+            If nPrevLev &lt;= 1 Then
+                fnPreformatted = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+            ElseIf sStyle = sPrevStyle Then
+                fnPreformatted = fnfindThis(&quot;parentstyle&quot;)
+            Else
+                fnPreformatted = sPrevStyle
+            End If
+        Else
+            fnPreformatted = fnMakeStyleName(sPrevFamily, nPrevLev, sPrevTyp)
+        End If
+    Else
+        nLev = nPrevLev + 1
+        If nLev &gt; 5 Then
+            nLev = 5
+        End If
+        If sPrevFamily = &quot;h&quot; Or sPrevFamily = &quot;Title&quot; Then
+            nLev = 1
+        End If
+        fnPreformatted = fnMakeStyleName(&quot;pre&quot;, nLev, &quot;&quot;)
+    End If
+End Function
+
+
+Sub eventDefinitionButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnDefinition(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnDefinition(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    If sFamily = &quot;h&quot; Then
+        nLev = 1
+    Else
+        nLev = fnGetLevel(sStyle)
+    End If
+    If sPrevFamily = &quot;h&quot; Then
+        nPrevLev = 1
+    Else
+        nPrevLev = fnGetLevel(sPrevStyle)
+    End If
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+
+    If sFamily = &quot;dt&quot; Then
+        If sPrevFamily = &quot;dd&quot; Or sPrevFamily = &quot;dt&quot; Then
+            fnDefinition = fnMakeStyleName(&quot;dd&quot;, nPrevLev, &quot;&quot;)
+        ElseIf sPrevFamily = &quot;li&quot; Or sPrevFamily = &quot;pre&quot; Then
+            fnDefinition = fnMakeStyleName(sPrevFamily, nPrevLev, sPrevTyp)
+        ElseIf (sPrevFamily = &quot;h&quot; Or sPrevFamily = &quot;Title&quot;) And nLev &lt;&gt; 1 Then
+            fnDefinition = fnMakeStyleName(&quot;dt&quot;, 1, &quot;&quot;)
+        Else
+            fnDefinition = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+        End If
+    ElseIf sFamily = &quot;dd&quot; Then
+        If sPrevFamily = &quot;dt&quot; Then
+            fnDefinition = fnMakeStyleName(&quot;dt&quot;, nPrevLev + 1, &quot;&quot;)
+        ElseIf sPrevFamily = &quot;dd&quot; Then
+            fnDefinition = fnMakeStyleName(&quot;dt&quot;, nPrevLev, &quot;&quot;)
+        ElseIf sPrevFamily = &quot;li&quot; Or sPrevFamily = &quot;pre&quot; Then
+            If nLev &lt; nPrevLev Then
+                fnDefinition = fnMakeStyleName(&quot;dt&quot;, nLev, &quot;&quot;)
+            Else
+                fnDefinition = fnMakeStyleName(&quot;dt&quot;, nPrevLev + 1, &quot;&quot;)
+            End If
+        Else
+            If nPrevLev &lt; 1 Then
+                nPrevLev = 1
+            End If
+            fnDefinition = fnMakeStyleName(&quot;dt&quot;, nPrevLev, &quot;&quot;)
+        End If
+    Else
+        Rem if not definition list
+        If nLev &lt; 1 Then
+            nLev = 1
+        End If
+        If sPrevFamily = &quot;dt&quot; Then
+            fnDefinition = fnMakeStyleName(&quot;dd&quot;, nPrevLev, &quot;&quot;)
+        ElseIf sPrevFamily = &quot;dd&quot; Then
+            fnDefinition = fnMakeStyleName(&quot;dt&quot;, nPrevLev, &quot;&quot;)
+        ElseIf sPrevFamily = &quot;li&quot; Or sPrevFamily = &quot;pre&quot; Then
+            If sStyle &lt;&gt; sPrevStyle Then
+                sParentStyle = fnfindThis(&quot;parentLevelStyle&quot;)
+            Else
+                sParentStyle = sPrevStyle
+            End If
+            sParentFamily = fnGetFamily(sParentStyle)
+            sParentLev = fnGetLevel(sParentStyle)
+            sParentTyp = fnGetType(sParentStyle)
+            If sParentFamily = &quot;dd&quot; Or sParentFamily = &quot;dt&quot; Then
+                fnDefinition = fnMakeStyleName(&quot;dd&quot;, sParentLev, &quot;&quot;)
+            Else
+                nLev = nPrevLev + 1
+                If nLev &gt; 5 Then
+                    nLev = 5
+                End If
+                fnDefinition = fnMakeStyleName(&quot;dt&quot;, nLev, &quot;&quot;)
+            End If
+        ElseIf sPrevFamily &lt;&gt; &quot;h&quot; And sPrevFamily &lt;&gt; &quot;Title&quot; And sPrevFamily &lt;&gt; &quot;p&quot; Then
+            fnDefinition = fnMakeStyleName(&quot;dt&quot;, nLev, &quot;&quot;)
+        Else
+            fnDefinition = fnMakeStyleName(&quot;dt&quot;, 1, &quot;&quot;)
+        End If
+    End If
+End Function
+
+
+Sub eventLeftButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnLeft(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnLeft(sStyle, sPrevStyle)
+    fnLeft = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+End Function
+
+Sub eventIndentButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnIndent(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnIndent(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sTyp = fnGetType(sStyle)
+    If sFamily = &quot;p&quot; And sTyp = &quot;indent&quot; Then
+        fnIndent = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+    Else
+        fnIndent = fnMakeStyleName(&quot;p&quot;, 0, &quot;indent&quot;)
+    End If
+End Function
+
+Sub eventCenterButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnCenter(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnCenter(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sTyp = fnGetType(sStyle)
+    If sFamily = &quot;p&quot; And sTyp = &quot;center&quot; Then
+        fnCenter = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+    Else
+        fnCenter = fnMakeStyleName(&quot;p&quot;, 0, &quot;center&quot;)
+    End If
+End Function
+
+
+Sub eventRightButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnRight(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnRight(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sTyp = fnGetType(sStyle)
+    If sFamily = &quot;p&quot; And sTyp = &quot;right&quot; Then
+        fnRight = fnMakeStyleName(&quot;p&quot;, 0, &quot;&quot;)
+    Else
+        fnRight = fnMakeStyleName(&quot;p&quot;, 0, &quot;right&quot;)
+    End If
+End Function
+
+
+Function fnListerise(sFamily, sPrevFamily, nLev, nPrevLev, sTyp, sPrevTyp, sToggleTyp)
+    Rem  The current item is a list item
+    If sFamily = &quot;li&quot; Then
+        Rem The current item does not match the togle type and is a child of the previous paragraph
+        If sTyp &lt;&gt; sToggleTyp And nLev &gt;= nPrevLev Then
+            If sPrevTyp &lt;&gt; sToggleTyp Then
+                If sToggleTyp = &quot;n&quot; And Not (sPrevTyp = &quot;p&quot; Or sPrevTyp = &quot;b&quot; Or sPrevTyp = &quot;&quot;) Then
+                    sToggleTyp = sPrevTyp
+                ElseIf sPrevTyp &lt;&gt; &quot;p&quot; Then
+                    nLev = nPrevLev + 1
+                End If
+            End If
+            fnListerise = fnMakeStyleName(&quot;li&quot;, nLev, sToggleTyp)
+        ElseIf sFamily = sPrevFamily And nLev &gt;= nPrevLev And sTyp = sPrevTyp Then
+            sPrevStyle = fnfindThis(&quot;prevparastyle&quot;)
+            If fnGetFamily(sPrevStyle) = &quot;li&quot; Then
+                fnListerise = fnMakeStyleName(&quot;li&quot;, fnGetLevel(sPrevStyle), &quot;p&quot;)
+            Else
+                sParentStyle = fnfindThis(&quot;parentLevelStyle&quot;)
+                If fnGetFamily(sParentStyle) = sPrevFamily And fnGetLevel(sParentStyle) = nLev And fnGetType(sParentStyle) = sTyp Then
+                    fnListerise = fnMakeStyleName(&quot;li&quot;, nPrevLev, &quot;p&quot;)
+                Else
+                    fnListerise = &quot;p&quot;
+                End If
+            End If
+        ElseIf sTyp = sPrevTyp And sPrevFamily = &quot;li&quot; Then
+            fnListerise = fnMakeStyleName(sPrevFamily, nLev, &quot;p&quot;)
+        ElseIf sPrevFamily = &quot;h&quot; Then
+            Rem toggle off
+            fnListerise = &quot;p&quot;
+        Else
+            Rem toggle off
+            fnListerise = fnMakeStyleName(sPrevFamily, nPrevLev, sPrevTyp)
+        End If
+    Else
+        Rem The current style is not a list item
+        n = nPrevLev
+        If n &lt; 1 Then
+            n = 1
+        End If
+        If sPrevFamily = &quot;li&quot; Then
+            n = nPrevLev
+            If n &lt; 1 Then
+                n = 1
+            End If
+            If sPrevTyp &lt;&gt; sToggleTyp Then
+                If sToggleTyp = &quot;n&quot; And Not (sPrevTyp = &quot;p&quot; Or sPrevTyp = &quot;b&quot;) Then
+                    sToggleTyp = sPrevTyp
+                Else
+                    n = n + 1
+                End If
+            End If
+        ElseIf sPrevFamily = &quot;pre&quot; Then
+            sParentStyle = fnfindThis(&quot;parentLevelStyle&quot;)
+            If fnGetType(sParentStyle) = sToggleTyp Then
+                n = n - 1
+                If n &lt; 1 Then
+                    Rem To force the level to have at least level 1
+                    n = 1
+                End If
+            Else
+                n = 1
+            End If
+            
+        End If
+        fnListerise = fnMakeStyleName(&quot;li&quot;, n, sToggleTyp)
+    End If
+End Function
+
+
+Sub eventChangeListTypeDlg()
+    #If MSWD Then
+        Set oDialog = frmListType
+        With oDialog.cmbListType
+            .AddItem &quot;n&quot;
+            .AddItem &quot;i&quot;
+            .AddItem &quot;a&quot;
+            .AddItem &quot;I&quot;
+            .AddItem &quot;A&quot;
+            .AddItem &quot;b&quot;
+        End With
+        Call oDialog.Show
+    #Else
+        DialogLibraries.LoadLibrary (&quot;IceLibrary&quot;)
+        oDialog = CreateUnoDialog(DialogLibraries.IceLibrary.dlgListType)
+        If oDialog.Execute Then
+            subChangeListType (oDialog.getControl(&quot;cmbListType&quot;).GetText)
+        End If
+    #End If
+End Sub
+
+
+Sub subChangeListType(sNewListType)
+    If sNewListType = &quot;&quot; Then
+        Rem in case it is empty, set it to p to create li-p style
+        sNewListType = &quot;p&quot;
+    End If
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sPrevStyle = fnFindPrevStyleName(oVC)
+
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    nLev = fnGetLevel(sStyle)
+    If sFamily &lt;&gt; &quot;h&quot; And sPrevFamily = &quot;h&quot; Then
+        nPrevLev = 0
+    Else
+        nPrevLev = fnGetLevel(sPrevStyle)
+    End If
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+
+    sStyle = fnListerise(sFamily, sPrevFamily, nLev, nPrevLev, sTyp, sPrevTyp, sNewListType)
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Sub eventBulletButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    sStyle = fnBullet(sStyle, fnFindPrevStyleName(oVC))
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+
+Function fnBullet(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    nLev = fnGetLevel(sStyle)
+    If sFamily &lt;&gt; &quot;h&quot; And sPrevFamily = &quot;h&quot; Then
+        nPrevLev = 0
+    Else
+        nPrevLev = fnGetLevel(sPrevStyle)
+    End If
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+    fnBullet = &quot;&quot;
+
+    fnBullet = fnListerise(sFamily, sPrevFamily, nLev, nPrevLev, sTyp, sPrevTyp, &quot;b&quot;)
+
+End Function
+
+
+Sub eventNumberiseButton()
+    Set oVC = fnGetViewCursor()
+    sStyle = fnGetParaStyleName(oVC)
+    If fnGetFamily(sStyle) = &quot;h&quot; Then
+        sStyle = fnNumberise(sStyle, fnFindPrevHeadingStyleName(oVC))
+    Else
+        sStyle = fnCheckForOtherList(oVC, sStyle)
+        sStyle = fnNumberise(sStyle, fnFindPrevListStyleName(oVC))
+    End If
+    subSetParaStyleName oVC, sStyle
+End Sub
+
+Function fnCheckForOtherList(oVC, sStyle)
+    Rem check the style first
+    sFamily = fnGetFamily(sStyle)
+    nLev = fnGetLevel(sStyle)
+    sType = fnGetType(sStyle)
+    If nLev &lt; 1 Then
+        nLev = 1
+    End If
+    If sFamily = &quot;li&quot; And sType &lt;&gt; &quot;b&quot; And sType &lt;&gt; &quot;p&quot; Then
+        Rem if toggle.
+        fnCheckForOtherList = sStyle
+        Exit Function
+    End If
+
+    Rem the paragraph above style data
+    sPrevStyle = fnFindPrevStyleName(oVC)
+    sPrevStyleFamily = fnGetFamily(sPrevStyle)
+    sPrevStyleLevel = fnGetLevel(sPrevStyle)
+    sPrevStyleType = fnGetType(sPrevStyle)
+    REM if prevStyleFamily is h or Title Then 
+    if sPrevStyleFamily = &quot;h&quot; or sPrevStyleFamily = &quot;Title&quot; or sPrevStyleFamily = &quot;p&quot; Then
+    	fnCheckForOtherList = sStyle
+        Exit Function
+    elseIf sPrevStyle = sStyle Then
+         Rem if the same e.g. li3b and li3b. then 
+         if sPrevStyleFamily = &quot;li&quot; and sPrevStyleType = &quot;b&quot; Then
+         	nLev = nLev + 1
+         end if 
+    End if 
+    Rem the actual parent level style data
+    sParentLevel = nLev
+    If sParentLevel &lt;&gt; 1 Then
+        sParentLevel = sParentLevel - 1
+    End If
+    sParentStyle = fnfindThis(&quot;thislevelliststyletype&quot;, sParentLevel, True)
+    sParentFamily = fnGetFamily(sParentStyle)
+    sParentType = fnGetType(sParentStyle)
+
+    If (sPrevStyleFamily = &quot;li&quot; And sPrevStyleType = &quot;b&quot;) Or (sParentFamily = &quot;li&quot; And sParentType = &quot;b&quot;) Then
+        If sParentLevel = nLev Then
+            Rem if they are the same.ie. lev 1
+             nLev = nLev + 1
+         End If
+        subSetParaStyleName oVC, fnMakeStyleName(&quot;li&quot;, nLev, &quot;p&quot;)
+        sStyle = fnMakeStyleName(&quot;li&quot;, nLev, &quot;p&quot;)
+    End If
+    fnCheckForOtherList = sStyle
+End Function
+
+Function fnNumberise(sStyle, sPrevStyle)
+    sFamily = fnGetFamily(sStyle)
+    sPrevFamily = fnGetFamily(sPrevStyle)
+    nLev = fnGetLevel(sStyle)
+    If sFamily &lt;&gt; &quot;h&quot; And sPrevFamily = &quot;h&quot; Then
+        nPrevLev = 0
+    Else
+        nPrevLev = fnGetLevel(sPrevStyle)
+    End If
+    sTyp = fnGetType(sStyle)
+    sPrevTyp = fnGetType(sPrevStyle)
+
+    If sFamily = &quot;h&quot; Then
+        If sTyp = &quot;n&quot; Then
+            sNewTyp = &quot;&quot;
+        Else
+            sNewTyp = &quot;n&quot;
+        End If
+        fnNumberise = fnMakeStyleName(&quot;h&quot;, nLev, sNewTyp)
+    ElseIf sFamily = &quot;Title&quot; Then
+        If sTyp = &quot;chapter&quot; Then
+            sNewTyp = &quot;&quot;
+        Else
+            sNewTyp = &quot;chapter&quot;
+        End If
+        fnNumberise = fnMakeStyleName(&quot;Title&quot;, nLev, sNewTyp)
+    Else
+        If sTyp = &quot;n&quot; Or sTyp = &quot;i&quot; Or sTyp = &quot;a&quot; Or sTyp = &quot;I&quot; Or sTyp = &quot;A&quot; Then
+            fnNumberise = fnListerise(sFamily, sPrevFamily, nLev, nPrevLev, sTyp, sPrevTyp, sTyp)
+        Else
+            fnNumberise = fnListerise(sFamily, sPrevFamily, nLev, nPrevLev, sTyp, sPrevTyp, &quot;n&quot;)
+        End If
+    End If
+End Function
+
+
+Sub eventDefaultFormattingButton()
+    #If OOO Then
+        Dim Document   As Object
+        Dim dispatcher As Object
+        Document = ThisComponent.CurrentController.Frame
+        dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+
+        dispatcher.executeDispatch(document, &quot;.uno:ResetAttributes&quot;, &quot;&quot;, 0, Array())
+    #Else
+        Selection.style = ActiveDocument.Styles(&quot;Default Paragraph Font&quot;)
+        On Error Resume Next
+        n = Selection.Hyperlinks.count
+        Do While n &gt; 0
+           Selection.Hyperlinks(n).Delete
+           n = Selection.Hyperlinks.count
+        Loop
+    #End If
+End Sub
+
+
+Sub eventRestartNumberingButton()
+    subRestartNumbering (True)
+End Sub
+
+
+Sub subRestartNumbering(bRestart As Boolean)
+    #If OOO Then
+        Set oVC = fnGetViewCursor()
+        oVC.ParaIsNumberingRestart = bRestart
+    #Else
+        nIndex = fnGetCurrentParagraphNumber()
+        bRestart = Not bRestart
+        ActiveDocument.Paragraphs(nIndex).Range.Select
+        With Selection.Range.ListFormat
+            .ApplyListTemplate .ListTemplate, False, wdListApplyToWholeList, 2
+        End With
+    #End If
+End Sub
+
+
+Function fnfindThis(criteria As String, Optional nLev, Optional IncludeBullet As Boolean)
+    Rem return the value according to the criteria
+    Rem just to clear the code
+    Rem too many find program
+    Set oVC = fnGetViewCursor()
+    Select Case (LCase(criteria))
+        Case &quot;parastyle&quot;
+            fnfindThis = fnGetParaStyleName(oVC)
+        Case &quot;prevparastyle&quot;
+            fnfindThis = fnFindPrevStyleName(oVC)
+        Case &quot;parentstyle&quot;
+            Rem this one sometimes not return the correct style.
+            Rem use for promote
+            Rem
+            fnfindThis = fnFindPrevParentStyleName(oVC)
+        Case &quot;parentlevelstyle&quot;
+            Rem to find the previous level above this style
+            fnfindThis = fnFindPrevLevelStyleName(oVC)
+        Case &quot;prevheadingstyle&quot;
+            fnfindThis = fnFindPrevHeadingStyleName(oVC)
+        Case &quot;prevliststyle&quot;
+            fnfindThis = fnFindPrevListStyleName(oVC)
+        Case &quot;thislevelliststyletype&quot;
+            fnfindThis = fnFindThisListStyleType(oVC, nLev, IncludeBullet)
+        Case Else
+            Rem do nothing
+    End Select
+End Function
+
+Function fnFindPrevHeadingStyleName(oCursor)
+Rem find the last heading style about the current paragraph
+    #If MSWD Then
+        If Not Selection.Information(wdWithInTable) Then
+            nIndex = fnGetCurrentParagraphNumber()
+            sStyleName = &quot;Title&quot;
+            Do While nIndex &gt; 1
+                sName = ActiveDocument.Paragraphs(nIndex - 1).style
+                sFamily = fnGetFamily(sName)
+                If sFamily = &quot;h&quot; Then
+                    sStyleName = sName
+                    Exit Do
+                End If
+                nIndex = nIndex - 1
+            Loop
+        Else
+            Dim tableNum As Integer
+            tableNum = fnGetCurrentTableNumber()
+            nIndex = fnGetCurrentParagraphNumber()
+            nFirstIndex = fnGetfirstParaNumberInTable(tableNum)
+            Do While nIndex &gt;= nFirstIndex
+                sName = ActiveDocument.Paragraphs(nIndex - 1).style
+                sFamily = fnGetFamily(sName)
+                If sFamily = &quot;h&quot; Then
+                    sStyleName = sName
+                    Exit Do
+                End If
+                nIndex = nIndex - 1
+            Loop
+        End If
+    #Else
+        oTxtCursor = oCursor.Text.createTextCursorByRange(oCursor)
+        Do
+            If oTxtCursor.gotoPreviousParagraph(False) = False Then
+                sStyleName = &quot;Title&quot;
+                Exit Do
+            End If
+            sStyleName = oTxtCursor.paraStyleName
+            sStyleName = str(sStyleName)
+        Loop Until fnGetFamily(sStyleName) = &quot;h&quot;
+
+    #End If
+    fnFindPrevHeadingStyleName = sStyleName
+End Function
+
+
+Function fnFindPrevLevelStyleName(oCursor)
+    Rem find the previous level style
+    Rem if current level is level 3, find previous level 2 style.
+    #If MSWD Then
+        If Not Selection.Information(wdWithInTable) Then
+            nIndex = fnGetCurrentParagraphNumber()
+            sStartStyleName = ActiveDocument.Paragraphs(nIndex).style
+            nStartLev = fnGetLevel(sStartStyleName)
+            If nStartLev &lt; 1 Then
+                nStartLev = 1
+            End If
+            Do While nIndex &gt; 1
+                If Not ActiveDocument.Paragraphs(nIndex - 1).Range.Information(wdWithInTable) Then
+                    sCurStyleName = ActiveDocument.Paragraphs(nIndex - 1).style
+                    sCurFamily = fnGetFamily(sCurStyleName)
+                    nCurLev = fnGetLevel(sCurStyleName)
+                    sCurTyp = fnGetType(sCurStyleName)
+                    If nCurLev = nStartLev - 1 Then
+                        sStyleName = sCurStyleName
+                        Exit Do
+                    End If
+                End If
+                nIndex = nIndex - 1
+            Loop
+        Else
+            Dim tableNum As Integer
+            tableNum = fnGetCurrentTableNumber()
+            nIndex = fnGetCurrentParagraphNumber()
+            nFirstIndex = fnGetfirstParaNumberInTable(tableNum)
+            sStartStyleName = ActiveDocument.Paragraphs(nIndex).style
+            nStartLev = fnGetLevel(sStartStyleName)
+            If nStartLev &lt; 1 Then
+                nStartLev = 1
+            End If
+            &apos;sStyleName = fnMakeStyleName(&quot;li&quot;, nStartLev, mListType(nStartLev - 1))
+            Do While nIndex &gt;= nFirstIndex
+            &apos;For i = 1 To ActiveDocument.Tables(tableNum).Range.Paragraphs.count
+                sCurStyleName = ActiveDocument.Paragraphs(nIndex - 1).style
+                sCurFamily = fnGetFamily(sCurStyleName)
+                nCurLev = fnGetLevel(sCurStyleName)
+                sCurTyp = fnGetType(sCurStyleName)
+                If nCurLev = nStartLev - 1 Then
+                        sStyleName = sCurStyleName
+                        Exit Do
+                End If
+                nIndex = nIndex - 1
+            &apos;Next
+            Loop
+        End If
+    #Else
+        oTxtCursor = oCursor.Text.createTextCursorByRange(oCursor)
+        sStartStyleName = oTxtCursor.paraStyleName
+        nStartFamily = fnGetFamily(sStartStyleName)
+        nStartLev = fnGetLevel(sStartStyleName)
+        If nStartLev &lt; 1 Then
+            nStartLev = 1
+        End If
+        nCurLev = nStartLev
+        Do
+            If oTxtCursor.gotoPreviousParagraph(False) = False Then
+                sCurStyleName = &quot;p&quot;
+                Exit Do
+            End If
+            sCurStyleName = oTxtCursor.paraStyleName
+            sCurStyleName = str(sCurStyleName)
+            sCurFamily = fnGetFamily(sCurStyleName)
+            If sCurFamily = &quot;p&quot; Then
+                Exit Do
+            End If
+            nCurLev = fnGetLevel(sCurStyleName)
+            sCurTyp = fnGetType(sCurStyleName)
+        Loop Until nCurLev = nStartLev - 1
+    #End If
+    If fnGetFamily(sCurStyleName) = &quot;h&quot; And nStartFamily &lt;&gt; &quot;h&quot; Then
+        If nStartFamily &lt;&gt; &quot;p&quot; Then
+            sCurStyleName = fnMakeStyleName(nStartFamily, 1, fnGetType(sStartStyleName))
+        Else
+            sCurStyleName = &quot;p&quot;
+        End If
+    End If
+     
+    fnFindPrevLevelStyleName = sCurStyleName
+End Function
+
+
+Function fnFindThisListStyleType(oCursor, nLev, Optional IncludeBullet As Boolean)
+    Rem to find the list style type for the given list level.
+    Rem maybe this can be used to see if there is a bullet or numbering list in front.
+    Rem can we make it to return the numbering type jst as the fnFindPrevListStyleName??
+    If IsEmpty(IncludeBullet) Or IsMissing(IncludeBullet) Then
+        IncludeBullet = False
+    End If
+    If nLev &lt; 1 Then
+        nLev = 1
+    End If
+    mListType = Array(&quot;n&quot;, &quot;i&quot;, &quot;a&quot;, &quot;I&quot;, &quot;A&quot;)
+    #If MSWD Then
+        If Not Selection.Information(wdWithInTable) Then
+            Rem if not within the table
+            nIndex = fnGetCurrentParagraphNumber()
+            sStyleName = fnGetParaStyleName()
+            
+            Do While nIndex &gt; 1
+                sCurStyleName = ActiveDocument.Paragraphs(nIndex - 1).style
+                sCurFamily = fnGetFamily(sCurStyleName)
+                nCurLev = fnGetLevel(sCurStyleName)
+                sCurTyp = fnGetType(sCurStyleName)
+                If IncludeBullet Then
+                    If (sCurFamily = &quot;li&quot; And nCurLev = nLev And sCurTyp &lt;&gt; &quot;p&quot;) Then
+                        sStyleName = sCurStyleName
+                        Exit Do
+                    End If
+                Else
+                    If (sCurFamily = &quot;li&quot; And nCurLev = nLev And sCurTyp &lt;&gt; &quot;b&quot; And sCurTyp &lt;&gt; &quot;p&quot;) Then
+                        sStyleName = sCurStyleName
+                        Exit Do
+                    End If
+                End If
+                nIndex = nIndex - 1
+            Loop
+        Else
+            Rem if within table
+            Dim tableNum As Integer
+            tableNum = fnGetCurrentTableNumber()
+            nIndex = fnGetCurrentParagraphNumber()
+            nFirstIndex = fnGetfirstParaNumberInTable(tableNum)
+            sStyleName = fnGetParaStyleName()
+            
+            Do While nIndex &gt;= nFirstIndex
+                sCurStyleName = ActiveDocument.Paragraphs(nIndex - 1).style
+                sCurFamily = fnGetFamily(sCurStyleName)
+                nCurLev = fnGetLevel(sCurStyleName)
+                sCurTyp = fnGetType(sCurStyleName)
+                If IncludeBullet Then
+                    If (sCurFamily = &quot;li&quot; And nCurLev = nLev And sCurTyp &lt;&gt; &quot;p&quot;) Then
+                        sStyleName = sCurStyleName
+                        Exit Do
+                    End If
+                Else
+                    If (sCurFamily = &quot;li&quot; And nCurLev = nLev And sCurTyp &lt;&gt; &quot;b&quot; And sCurTyp &lt;&gt; &quot;p&quot;) Then
+                        sStyleName = sCurStyleName
+                        Exit Do
+                    End If
+                End If
+                nIndex = nIndex - 1
+            Loop
+        End If
+    #Else
+        oTxtCursor = oCursor.Text.createTextCursorByRange(oCursor)
+        sStyleName = oTxtCursor.paraStyleName
+        sCurStyleName = sStyleName
+        Do
+            If oTxtCursor.gotoPreviousParagraph(False) = False Then
+                sStyleName = sCurStyleName
+                Exit Do
+            End If
+            sCurStyleName = oTxtCursor.paraStyleName
+            sCurStyleName = str(sCurStyleName)
+            sCurFamily = fnGetFamily(sCurStyleName)
+            nCurLev = fnGetLevel(sCurStyleName)
+            sCurTyp = fnGetType(sCurStyleName)
+            If IncludeBullet Then
+                 If (sCurFamily = &quot;li&quot; And nCurLev = nLev And sCurTyp &lt;&gt; &quot;p&quot;) Then
+                     sStyleName = sCurStyleName
+                     Exit Do
+                 End If
+             Else
+                 If (sCurFamily = &quot;li&quot; And nCurLev = nLev And sCurTyp &lt;&gt; &quot;b&quot; And sCurTyp &lt;&gt; &quot;p&quot;) Then
+                     sStyleName = sCurStyleName
+                     Exit Do
+                 End If
+             End If
+        Loop While True
+        sStyleName = sCurStyleName
+    #End If
+    If fnGetFamily(sStyleName) &lt;&gt; &quot;li&quot; Or fnGetType(sStyleName) = &quot;p&quot; Then
+        If nLev &lt;= 0 Then
+            nLev = 1
+        End If
+        sStyleName = fnMakeStyleName(&quot;li&quot;, nLev, mListType(nLev - 1))
+    End If
+    fnFindThisListStyleType = sStyleName
+End Function
+
+Function fnFindPrevListStyleName(oCursor)
+    mListType = Array(&quot;n&quot;, &quot;i&quot;, &quot;a&quot;, &quot;I&quot;, &quot;A&quot;)
+    #If MSWD Then
+        If Not Selection.Information(wdWithInTable) Then
+            nIndex = fnGetCurrentParagraphNumber()
+            sStartStyleName = ActiveDocument.Paragraphs(nIndex).style
+            nStartLev = fnGetLevel(sStartStyleName)
+            If nStartLev &lt; 1 Then
+                nStartLev = 1
+            End If
+            sStyleName = fnMakeStyleName(&quot;li&quot;, nStartLev, mListType(nStartLev - 1))
+            Do While nIndex &gt; 1
+                If Not ActiveDocument.Paragraphs(nIndex - 1).Range.Information(wdWithInTable) Then
+                    sCurStyleName = ActiveDocument.Paragraphs(nIndex - 1).style
+                    sCurFamily = fnGetFamily(sCurStyleName)
+                    nCurLev = fnGetLevel(sCurStyleName)
+                    sCurTyp = fnGetType(sCurStyleName)
+                    If (sCurFamily = &quot;li&quot; And nCurLev = nStartLev And sCurTyp &lt;&gt; &quot;b&quot; And sCurTyp &lt;&gt; &quot;p&quot;) Then
+                        sStyleName = sCurStyleName
+                        Exit Do
+                    End If
+                End If
+                nIndex = nIndex - 1
+            Loop
+        Else
+            Dim tableNum As Integer
+            tableNum = fnGetCurrentTableNumber()
+            nIndex = fnGetCurrentParagraphNumber()
+            nFirstIndex = fnGetfirstParaNumberInTable(tableNum)
+            sStartStyleName = ActiveDocument.Paragraphs(nIndex).style
+            nStartLev = fnGetLevel(sStartStyleName)
+            If nStartLev &lt; 1 Then
+                nStartLev = 1
+            End If
+            sStyleName = fnMakeStyleName(&quot;li&quot;, nStartLev, mListType(nStartLev - 1))
+            Do While nIndex &gt;= nFirstIndex
+            &apos;For i = 1 To ActiveDocument.Tables(tableNum).Range.Paragraphs.count
+                sCurStyleName = ActiveDocument.Paragraphs(nIndex - 1).style
+                sCurFamily = fnGetFamily(sCurStyleName)
+                nCurLev = fnGetLevel(sCurStyleName)
+                sCurTyp = fnGetType(sCurStyleName)
+                If (sCurFamily = &quot;li&quot; And nCurLev = nStartLev And sCurTyp &lt;&gt; &quot;b&quot; And sCurTyp &lt;&gt; &quot;p&quot;) Then
+                    sStyleName = sCurStyleName
+                    Exit Do
+                End If
+                nIndex = nIndex - 1
+            &apos;Next
+            Loop
+        End If
+    #Else
+        oTxtCursor = oCursor.Text.createTextCursorByRange(oCursor)
+        sStartStyleName = oTxtCursor.paraStyleName
+        nStartFamily = fnGetFamily(sStartStyleName)
+        nStartLev = fnGetLevel(sStartStyleName)
+        If nStartLev &lt; 1 Then
+            nStartLev = 1
+        End If
+        sCurStyleName = fnMakeStyleName(&quot;li&quot;, nStartLev, mListType(nStartLev - 1))
+        Do
+            If oTxtCursor.gotoPreviousParagraph(False) = False Then
+                sCurStyleName = fnMakeStyleName(&quot;li&quot;, nStartLev, mListType(nStartLev - 1))
+                Exit Do
+            End If
+            sCurStyleName = oTxtCursor.paraStyleName
+            sCurStyleName = str(sCurStyleName)
+            sCurFamily = fnGetFamily(sCurStyleName)
+            nCurLev = fnGetLevel(sCurStyleName)
+            sCurTyp = fnGetType(sCurStyleName)
+        Loop Until sCurFamily = &quot;li&quot; And nCurLev = nStartLev And sCurTyp &lt;&gt; &quot;b&quot; And sCurTyp &lt;&gt; &quot;p&quot;
+        sStyleName = sCurStyleName
+    #End If
+    fnFindPrevListStyleName = sStyleName
+End Function
+
+
+Function fnFindPrevParentStyleName(oCursor)
+    #If MSWD Then
+        nIndex = fnGetCurrentParagraphNumber()
+        sCurrentStyleName = ActiveDocument.Paragraphs(nIndex).style
+        nCurrentLev = fnGetLevel(sCurrentStyleName)
+        If fnGetFamily(sCurrentStyleName) = &quot;h&quot; And fnGetLevel(sCurrentStyleName) = 1 Then
+            sStyleName = &quot;Title&quot;
+        ElseIf sCurrentStyleName = &quot;p-center&quot; Or sCurrentStyleName = &quot;p-right&quot; Then
+            sStyleName = sCurrentStyleName
+        ElseIf nCurrentLev &lt;= 1 Then
+            sStyleName = &quot;p&quot;
+        Else
+            sStyleFamily = fnGetFamily(sCurrentStyleName)
+            sStyleType = fnGetType(sCurrentStyleName)
+            If Not Selection.Information(wdWithInTable) Then
+                Do While nIndex &gt; 1
+                    If Not ActiveDocument.Paragraphs(nIndex - 1).Range.Information(wdWithInTable) Then
+                        sName = ActiveDocument.Paragraphs(nIndex - 1).style
+                        sFamily = fnGetFamily(sName)
+                        nLev = fnGetLevel(sName)
+                        sType = fnGetType(sName)
+                        If sStyleFamily = sFamily And nLev = nCurrentLev - 1 Then
+                            sStyleName = sName
+                            Exit Do
+                        End If
+                    End If
+                    nIndex = nIndex - 1
+                Loop
+            Else
+                Dim tableNum As Integer
+                tableNum = fnGetCurrentTableNumber()
+                nIndex = fnGetCurrentParagraphNumber()
+                nFirstIndex = fnGetfirstParaNumberInTable(tableNum)
+                Do While nIndex &gt;= nFirstIndex
+                    sName = ActiveDocument.Paragraphs(nIndex - 1).style
+                    sFamily = fnGetFamily(sName)
+                    nLev = fnGetLevel(sName)
+                    sType = fnGetType(sName)
+                    If sStyleFamily = sFamily And nLev = nCurrentLev - 1 Then
+                        sStyleName = sName
+                        Exit Do
+                    End If
+                    nIndex = nIndex - 1
+                Loop
+            End If
+        End If
+        If IsEmpty(sStyleName) Then
+            If nCurrentLev &gt; 1 Then
+                sStyleName = fnMakeStyleName(fnGetFamily(sCurrentStyleName), nCurrentLev - 1, fnGetType(sCurrentStyleName))
+            Else
+                sStyleName = &quot;p&quot;
+            End If
+        End If
+        sFamily = fnGetFamily(sStyleName)
+        If sFamily &lt;&gt; &quot;Title&quot; And sFamily &lt;&gt; &quot;h&quot; And sFamily &lt;&gt; &quot;p&quot; And sFamily &lt;&gt; &quot;bq&quot; And _
+            sFamily &lt;&gt; &quot;dt&quot; And sFamily &lt;&gt; &quot;dd&quot; And sFamily &lt;&gt; &quot;li&quot; And sFamily &lt;&gt; &quot;pre&quot; And _
+            sFamily &lt;&gt; &quot;i&quot; And sFamily &lt;&gt; &quot;xRef&quot; Then
+            Rem if not ice style then
+            sStyleName = &quot;p&quot;
+        End If
+    #Else
+        oTxtCursor = oCursor.Text.createTextCursorByRange(oCursor)
+        sCurrentStyleName = oTxtCursor.paraStyleName
+        sCurrentFamily = fnGetFamily(sCurrentStyleName)
+        nCurrentLev = fnGetLevel(sCurrentStyleName)
+        sCurrentType = fnGetType(sCurrentStyleName)
+        sStyleName = &quot;&quot;
+        Do
+            If oTxtCursor.gotoPreviousParagraph(False) = False Then
+                If sCurrentFamily = &quot;h&quot; Then
+                    sStyleName = &quot;Title&quot;
+                ElseIf sCurrentStyleName = &quot;p-center&quot; Or sCurrentStyleName = &quot;p-right&quot; Then
+                    sStyleName = sCurrentStyleName
+                ElseIf nCurrentLev &gt; 1 Then
+                    sStyleName = fnMakeStyleName(sCurrentFamily, nCurrentLev - 1, sCurrentType)
+                Else
+                    sStyleName = &quot;p&quot;
+                End If
+                Exit Do
+            Else
+                If sCurrentFamily = fnGetFamily(oTxtCursor.paraStyleName) And fnGetLevel(oTxtCursor.paraStyleName) = nCurrentLev - 1 Then
+                        sStyleName = oTxtCursor.paraStyleName
+                        sStyleName = str(sStyleName)
+                        Exit Do
+                    End If
+            End If
+        Loop Until sStyleName &lt;&gt; &quot;&quot;
+
+    #End If
+    fnFindPrevParentStyleName = sStyleName
+End Function
+
+
+Function fnFindPrevStyleName(oCursor)
+    sStyleName = &quot;p&quot;
+    #If MSWD Then
+        nIndex = fnGetCurrentParagraphNumber()
+        If nIndex = 1 Then
+            sStyleName = &quot;p&quot;
+        Else
+            If ActiveDocument.Paragraphs(nIndex).Range.Information(wdWithInTable) Then
+                Dim tableNum As Integer
+                tableNum = fnGetCurrentTableNumber()
+                nFirstIndex = fnGetfirstParaNumberInTable(tableNum)
+                If nFirstIndex &lt;= nIndex - 1 Then
+                    sStyleName = ActiveDocument.Paragraphs(nIndex - 1).style
+                Else
+                    sStyleName = &quot;p&quot;
+                End If
+            Else
+                sStyleName = ActiveDocument.Paragraphs(nIndex - 1).style
+            End If
+        End If
+        sFamily = fnGetFamily(sStyleName)
+        If sFamily &lt;&gt; &quot;Title&quot; And sFamily &lt;&gt; &quot;h&quot; And sFamily &lt;&gt; &quot;p&quot; And sFamily &lt;&gt; &quot;bq&quot; And _
+            sFamily &lt;&gt; &quot;dt&quot; And sFamily &lt;&gt; &quot;dd&quot; And sFamily &lt;&gt; &quot;li&quot; And sFamily &lt;&gt; &quot;pre&quot; And _
+            sFamily &lt;&gt; &quot;i&quot; And sFamily &lt;&gt; &quot;xRef&quot; Then
+            Rem if not ice style then
+            sStyleName = &quot;p&quot;
+        End If
+    #Else
+        On Error GoTo finally
+        If oCursor.supportsService(&quot;com.sun.star.style.ParagraphProperties&quot;) Then
+            Rem xray oCursor
+            oTxtCursor = oCursor.Text.createTextCursorByRange(oCursor)
+            If oTxtCursor.gotoPreviousParagraph(False) Then
+                sStyleName = oTxtCursor.paraStyleName
+            Else
+                sStyleName = &quot;p&quot; rem TODO: make this a constant &quot;default paragraph style&quot;
+            End If
+        End If
+finally:
+    #End If
+    fnFindPrevStyleName = sStyleName
+End Function
+
+Function fnGetfirstParaNumberInTable(tableNum As Integer)
+&apos;get table number and get the para number
+    #If MSWD Then
+        fnGetfirstParaNumberInTable = ActiveDocument.Range(0, ActiveDocument.Tables(tableNum).Range.Paragraphs(1).Range.End).Paragraphs.count
+    #End If
+End Function
+
+Function fnGetLastParaNumberInTable(tableNum As Integer)
+&apos;get table number and get the para number
+    #If MSWD Then
+        fnGetLastParaNumberInTable = ActiveDocument.Range(0, ActiveDocument.Tables(tableNum).Range.Paragraphs.Last.Range.End).Paragraphs.count
+    #End If
+End Function
+
+Function fnGetCurrentTableNumber()
+    #If MSWD Then
+        fnGetCurrentTableNumber = ActiveDocument.Range(0, Selection.Paragraphs(1).Range.End).Tables.count
+    #End If
+
+End Function
+Function fnGetCurrentParagraphNumber()
+    #If MSWD Then
+        fnGetCurrentParagraphNumber = ActiveDocument.Range(0, Selection.Paragraphs(1).Range.End).Paragraphs.count
+    #End If
+End Function
+
+
+Function fnIsTextElementPara(oTextElement)
+    fnIsTextElementPara = oTextElement.supportsService(&quot;com.sun.star.text.Paragraph&quot;)
+End Function
+
+
+Function fnIsTextElementTable(oTextElement)
+    fnIsTextElementTable = oTextElement.supportsService(&quot;com.sun.star.text.TextTable&quot;)
+End Function
+
+Function fnGetSelectedItems()
+    oCursorSelection = ThisComponent.getCurrentSelection()
+    Rem  for debugging. will need xray tool.
+    Rem If oCursorSelection.supportsService(&quot;com.sun.star.text.TextRanges&quot;) Then
+    Rem    xray oCursorSelection
+    Rem End If
+End Function
+
+Sub subToggleCharacterStyles(sStyle, mResetProps)
+    #If OOO Then
+        oCurSelection = ThisComponent.getCurrentSelection()
+        If oCurSelection.supportsService(&quot;com.sun.star.text.TextRanges&quot;) Then
+            nCount = oCurSelection.count
+            If nCount = 1 Then
+                Rem If nothing selected then select current word
+                oVC = ThisComponent.CurrentController.ViewCursor
+                oTextCursor = oVC.Text.createTextCursorByRange(oVC)
+                If oVC.isCollapsed() Then
+                    oTextCursor.gotoStartOfWord (False)
+                    oTextCursor.gotoEndOfWord (True)
+                End If
+                subProcessTextRange(oTextCursor, sStyle, mResetProps)
+            Else
+                For i = 1 To nCount - 1
+                    oTextRange = oCurSelection.getByIndex(i)
+                    subProcessTextRange(oTextRange, sStyle, mResetProps)
+                Next
+            End If
+        ElseIf oCurSelection.supportsService(&quot;com.sun.star.text.TextTableCursor&quot;) Then
+            processTextTableCursor(oCurSelection, sStyle, mResetProps)
+        Else
+            printMsgbox (&quot;Error in getting selection range. Try deselecting.&quot;)
+        End If
+    #End If
+End Sub
+
+Sub processTextTableCursor(oCurSelection, sStyle, mResetProps)
+    cellRangeName = oCurSelection.getRangeName()
+
+    startCellName = Split(cellRangeName, &quot;:&quot;)(0)
+    endCellName = Split(cellRangeName, &quot;:&quot;)(1)
+    
+    startColumn = Asc(Left(startCellName, 1))
+    startRow = CInt(Right(startCellName, Len(startCellName) - 1))
+
+
+    endColumn = Asc(Left(endCellName, 1))
+    endRow = CInt(Right(endCellName, Len(endCellName) - 1))
+    
+    oTable = ThisComponent.CurrentController.getViewCursor().TextTable
+    
+    For i = startRow To endRow
+        For j = startColumn To endColumn
+            If (j &gt; 64 And j &lt; 91) Or (j &gt; 96 And j &lt; 123) Then
+                Rem only A-Z and a-z
+                Rem only support upto52 .i.e until &apos;z&apos; column
+                Rem assume there won&apos;t be more than that. and getRangeName() does not support that as well.
+                cellName = Chr(j) + CStr(i)
+                oCell = oTable.getCellByName(cellName)
+                oCellCursor = oTable.createCursorByCellName(cellName)
+                If sStyle = &quot;i-i&quot; Then
+
+                    If oCellCursor.CharPosture &lt;&gt; 2 Then
+                        Rem switch on Italic
+                        oCellCursor.CharPosture = 2
+                    Else
+                        oCellCursor.CharPosture = 0
+                    End If
+                ElseIf sStyle = &quot;i-b&quot; Then
+                    If oCellCursor.CharWeight &lt;&gt; 150 Then
+                        Rem switch on Bold
+                        oCellCursor.CharWeight = 150
+                    Else
+                        oCellCursor.CharWeight = 100
+                    End If
+                Else
+                    subProcessTextRange(oCell.text, sStyle, mResetProps)
+                End If
+            End If
+        Next j
+    Next i
+End Sub
+
+Sub subProcessTextRange(oTextRange, sStyle, mResetProps)
+oTextElementEnum = oTextRange.createEnumeration
+While oTextElementEnum.hasMoreElements()
+    oTextElement = oTextElementEnum.nextElement()
+    If oTextElement.supportsService(&quot;com.sun.star.text.Paragraph&quot;) Then
+        subProcessParagraph(oTextElement, sStyle, mResetProps)
+    Else Rem if oTextElement.supportsService(&quot;com.sun.star.text.TextTable&quot;) then
+        subProcessTable(oTextElement, sStyle, mResetProps)
+    End If
+Wend
+End Sub
+
+
+Sub subProcessTable(oTextElement, sStyle, mResetProps)
+mCells = oTextElement.getCellNames()
+For i = 0 To UBound(mCells)
+    oCell = oTextElement.getCellByName(mCells(i))
+    subProcessTextRange(oCell.text, sStyle, mResetProps)
+Next
+End Sub
+
+
+Sub subProcessParagraph(oTextElement, sStyle, mResetProps)
+If Not fnHasStyle(sStyle, &quot;Character&quot;) Then
+    subCreateMissingStyle (sStyle)
+End If
+oPortionEnum = oTextElement.createEnumeration
+While oPortionEnum.hasMoreElements()
+    oPortion = oPortionEnum.nextElement()
+    subResetProperties(oPortion, mResetProps)
+    mCharStyleNames = oPortion.getPropertyValue(&quot;CharStyleNames&quot;)
+    sCharStyleNames = &quot;&quot;
+    If IsEmpty(mCharStyleNames) Then
+        sCharStyleNames = sStyle
+    ElseIf UBound(mCharStyleNames) &lt; 0 Then
+        sCharStyleNames = sStyle
+    Else
+        sCharStyleNames = Join(mCharStyleNames, &quot;,&quot;) &amp; &quot;,&quot;
+        nLoc = InStr(sCharStyleNames, sStyle &amp; &quot;,&quot;)
+        If nLoc &gt; 0 Then
+            sCharStyleNames = Left(sCharStyleNames, nLoc - 1) &amp; Right(sCharStyleNames, Len(sCharStyleNames) - (nLoc + Len(sStyle)))
+            If Right(sCharStyleNames, 1) = &quot;,&quot; Then sCharStyleNames = Left(sCharStyleNames, Len(sCharStyleNames) - 1)
+        Else
+            sCharStyleNames = sCharStyleNames &amp; sStyle
+        End If
+    End If
+    mCharStyleNames = Split(sCharStyleNames, &quot;,&quot;)
+    If IsEmpty(mCharStyleNames) Then
+        oPortion.setPropertyToDefault (&quot;CharStyleNames&quot;)
+    ElseIf UBound(mCharStyleNames) &lt; 0 Then
+        oPortion.setPropertyToDefault (&quot;CharStyleNames&quot;)
+    Else
+        oPortion.setPropertyToDefault (&quot;CharStyleNames&quot;)
+        oPortion.setPropertyValue(&quot;CharStyleNames&quot;, mCharStyleNames)
+    End If
+Wend
+End Sub
+
+
+Sub subResetProperties(oPortion, mResetProps)
+For i = 0 To UBound(mResetProps)
+    oPortion.setPropertyToDefault (mResetProps(i))
+Next
+End Sub
+
+Function fnIsItalic(oCursor) As Boolean
+    #If OOO Then
+        If oCursor.CharPosture &lt;&gt; 2 Then
+            fnIsItalic = False
+        Else
+            fnIsItalic = True
+        End If
+    #Else
+        If oCursor.Italic Then
+            Rem Word gives true if one word in the range is bold
+            Rem so remove it
+            Dim isItalic As Boolean
+            isItalic = True
+            nIndex = fnGetCurrentParagraphNumber
+            For Each wd In ActiveDocument.Paragraphs(nIndex).Range.Words
+                If Not wd.Italic Then
+                    isItalic = False
+                    Exit For
+                End If
+            Next
+        
+            fnIsItalic = isItalic
+        Else
+            fnIsItalic = False
+        End If
+    #End If
+End Function
+
+Function fnIsBold(oCursor) As Boolean
+    #If OOO Then
+        If oCursor.CharWeight = 150 Then
+            fnIsBold = True
+        Else
+            fnIsBold = False
+        End If
+    #Else
+        If oCursor.Bold Then
+            Rem Word gives true if one word in the range is bold
+            Rem so remove it
+            Dim isBold As Boolean
+            isBold = True
+            nIndex = fnGetCurrentParagraphNumber
+            For Each wd In ActiveDocument.Paragraphs(nIndex).Range.Words
+                If Not wd.Bold Then
+                    isBold = False
+                    Exit For
+                End If
+            Next
+            fnIsBold = isBold
+        Else
+            fnIsBold = False
+        End If
+    #End If
+End Function</script:module>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="styleTestDocCreator" script:language="StarBasic">#Const MSWD = False
+#Const OOO = Not MSWD
+
+Sub createTestDocument()
+    Rem create text document
+    Rem this is mainly to create the test document. thus should not visible to general users.
+    
+    ans = MsgBox(&quot;Are you sure you want to use this current document? This process will delete all document content&quot;, 1, &quot;Create Text Document&quot;)
+    If ans = 1 Then
+        #If MSWD Then
+            ActiveDocument.Select
+            ActiveDocument.Range.InsertParagraph
+        #Else
+            oVC = fnGetViewCursor()
+            oVC.goToStart (False)
+        #End If
+        
+        Rem  make sure we have all the styles
+        subCreateAllMissingStyles
+        
+        Rem create the test cases
+        addThisTestCases (&quot;PromoteButton&quot;)
+        addThisTestCases (&quot;DemoteButton&quot;)
+        addThisTestCases (&quot;TitleButton&quot;)
+        addThisTestCases (&quot;HeadingButton&quot;)
+        addThisTestCases (&quot;LeftAlignedButton&quot;)
+        addThisTestCases (&quot;IndentButton&quot;)
+        addThisTestCases (&quot;CenterAlignedButton&quot;)
+        addThisTestCases (&quot;RightAlignedButton&quot;)
+        addThisTestCases (&quot;BlockQouteButton&quot;)
+        addThisTestCases (&quot;DefinitionButton&quot;)
+        addThisTestCases (&quot;PreformattedButton&quot;)
+        addThisTestCases (&quot;BulletButton&quot;)
+        addThisTestCases (&quot;NumberiseButton&quot;)
+        
+        Rem saving the document Word only. OOo needs to add Test and restore button
+        Rem so i haven&apos;t adding the saving part of it.
+        #If MSWD Then
+          &apos;  ActiveDocument.SaveAs fileName:=&quot;Test Document.doc&quot;
+        #End If
+        MsgBox &quot;Done creating test document&quot;
+    End If
+
+End Sub
+
+
+
+Sub addThisTestCases(sBtnName As String)
+    Rem this add testcases for each button
+    testCases = fnGetTestCases(sBtnName)
+    For Each testCase In testCases
+        createTable (testCase)
+    Next
+End Sub
+
+Sub createTable(testCase As Variant)
+Rem Create each test as table
+Rem param : testCase(ButtonName,sStyle,sPrevStyle,sResultStyle)
+
+Rem get the style names
+sBtnName = Split(testCase(0), &quot; : &quot;)(0)
+Rem if you want to see the test number comment the above and uncomment the following
+Rem sBtnName = testCase(0)
+sStyle = testCase(1)
+sPrevStyles = testCase(2)
+sResultStyle = testCase(3)
+
+#If MSWD Then
+    &apos;move to end
+    Selection.Move unit:=wdStory
+    
+    &apos;add paragraph
+    Selection.TypeParagraph
+    
+    &apos;now add a table
+    Set tbl = ActiveDocument.Tables.Add(Selection.Range, 1, 1)
+    
+    Rem now add the data
+    With tbl.Cell(1, 1).Range
+        .Text = &quot;Case : &quot; + testCase(0)
+        .style = &quot;p&quot;
+        For Each sPrevStyle In sPrevStyles
+            If sPrevStyle &lt;&gt; &quot;&quot; Then
+                .InsertParagraphAfter
+                .InsertAfter (&quot;GIVEN &quot; + sPrevStyle)
+                .Paragraphs(.Paragraphs.count).Range.style = sPrevStyle
+            End If
+        Next
+        .InsertParagraphAfter
+        .InsertAfter (&quot;TEST &quot; + sStyle + &quot; &quot; + sBtnName + &quot; &quot; + sResultStyle)
+        .Paragraphs(.Paragraphs.count).Range.style = sStyle
+        .InsertParagraphAfter
+        .Paragraphs(.Paragraphs.count).Range.style = &quot;p&quot;
+    End With
+#Else
+    &apos; create table
+    oTextTable = ThisComponent.createInstance(&quot;com.sun.star.text.TextTable&quot;)
+    oTextTable.initialize(1,1)
+    
+    Rem create text cursor
+    oCursor = ThisComponent.GetText().createTextCursor()
+    oCursor.goToEnd (False)
+    Rem insert table
+    oCursor.getText().insertTextContent(oCursor,oTextTable,false)
+    Rem get the cell cursor
+    oCell = oTextTable.getCellByName(&quot;A1&quot;)
+    oCellCursor = oCell.createTextCursor()
+
+    Rem Insert Text seemly paragraph
+    oCellCursor.String = &quot;Case : &quot; + testCase(0)
+    subSetParaStyleName(oCellCursor, &quot;p&quot;)
+    oCellCursor.gotoEndofParagraph(1,False)
+    oCellCursor.getText().insertControlCharacter(oCellCursor, com.sun.star.text.ControlCharacter.PARAGRAPH_BREAK, False)
+    For Each sPrevStyle In sPrevStyles
+        If sPrevStyle &lt;&gt; &quot;&quot; Then
+            oCellCursor.String = &quot;GIVEN &quot; + sPrevStyle
+            subSetParaStyleName(oCellCursor, sPrevStyle)
+            oCellCursor.gotoEndofParagraph(1,False)
+            oCellCursor.getText().insertControlCharacter(oCellCursor, com.sun.star.text.ControlCharacter.PARAGRAPH_BREAK, False)
+        End If
+    Next
+    oCellCursor.String = &quot;TEST &quot; + sStyle + &quot; &quot; + sBtnName + &quot; &quot; + sResultStyle
+
+    subSetParaStyleName(oCellCursor, sStyle)
+    oCellCursor.gotoEndOfParagraph (False)
+
+    Rem insert line break
+    oPar = ThisComponent.createInstance(&quot;com.sun.star.text.Paragraph&quot;)
+    
+    ThisComponent.getText().insertTextContentAfter(oPar,oTextTable)
+    oCursor.goToEnd (False)
+
+#End If
+
+End Sub
+
+
+</script:module>

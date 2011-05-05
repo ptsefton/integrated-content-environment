@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="WPInteropStyles" script:language="StarBasic">
+       
+
+function SetStyle(style as string)
+rem ----------------------------------------------------------------------
+rem define variables
+dim document   as object
+dim dispatcher as object
+rem ----------------------------------------------------------------------
+rem get access to the document
+document   = ThisComponent.CurrentController.Frame
+dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+
+rem ----------------------------------------------------------------------
+dim args1(1) as new com.sun.star.beans.PropertyValue
+args1(0).Name = &quot;Template&quot;
+args1(0).Value = style
+args1(1).Name = &quot;Family&quot;
+args1(1).Value = 2
+
+dispatcher.executeDispatch(document, &quot;.uno:StyleApply&quot;, &quot;&quot;, 0, args1())
+
+args1(1).Value = 1
+
+dispatcher.executeDispatch(document, &quot;.uno:StyleApply&quot;, &quot;&quot;, 0, args1())
+
+end function
+
+ 
+        
+Sub p() 
+         SetStyle(&quot;p&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h1() 
+         SetStyle(&quot;h1&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h1num() 
+         SetStyle(&quot;h1#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h2() 
+         SetStyle(&quot;h2&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h2num() 
+         SetStyle(&quot;h2#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h3() 
+         SetStyle(&quot;h3&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h3num() 
+         SetStyle(&quot;h3#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h4() 
+         SetStyle(&quot;h4&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h4num() 
+         SetStyle(&quot;h4#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h5() 
+         SetStyle(&quot;h5&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub h5num() 
+         SetStyle(&quot;h5#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li1bull() 
+         SetStyle(&quot;li1*&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li1num() 
+         SetStyle(&quot;li1#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li1p() 
+         SetStyle(&quot;li1p&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li1a() 
+         SetStyle(&quot;li1a&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li1alpha() 
+         SetStyle(&quot;li1A&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li1i() 
+         SetStyle(&quot;li1i&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li1rom() 
+         SetStyle(&quot;I&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dt1() 
+         SetStyle(&quot;dt1&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dd1() 
+         SetStyle(&quot;dd1&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li2bull() 
+         SetStyle(&quot;li2*&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li2num() 
+         SetStyle(&quot;li2#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li2p() 
+         SetStyle(&quot;li2p&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li2a() 
+         SetStyle(&quot;li2a&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li2alpha() 
+         SetStyle(&quot;li2A&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li2i() 
+         SetStyle(&quot;li2i&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li2rom() 
+         SetStyle(&quot;I&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dt2() 
+         SetStyle(&quot;dt2&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dd2() 
+         SetStyle(&quot;dd2&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li3bull() 
+         SetStyle(&quot;li3*&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li3num() 
+         SetStyle(&quot;li3#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li3p() 
+         SetStyle(&quot;li3p&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li3a() 
+         SetStyle(&quot;li3a&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li3alpha() 
+         SetStyle(&quot;li3A&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li3i() 
+         SetStyle(&quot;li3i&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li3rom() 
+         SetStyle(&quot;I&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dt3() 
+         SetStyle(&quot;dt3&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dd3() 
+         SetStyle(&quot;dd3&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li4bull() 
+         SetStyle(&quot;li4*&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li4num() 
+         SetStyle(&quot;li4#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li4p() 
+         SetStyle(&quot;li4p&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li4a() 
+         SetStyle(&quot;li4a&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li4alpha() 
+         SetStyle(&quot;li4A&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li4i() 
+         SetStyle(&quot;li4i&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li4rom() 
+         SetStyle(&quot;I&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dt4() 
+         SetStyle(&quot;dt4&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dd4() 
+         SetStyle(&quot;dd4&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li5bull() 
+         SetStyle(&quot;li5*&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li5num() 
+         SetStyle(&quot;li5#&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li5p() 
+         SetStyle(&quot;li5p&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li5a() 
+         SetStyle(&quot;li5a&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li5alpha() 
+         SetStyle(&quot;li5A&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li5i() 
+         SetStyle(&quot;li5i&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub li5rom() 
+         SetStyle(&quot;I&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dt5() 
+         SetStyle(&quot;dt5&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub dd5() 
+         SetStyle(&quot;dd5&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub bq1() 
+         SetStyle(&quot;bq1&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub bq2() 
+         SetStyle(&quot;bq2&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub bq3() 
+         SetStyle(&quot;bq3&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub bq4() 
+         SetStyle(&quot;bq4&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub bq5() 
+         SetStyle(&quot;bq5&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iiem() 
+         SetStyle(&quot;i-em&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iistrong() 
+         SetStyle(&quot;i-strong&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iii() 
+         SetStyle(&quot;i-i&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iib() 
+         SetStyle(&quot;i-b&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iidfn() 
+         SetStyle(&quot;i-dfn&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iicode() 
+         SetStyle(&quot;i-code&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iisamp() 
+         SetStyle(&quot;i-samp&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iikbd() 
+         SetStyle(&quot;i-kbd&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iivar() 
+         SetStyle(&quot;i-var&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iicite() 
+         SetStyle(&quot;i-cite&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iiabbr() 
+         SetStyle(&quot;i-abbr&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iiacronym() 
+         SetStyle(&quot;i-acronym&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iiq() 
+         SetStyle(&quot;i-q&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iisub() 
+         SetStyle(&quot;i-sub&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iisup() 
+         SetStyle(&quot;i-sup&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iitt() 
+         SetStyle(&quot;i-tt&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iibig() 
+         SetStyle(&quot;i-big&quot; ) 
+end Sub 
+    
+    
+   
+        
+Sub iismall() 
+         SetStyle(&quot;i-small&quot; ) 
+end Sub 
+    
+    
+   
+</script:module>

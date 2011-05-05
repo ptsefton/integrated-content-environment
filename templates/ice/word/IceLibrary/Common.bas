@@ -1,0 +1,232 @@
+Attribute VB_Name = "Common"
+#Const MSWD = True
+#Const OOO = Not MSWD
+
+Rem *********************************************************************
+Rem    Copyright (C) 2006  Distance and e-Learning Centre,
+Rem    University of Southern Queensland
+Rem
+Rem    This program is free software; you can redistribute it and/or modify
+Rem    it under the terms of the GNU General Public License as published by
+Rem    the Free Software Foundation; either version 2 of the License, or
+Rem    (at your option) any later version.
+Rem
+Rem    This program is distributed in the hope that it will be useful,
+Rem    but WITHOUT ANY WARRANTY; without even the implied warranty of
+Rem    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+Rem    GNU General Public License for more details.
+Rem
+Rem    You should have received a copy of the GNU General Public License
+Rem    along with this program; if not, write to the Free Software
+Rem    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+Rem
+Rem *********************************************************************
+
+Dim testmode As Boolean
+
+Function getOOoVersion()
+Rem return ooo version number
+#If OOO Then
+    Dim aSettings, aConfigProvider
+    Dim aParams2(0) As New com.sun.star.beans.PropertyValue
+    
+    aConfigProvider = createUnoService("com.sun.star.configuration.ConfigurationProvider")
+    
+    aParams2(0).name = "nodepath"
+    aParams2(0).value = "/org.openoffice.Setup/Product"
+    
+    aSettings = aConfigProvider.createInstanceWithArguments("com.sun.star.configuration.ConfigurationAccess", aParams2())
+    getOOoVersion = aSettings.getByName("ooSetupVersion")
+#End If
+End Function
+
+Sub setTestmode(value As Boolean)
+    Rem set testmode value
+    Rem param : value(TRUE/False)
+    testmode = value
+End Sub
+
+Sub printMsgbox(message As String)
+    Rem param : message
+    Rem if testmode is false, then it is user mode
+    Rem  if true, then it is testing mode
+    If IsMissing(testmode) Then
+        setTestmode (False)
+    End If
+    If testmode Then
+        subSetErrMsg (message)
+    Else
+        MsgBox message, 0, "ICE"
+    End If
+End Sub
+
+Function fnMakeStyleName(sFamily, nLev, sTyp)
+    Rem param: Family, Type as string, Level as Integer
+    Rem return sStyleName
+    sLev = Trim(str(nLev))
+
+    If sFamily = "p" Or sFamily = "Title" Then
+
+        If sTyp <> "" Then
+            sLev = "-"
+        Else
+            sLev = ""
+        End If
+    End If
+    fnMakeStyleName = sFamily + sLev + sTyp
+End Function
+
+
+Function fnGetType(sStyle)
+    Rem param: styleName e.g p-center
+    Rem Return subtype of a style, eg "center" for a p, or the flavour of a list
+
+    nTypestart = 1000
+    Rem Sub-types of styles are indicated by anything following a number or "-" character
+    For i = 1 To Len(sStyle)
+        nLev = Mid(sStyle, i, 1)
+        If InStr("-123456789", nLev) Then
+            nTypestart = i + 1
+        End If
+    Next
+
+    If nTypestart <= Len(sStyle) Then
+        fnGetType = Mid(sStyle, nTypestart)
+    Else
+        fnGetType = ""
+    End If
+End Function
+
+
+Function fnGetLevel(sStyle)
+    Rem param: styleName e.g p-center
+    Rem Find a digit: this will return the last one ICE styles are expected to only have one
+    fnGetLevel = 0
+    For i = 1 To Len(sStyle)
+        nLev = Mid(sStyle, i, 1)
+        If InStr("123456789", nLev) Then
+            fnGetLevel = Int(nLev)
+        End If
+    Next
+End Function
+
+
+Function fnGetFamily(sStyle)
+    Rem param: styleName e.g p-center
+    Rem return styleFamily. e.g. p
+    If Left(sStyle, 3) = "pre" Then
+        fnGetFamily = "pre"
+    ElseIf Left(sStyle, 2) = "li" Then
+        fnGetFamily = "li"
+    ElseIf Left(sStyle, 2) = "dt" Then
+        fnGetFamily = "dt"
+    ElseIf Left(sStyle, 2) = "dd" Then
+        fnGetFamily = "dd"
+    ElseIf Left(sStyle, 1) = "h" Then
+        fnGetFamily = "h"
+    ElseIf Left(sStyle, 2) = "bq" Then
+        fnGetFamily = "bq"
+    ElseIf Left(sStyle, 5) = "Title" Then
+        fnGetFamily = "Title"
+    ElseIf Left(sStyle, 1) = "i" Then
+        fnGetFamily = "i"
+    ElseIf Left(sStyle, 4) = "xRef" Then
+        fnGetFamily = "xRef"
+    Else
+        fnGetFamily = "p"
+    End If
+End Function
+
+
+Function fnHasStyle(sStyleName, Optional sStyleType As String) As Boolean
+    Rem check if the style exist or not.
+    Rem to reduce the processing time, I have intensionally get the error.
+    Rem both word processor will give error if the style doesn't exist.
+    Rem return True/False
+    Dim oStyle
+On Error GoTo NoStyle:
+    If IsMissing(sStyleType) Then
+        sStyleType = ""
+    End If
+    fnHasStyle = False
+    If sStyleName = "" Then
+        Exit Function
+    End If
+    #If OOO Then
+        If sStyleType = "" Then
+            Rem OOO must have sStyleType. Thus force it to have it.
+            sFamily = fnGetFamily(sStyleName)
+            If sFamily = "i" Or sFamily = "xRef" Then
+                sStyleType = "Character"
+            ElseIf sFamily = "li" Then
+                hasNumStyle = False
+                oStyles = ThisComponent.styleFamilies.getByName("NumberingStyles")
+                hasNumStyle = oStyles.hasByName(sStyleName)
+                If Not hasNumStyle Then
+                    Exit Function
+                End If
+                sStyleType = "Paragraph"
+            Else
+                sStyleType = "Paragraph"
+            End If
+        End If
+        oStyles = ThisComponent.styleFamilies.getByName(sStyleType + "Styles")
+        fnHasStyle = oStyles.hasByName(sStyleName)
+    #Else
+        If ActiveDocument.Styles(sStyleName).NameLocal = sStyleName Then
+            fnHasStyle = True
+        End If
+
+    #End If
+    Exit Function
+NoStyle:
+    fnHasStyle = False
+End Function
+
+Sub subSetupEscKeyHandler()
+    #If MSWD Then
+        CustomizationContext = NormalTemplate
+        KeyBindings.Add KeyCode:=wdKeyEsc, KeyCategory:=wdKeyCategoryMacro, _
+            Command:="subEventEscKey"
+            
+    #Else
+            Rem inspired by Geoffroy Piroux's macro
+    
+        Rem prepare config manager
+        configSupplier = createUnoService("com.sun.star.ui.ModuleUIConfigurationManagerSupplier")
+    
+        Rem configure the shortcut manager
+        ShortCutManager = configSupplier.getUIConfigurationManager("com.sun.star.text.TextDocument").getShortCutManager
+    
+        Rem define the key
+        Dim Key As New com.sun.star.awt.KeyEvent
+        Key.KeyCode = com.sun.star.awt.Key.ESCAPE
+    
+        Rem define the function
+        cmdString = "vnd.sun.star.script:IceLibrary.Toolbar.eventKeyControl?language=Basic&location=application"
+    
+        Rem set the shortcut key and store it
+        ShortCutManager.setKeyEvent( Key, cmdString )
+        ShortCutManager.store
+    #End If
+    MsgBox "Done Assigning Shortcut."
+End Sub
+
+
+Function fnIsThereAFile()
+    Rem to check if there is a document opened in MS word.
+    Rem to remove the error if the user is using the toolbar when there is no document
+    #If MSWD Then
+        If Application.Documents.count = 0 Then
+            MsgBox "There is no document to perform this operation", vbCritical, "ICE"
+            fnIsThereAFile = False
+            Exit Function
+        End If
+        fnIsThereAFile = True
+    #End If
+End Function
+
+
+
+
+

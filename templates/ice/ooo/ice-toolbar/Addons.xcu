@@ -1,0 +1,772 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<oor:component-data
+ xmlns:oor="http://openoffice.org/2001/registry"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ oor:name="Addons"
+ oor:package="org.openoffice.Office">
+	<node oor:name="AddonUI">
+		<node oor:name="OfficeToolBar">
+			<node oor:name="IceLibrary.OfficeToolBar" oor:op="replace">
+				<prop oor:name="Title" oor:type = "xs:string">
+					<value>Ice Style Library</value>
+				</prop>
+				<node oor:name="m001" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>ICE</value>
+					</prop>
+				</node>
+				<node oor:name="m002" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m003" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventPromoteButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Promote</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m004" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventDemoteButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Demote</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m005" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m006" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventTitleButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Title</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m007" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventHeadingButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Heading</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m008" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m009" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventLeftButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Left Aligned Paragraph</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m010" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventIndentButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Indent Paragraph</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m011" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventCenterButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Center Aligned Paragraph</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m012" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventRightButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Right Aligned Paragraph</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m013" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m014" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventBlockQuoteButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Block Quote</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m015" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventDefinitionButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Definition</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m016" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventPreformmatedButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Preformatted</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m017" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m018" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventBulletButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Bullets</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m019" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventNumberiseButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Numbering</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m020" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventChangeListTypeDlg</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Change List Style</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m021" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+
+				<node oor:name="m022" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.toggleBold</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Bold</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m023" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.toggleItalic</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Italic</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m024" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.toggleCode</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Code</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m025" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.toggleSub</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Subscript</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m026" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.toggleSup</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Superscript</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m027" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventDefaultFormattingButton</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Default Formatting</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m028" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Toolbar.eventShowShortcuts</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Help</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="IceAdvancedLibrary.OfficeToolBar" oor:op="replace">
+				<prop oor:name="Title" oor:type = "xs:string">
+					<value>Ice Advance Library</value>
+				</prop>
+				<prop oor:name="Visible" oor:type="xs:boolean">
+			     	<value>False</value>
+			    </prop>
+				<node oor:name="m029" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m030" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.XRef.CrossReference</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>XRef</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m031" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m032" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Publisher.subConvert</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>HTML</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m033" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m034" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Publisher.subPublish</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Blog</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m035" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+				<node oor:name="m036" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Repair.Repair</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Repair</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+
+				<node oor:name="m037" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+
+				<node oor:name="m038" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>macro:///IceLibrary.Hint.Hint</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Hint</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+
+				<node oor:name="m039" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>private:separator</value>
+					</prop>
+				</node>
+			</node>
+		</node>
+
+		<node oor:name="Images">
+			<node oor:name="Promote" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventPromoteButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Promote_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Promote_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Demote" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventDemoteButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Demote_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Demote_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Bold" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.toggleBold</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Bold_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Bold_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Italics" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.toggleItalic</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Italics_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Italics_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Bullet" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventBulletButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Bullet_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Bullet_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Number" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventNumberiseButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Number_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Number_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="List_Type" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventChangeListTypeDlg</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/List_Type_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/List_Type_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="P_Left" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventLeftButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/P_Left_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/P_Left_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="P_Indent" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventIndentButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/P_Indent_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/P_Indent_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="P_Centered" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventCenterButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/P_Centered_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/P_Centered_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="P_Right" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventRightButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/P_Right_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/P_Right_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Title" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventTitleButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Title_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Title_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Heading" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventHeadingButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Heading_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Heading_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Block_Quote" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventBlockQuoteButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Block_Quote_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Block_Quote_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Pre" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventPreformattedButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Pre_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Pre_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Def" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventDefinitionButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Def_24.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Def_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Clean_Up" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventDefaultFormattingButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Clean_Up_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Clean_Up_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Subscript" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.toggleSub</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Sub_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Sub_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Superscript" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.toggleSup</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/Sup_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/Sup_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Change_List_Style" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventChangeListTypeDlg</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/1ia_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/1ia_24.png</value>
+					</prop>
+				</node>
+			</node>
+			<node oor:name="Preformatted" oor:op="replace">
+				<prop oor:name="URL">
+					<value>macro:///IceLibrary.Toolbar.eventPreformmatedButton</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:name="ImageSmallURL" oor:type="xs:string">
+						<value>%origin%/icons/pre_16.png</value>
+					</prop>
+					<prop oor:name="ImageLargeURL" oor:type="xs:string">
+						<value>%origin%/icons/pre_24.png</value>
+					</prop>
+				</node>
+			</node>
+		</node>
+	</node>
+</oor:component-data>

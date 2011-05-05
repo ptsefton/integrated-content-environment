@@ -1,0 +1,457 @@
+/* default css */
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: black;
+	margin: 0px;
+	background-color: #ffffff;
+	font-size: 12px;
+}
+
+.search {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.search, .search input {
+    font-size: .9em;
+    padding: 0px;
+}
+
+th, td {
+	font-size: 12px;
+}
+
+.body 
+{
+	text-align: left;
+
+}
+
+.logo 
+{
+	margin-left: 12px;
+}
+
+.logo img, .logo img
+{
+    border: 0px;
+}
+.banner
+{
+    margin: 1px;
+	padding: 1px;
+	background-color: #F6F6F6;
+	color: #CC6600;
+	border-bottom: solid 1px #C0C0C0;;
+}
+
+.banner .title {
+    font-weight: bold;
+	font-size: 1.1em;
+	text-align: right;
+	vertical-align: top;
+	color: #CC6600;
+	background-color: #F6F6F6;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	padding: 0px;
+	padding-right: 8px;
+	margin-top: 2px;
+	margin-bottom: 5px;
+}
+
+.context-link {
+    font-size: .8em;
+    padding-left: 4px;
+    padding-bottom: 14px;
+}
+
+.layout-main 
+{
+	padding-right: 10px;
+	padding-top: 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.current-url 
+{
+	font-weight: bold;
+}
+
+.layout-left 
+{
+	padding-top: 0px;
+	width: 150px;
+	
+}
+
+.left-toc 
+{
+	width: 150px;
+}
+
+.left-toc 
+{
+	padding-top:10px;
+}
+
+.toc ul, .context-toc ul
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.toc li a, .toc li a:visited, .context-toc li a, .context-toc li a:visited    
+{
+	color: black;
+	text-decoration: none;
+	background-color: #ffffff;
+}
+.toc li a:hover, .context-toc li a:hover 
+{
+	color: black;
+	background-color: #ffffff;
+	text-decoration: underline;
+}
+
+.toc li, .context-toc li 
+{
+	width: 145px;
+	display: block;
+	border: 0;
+	border-bottom: 1px solid #DDD;
+	margin-left: 10px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+
+}
+
+.context-toc ul li ul li {
+border-bottom: 0px solid #DDD;
+} 
+
+.body 
+{
+	margin-left: 10px;
+	margin-right: 60px;
+}
+
+a:link:hover
+{
+	text-decoration: underline;
+}
+
+a:link, a:visited  
+{
+	text-decoration: none;
+}
+
+a:visited:hover 
+{
+	text-decoration: underline;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+p.firstline-indent {
+	text-indent: 0.6cm;
+}
+
+p.hanging-indent {
+	margin-left: 0.6cm; text-indent: -0.6cm;
+}
+
+blockquote.bq {
+	border-left: 2px 
+	dotted black; padding-left: 4px;
+	font-size: 1em;	
+}
+
+
+blockquote.bqs {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	font-style: normal;
+	color: #000000;
+	margin-top: -3px;
+}
+
+
+dt {
+	font-weight: bold;
+}
+
+H1  {
+	font-size: 1.4em;
+	color: navy;
+	background-color: inherit;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.title, .Title-chapter, .Title-book
+{
+	font-family: serif, Arial,  Helvetica, sans-serif;
+	font-size: 1.6em;
+	background-color: inherit;
+	margin-left: 5px;
+	font-weight: bold;
+	color: #CC6600;
+	width: 100%;
+}
+
+H2  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.3em;
+	color: navy;
+	background-color: inherit;
+    font-weight: normal;
+	
+}
+
+H3  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.2em;
+	color: #A34B4B;
+	background-color: inherit;
+	font-weight: normal;
+}
+
+H4  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.1em;
+	color: #685656;
+	background-color: inherit;
+	font-weight:700;
+}
+
+H5  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1em;
+	color: #000000;
+	background-color: inherit;
+	font-weight: 600;
+	margin: 0px;
+	padding: 0px;
+	
+}
+
+H6  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.2em;
+	color: #000000;
+	background-color: inherit;
+	font-weight: bold;
+}
+
+span.footnote,  span.endnote {
+     font-size: .9em;
+     /* line-height: 0px; */
+     vertical-align: baseline;
+     position: relative;
+     margin-bottom: 0.1em;
+}
+
+sup {
+	line-height: 0px;
+    font-size: .8em;
+    vertical-align: baseline;
+    position: relative;
+    bottom: 0.33em;
+}
+
+sub   {
+	font-size: x-small;
+}
+
+pre, code  {
+	font-family: 'Courier New', Courier, mono, sans-serif;
+	font-size: 1.1em;
+}
+
+.small  {
+	font-size: smaller;
+}
+
+/* Activity Tables */
+div.slide, table.note, table.exercise, table.activity, table.reading, table.reflection, table.learning, table.example, table.casestudy, table.discussion {
+	background-color: #FFF9D8;
+	color: black; 
+	margin-left: 25px;
+	border: 1px solid #C4C2BC;
+}
+
+div.slide, table.note td, table.exercise td, table.activity td, table.reading td, table.reflection td, table.learning td, table.example td, table.casestudy td, table.discussion td{
+	padding: 4px;
+	vertical-align: top;
+}
+
+div.slide h1, table.note h6, table.exercise h6, table.activity h6, table.reading h6, table.reflection h6, table.learning h6, table.example h6, table.casestudy h6, table.discussion h6 {
+	text-align: left;
+	font-weight: bold;
+	padding: 0px;
+	margin-bottom: 0px;
+	font-size: 1.2em;
+}
+
+
+/* Lists */
+
+ol.li-lower-alpha {
+	list-style: lower-alpha;
+}
+
+ol.li-upper-alpha {
+	list-style: upper-alpha;
+}
+
+ol.li-lower-roman {
+	list-style: lower-roman;
+}
+
+ol.li-upper-roman {
+	list-style: upper-roman;
+}
+
+
+dt {
+	font-weight: bold;
+}
+
+/* nav buttons */
+.nav-buttons 
+{
+	margin-right: 5px;
+	padding: 0px;
+}
+.nav-buttons div {
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Lightbox */
+.lightbox-link .lb-link-text {
+	/* transparent and display inline required for safari */
+	display: inline;
+	color: transparent;
+	//font-size: 0px;
+}
+
+a:link:hover .lightbox-link, a:link:visited .lightbox-link {
+	// hides underline on hover
+	color: transparent;
+	text-decoration: none;
+}
+
+
+.body .lightbox-link, .exptl-compound .lightbox-link {
+	position: relative;
+	top: -6px;
+	background: url(open_lightbox.gif) no-repeat bottom;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	padding-top: 0px;
+	margin: 0px;
+	vertical-align: bottom;
+	width: 24px;
+	height: 24px;
+	display: inline;
+	line-height: 24px;
+}
+
+
+.body p.exptlcompnum .lightbox-link, .body p.compound-name .lightbox-link {
+	position: relative;
+	top: -6px;
+	background: url(Jmol_icon.gif) no-repeat top;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	padding-top: 0px;
+	margin: 0px;
+	vertical-align: bottom;
+	width: 24px;
+	height: 24px;
+	display: inline;
+	line-height: 24px;
+
+}
+
+.lightbox-overlay {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.6;
+    opacity: .80;
+    filter: alpha(opacity = 60);
+}
+
+.lightbox-content {
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    position: absolute;
+    margin-top: 2%;
+    padding: 16px;
+    border-top: 3px solid gray;
+    border-left: 3px solid gray;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+}
+
+.lightbox-close {
+	text-align: left;
+	margin-bottom: .5em;	
+}
+
+[if gt IE 5].lightbox-content {
+     margin-top: 15%;
+}
+
+
+
+
+/* Footer */
+table.footer, table.copyright {
+	width: 100%;
+}
+
+.footer {
+	background-color: #F6F6F6;
+	width: 100%;
+	text-align: center;
+}
+.copyright, .footer {
+	font-size: .9em;
+	color: #999999;
+	background-color: inherit;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	width: 100%;
+	text-align: center;	
+}
+.copyright td, .footer td{
+	text-align: center;
+	color: #999999;
+	background-color: inherit;
+}
+
+.copyright a:link {color: #999999; background-color: inherit;}
+.copyright a:visited {color: #999999; background-color: inherit;}

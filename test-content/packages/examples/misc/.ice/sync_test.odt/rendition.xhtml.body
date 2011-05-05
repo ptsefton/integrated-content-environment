@@ -1,0 +1,1 @@
+<div><p>This document is to test syncing issues:</p><h1><a id="id1" name="id1"><!--id1--></a>Don't sync if render fails</h1><p>The document should not sync if the render fails.</p><p>03:50:29 PM</p><p>03:58:51 PM</p><p/></div>

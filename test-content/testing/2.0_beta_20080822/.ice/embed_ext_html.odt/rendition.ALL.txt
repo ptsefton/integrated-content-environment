@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Embedding an external HTML page</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_right.P1 {margin-bottom:0cm; margin-top:0cm; }
+Header_20_left.P3 {font-weight:normal; }</style></head><body><p><div class="embedded-html">
+        <style type="text/css">
+            #hastags .gf-relativePublishedDate, .gf-author {font-size: .9em;}
+            #hastags .gf-result {font-size: .9em;}
+            #hastags .gf-title {display:none}
+            #hastags .gf-snippet {}
+        </style>
+        <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAChzYxP3_-JemoueS3e-k6xTUiUchViEq1e-vMB81kYf6c37qNhR0MBwDuQfj2jctddfPMZP_2MdUIg"/>
+               <script type="text/javascript">
+            
+            google.load('feeds', "1");
+            
+            function initialize() {
+            var feedControl = new google.feeds.FeedControl();
+            
+            feedControl.addFeed("http://www.hashtags.org/feeds/tag/ice4ed/", "ICE Team Status");
+            feedControl.draw(document.getElementById("hastags"));
+            }
+            google.setOnLoadCallback(initialize);
+        </script>
+                
+        <div id="hastags"><p>View our status on <a href="http://www.hashtags.org/tag/ice4ed/">http://www.hashtags.org/tag/ice4ed/</a></p>
+        </div>
+     </div></p><p/></body></html>

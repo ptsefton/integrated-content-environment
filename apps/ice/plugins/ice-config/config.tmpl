@@ -1,0 +1,123 @@
+#encoding UTF-8
+<html>
+## Cheetah Template
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<title>$title</title>
+	    <script src="/jquery.js" type="text/javascript"><!-- --></script>
+	    <script type="text/javascript">
+        <!--
+        var jQ = jQuery;
+        function getDocumentURI(){
+              var uri = document.documentURI;
+              if(typeof(uri)=="undefined") uri=window.location+"";
+              return uri;
+        }
+        function gotoURI(uri){ window.location=uri; }
+        function ajax(func, callback){
+            var url=getDocumentURI();
+            var args = {ajax:func, checkout:$checkout, repId:$repId,
+                    user:jQ("#user").val(), password:jQ("#password").val()};
+            jQ.post(url, args, callback, "json")
+        }
+        function timer(callback, mS, number){
+            var timerId=null;
+            if (number===undefined) number = -1;
+            function tic(){
+                if(number!=-1) number--;
+                callback();
+                setTimer();
+            }
+            function cancel(){ number=0; clearTimeout(timerId); }
+            function setTimer(){
+                if(number!=0) timerId=setTimeout(tic, mS);
+            }
+            setTimer();
+            return {"cancel":cancel, "callback":callback, getNumber:function(){return number;},
+                setNumber:function(n){number=n;}, getInterval:function(){return mS;}, setInterval:function(x){mS=x;} }
+        }
+        var updateTimer;
+        function statusUpdate(data, status){
+            var s = jQ("#status");
+            if(data===""){jQ("#doCheckout").attr("disabled", ""); s.text("checkout"); return;}
+            if(data.text) s.text(data.text);
+            if(data.msg) s.html(data.msg);
+            if(data.err) s.html(data.err);
+            if(data.done) updateTimer.cancel();
+            if(data.cmd==="goto") gotoURI(data.data);
+        }
+        function checkoutCallback(data, status){
+            if(data.text==="authFailed"){jQ("#authFailed").show(); jQ("#doCheckout").attr("disabled", ""); return;}
+            statusUpdate(data, status);
+            updateTimer = timer(function(){ajax("statusUpdate", statusUpdate);}, 1000);
+        }
+        function main(){
+            var doCheckout=jQ("#doCheckout");
+            doCheckout.click(function(){
+                doCheckout.attr("disabled", "disabled"); 
+                jQ("#authFailed").hide();
+                ajax("doCheckout", checkoutCallback);
+            });
+            jQ("#user").keypress(function(e){if(e.which===13) jQ("#password").focus();});
+            jQ("#password").keypress(function(e){if(e.which===13) jQ("#doCheckout").click();});
+            jQ("#user").focus();
+        }
+        jQ(main);
+ 	    -->
+	    </script>
+      <link rel="stylesheet" href="/skin/default.css" />
+      <style>
+           div { margin: 1em; }
+           table { padding: 5px; }
+      </style>
+    </head>
+	<body >
+		<div style='padding: 5px;'>
+            <h1>$title</h2>
+#if $error
+            <div class='errorMessage'><h2>$error</h2></div>
+            <div><h3><a href='$returnPath'>back</a></h3></div>
+#else
+        <form method='POST' action='.'>
+            <input type='hidden' name='repId' value='$repId'/>
+            <input type='hidden' name='checkout' value='$checkout'/>
+            <input type='hidden' name='returnPath' value='$returnPath'/>
+            <input type='hidden' name='' value=''/>
+            <div><h2>Checkout '<span style='color:#660000;'>$repConfigName</span>' from:
+                <span style='color:#000099;'>$repUrl</span> to path: 
+                <span style='color:#009900;'>$basePath</span>
+            </h2></div>
+   #if $authRequired
+            <div>
+              <div style='font-weight:bold;'> <h3>Authentication required</h3></div>
+			  <table style="border:1px solid black;">
+				<tr>
+					<td><p><b> Username: </b></p></td>
+					<td>
+						<input type="text" id="user" name="user" value="$user"/>
+					</td>
+				</tr>
+				<tr>
+					<td><p><b> Password: </b></p></td>
+					<td>
+						<input type="password" id="password" name="password" value=""/>
+					</td>
+				</tr>
+                <tr><td colspan='2'><span id='authFailed' style='color:red;display:none;'>Invalid username or password</span></td></tr>
+  			  </table>
+            </div>
+   #end if
+            <div style='padding: 5px 5px;'>
+                <button class='button' type='button' id='doCheckout'>Checkout</button>
+            </div>
+            <div><!-- --></div>
+            <div id="status"><h2><!--  --></h2> </div>
+            <div><h3><a href='$returnPath'>back</a></h3></div>
+        </form>
+#end if
+		</div>
+	</body>
+</html>
+
+
+

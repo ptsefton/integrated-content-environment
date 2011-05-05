@@ -1,0 +1,47 @@
+<table>
+    <tr><td colspan="2" class="sect-title">CML options</td></tr>
+    <tr>
+        <td>Mode</td>
+        <td>
+            <select name="mode">
+                <option value="preview" selected="selected">Preview</option>
+                ##<option value="applet">Applet HTML</option>
+                ##disabled for now
+                ##<option value="extract">Extract ChemDraw to CML</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Format</td>
+        <td>
+            <select name="format">
+                <option value="jpg">JPEG (Jmol)</option>
+                <option value="png">PNG</option>
+                <option value="svg" selected="selected">SVG</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Size</td>
+        <td>
+            <label for="width">W</label>
+            <input type="text" name="width" id="width" size="5" value="300"/>
+            <label for="width">H</label>
+            <input type="text" name="height" id="height" size="5" value="300"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">JUMBO parameters (for SVG)</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <textarea name="params" rows="4" cols="50">$params</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="checkbox" name="reload"/>
+            <label for="reload">Reload parameters for next request</label>
+        </td>
+    </tr>
+</table>

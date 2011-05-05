@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>News Stand</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+table.Table1 {width:14.603cm; }
+div.Table1 {width: 100%; margin: 0px; padding: 0px; }
+span.Table1_1 {keep-together:auto; }
+th.Table1_A1, td.Table1_A1 {border:none; padding:0.097cm; }
+th.Table1_B1, td.Table1_B1 {background-color:#e6e6ff; border:none; padding:0.097cm; }
+span.Table1_2 {keep-together:auto; }
+p.P1 {hyphenate:false; hyphenation-ladder-count:no-limit; hyphenation-push-char-count:2; hyphenation-remain-char-count:2; margin-bottom:0.423cm; margin-top:0cm; orphans:2; widows:2; }
+p-center.P4 {margin-bottom:0.423cm; margin-top:0cm; }
+p-center.P5 {margin-bottom:0.423cm; margin-top:0cm; text-align:center; }
+Header_20_right.P6 {margin-bottom:0.212cm; margin-top:0cm; }
+Header_20_right.P7 {country:US; font-size:8.5pt; font-weight:bold; language:en; margin-bottom:0.212cm; margin-top:0cm; }
+Header_20_left.P8 {country:US; font-size:8.5pt; font-weight:bold; language:en; }
+Header_20_left.P9 {country:US; font-size:8.5pt; language:en; margin-bottom:0.212cm; margin-top:0cm; }
+span.T1 {font-weight:bold; }
+span.T2 {font-weight:normal; }
+span.T3 {country:US; font-size:8.5pt; language:en; }
+span.T4 {country:US; language:en; }
+img.fr1 {background-color:#ffffff; border:none; margin-left:0cm; margin-right:0cm; padding-bottom:0.153cm; padding-left:0.28cm; padding-right:0.28cm; padding-top:0.153cm; }</style></head><body><div class="Table1" style="width: 100%; margin: 0px; padding: 0px; text-align:left;"><table class="Table1" style="border-spacing: 0;empty-cells: show; width:14.603cm; border-collapse: collapse; "><colgroup><col style="width:7.297cm;"/><col style="width:7.306cm;"/></colgroup><tbody><tr><td class="Table1_A1" style="vertical-align: top;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; "><a href="https://twitter.com/caulcairss"><span class="Internet_20_link"><b>CAIRSS account on Twitter</b></span></a></p></td><td class="Table1_B1" style="vertical-align: top;  background-color:#e6e6ff;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; text-align:center; "><a href="http://groups.google.com/group/cairss"><span class="Internet_20_link"><b>CAIRSS eList (Google Group)</b></span></a>  <a name="graphics1"><!-- --></a><img alt="graphics1" class="fr1" height="14" src="test_for_image3_files/m7da2eadf_14x14.jpg" style="border:0px; vertical-align: top" width="14"/><br/></p></td></tr><tr><td class="Table1_A1" style="vertical-align: top;  border:none;  padding:0.097cm; "><p class="center"><div style="padding: 5px;" class="embedded-html">
+		<div>
+			<h1 class="ins title">Login</h1>
+			<form method="POST">
+				<input type="hidden" name="login" value="login"/>
+				<table style="border:1px solid black;">
+					<tr>
+						<td> Username: </td>
+						<td>
+							<input type="text" name="username" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td> Password: </td>
+						<td>
+							<input type="password" name="password" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>&#xA0;</td>
+						<td>
+							<input type="submit" name="submitBut" value="Submit"/>
+							&#xA0; 
+							
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+		</div>
+	</div></p><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; "><a href="http://search.twitter.com/search?q=caulcairss"><span class="Internet_20_link"><span style="font-weight:normal; "><span class="T2">See what others are saying using the  #CAULCAIRSS hash tag</span></span></span></a></p></td><td class="Table1_B1" style="vertical-align: top;  background-color:#e6e6ff;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; text-align:center; "><div style="padding: 5px;" class="embedded-html">
+		<div>
+			<h1 class="ins title">Login</h1>
+			<form method="POST">
+				<input type="hidden" name="login" value="login"/>
+				<table style="border:1px solid black;">
+					<tr>
+						<td> Username: </td>
+						<td>
+							<input type="text" name="username" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td> Password: </td>
+						<td>
+							<input type="password" name="password" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>&#xA0;</td>
+						<td>
+							<input type="submit" name="submitBut" value="Submit"/>
+							&#xA0; 
+							
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+		</div>
+	</div></p></td></tr><tr><td class="Table1_B1" style="vertical-align: top;  background-color:#e6e6ff;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; "><a href="http://caulcairss.wordpress.com/"><span class="Internet_20_link"><b>CAIRSS Wordpress Blog</b></span></a>  <a name="graphics2"><!-- --></a><img alt="graphics2" class="fr1" height="14" src="test_for_image3_files/m7da2eadf_14x14.jpg" style="border:0px; vertical-align: top" width="14"/><br/></p></td><td class="Table1_A1" style="vertical-align: top;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; "><a href="http://delicious.com/caulcairss"><span class="Internet_20_link"><b>CAIRSS Delicious Bookmarks </b></span></a>  <a name="graphics3"><!-- --></a><img alt="graphics3" class="fr1" height="14" src="test_for_image3_files/m7da2eadf_14x14.jpg" style="border:0px; vertical-align: top" width="14"/><br/></p></td></tr><tr><td class="Table1_B1" style="vertical-align: top;  background-color:#e6e6ff;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; text-align:center; "><div style="padding: 5px;" class="embedded-html">
+		<div>
+			<h1 class="ins title">Login</h1>
+			<form method="POST">
+				<input type="hidden" name="login" value="login"/>
+				<table style="border:1px solid black;">
+					<tr>
+						<td> Username: </td>
+						<td>
+							<input type="text" name="username" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td> Password: </td>
+						<td>
+							<input type="password" name="password" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>&#xA0;</td>
+						<td>
+							<input type="submit" name="submitBut" value="Submit"/>
+							&#xA0; 
+							
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+		</div>
+	</div></p></td><td class="Table1_A1" style="vertical-align: top;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; text-align:center; "><div style="padding: 5px;" class="embedded-html">
+		<div>
+			<h1 class="ins title">Login</h1>
+			<form method="POST">
+				<input type="hidden" name="login" value="login"/>
+				<table style="border:1px solid black;">
+					<tr>
+						<td> Username: </td>
+						<td>
+							<input type="text" name="username" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td> Password: </td>
+						<td>
+							<input type="password" name="password" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>&#xA0;</td>
+						<td>
+							<input type="submit" name="submitBut" value="Submit"/>
+							&#xA0; 
+							
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+		</div>
+	</div></p></td></tr><tr><td class="Table1_A1" style="vertical-align: top;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; "><a href="http://cairss.caul.edu.au/trac"><span class="Internet_20_link"><b>CAIRSS Wiki and Tickets (TRAC)</b></span><span class="Internet_20_link"><b> </b></span></a> <a name="graphics4"><!-- --></a><img alt="graphics4" class="fr1" height="14" src="test_for_image3_files/m7da2eadf_14x14.jpg" style="border:0px; vertical-align: top" width="14"/><br/></p></td><td class="Table1_B1" style="vertical-align: top;  background-color:#e6e6ff;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; "><a href="http://picasaweb.google.com/caulcairss"><span class="Internet_20_link"><b>CAIRSS Photos </b></span></a> <a name="graphics5"><!-- --></a><img alt="graphics5" class="fr1" height="14" src="test_for_image3_files/m7da2eadf_14x14.jpg" style="border:0px; vertical-align: top" width="14"/><br/></p></td></tr><tr><td class="Table1_A1" style="vertical-align: top;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; text-align:center; "><div style="padding: 5px;" class="embedded-html">
+		<div>
+			<h1 class="ins title">Login</h1>
+			<form method="POST">
+				<input type="hidden" name="login" value="login"/>
+				<table style="border:1px solid black;">
+					<tr>
+						<td> Username: </td>
+						<td>
+							<input type="text" name="username" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td> Password: </td>
+						<td>
+							<input type="password" name="password" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>&#xA0;</td>
+						<td>
+							<input type="submit" name="submitBut" value="Submit"/>
+							&#xA0; 
+							
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+		</div>
+	</div></p></td><td class="Table1_B1" style="vertical-align: top;  background-color:#e6e6ff;  border:none;  padding:0.097cm; "><p class="center" style="margin-bottom:0.423cm; margin-top:0cm; text-align:center; "><div style="padding: 5px;" class="embedded-html">
+		<div>
+			<h1 class="ins title">Login</h1>
+			<form method="POST">
+				<input type="hidden" name="login" value="login"/>
+				<table style="border:1px solid black;">
+					<tr>
+						<td> Username: </td>
+						<td>
+							<input type="text" name="username" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td> Password: </td>
+						<td>
+							<input type="password" name="password" value=""/>
+						</td>
+					</tr>
+					<tr>
+						<td>&#xA0;</td>
+						<td>
+							<input type="submit" name="submitBut" value="Submit"/>
+							&#xA0; 
+							
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+		</div>
+	</div></p></td></tr></tbody></table></div><p/><p class="P1">This function of this page is to keep you up to date with what is happening in the CAIRSS community. We aim to provide both direct links and subscriptions to web systems and services used by CAIRSS.</p></body></html>

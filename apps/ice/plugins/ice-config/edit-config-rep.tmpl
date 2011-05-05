@@ -1,0 +1,67 @@
+#for rep in $repositories
+    <div class='rep' id='repname-$rep.name'>
+        <h6><a>Repository - $rep.name</a></h6>
+        <div>
+            <table><tbody>
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td>
+                        <input type='text' value='$rep.name' name='_${rep.name}_'/>
+                        &#160;&#160;&#160;&#160;
+                        <label><input type='radio' name='default' #if $rep.name==$defaultRepName then "checked='checked'" else ""#/> Default</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SVN URL:</td>
+                    <td>
+                        <input type='text' size='64' value='$rep.url' name='_${rep.name}_'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Path:</td>
+                    <td>
+                        <input type='text' size='64' value='$rep.path' name='_${rep.name}_'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Document template path:</td>
+                    <td>
+                        <input type='text' size='64' value='$rep.documentTemplatesPath' name='_${rep.name}_'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Export path (Absolute):</td>
+                    <td>
+                        <input type='text' size='64' value='$rep.exportPath' name='_${rep.name}_'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4 style='padding-top:1em;'>Additional settings:</h4></td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+## Settings
+$rep.settingsHtml
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+							<div style="text-align:right;padding: 2px;" class="message">
+                                <button type="button" class="saveButton">Save</button>
+                            </div>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+#end for
+
+
+
+
+
+
+
+
+

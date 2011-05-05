@@ -1,0 +1,74 @@
+<div>
+## Cheetah template
+#if $success
+    <p>Export was successful.</p>
+    <hr/>
+    $docBody
+#else
+<form style="display: inline;" method="post">
+    <input type="hidden" name="postback" value="True" />
+    <input type="hidden" name="func" value="exportDocument" />
+    <input type="hidden" name="argPath" value="$argPath" />
+    #if $error or $status
+    <table>
+        <tr>
+            <td colspan="2">
+                <span style="color:red;">$error</span>
+                <span style="color:green;">$status</span>
+            </td>
+        </tr>
+    </table>
+    #end if
+    <br/>
+    <label for="template">Select template:</label>
+    <select id="template" name="template">
+        <option value="default" selected="selected">Default</option>
+        #for $t in $templates
+        <option value="$t">$t</option>
+        #end for
+    </select>
+    <h3>Options</h3>
+    <table>
+        <tr><td>
+            <input type="checkbox" name="pdflink" id="pdflink" checked="checked"/>
+            <label for="pdflink">Include link to PDF rendition</label>
+        </td></tr>
+        <tr><td>
+            <input type="checkbox" name="slidelink" id="slidelink" checked="checked"/>
+            <label for="slidelink">Include link to slide rendition</label>
+        </td></tr>
+        <tr><td>
+            <input type="checkbox" name="skin" id="skin" />
+            <label for="skin">Include skin</label>
+        </td></tr>
+        <tr><td>
+            <input type="checkbox" name="toc" id="toc" checked="checked"/>
+            <label for="toc">Generate table of contents</label>
+        </td></tr>
+        <tr><td>
+            <input type="checkbox" name="title" id="title"/>
+            <label for="title">Do not include title in the HTML body</label>
+        </td></tr>
+        <tr><td>
+            <input type="checkbox" name="sourcelink" id="sourcelink"/>
+            <label for="sourcelink">Include source document (including derived ODT from DOC)</label>
+        </td></tr>
+##        <tr><td><input type="checkbox" name="mods" id="mods"/>
+##            <label for="mods">Generate MODS</label>
+##        </td></tr>
+        <tr><td><input type="checkbox" name="mets" id="mets"/>
+            <label for="mets">Generate METS</label>
+        </td></tr>
+        <tr><td><input type="checkbox" name="dc" id="dc"/>
+            <label for="mets">Generate DC</label>
+        </td></tr>
+        <tr><td><input type="checkbox" name="rdf" id="rdf"/>
+            <label for="mets">Generate RDF</label>
+        </td></tr>
+    </table>
+    <br/>
+    <input type="submit" name="download" id="download" value="Download Zip"/>
+</form>
+#end if
+</div>
+

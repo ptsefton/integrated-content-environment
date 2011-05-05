@@ -1,0 +1,1333 @@
+<?xml version="1.0"?>
+<testData xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" office:version="1.0">
+	<!-- xmlns="http://www.w3.org/1999/xhtml" -->
+	
+	<tests>
+	  <test name="P Styles" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="p"/>
+					<text:p text:style-name="p">Left align</text:p>
+					<text:p text:style-name="p-center">Center</text:p>
+					<text:p text:style-name="p-right">Right</text:p>
+					<text:p text:style-name="p-latex">LaTex</text:p>
+					<text:p text:style-name="p-nowrap">nowrap</text:p>					
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <p/>
+			  <p>Left align</p>
+			  <p class="center">Center</p>
+			  <p class="right">Right</p>
+			  <p class="latex">LaTex</p>
+			  <p class="nowrap" style="white-space: nowrap;">nowrap</p>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="Headings" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="p">Heading coming:</text:p>
+					<text:p text:style-name="h1">Heading 1</text:p>
+					<text:p text:style-name="p">Heading gone</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <p>Heading coming:</p>
+			  <h1><a id="id1" name="id1"><!--id1--></a>Heading 1</h1>
+			  <p>Heading gone</p>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="Simple Blockquote" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="bq1">Aenean tristique. Nullam at sem et mauris scelerisque tempor.</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <blockquote class="bq">
+				<p>Aenean tristique. Nullam at sem et mauris scelerisque tempor.</p>
+			  </blockquote>
+			</body>
+		</expected>    
+	  </test>
+
+	  <test name="Simple Blockquote with source" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="bq1">Aenean tristique. Nullam at sem et mauris scelerisque tempor.</text:p>
+					<text:p text:style-name="bq1source">Blockquote source</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <blockquote class="bq">
+				<p>Aenean tristique. Nullam at sem et mauris scelerisque tempor.</p>
+			  </blockquote>
+			  <blockquote class="bqs">
+				<p>Blockquote source</p>
+			  </blockquote>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="Multiple Paragraph Blockquote with source" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+					<text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+					<text:p text:style-name="bq1source">Blockquote source</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <blockquote class="bq">
+				<p>Sed a quam non urna hendrerit nonummy.</p>
+				<p>Sed a quam non urna hendrerit nonummy.</p>
+			  </blockquote>
+			  <blockquote class="bqs">
+				<p>Blockquote source</p>
+			  </blockquote>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="Multiple Paragraph Blockquote with Centered text" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+					<text:p text:style-name="p-center">Sed a quam non urna hendrerit nonummy.</text:p>
+					<text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+					<text:p text:style-name="bq1">Sed a quam non urna hendrerit nonummy.</text:p>
+					<text:p text:style-name="bq1source">Blockquote source</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <blockquote class="bq">
+				<p>Sed a quam non urna hendrerit nonummy.</p>
+			  </blockquote>
+			  <p class="center">Sed a quam non urna hendrerit nonummy.</p>
+			  <blockquote class="bq">
+				<p>Sed a quam non urna hendrerit nonummy.</p>
+				<p>Sed a quam non urna hendrerit nonummy.</p>
+			  </blockquote>
+			  <blockquote class="bqs">
+				<p>Blockquote source</p>
+			  </blockquote>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="Simple Blockquote with image" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+			<text:p text:style-name="bq1">
+			  <draw:frame 
+				draw:style-name="fr1"
+				draw:name="graphics1" 
+				text:anchor-type="as-char"
+				svg:width="8.509cm"
+				svg:height="11.356cm" 
+				draw:z-index="0">
+				 <draw:image
+		 xlink:href="Pictures/10000000000001B4000002464FD41555.jpg"					xlink:type="simple"	
+				xlink:show="embed"
+				xlink:actuate="onLoad"/>
+			  </draw:frame>
+			</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <blockquote class="bq">
+		<p>
+			<a name="graphics1">
+			  <!-- -->
+			</a>
+			<img alt="graphics1" class="fr1" height="429" src="Pictures/10000000000001B4000002464FD41555.jpg" style="border:0px; vertical-align: top" width="322"/>
+		</p>
+			  </blockquote>
+			</body>
+		</expected>    
+	  </test>
+
+	  <test name="Preformat with a tab" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="p">Here is some code</text:p>
+					<text:p text:style-name="pre1">pre 1 </text:p>
+					<text:p text:style-name="pre1"><text:tab/>Curabitur pharetra laoreet augue.</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <p>Here is some code</p>
+			  <pre>pre 1 </pre>
+			  <pre>    Curabitur pharetra laoreet augue.</pre>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="Simple preformat - known issue 2004-09-22" normalize-white-spaces="false">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="p">Here's some code:</text:p>
+					<text:p text:style-name="pre1">Blah blah blah code 1</text:p>
+					<text:p text:style-name="pre1">Blah blah blah code 2</text:p>
+					<!-- <text:p text:style-name="bq2">Block quote level 2</text:p> -->
+					<text:p text:style-name="bq1">Block quote level 1</text:p>					
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body><p>Here's some code:</p>
+<pre>Blah blah blah code 1</pre>
+<pre>Blah blah blah code 2</pre><blockquote class="bq"><p>Block quote level 1</p></blockquote></body>
+		</expected>    
+	  </test>
+	  
+	<test name="empty preformatted element" normalize-white-spaces="true">
+	  <source>
+			<office:document-content>
+		<office:automatic-styles>
+		<style:style style:name="P1" style:family="paragraph" style:parent-style-name="Title" style:master-page-name="Standard"/>
+		<style:style style:name="P2" style:family="paragraph" style:parent-style-name="p">
+		<style:paragraph-properties fo:margin-left="0.25in" fo:margin-right="0in" fo:text-indent="0in" style:auto-text-indent="false"/>
+		</style:style>
+		</office:automatic-styles>
+			  <office:body>
+				<office:text>
+			<text:p text:style-name="P1"/>
+			<text:p text:style-name="h1">Test</text:p>
+			<text:p text:style-name="p">Para</text:p>
+			<text:p text:style-name="p">List heading/title:</text:p>
+			<text:list text:style-name="WW8Num23">
+			  <text:list-item text:start-value="1">
+			  <text:p text:style-name="li1b">List Item One</text:p>
+			  </text:list-item>
+			  <text:list-item>
+				<text:p text:style-name="li1b">ListItem Two</text:p>
+			  </text:list-item>
+			</text:list>
+			<text:p text:style-name="P2"/>
+			<text:p text:style-name="pre1">Pre Text</text:p>
+			<text:p text:style-name="pre1">Pre Text</text:p>
+			<text:p text:style-name="pre1">Pre Text</text:p>
+			<text:p text:style-name="pre1">and more pre text.</text:p>
+			<text:p text:style-name="p">p</text:p>
+			<text:p text:style-name="pre1"/>
+			<text:p text:style-name="p">Para</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+	  </source>
+	  <expected match="/html:html/html:body">
+	  <body>
+		<h1><a id="id2" name="id2"><!--id2--></a>Test</h1>
+		<p>Para</p>
+		<p>List heading/title:</p>
+		<ul class="lib">
+		<li>
+		  <p>List Item One</p>
+		</li>
+		<li>
+		  <p>ListItem Two</p>
+		</li>
+		</ul>
+		<p class="P2"/>
+		<pre>Pre Text</pre>
+		<pre>Pre Text</pre>
+		<pre>Pre Text</pre>
+		<pre>and more pre text.</pre>
+		<p>p</p>
+		<pre><!--empty--></pre>
+		<p>Para</p>
+	  </body>
+	  </expected>
+	  </test>
+
+	  <test name="para P1 then headings then para" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="p">Module 1 Instructional Design and Flexible Learning</text:p>
+					<text:h text:style-name="h1n" text:level="1">Sub-heading</text:h>
+					<text:h text:style-name="h1n" text:level="1">Sub-heading Two</text:h>
+					<text:p text:style-name="p">paragraph</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <p>Module 1 Instructional Design and Flexible Learning</p>
+			  <h1><a id="id1" name="id1"><!--id1--></a>1 Sub-heading</h1>
+			  <h1><a id="id2" name="id2"><!--id2--></a>2 Sub-heading Two</h1>
+			  <p>paragraph</p>
+			</body>
+		</expected>    
+	  </test>
+
+	  <test name="headings then paras" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:h text:style-name="h1n" text:level="1">Sub-heading</text:h>
+					<text:p text:style-name="p">Module 1 Instructional Design and Flexible Learning</text:p>
+					<text:p text:style-name="p">paragraph</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <h1><a id="id1" name="id1"><!--id1--></a>1 Sub-heading</h1>
+			  <p>Module 1 Instructional Design and Flexible Learning</p>
+			  <p>paragraph</p>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="heading then para" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:h text:style-name="h1n" text:level="1">Sub-heading</text:h>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <h1><a id="id1" name="id1"><!--id1--></a>1 Sub-heading</h1>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="Inline Styles" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-i">Italics</text:span>
+					</text:p>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-b">Bold</text:span>
+					</text:p>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-bi">Bold/Italics</text:span>
+					</text:p>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-code">Code</text:span>
+					</text:p>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-sub">Subscript</text:span>
+					</text:p>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-sup">Superscript</text:span>
+					</text:p>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-latex">LaTex</text:span>
+					</text:p>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-underline">Underline</text:span>
+					</text:p>
+					<text:p text:style-name="p">
+					  <text:span text:style-name="i-double-underline">Double Underline</text:span>
+					</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+			  <p>
+				<i>Italics</i>
+			  </p>
+			  <p>
+				<b>Bold</b>
+			  </p>
+			  <p>
+				<b><i>Bold/Italics</i></b>
+			  </p>
+			  <p>
+				<code>Code</code>
+			  </p>
+			  <p>
+				<sub>Subscript</sub>
+			 </p>
+			 <p>
+				<sup>Superscript</sup>
+			  </p>
+			  <p>
+				<span class="latex">LaTex</span>
+			  </p>
+			  <p>
+				<span style="text-decoration:underline; "><span class="underline">Underline</span></span>
+			  </p>
+			  <p>
+				<span class="double-underline">Double Underline</span>
+			  </p>
+			</body>
+		</expected>    
+	  </test>
+	  
+	  <test name="OOo footnotes" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="p">Aliquam erat volutpat. Morbi eget sapien ac elit imperdiet egestas.
+					  <text:note text:id="ftn0" text:note-class="footnote">
+						<text:note-citation>1</text:note-citation>
+						<text:note-body>
+							<text:p text:style-name="Footnote">This is a footnote</text:p>
+						</text:note-body>
+					  </text:note>
+					</text:p>
+					<text:p text:style-name="p">Aliquam erat volutpat. Morbi eget sapien ac elit imperdiet</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+			  <head>
+				<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+				<title>Untitled</title>
+				<style type="text/css">table {border-spacing: 0;empty-cells: show; } .body .indent {margin-left: 25px;} .body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;} .spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;} span.underline {text-decoration:underline; }</style>
+			  </head>
+			  <body>
+				<p>Aliquam erat volutpat. Morbi eget sapien ac elit imperdiet egestas.
+					<span class="footnote">
+						<a class="footnote" href="#ftn0" name="ftn0-text">1</a>
+						<span class="footnote-text">
+							<a href="#ftn0-text" name="ftn0">1</a>
+							This is a footnote
+						</span>
+					</span>
+				</p>
+				<p>Aliquam erat volutpat. Morbi eget sapien ac elit imperdiet</p>
+				<hr/>
+				<p>
+				<div style="font-size: .9em;">
+					<span class="footnote-defined">
+					  <a href="#ftn0-text" name="ftn0">1</a> This is a footnote
+					</span>
+				</div>
+				</p>
+			  </body>
+			</html>
+		</expected>    
+	  </test>
+
+	  <test name="OOo footnotes2" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+                                    <text:p text:style-name="p">
+                                        Some text
+                                        <text:a xlink:type="simple" xlink:href="http://test2.com/"> extra linked in text</text:a>
+                                        <text:a xlink:type="simple" xlink:href="http://test2.com/">
+                                            <text:note text:id="ftn1" text:note-class="footnote">
+                                                <text:note-citation text:label="*">*</text:note-citation>
+                                                <text:note-body>
+                                                    <text:p text:style-name="p">
+                                                        <text:s/>
+                                                        Footnote text one.
+                                                    </text:p>
+                                                </text:note-body>
+                                            </text:note>
+                                        </text:a>
+                                        And some.
+                                    </text:p>
+                                    <text:p text:style-name="p">
+                                        Another para
+                                        <text:note text:id="ftn2" text:note-class="footnote">
+                                            <text:note-citation text:label="**">**</text:note-citation>
+                                            <text:note-body>
+                                                <text:p text:style-name="Footnote">
+                                                    Footnote 2 text
+                                                    <text:a xlink:type="simple" xlink:href="http://www.test.com/">FootnoteLink</text:a>
+                                                    and the rest.
+                                                </text:p>
+                                            </text:note-body>
+                                        </text:note>
+                                    The end.
+                                    </text:p>
+                                    <text:p text:style-name="p"/>
+                            </office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+			  <head>
+				<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+				<title>Untitled</title>
+				<style type="text/css">table {border-spacing: 0;empty-cells: show; } .body .indent {margin-left: 25px;} .body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;} .spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;} span.underline {text-decoration:underline; }</style>
+			  </head>
+			  <body>
+                              <p>
+                                  Some text
+                                  <a href="http://test2.com/"> extra linked in text</a>
+                                  <span class="footnote">
+                                      <a class="footnote" href="#ftn1" name="ftn1-text">*</a>
+                                      <span class="footnote-text">
+                                          <a href="#ftn1-text" name="ftn1">*</a>
+                                          Footnote text one.
+                                      </span>
+                                  </span>
+                               And some.
+                              </p>
+                              <p>
+                                  Another para
+                                  <span class="footnote">
+                                      <a class="footnote" href="#ftn2" name="ftn2-text">**</a>
+                                      <span class="footnote-text">
+                                          <a href="#ftn2-text" name="ftn2">**</a>
+                                          Footnote 2 text
+                                          <a href="http://www.test.com/">FootnoteLink</a>
+                                          and the rest.
+                                       </span>
+                                  </span>
+                                  The end.
+                              </p>
+                              <p/>
+                              <hr/>
+                              <p>
+                                  <div style="font-size: .9em;">
+                                      <span class="footnote-defined">
+                                          <a href="#ftn1-text" name="ftn1">*</a>
+                                              Footnote text one.
+                                      </span>
+                                  </div>
+                              </p>
+                              <p>
+                                  <div style="font-size: .9em;">
+                                      <span class="footnote-defined">
+                                          <a href="#ftn2-text" name="ftn2">**</a>
+                                          Footnote 2 text
+                                          <a href="http://www.test.com/">FootnoteLink</a>
+                                          and the rest.
+                                      </span>
+                                  </div>
+                              </p>
+			  </body>
+			</html>
+		</expected>
+	  </test>
+	  
+	  <test name="OOo footnotes with blockquote style" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="Standard">
+					  This is foot note with default style 
+					  <text:note text:id="ftn0" text:note-class="footnote">
+						<text:note-citation>1</text:note-citation>
+						<text:note-body>
+							<text:p text:style-name="Footnote">Testing on foot Note</text:p>
+						</text:note-body>
+					  </text:note>
+					</text:p>
+					<text:p text:style-name="Standard"/>
+					<text:p text:style-name="bq1">
+					  This is footnote with blockquote style 
+					  <text:note text:id="ftn1" text:note-class="footnote">
+						<text:note-citation>2</text:note-citation>
+						<text:note-body>
+							<text:p text:style-name="Footnote">Second foot note</text:p>
+						</text:note-body>
+					  </text:note>
+					</text:p>
+					<text:p text:style-name="bq1"/>
+					<text:p text:style-name="p">
+					  This is 3<text:span text:style-name="T1">rd</text:span>footnote with parastyle 
+					  <text:note text:id="ftn2" text:note-class="footnote">
+						<text:note-citation>3</text:note-citation>
+						<text:note-body>
+							<text:p text:style-name="Footnote">
+							  3<text:span text:style-name="T1">rd</text:span>footNote
+							</text:p>
+						</text:note-body>
+					  </text:note>
+					</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+	  <title>Untitled</title>
+	  <style type="text/css">table {border-spacing: 0;empty-cells: show; } .body .indent {margin-left: 25px;} .body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;} .spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;} span.underline {text-decoration:underline; }</style>
+	</head>
+	<body>
+	  <p>
+		 This is foot note with default style
+		 <span class="footnote">
+		   <a class="footnote" href="#ftn0" name="ftn0-text">1</a>
+		   <span class="footnote-text">
+			  <a href="#ftn0-text" name="ftn0">1</a>
+			 Testing on foot Note
+		   </span>
+		 </span>
+	  </p>
+	  <p/>
+	  <blockquote class="bq">
+		<p>
+			 This is footnote with blockquote style
+			 <span class="footnote">
+			 <a class="footnote" href="#ftn1" name="ftn1-text">2</a>
+			 <span class="footnote-text">
+			   <a href="#ftn1-text" name="ftn1">2</a>
+			   Second foot note
+			 </span>
+			 </span>
+		</p>
+		<p/>
+	  </blockquote>
+	  <p>
+		 This is 3<span class="T1">rd</span>footnote with parastyle
+		 <span class="footnote">
+		  <a class="footnote" href="#ftn2" name="ftn2-text">3</a>
+		  <span class="footnote-text">
+		  <a href="#ftn2-text" name="ftn2">3</a>
+			3<span class="T1">rd</span>
+			footNote
+		  </span>
+		 </span>
+	  </p>
+	  <hr/>
+	  <p>
+	  <div style="font-size: .9em;">
+		<span class="footnote-defined">
+			<a href="#ftn0-text" name="ftn0">1</a> Testing on foot Note
+		</span>
+	  </div>
+	  </p>
+	  <p>
+	  <div style="font-size: .9em;">
+		<span class="footnote-defined">
+			<a href="#ftn1-text" name="ftn1">2</a> Second foot note
+		</span>
+	  </div>
+	  </p>
+	  <p>
+	  <div style="font-size: .9em;">
+		<span class="footnote-defined">
+			<a href="#ftn2-text" name="ftn2">3</a> 3<span class="T1">rd</span> footNote 
+		</span>
+	  </div>
+	  </p>
+	</body> 			
+			</html>
+		</expected>    
+	  </test>
+	  
+	  <test name="OOo endnotes" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="p">Proin gravida gravida dui. Maecenas augue.<text:note text:id="ftn1" text:note-class="footnote">
+					  <text:note-citation>1</text:note-citation>
+					  <text:note-body>
+						<text:p text:style-name="Footnote">Paragraph 1 this is a <text:span text:style-name="i-b">footnote</text:span></text:p>
+					  </text:note-body>
+					</text:note></text:p>
+					<text:p text:style-name="P2">Lorem ipsum dolor sit amet<text:note text:id="ftn3" text:note-class="endnote">
+					  <text:note-citation text:label="d">d</text:note-citation>
+					  <text:note-body><text:p text:style-name="Endnote">Endnote d (first)</text:p></text:note-body>
+					</text:note></text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+			  <head>
+				<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+				<title>Untitled</title>
+				<style type="text/css">table {border-spacing: 0;empty-cells: show; } .body .indent {margin-left: 25px;} .body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;} .spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;} span.underline {text-decoration:underline; }</style>
+			  </head>
+			  <body>
+				<p>Proin gravida gravida dui. Maecenas augue.<span class='footnote'>
+					<a class="footnote" href="#ftn1" name="ftn1-text">1</a>
+					<span class="footnote-text">
+					  <a href="#ftn1-text" name="ftn1">1</a>
+					  Paragraph 1 this is a <b>footnote</b>
+					</span>
+				  </span>
+				</p>
+				<p>Lorem ipsum dolor sit amet<a href="#ftn3" name="ftn3-text">
+					<span style="vertical-align: super;">
+					  <span class="endnote">d</span>
+					</span>
+				</a></p>
+				<hr/>
+				<p>
+				<div style="font-size: .9em;">
+					<span class="footnote-defined"><a href="#ftn1-text" name="ftn1">1</a> Paragraph 1 this is a <b>footnote</b></span>
+				</div>
+				</p>
+				<p>
+				<div style="font-size: .9em;">
+					<span class="endnote"><a href="#ftn3-text" name="ftn3">d</a> Endnote d (first)</span>
+				</div>
+				</p>
+			  </body>
+			</html>
+		</expected>    
+	  </test>
+	  
+	  
+	  <test name="OOo endnodes with blockquote style" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="Standard">
+					  This is end note normal 
+					  <text:note text:id="ftn0" text:note-class="endnote">
+						<text:note-citation>1</text:note-citation>
+						<text:note-body>
+							<text:p text:style-name="Endnote">First End note</text:p>
+						</text:note-body>
+					  </text:note>
+					</text:p>
+					<text:p text:style-name="bq1">
+					  This is end note with quotestyle 
+					  <text:note text:id="ftn1" text:note-class="endnote">
+						<text:note-citation>2</text:note-citation>
+						<text:note-body>
+							<text:p text:style-name="Endnote">2<text:span text:style-name="T1">nd</text:span>end note</text:p>
+						</text:note-body>
+					  </text:note>
+					</text:p>
+					<text:p text:style-name="Standard">
+					  This is end note with p style 
+					  <text:note text:id="ftn2" text:note-class="endnote">
+						<text:note-citation>3</text:note-citation>
+						<text:note-body>
+							<text:p text:style-name="Endnote">Third end note</text:p>
+						</text:note-body>
+					  </text:note>
+					</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+	  <title>Untitled</title>
+	  <style type="text/css">table {border-spacing: 0;empty-cells: show; } .body .indent {margin-left: 25px;} .body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;} .spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;} span.underline {text-decoration:underline; }</style>
+	</head>
+	<body>
+	  <p>
+		 This is end note normal 
+		<a href="#ftn0" name="ftn0-text">
+			<span style="vertical-align: super;">
+			  <span class="endnote">1</span>
+			</span>
+		</a>
+	  </p>
+	  <blockquote class="bq">
+		<p>
+			 This is end note with quotestyle 
+			<a href="#ftn1" name="ftn1-text">
+			  <span style="vertical-align: super;">
+				<span class="endnote">2</span>
+			  </span>
+			</a>
+		</p>
+	  </blockquote>
+	  <p>
+		 This is end note with p style 
+		<a href="#ftn2" name="ftn2-text">
+			<span style="vertical-align: super;">
+			  <span class="endnote">3</span>
+			</span>
+		</a>
+	  </p>
+	  <hr/>
+	  <p>
+	  <div style="font-size: .9em;">
+		<span class="endnote">
+			<a href="#ftn0-text" name="ftn0">1</a> First End note
+		</span>
+	  </div>
+	  </p>
+	  <p>
+	  <div style="font-size: .9em;">
+		<span class="endnote">
+			<a href="#ftn1-text" name="ftn1">2</a> 2<span class="T1">nd</span> end note
+		</span>
+	  </div>
+	  </p>
+	  <p>
+	  <div style="font-size: .9em;">
+		<span class="endnote">
+			<a href="#ftn2-text" name="ftn2">3</a> Third end note
+		</span>
+	  </div>
+	  </p>
+	</body> 			
+			</html>
+		</expected>    
+	  </test>
+	   
+
+<test name="List item test for block style applied to the list" normalize-white-spaces="true">
+		<source>
+		  <office:document-content>
+		<office:automatic-styles>
+			<style:style style:name="P4" style:family="paragraph" style:parent-style-name="li1n">
+			  <style:text-properties style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
+			</style:style>
+			<style:style style:name="P5" style:family="paragraph" style:parent-style-name="li1n" style:master-page-name="Standard">
+			  <style:paragraph-properties style:page-number="auto"/>
+			  <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+			</style:style>
+			<style:style style:name="P7" style:family="paragraph" style:parent-style-name="p">
+			  <style:text-properties fo:font-weight="normal" style:font-weight-asian="normal" style:font-weight-complex="normal"/>
+			</style:style>
+			<style:style style:name="P8" style:family="paragraph" style:parent-style-name="li1p">
+			  <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+			</style:style>
+			<style:style style:name="P9" style:family="paragraph" style:parent-style-name="li1p">
+			  <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+			</style:style>
+			<style:style style:name="P10" style:family="paragraph" style:parent-style-name="li1p">
+			  <style:text-properties fo:font-style="italic" fo:font-weight="bold" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-style-complex="italic" style:font-weight-complex="bold"/>
+			</style:style>
+			<style:style style:name="P11" style:family="paragraph" style:parent-style-name="li1b">
+			  <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+			</style:style>
+		</office:automatic-styles>
+			  <office:body>
+				<office:text>
+					  <text:list text:style-name="li1n">
+			  <text:list-item text:start-value="1">
+				<text:p text:style-name="P5">List item li1n with italic</text:p>
+			  </text:list-item>
+			  </text:list>
+			  <text:p text:style-name="P8">rfergere li1p with bold</text:p>
+			  <text:p text:style-name="P7">paragraph</text:p>
+			<text:list text:style-name="li1n">
+			  <text:list-item text:start-value="1">
+				<text:p text:style-name="P4">List item li1n with underline</text:p>
+			  </text:list-item>
+			</text:list>
+			<text:p text:style-name="P9">test li1p with italic</text:p>
+			<text:p text:style-name="P10">Another li1p with bold and italic</text:p>
+			<text:p text:style-name="p">another parameters</text:p>
+			<text:list text:style-name="li1b">
+			  <text:list-item>
+				<text:p text:style-name="P11">list item li1b with italic</text:p>
+			  </text:list-item>
+			</text:list>
+			<text:p text:style-name="P8">bold li1p with bold</text:p>
+			<text:p text:style-name="p">another paragrapth</text:p>
+			<text:p text:style-name="p"/>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+	  <title>Untitled</title>
+	  <style type="text/css">table {border-spacing: 0;empty-cells: show; } .body .indent {margin-left: 25px;} .body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;} .spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;} span.underline {text-decoration:underline; } li1n.P4 {text-decoration: underline; } li1n.P5 {font-style:italic; } p.P7 {font-weight:normal; } li1p.P8 {font-weight:bold; } li1p.P9 {font-style:italic; } li1p.P10 {font-style:italic; font-weight:bold; } li1b.P11 {font-style:italic; }</style>
+	</head>
+	<body>
+	  <ol class="lin" style="list-style: decimal;">
+		<li>
+			<i>
+			  <p>List item li1n with italic</p>
+			</i>
+			<b>
+			  <p>rfergere li1p with bold</p>
+			</b>
+		</li>
+	  </ol>
+	  <p class="P7">paragraph</p>
+	  <ol class="lin" style="list-style: decimal;">
+		<li>
+			<p style="text-decoration: underline; ">List item li1n with underline</p>
+			<i>
+			  <p>test li1p with italic</p>
+			</i>
+			<i>
+			  <b>
+				<p>Another li1p with bold and italic</p>
+			  </b>
+			</i>
+		</li>
+	  </ol>
+	  <p>another parameters</p>
+	  <ul class="lib">
+		<li>
+			<i>
+			  <p>list item li1b with italic</p>
+			</i>
+			<b>
+			  <p>bold li1p with bold</p>
+			</b>
+		</li>
+	  </ul>
+	  <p>another paragrapth</p>
+	  <p/>
+	</body>
+			
+			</html>
+		</expected>    
+	  </test>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  
+	  <test name="Preformatted text with line breaks (soft returns)" normalize-white-spaces="false">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="pre1">&lt;ol class="li-lower-roman"&gt;<text:line-break/><text:s text:c="3"/>&lt;li&gt;<text:line-break/><text:s text:c="7"/>&lt;p&gt;list level 1&lt;/p&gt;<text:line-break/><text:s text:c="3"/>&lt;/li&gt;<text:line-break/>&lt;/ol&gt;</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+<pre>&lt;ol class="li-lower-roman"&gt;
+   &lt;li&gt;
+       &lt;p&gt;list level 1&lt;/p&gt;
+   &lt;/li&gt;
+&lt;/ol&gt;</pre></body>
+		</expected>    
+	  </test>
+	  
+	  <test name="Preformatted text with breaks (hard returns)" normalize-white-spaces="false">
+		<source>
+			<office:document-content>
+			  <office:body>
+				<office:text>
+					<text:p text:style-name="pre1">&lt;ol class="li-lower-roman"&gt;</text:p><text:p text:style-name="pre1"><text:s text:c="4"/>&lt;li&gt;</text:p><text:p text:style-name="pre1"><text:s text:c="8"/>&lt;p&gt;list level 1&lt;/p&gt;</text:p><text:p text:style-name="pre1"><text:s text:c="4"/>&lt;/li&gt;</text:p><text:p text:style-name="pre1">&lt;/ol&gt;</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+<pre>&lt;ol class="li-lower-roman"&gt;</pre>
+<pre>    &lt;li&gt;</pre>
+<pre>        &lt;p&gt;list level 1&lt;/p&gt;</pre>
+<pre>    &lt;/li&gt;</pre>
+<pre>&lt;/ol&gt;</pre></body>
+		</expected>    
+	  </test>
+   
+	  <test name="Native char formatting" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:automatic-styles>
+	<style:style style:name="P1" style:family="paragraph" style:parent-style-name="Header_20_right">
+<style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm"/>
+</style:style>
+	<style:style style:name="P2" style:family="paragraph" style:parent-style-name="Header_20_right">
+	<style:paragraph-properties>
+	<style:tab-stops>
+<style:tab-stop style:position="11.06cm"/>
+<style:tab-stop style:position="13.501cm"/>
+<style:tab-stop style:position="14.6cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+</style:style>
+	<style:style style:name="P3" style:family="paragraph" style:parent-style-name="Header_20_left">
+<style:text-properties fo:font-weight="normal" style:font-weight-asian="normal" style:font-weight-complex="normal"/>
+</style:style>
+<style:style style:name="P4" style:family="paragraph" style:parent-style-name="p" style:master-page-name="Standard"/>
+	<style:style style:name="P5" style:family="paragraph" style:parent-style-name="Header_20_right">
+	<style:paragraph-properties>
+	<style:tab-stops>
+<style:tab-stop style:position="11.06cm"/>
+<style:tab-stop style:position="13.501cm"/>
+<style:tab-stop style:position="14.6cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+</style:style>
+	<style:style style:name="T1" style:family="text">
+<style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+</style:style>
+	<style:style style:name="T2" style:family="text">
+<style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+</style:style>
+	<style:style style:name="T3" style:family="text">
+<style:text-properties fo:font-style="italic" fo:font-weight="bold" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-style-complex="italic" style:font-weight-complex="bold"/>
+</style:style>
+<style:style style:name="T4" style:family="text"/>
+</office:automatic-styles><office:body>
+				<office:text>
+			  <text:p text:style-name="P4">This is some 
+				<text:span text:style-name="T1">bold</text:span>, 
+				<text:span text:style-name="T2">italic</text:span>
+				and 
+				<text:span text:style-name="T3">bold-italic</text:span>
+				text
+			  </text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+		<p class="P4">This is some <b>bold</b>, <i>italic</i> and <b><i>bold-italic</i></b> text
+		</p>
+		</body>
+		</expected>    
+	  </test>		
+	  <test name="OOo Measurement In Inch" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:automatic-styles>
+			<style:style style:name="Table48" style:family="table" style:master-page-name="Standard">
+			  <style:table-properties style:width="1in" style:page-number="0" table:align="center"/>
+			</style:style><style:style style:name="Table48.A" style:family="table-column">
+			<style:table-column-properties style:column-width="1in"/>
+			  </style:style><style:style style:name="Table48.A1" style:family="table-cell">
+			  <style:table-cell-properties fo:padding="0.0382in" fo:border="0.0007in solid #000000"/>
+			</style:style>
+			<style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+			  <style:graphic-properties style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0in 0in 0in 0in)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+			</style:style>
+		   </office:automatic-styles>
+			  <office:body>
+				<office:text>
+			<table:table table:name="Table48" table:style-name="Table48">
+			  <table:table-column table:style-name="Table48.A"/><table:table-row>
+			  <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+				<text:p text:style-name="P4"/>
+			  </table:table-cell>
+			</table:table-row></table:table>
+			<text:p text:style-name="p">
+			  <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="paragraph" svg:width="0.6874in" svg:height="0.5209in" draw:z-index="0">
+				<draw:image xlink:href="Pictures/10000200000000420000003222D8A8F7.gif" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+			  </draw:frame>
+			</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			  <body>
+			<div class="Table48" style="width: 100%; margin: 0px; padding: 0px; text-align:center;">
+			<table class="Table48" style="border-spacing: 0;empty-cells: show; width:1in; margin:auto auto; text-align:left;border-collapse: collapse; ">
+			  <colgroup>
+				<col style="width:1in;"/>
+			  </colgroup>
+			  <tbody>
+				<tr>
+					<td class="Table48_A1" style="vertical-align: top; border:1.0px solid #000000; padding:0.0382in; ">
+					<p/>
+					</td>
+				</tr>
+			  </tbody>
+			</table>
+			</div>
+			<p>
+			  <span style="display: block">
+				<a name="graphics1">
+					<!-- -->
+				</a>
+				<img alt="graphics1" class="fr1" height="50" src="Pictures/10000200000000420000003222D8A8F7.gif" style="border:0px; vertical-align: top" width="66"/>
+			  </span>
+			</p>
+			  </body>		  
+		</expected>    
+	  </test>
+	<test name="OOo Measurement In cm" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:automatic-styles>
+			<style:style style:name="Table48" style:family="table" style:master-page-name="Standard">
+			  <style:table-properties style:width="2.54cm" style:page-number="0" table:align="center"/>
+			</style:style>
+			<style:style style:name="Table48.A" style:family="table-column">
+			<style:table-column-properties style:column-width="2.54cm"/></style:style>
+			<style:style style:name="Table48.A1" style:family="table-cell">
+			<style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm solid #000000"/></style:style>
+			<style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+			  <style:graphic-properties style:vertical-pos="from-top" style:vertical-rel="paragraph" style:horizontal-pos="from-left" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm 0cm 0cm 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+			</style:style>
+		   </office:automatic-styles>
+			  <office:body>
+				<office:text>
+			<table:table table:name="Table48" table:style-name="Table48">
+			  <table:table-column table:style-name="Table48.A"/><table:table-row>
+			  <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+				<text:p text:style-name="P4"/>
+			  </table:table-cell>
+			</table:table-row></table:table>
+			<text:p text:style-name="p">
+			  <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="paragraph" svg:x="6.541cm" svg:y="0.079cm" svg:width="1.746cm" svg:height="1.323cm" draw:z-index="0">
+				<draw:image xlink:href="Pictures/10000200000000420000003222D8A8F7.gif" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+			  </draw:frame>
+			</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			  <body>
+			<div class="Table48" style="width: 100%; margin: 0px; padding: 0px; text-align:center;">
+			<table class="Table48" style="border-spacing: 0;empty-cells: show; width:2.54cm; margin:auto auto; text-align:left;border-collapse: collapse; ">
+			  <colgroup>
+				<col style="width:2.54cm;"/>
+			  </colgroup>
+			  <tbody>
+				<tr>
+					<td class="Table48_A1" style="vertical-align: top; border:1.0px solid #000000; padding:0.097cm; ">
+					  <p/>
+					</td>
+				</tr>
+			  </tbody>
+			</table>
+			</div>
+			<p>
+			  <span style="display: block">
+				<a name="graphics1">
+					<!-- -->
+				</a>
+				<img alt="graphics1" class="fr1" height="50" src="Pictures/10000200000000420000003222D8A8F7.gif" style="border:0px; vertical-align: baseline; margin-bottom: 0.00270758122744px;" width="66"/>
+			  </span>
+			</p>
+			  </body>		  
+		</expected>    
+	  </test>
+	<test name="OOo Measurement In mm" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:automatic-styles>
+			<style:style style:name="Table48" style:family="table" style:master-page-name="Standard">
+			<style:table-properties style:width="25.4mm" style:page-number="0" table:align="center"/></style:style>
+			<style:style style:name="Table48.A" style:family="table-column"><style:table-column-properties style:column-width="25.4mm"/></style:style>
+			<style:style style:name="Table48.A1" style:family="table-cell"><style:table-cell-properties fo:padding="0.97mm" fo:border="0.02mm solid #000000"/>
+			</style:style>
+			<style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+			  <style:graphic-properties style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0mm 0mm 0mm 0mm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+			</style:style>
+		   </office:automatic-styles>
+			  <office:body>
+				<office:text>
+			<table:table table:name="Table48" table:style-name="Table48">
+			  <table:table-column table:style-name="Table48.A"/><table:table-row>
+			  <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+				<text:p text:style-name="P4"/>
+			  </table:table-cell>
+			</table:table-row></table:table>
+			<text:p text:style-name="p">
+			  <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="paragraph" svg:width="17.46mm" svg:height="13.23mm" draw:z-index="0">
+				<draw:image xlink:href="Pictures/10000200000000420000003222D8A8F7.gif" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+			  </draw:frame>
+			</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			  <body>
+			<div class="Table48" style="width: 100%; margin: 0px; padding: 0px; text-align:center;">
+			<table class="Table48" style="border-spacing: 0;empty-cells: show; width:25.4mm; margin:auto auto; text-align:left;border-collapse: collapse; ">
+			  <colgroup>
+				<col style="width:25.4mm;"/>
+			  </colgroup>
+			  <tbody>
+				<tr>
+					<td class="Table48_A1" style="vertical-align: top; border:1.0px solid #000000; padding:0.97mm; ">
+					  <p/>
+					</td>
+				</tr>
+			  </tbody>
+			</table>
+			</div>
+			<p>
+			  <span style="display: block">
+				<a name="graphics1">
+					<!-- -->
+				</a>
+				<img alt="graphics1" class="fr1" height="50" src="Pictures/10000200000000420000003222D8A8F7.gif" style="border:0px; vertical-align: top" width="66"/>
+			  </span>
+			</p>
+			  </body>		  
+		</expected>    
+	  </test>
+	<test name="OOo Measurement In point" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+			  <office:automatic-styles>
+			<style:style style:name="Table48" style:family="table" style:master-page-name="Standard">
+			<style:table-properties style:width="72pt" style:page-number="0" table:align="center"/></style:style>
+			<style:style style:name="Table48.A" style:family="table-column">
+			<style:table-column-properties style:column-width="72pt"/></style:style>
+			<style:style style:name="Table48.A1" style:family="table-cell">
+			<style:table-cell-properties fo:padding="2.75pt" fo:border="0.05pt solid #000000"/></style:style>
+			<style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+			  <style:graphic-properties style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0pt 0pt 0pt 0pt)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+			</style:style>
+		   </office:automatic-styles>
+			  <office:body>
+				<office:text>
+			<table:table table:name="Table48" table:style-name="Table48">
+			  <table:table-column table:style-name="Table48.A"/><table:table-row>
+			  <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+				<text:p text:style-name="P4"/>
+			  </table:table-cell>
+			</table:table-row></table:table>
+			<text:p text:style-name="p">
+			  <draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="paragraph" svg:width="49.49pt" svg:height="37.5pt" draw:z-index="0">
+				<draw:image xlink:href="Pictures/10000200000000420000003222D8A8F7.gif" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+			  </draw:frame>
+			</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			  <body>
+			<div class="Table48" style="width: 100%; margin: 0px; padding: 0px; text-align:center;">
+			  <table class="Table48" style="border-spacing: 0;empty-cells: show; width:72pt; margin:auto auto; text-align:left;border-collapse: collapse; ">
+				<colgroup>
+					<col style="width:72pt;"/>
+				</colgroup>
+				<tbody>
+					<tr>
+					  <td class="Table48_A1" style="vertical-align: top; border:1.0px solid #000000; padding:2.75pt; ">
+					  <p/>
+					</td>
+				</tr>
+			  </tbody>
+			</table>
+			</div>
+			<p>
+			  <span style="display: block">
+				<a name="graphics1">
+					<!-- -->
+				</a>
+				<img alt="graphics1" class="fr1" height="50" src="Pictures/10000200000000420000003222D8A8F7.gif" style="border:0px; vertical-align: top" width="66"/>
+			  </span>
+			</p>
+			  </body>		  
+		</expected>    
+	  </test>
+
+	  <test name="titles test" normalize-white-spaces="true">
+		<source>
+			<office:document-content>
+		<office:automatic-styles>
+			<style:style style:name="P7" style:family="paragraph" style:parent-style-name="Title" style:master-page-name="Standard"/>
+		</office:automatic-styles>
+			  <office:body>
+				<office:text>
+			  <text:p text:style-name="Title">Title one</text:p>
+			  <text:p text:style-name="Title">Title two</text:p>
+			  <text:p text:style-name="P7">Title three</text:p>
+			  <text:p text:style-name="Title-chapter">Title Chapter</text:p>
+			  <text:p text:style-name="Title-book">Title Book</text:p>
+				</office:text>
+			  </office:body>
+			</office:document-content>
+		</source>
+		<expected match="/html:html/html:body">
+			<body>
+		<p class="Title"><a id="id2" name="id2"><!--id2--></a>Title two</p>
+		<p class="Title"><a id="id3" name="id3"><!--id3--></a>Title three</p>
+		<p class="Title-chapter"><a id="id4" name="id4"><!--id4--></a>Title Chapter</p>
+		<p class="Title-book"><a id="id5" name="id5"><!--id5--></a>Title Book</p>
+			</body>
+		</expected>    
+	  </test>
+
+	</tests>
+</testData>

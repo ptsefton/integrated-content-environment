@@ -1,0 +1,419 @@
+#Const MSWD = True
+#Const OOO = Not MSWD
+
+Rem  For frmOutlineNumbering in setting the outline numbering.
+
+Public allstyles As String
+Public AllOutlines As String
+Public NewList As ListTemplate
+Public StartAt As Single
+Public notesfirstindent As Single
+Public notefirstindent As Single
+Public basicindent As Single
+Public firstnotesstartat As Single
+Public notesindent As Single
+'Public basefont As String
+
+Function GetOutlineStart()
+Rem  Note, the calling code will need to check for a cancell event,
+Rem  where the return value of this function is the null string ""
+    Dim message, Title, Default, MyValue
+    message = "Start outline at (enter number between 1 and 100):"   ' Set prompt.
+    Title = "Start outline at" ' Set title.
+    Default = "1"   ' Set default.
+    Rem  Display message, title, and default value.
+    MyValue = InputBox(message, Title, Default)
+    If Val(MyValue) > 100 Or Val(MyValue) < 0 Then
+      MyValue = 1
+    End If
+    GetOutlineStart = MyValue
+End Function
+
+Function GetOutlineTitletext()
+Rem  Note, the calling code will need to check for a cancell event,
+Rem where the return value of this function is the null string ""
+    Dim message, Title, Default, MyValue
+    message = "Enter the document type e.g. Module, Section etc. (Optional)"   ' Set prompt.
+    Title = "Set title outline text" ' Set title.
+    Default = ""   ' Set default.
+    Rem  Display message, title, and default value.
+    MyValue = InputBox(message, Title, Default)
+    GetOutlineTitletext = MyValue
+End Function
+
+Sub CreateStyle(StyleName)
+    If InStr(allstyles, ":::" + StyleName + ":::") = 0 Then
+       ActiveDocument.Styles.Add "DUMMY"
+       ActiveDocument.Styles("DUMMY").NameLocal = StyleName
+       Rem MsgBox StyleName
+    End If
+    Selection.ParagraphFormat.style = StyleName
+End Sub
+Sub CreateListOfAllStyles()
+Rem Puts all style names in a string - so you can actually check if they exist
+Rem You have to run this before using CreateStyle to make a new style
+    allstyles = ":::"
+    AllOutlines = ":::"
+    For Each sty In ActiveDocument.Styles
+        allstyles = allstyles + sty.NameLocal + ":::"
+    Next sty
+    Rem And all outlines
+    For Each outl In ActiveDocument.ListTemplates
+        AllOutlines = AllOutlines + outl.Name + ":::"
+    Next outl
+    Rem MsgBox AllOutlines
+End Sub
+Sub CreateOutline(outlineName)
+    If InStr(AllOutlines, ":::" + outlineName + ":::") = 0 Then
+        On Error GoTo elseStatement
+        Rem just in case outline name exists and didn't catch it.
+        Set NewList = ActiveDocument.ListTemplates.Add(OutlineNumbered:=True, Name:=outlineName)
+        Rem MsgBox "Making new outline " + OutlineName
+    Else
+elseStatement:
+        Rem MsgBox "Finding old outline " + OutlineName
+        Set NewList = ActiveDocument.ListTemplates(outlineName)
+        Rem MsgBox "found " + NewList.Name
+    End If
+    Rem Selection.Range.ListFormat.ApplyListTemplate ListTemplate:=NewList, ContinuePreviousList:=True, ApplyTo:=wdListApplyToWholeList
+End Sub
+
+Sub deletealloutlines()
+    Rem this does not work. word does not allow to delete the list templates
+    For Each thing In ActiveDocument.ListTemplates
+        Rem MsgBox thing.Name
+        thing.Delete
+    Next thing
+End Sub
+
+Sub SetSingleSectionOutline()
+Rem Set update syles on open to false otherwise outline numbering
+Rem  will be lost when reopened
+    ActiveDocument.UpdateStylesOnOpen = False
+    Rem  Check to see if we want to quite before we do anything.
+    OutlineStart = GetOutlineStart()
+    TitleText = GetOutlineTitletext()
+    If (OutlineStart = "") Then
+        Rem   MsgBox ("Cancelling")
+        Exit Sub
+    End If
+    System.Cursor = wdCursorWait
+    Rem Let's start at H1n but remember what style we were in before
+    Selection.MoveLeft unit:=wdCharacter, count:=1
+    RememberedStyle = Selection.ParagraphFormat.style.NameLocal
+    Rem Make sure we have all the relevant styles before starting
+    CreateListOfAllStyles
+    Selection.style = ActiveDocument.Styles("p")
+    Selection.style = ActiveDocument.Styles("h1n")
+    CreateOutline ("SectOutline")
+
+    Rem SetHeadingOutline Macro
+    Rem  Macro recorded 08/10/97 by Peter Sefton
+    Rem updated 09/06/2006 by Daniel de Byl
+
+    Rem Note: Space after the number is set in NumberFormat not TrailingCharacter
+    Rem If you use TrailingCharacter it is lost when opened in another word processor
+
+    Selection.Range.ListFormat.ApplyListTemplate ListTemplate:=NewList, ContinuePreviousList:=True, _
+        ApplyTo:=wdListApplyToWholeList
+
+    With NewList.ListLevels(1)
+        If (TitleText = "") Then
+            .NumberFormat = ""
+        Else
+             .NumberFormat = TitleText + " %1: "
+        End If
+        
+        .TrailingCharacter = wdTrailingNone
+        .NumberStyle = wdListNumberStyleArabic
+        .NumberPosition = CentimetersToPoints(0)
+        .Alignment = wdListLevelAlignLeft
+        .TextPosition = CentimetersToPoints(0)
+        .TabPosition = CentimetersToPoints(0)
+        .ResetOnHigher = True
+        .StartAt = OutlineStart
+        .LinkedStyle = "Title-chapter"
+    End With
+    
+    With NewList.ListLevels(2)
+        If (TitleText = "") Then
+            .NumberFormat = "%2 "
+        Else
+             .NumberFormat = "%1.%2 "
+        End If
+        .TrailingCharacter = wdTrailingNone
+        .NumberStyle = wdListNumberStyleArabic
+        .NumberPosition = CentimetersToPoints(0)
+        .Alignment = wdListLevelAlignLeft
+        .TextPosition = CentimetersToPoints(0)
+        .TabPosition = CentimetersToPoints(0)
+        .ResetOnHigher = True
+        If (TitleText = "") Then
+            .StartAt = OutlineStart
+        Else
+             .StartAt = 1
+        End If
+        
+        .LinkedStyle = "h1n "
+    End With
+  
+    With NewList.ListLevels(3)
+        If (TitleText = "") Then
+          .NumberFormat = "%2.%3 "
+        Else
+            .NumberFormat = "%1.%2.%3 "
+        End If
+        .TrailingCharacter = wdTrailingNone
+        .NumberStyle = wdListNumberStyleArabic
+        .NumberPosition = CentimetersToPoints(0)
+        .Alignment = wdListLevelAlignLeft
+        .TextPosition = CentimetersToPoints(0)
+        .TabPosition = CentimetersToPoints(0)
+        .ResetOnHigher = True
+        .StartAt = 1
+        .LinkedStyle = "h2n"
+    End With
+  
+    With NewList.ListLevels(4)
+        If (TitleText = "") Then
+         .NumberFormat = "%2.%3.%4 "
+        Else
+            .NumberFormat = "%1.%2.%3.%4 "
+        End If
+        .TrailingCharacter = wdTrailingNone
+        .NumberStyle = wdListNumberStyleArabic
+        .NumberPosition = CentimetersToPoints(0)
+        .Alignment = wdListLevelAlignLeft
+        .TextPosition = CentimetersToPoints(0)
+        .TabPosition = CentimetersToPoints(0)
+        .ResetOnHigher = True
+        .StartAt = 1
+        .LinkedStyle = "h3n"
+    End With
+   
+    With NewList.ListLevels(5)
+        If (TitleText = "") Then
+            .NumberFormat = "%2.%3.%4.%5 "
+        Else
+            .NumberFormat = "%1.%2.%3.%4.%5 "
+        End If
+        .TrailingCharacter = wdTrailingNone
+        .NumberStyle = wdListNumberStyleArabic
+        .NumberPosition = CentimetersToPoints(0)
+        .Alignment = wdListLevelAlignLeft
+        .TextPosition = CentimetersToPoints(0)
+        .TabPosition = CentimetersToPoints(0)
+        .ResetOnHigher = True
+        .StartAt = 1
+        .LinkedStyle = "h4n"
+    End With
+    
+    With NewList.ListLevels(6)
+        If (TitleText = "") Then
+            .NumberFormat = "%2.%3.%4.%5.%6 "
+        Else
+             .NumberFormat = "%1.%2.%3.%4.%5.%6 "
+        End If
+        .TrailingCharacter = wdTrailingNone
+        .NumberStyle = wdListNumberStyleArabic
+        .NumberPosition = CentimetersToPoints(0)
+        .Alignment = wdListLevelAlignLeft
+        .TextPosition = CentimetersToPoints(0)
+        .TabPosition = CentimetersToPoints(0)
+        .ResetOnHigher = True
+        .StartAt = 1
+        .LinkedStyle = "h5n"
+    End With
+    Selection.Range.ListFormat.ApplyListTemplate ListTemplate:=NewList, _
+    ContinuePreviousList:=True, ApplyTo:=wdListApplyToWholeList
+
+    Selection.style = ActiveDocument.Styles(RememberedStyle)
+    System.Cursor = wdCursorNormal
+End Sub
+
+Sub setconstants()
+    Rem Constants - move these out somewhere later
+    notesfirstindent = 0.6
+    notefirstindent = 0.8
+    notesindent = 1
+    basicindent = 1
+    basefont = "Times New Roman"
+    firstnotesstartat = 0.4
+End Sub
+Sub listoutline()
+    setliststyles ("n")
+    setliststyles ("b")
+    setliststyles ("LowercaseAlpha")
+    setliststyles ("UppercaseAlpha")
+    setliststyles ("LowercaseRoman")
+    setliststyles ("UppercaseRoman")
+End Sub
+Public Sub setliststyles(ListFullType)
+' Function SetListStyles, Sets the list style for the list type passed
+' in as the argument.
+On Error Resume Next
+    System.Cursor = wdCursorWait
+
+    PreviousTextPosition = 0
+    listtextindent = 0.6
+
+    Rem Create the outline to be used for the list type.
+    Select Case ListFullType
+        Case "UppercaseAlpha"
+          listType = "A"
+        Case "LowercaseAlpha"
+          listType = "a"
+        Case "UppercaseRoman"
+          listType = "I"
+        Case "LowercaseRoman"
+          listType = "i"
+        Case Else
+          listType = ListFullType
+    End Select
+    For listLevel = 1 To 5
+
+        ListNumberPosition = PreviousTextPosition
+        ListTextPosition = ListNumberPosition + listtextindent
+        PreviousTextPosition = ListTextPosition
+        
+        listName = fnMakeStyleName("li", listLevel, listType)
+        outlineName = MakeOutlineName(listType)
+         
+        If Not fnHasStyle(listName) Then
+            subCreateMissingStyle (listName)
+        End If
+        
+        If Not isOutlineExists(outlineName) Then
+            subCreateMissingStyle (listName)
+        End If
+        With ActiveDocument.Styles(listName)
+            .AutomaticallyUpdate = False
+            .BaseStyle = "p"
+            On Error GoTo 0
+            .NextParagraphStyle = listName
+            .ParagraphFormat.TabStops.ClearAll
+            .ParagraphFormat.OutlineLevel = wdOutlineLevelBodyText
+        End With
+        
+        'Set all the formatting bits for the list level/style
+        With ActiveDocument.ListTemplates(outlineName).ListLevels(listLevel)
+            Select Case listType
+                Case "b"
+                    .NumberFormat = ChrW(61623)
+                    .TrailingCharacter = wdTrailingTab
+                    .NumberStyle = wdListNumberStyleBullet
+                    With .Font
+                      .Name = "Symbol"
+                      .Size = wdUndefined
+                   End With
+                Case "n"
+                  .NumberFormat = "%" + Trim(str(listLevel)) + "."
+                  .TrailingCharacter = wdTrailingTab
+                  .NumberStyle = wdListNumberStyleArabic
+                 Case "a"
+                   .NumberFormat = "%" + Trim(str(listLevel)) + "."
+                   .TrailingCharacter = wdTrailingTab
+                   .NumberStyle = wdListNumberStyleLowercaseLetter
+                Case "A"
+                   .NumberFormat = "%" + Trim(str(listLevel)) + "."
+                   .TrailingCharacter = wdTrailingTab
+                   .NumberStyle = wdListNumberStyleUppercaseLetter
+                 Case "i"
+                   .NumberFormat = "%" + Trim(str(listLevel)) + "."
+                   .TrailingCharacter = wdTrailingTab
+                   .NumberStyle = wdListNumberStyleLowercaseRoman
+                 Case "I"
+                   .NumberFormat = "%" + Trim(str(listLevel)) + "."
+                   .TrailingCharacter = wdTrailingTab
+                   .NumberStyle = wdListNumberStyleUppercaseRoman
+             End Select
+             
+              .NumberPosition = CentimetersToPoints(ListNumberPosition)
+              .Alignment = wdListLevelAlignLeft
+              .TextPosition = CentimetersToPoints(ListTextPosition)
+              .TabPosition = CentimetersToPoints(ListTextPosition)
+              .ResetOnHigher = True
+              .StartAt = 1
+              .LinkedStyle = listName
+        End With
+    Next
+    System.Cursor = wdCursorNormal
+End Sub
+
+Function isOutlineExists(outlineName)
+    On Error GoTo NoOutline
+    strOutline = ActiveDocument.ListTemplates(outlineName).Name
+    If strOutline = outlineName Then
+        isOutlineExists = True
+    End If
+    Exit Function
+NoOutline:
+    isOutlineExists = False
+End Function
+
+Sub AddBookMarks()
+'''''
+' Cycle through the Document Management table and add
+' the found information to the custom document properties
+' page.
+'''''
+    Dim OriginalStyleName As String
+    Dim CleanString As String
+  ActiveDocument.Bookmarks.Add ("DMgtTabprevloc")
+  ActiveDocument.Tables(2).Select   ' Select the 1st table (DM table)
+  For Each Row In Selection.Rows    ' cycle through the rows
+    If Row.Cells.count = 2 Then
+      Row.Cells(2).Select           ' Select 2nd cell in row, or
+      Selection.MoveLeft unit:=wdCharacter, count:=1, Extend:=wdExtend
+    Else                            ' 1st cell if no 2nd cell
+      Row.Cells(1).Select
+      Selection.MoveLeft unit:=wdCharacter, count:=1, Extend:=wdExtend
+    End If                          ' Then add, if there is a value.
+    If (Selection.Type = wdSelectionIP) Then
+      ' We have a cell with no entries, so don't add to do props.
+      ' MsgBox Selection.Type
+    Else
+        newstring = ""
+        originalString = Selection.style.NameLocal
+        Length = Len(originalString)
+        For i = 1 To Length
+            thisChar = Mid(originalString, i, 1)
+            If thisChar <> "-" And thisChar <> " " Then
+                newstring = newstring + thisChar
+            End If
+        Next i
+    'sBkName = InputBox(newstring, "Add Bookmark")
+    ActiveDocument.Bookmarks.Add newstring  'Add Bookmark
+    End If
+  Next Row
+  ActiveDocument.Bookmarks("DMgtTabprevloc").Select
+  ActiveDocument.Bookmarks("DMgtTabprevloc").Delete
+End Sub
+Sub SetListOutlines()
+    Rem remembering pagination
+    varPageBreakBefore = Selection.ParagraphFormat.PageBreakBefore
+    varKeepTogether = Selection.ParagraphFormat.KeepTogether
+    varKeepWithNext = Selection.ParagraphFormat.KeepWithNext
+            
+    Selection.MoveLeft unit:=wdCharacter, count:=1
+    RememberedStyle = Selection.ParagraphFormat.style.NameLocal
+    
+    setconstants
+    CreateListOfAllStyles
+    listoutline
+    
+    Selection.style = ActiveDocument.Styles(RememberedStyle)
+    'reset pagination
+    Selection.ParagraphFormat.PageBreakBefore = varPageBreakBefore
+    Selection.ParagraphFormat.KeepTogether = varKeepTogether
+    Selection.ParagraphFormat.KeepWithNext = varKeepWithNext
+End Sub
+
+Sub RemoveHiddenBookmarks()
+  For Each b In ActiveDocument.Bookmarks
+    If InStr(R, "_") = 1 Then b.Delete
+  Next
+End Sub
+
+
+

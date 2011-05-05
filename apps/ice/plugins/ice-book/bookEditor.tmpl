@@ -1,0 +1,294 @@
+<div>
+ ## Cheetah Template 
+ <form method="post" name="_fx_" id="_fx_" action="editBook">
+  <input name="isPostBack" type="hidden" value="True"><!-- --></input>
+  <input name="func" type="hidden" value="editBook"><!-- --></input>
+  <style>
+    .canDrop { border: 1px solid black; }
+  </style>
+
+  <div class="app-section">
+    $bookSection
+    $fileBrowserSection
+  </div>
+ </form>
+##
+##
+## End of main HTML section
+##
+##
+##
+##
+##
+## Start of script section (and closing </div> tag)
+##
+##
+  <script type="text/javascript" src="/skin/jquery-ui.js">/* */</script>
+##
+  <script type="text/javascript">
+  // <!--
+    function drop(e, ui) {
+      var dest = jQ(this);             // dropped onto
+      var src = jQ(ui.draggable);         // the dropped item
+      dest.removeClass("canDrop");
+      // src type - fileBrowser or currentBookDoc
+      var id = dest.attr("id").split("_")[1];
+      if(src.hasClass("fileBrowser")){
+        var path = src.attr("id").substring(2);
+        ajaxUpdateBookSection("addFile", id, path);
+      } else {
+        var docId = src.attr("id").split("_")[1];
+        if(docId==id || docId==(id-1)) return;
+        ajaxUpdateBookSection("moveDoc", docId, id);
+      }
+    }
+
+    var _fx=document.forms._fx_;
+    var jQF = jQ("form#_fx_");
+    var inputs = jQF.find("input");
+    var act = inputs.filter("[@name='_act']");
+    var data = inputs.filter("[@name='_data']"); 
+    function xSubmit(a, d) { act.val(a); data.val(d); _fx.submit(); }
+
+    function activateBookSection() {
+      var jQF = jQ(".book-section");
+      jQF.find(".renderAsHtml").change(function() {
+        ajaxUpdateBookSection("renderAsHtml", this.checked ? "1":"0");
+      } );
+      jQF.find(".pageRef").change(function() {
+        ajaxUpdateBookSection("pageRef", this.checked ? "1":"0");
+      } );
+      jQF.find(".pdfOnly").change(function() {
+        ajaxUpdateBookSection("pdfOnly", this.checked ? "1":"0");
+      } );
+      jQF.find(".editBook").click(function() {
+    	var me = jQ(this);
+    	var id = me.attr("id");
+       #if $isServer
+        ##jQF.attr("action", "$bookUri"); xSubmit("");
+        window.location = '$bookUri';
+       #else
+    	if (confirm("DO NOT edit content in the '" + id + "' file. Are you sure you want to continue?")) {
+            ajaxUpdateBookSection("editBook", id);
+        }
+       #end if
+      } );
+      jQF.find(".removeFile").click(function() {
+        var me = jQ(this);
+        var id = me.attr("id").split("#")[1];
+        ajaxUpdateBookSection("remove", id);
+      } );
+      jQF.find(".pageBreakType").change(function() {
+        var me = jQ(this);
+        var id = me.attr("id").split("#")[1];
+        var value = me.val();
+        ajaxUpdateBookSection("changePageBreakType", id, value);
+      } );
+      jQF.find(".pageOrientation").change(function() {
+        var me = jQ(this);
+        var id = me.attr("id").split("#")[1];
+        var value = me.val();
+        ajaxUpdateBookSection("changePageOrientation", id, value);
+      } );
+      jQF.find(".okFinishBut").click(function() {
+        inputs.filter("[@name='func']").val("");
+        window.location = "..";
+      } );
+      jQF.find(".refresh").click(function() {
+        ajaxUpdateBookSection("refresh");
+      } );
+      jQF.find(".editDoc").click(function() {
+        var me = jQ(this);
+        var id = me.attr("id").split("_")[1];
+        ajaxUpdateBookSection("editDoc", id);
+      } );
+      jQF.find(".rebuildBook").click(function() {
+        var strHTML = "&lt;div style='padding:1em;color:green;font-size:120%;height:200px;'&gt;Rebuilding book please wait... \
+            &lt;img alt='rebuilding' src='/skin/rendering.gif'/&gt;&lt;/div&gt;";
+        do{
+            strHTML = strHTML.replace(/&lt;/,"<");
+        }while(strHTML.search(/&lt;/)!= -1);
+        do{
+            strHTML = strHTML.replace(/&gt;/,">");
+        }while(strHTML.search(/&gt;/)!= -1);
+        jQ(".book-section").html(strHTML);
+            
+        ajaxUpdateBookSection("rebuildBook");
+      } );
+      jQF.find(".renderBook").click(function() {
+        
+        var strHTML = "&lt;div style='padding:1em;color:green;font-size:120%;height:200px;'&gt;Rebuilding book please wait... \
+            &lt;img alt='rebuilding' src='/skin/rendering.gif'/&gt;&lt;/div&gt;";
+        do{
+            strHTML = strHTML.replace(/&lt;/,"<");
+        }while(strHTML.search(/&lt;/)!= -1);
+        do{
+            strHTML = strHTML.replace(/&gt;/,">");
+        }while(strHTML.search(/&gt;/)!= -1);
+        jQ(".book-section").html(strHTML);
+        ajaxUpdateBookSection("renderBook");
+      } );
+      jQF.find(".draggable").draggable({
+            dragPrevention:"input, textarea, button, submit",
+            helper:"clone",
+            //handle:"div",
+            opacity:0.5,
+            //revert:"invalid",
+            scroll:true,
+            stop: function() { jQ(this).fadeTo(0, 1); },
+            start: function() { jQ(this).fadeTo(0, 0.5); }
+      });
+      jQF.find(".dropBefore, .dropAdd").droppable({
+            accept: ".draggable",
+            //hoverClass: "canDrop",
+            //activeClass: "",
+            tolerance:"pointer",
+            "drop": drop,
+            activate: function(){},
+            deactivate: function(){},
+            over: function(e, ui){ jQ(".canDrop").removeClass("canDrop"); jQ(this).addClass("canDrop"); },
+            out: function(e, ui){ jQ(this).removeClass("canDrop"); }
+      });
+      jQF.find(".edit").click(function() { bTitle.click(); });
+      var bTitle = jQF.find("#bookTitle");
+      bTitle.click(function() {
+            eBook = jQ("<span style='font-size:80%;'><input type='text' size='52'/>&#160;<span class='command'>Ok</span> <span class='command'>Cancel</span></span>");
+            jQ(".edit").hide();
+            bTitle.hide();
+            bTitle.after(eBook);
+            var i=eBook.find("input");
+            var ok=eBook.find("span:eq(0)");
+            var cancel=eBook.find("span:eq(1)");
+            i.val(bTitle.html())
+            i.keypress(function(e) { if(e.which==13)ok.click(); if(e.keyCode==27)cancel.click(); return False; });
+            i.focus();
+            ok.click(function(){
+                var v=eBook.find("input").val(); bTitle.show(); bTitle.html(v);
+                eBook.remove();
+                //ajaxUpdateBookSection("bookTitle", v);
+                ajaxUpdateTitle(v);
+                jQ(".edit").show();
+            });
+            cancel.click(function(){ bTitle.show(); eBook.remove(); jQ(".edit").show();});
+      });
+    }
+    activateBookSection();
+##
+##      "fileBrowserSection"
+    // File Browser
+    function activateFileBrowser(){
+      var fb = jQ(".fileBrowser:first");
+      function setFileBrowserPath(path) {
+          function callback(data) {
+            var newFileBrowser = jQ(data);
+            var height = fb.find("div:first").height();
+            var nt = newFileBrowser.find("div:first");
+            fb.after(newFileBrowser);
+            fb.remove();
+            if(height>nt.height()) nt.height(height);
+            // make active and draggable again
+            activateFileBrowser();
+          }
+          ajaxSubmit("changePath", path, null, callback);
+      }
+      fb.find(".hideFileBrowser").click(function() {
+        fb.find(">div.show").hide().height("");
+        fb.find(">div.hide").show();
+      });
+      fb.find(".showFileBrowser").click(function() {
+        fb.find(">div.show").show();
+        fb.find(">div.hide").hide();
+      });
+      fb.find(".fileBrowserPath").click(function() {
+        var me = jQ(this);
+        var path = me.attr("id").split("fbp-")[1];
+        setFileBrowserPath(path);
+      });
+      fb.find(".draggable").draggable({
+        dragPrevention:"input, textarea, button, submit",
+        helper:"clone",
+        //handle:"div",
+        opacity:0.5,
+        //revert:"invalid",
+        scroll:true,
+        stop: function() { jQ(this).fadeTo(0, 1); },
+        start: function() { jQ(this).fadeTo(0, 0.5); }
+      });
+      fb.find(".addFile").click(function() {
+        var me = jQ(this);
+        if(me.text()==="Add file") {
+            var path = me.attr("id").split("addFile-")[1];
+            ajaxUpdateBookSection('addFile', 9999, path);
+        } else {
+            var trs = me.parent().parent().parent().find(".selected .addFile");
+            var paths = [];
+            trs.each(function() {
+                var path = jQ(this).attr("id").split("addFile-")[1];
+                paths.push(path);
+            });
+            jQ("#selectAll").attr("checked",false);
+            ajaxUpdateBookSection2('addFile', 9999, paths);
+        }
+      });
+      fb.find(".selectable").find("td:not(:last)").click(function() {
+        var me=jQ(this).parent();
+        var input = me.find("input");
+        if(me.hasClass("selected")) { me.removeClass("selected"); me.css("background-color", ""); input.attr("checked", false); }
+        else { me.css("background-color", "#dddddd"); me.addClass("selected"); input.attr("checked", true); }
+        fb.find(".selectable").find("td:last span").text("Add file");
+        var selected = fb.find(".selected").find("td:last span");
+        if(selected.size()>1) selected.text("Add selected files");
+      });
+    }
+    activateFileBrowser();
+##
+    function ajaxSubmit(cmd, arg1, arg2, callback) {
+      jQ.get("", {"ajax":"bookEditor", "cmd":cmd, "arg1":arg1, "arg2":arg2}, callback);
+    }
+    function ajaxUpdateBookSection(cmd, arg1, arg2) {
+        function callback(data) {
+            var newBookSection = jQ(data);
+            jQ(".book-section").after(newBookSection).remove();
+            // reactivate
+            activateBookSection();
+        }
+        ajaxSubmit(cmd, arg1, arg2, callback);
+    }
+    function ajaxUpdateBookSection2(cmd, arg1, args2) {
+        function callback(data) {
+            var newBookSection = jQ(data);
+            jQ(".book-section").after(newBookSection).remove();
+            // reactivate
+            activateBookSection();
+            jQ(".fileBrowser span.addFile[id='addFile-"+path+"']").parent().parent().find("td:first").click(); // not needed (just for fun)
+            if(args2.length>0) ajaxUpdateBookSection2(cmd, arg1, args2);
+        }
+        var path = args2.shift();
+        ajaxSubmit(cmd, arg1, path, callback);
+    }
+    function ajaxUpdateTitle(title) {
+        function callback(data) {
+            data = jQ(data).children();
+            var newBookSection = jQ(data[0]);
+            jQ(".book-section").after(newBookSection).remove();
+            activateBookSection();      // reactivate
+            var toc = jQ(data[1]);
+            updateToc(toc);
+        }
+        ajaxSubmit("bookTitle", title, "", callback);
+    }
+    function updateToc(toc) {
+      // update TOC
+      jQ("div.context-toc").html(toc);
+    }
+##
+  --></script>
+</div>
+##
+##
+##
+##
+##
+##
+##
+##

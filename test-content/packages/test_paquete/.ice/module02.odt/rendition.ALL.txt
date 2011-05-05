@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title/><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_left.P1 {font-size:10pt; }
+span.T1 {font-weight:bold; }</style></head><body><h1><a id="id2" name="id2"><!--id2--></a>2.1 The manifest.json file</h1><h2><a id="id3" name="id3"><!--id3--></a>2.1.1 JSON file structure </h2><p>Paquete requires a json file to store the package structure information. The file called <b>manifest.json</b> should have the following structure.</p>
+<pre>{</pre>
+<pre>    "toc":[</pre>
+<pre>            {</pre>
+<pre>                "visible":true,</pre>
+<pre>                "relPath":"c09bf5db57268971eb69ab42e127cc60/Test_document.htm",</pre>
+<pre>                "title":"Test Document 1",</pre>
+<pre>                "children":[]</pre>
+<pre>            },</pre>
+<pre>            {</pre>
+<pre>                "visible":true,</pre>
+<pre>                "relPath":"007060ee3acef61589935e9d3fb33aca/Test_document2.htm",</pre>
+<pre>                "title":"Test Document 2",</pre>
+<pre>                "children":[]</pre>
+<pre>            }</pre>
+<pre>        ]</pre>
+<pre>}</pre><p>Each document is defined within the structure as:</p>
+<pre>    ...</pre>
+<pre>    {</pre>
+<pre>        "visible":true,</pre>
+<pre>        "relPath":"c09bf5db57268971eb69ab42e127cc60/Test_document.htm",</pre>
+<pre>        "title":"Test Document 1",</pre>
+<pre>        "children":[]</pre>
+<pre>    }</pre>
+<pre>    ...</pre><p/><h3><a id="id4" name="id4"><!--id4--></a>2.1.1.1 JSON Attributes Definitions </h3><p/><dl><dt>visible</dt><dd>If this attribute is set false, then the document will not be shown in paquete's TOC (Table Of Contents).</dd><dt>relPath</dt><dd>Actual file path for the document.</dd><dt>title</dt><dd>Title of the document.</dd><dt>children</dt><dd>Array of child-documents of the document. </dd></dl><p/><p>Paquete also supports the  <a href="http://www.jstree.com/demo/basic_json">jsTree jquery tree plugin</a> which is described <a href="http://www.jstree.com/documentation#datastores">here</a>.</p></body></html>

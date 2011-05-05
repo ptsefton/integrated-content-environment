@@ -1,0 +1,2604 @@
+<?xml version="1.0"?>
+<testData xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" office:version="1.0">
+    <!-- xmlns="http://www.w3.org/1999/xhtml" -->
+    
+    <tests>
+    <test name="REAL TEXT" normalize-white-spaces="true">
+<source><office:document-content>
+            <office:automatic-styles>
+                <style:style style:name="P2" style:family="paragraph" style:parent-style-name="li1n" style:list-style-name="li1n"/>
+            </office:automatic-styles>
+    <office:body>
+            <office:text>
+                <div>
+                    <text:p text:style-name="p">There are a number of interesting challenges here:</text:p>
+                    <text:list text:style-name="li1n">
+                        <text:list-item>
+                            <text:p text:style-name="P2">How to make a customised export based on styles in Writer.</text:p>
+                        </text:list-item>
+                        <text:list-item>
+                            <text:p text:style-name="P2">This is specific to Writer, and at this stage of the game it's a moving target.</text:p>
+                        </text:list-item>
+                        <text:list-item>
+                            <text:p text:style-name="P2">How to map styles to nicely nested XHTML.</text:p>
+                        </text:list-item>
+                        <text:list-item>
+                            <text:p text:style-name="P2">This is a perennial topic; while there are word processors with their own idea about structure, which is largely flat.</text:p>
+                        </text:list-item>
+                    </text:list>
+                </div>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>There are a number of interesting challenges here:</p>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>How to make a customised export based on styles in Writer.</p>
+                    </li>
+                    <li>
+                        <p>This is specific to Writer, and at this stage of the game it's a moving target.</p>
+                    </li>
+                    <li>
+                        <p>How to map styles to nicely nested XHTML.</p>
+                    </li>
+                    <li>
+                        <p>This is a perennial topic; while there are word processors with their own idea about structure, which is largely flat.</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+
+<test name="List Para test" normalize-white-spaces="true">
+<source><office:document-content>
+                <office:automatic-styles>
+                    <style:style style:name="P1" style:family="paragraph" style:parent-style-name="li1b" style:master-page-name="Standard"/>
+                </office:automatic-styles>
+                <office:body><office:text>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P1">One</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="li1p">test li1p one</text:p>
+                <text:p text:style-name="li1p">test li1p two</text:p>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="li1b">Two</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <ul class="lib">
+                    <li>
+                        <p>One</p>
+                        <p>test li1p one</p>
+                        <p>test li1p two</p>
+                    </li>
+                    <li>
+                        <p>Two</p>
+                    </li>
+                </ul>
+            </body></expected>
+</test>
+<test name="SIMPLE LIST" normalize-white-spaces="true">
+<source><office:document-content>
+                <office:automatic-styles>
+                    <style:style style:name="P2" style:family="paragraph" style:parent-style-name="li1b" style:list-style-name="li1b"/>
+                </office:automatic-styles>
+                <office:body><office:text>
+                <text:list text:style-name="li1b">
+                    <text:list-item text:start-value="3">
+                        <text:p text:style-name="P2">(li1b) List1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">(li1b) List2</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <ul class="lib">
+                    <li>
+                        <p>(li1b) List1</p>
+                    </li>
+                    <li>
+                        <p>(li1b) List2</p>
+                    </li>
+                </ul>
+            </body></expected>
+</test>
+<test name="Simple Definition list" normalize-white-spaces="true">
+<source><office:document-content><office:body><office:text>
+                <text:p text:style-name="p">Simple Definition</text:p>
+                <text:p text:style-name="dt1">Term</text:p>
+                <text:p text:style-name="dd1">Definition: text</text:p>
+                <text:p text:style-name="dt1">Term 2</text:p>
+                <text:p text:style-name="dd1">Definition 2: text</text:p>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Simple Definition</p>
+                <dl>
+                    <dt>Term</dt>
+                    <dd>Definition: text</dd>
+                    <dt>Term 2</dt>
+                    <dd>Definition 2: text</dd>
+                </dl>
+            </body></expected>
+</test>
+
+<test name="Simple Definition list with softbreak" normalize-white-spaces="true">
+<source><office:document-content><office:body><office:text>
+           		<text:p text:style-name="dt1">Definition dt1</text:p>
+				<text:p text:style-name="dd1">dd1</text:p>
+				<text:p text:style-name="dd2">
+					dd2 before soft break 
+					<text:line-break/>
+					after soft break - dd2
+				</text:p>
+				<text:p text:style-name="dt3">
+					dt3
+					<text:line-break/>
+					after soft return dt3 
+				</text:p>
+				<text:p text:style-name="dd2"/>
+				
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+               <dl>
+					<dt>Definition dt1</dt>
+					<dd>dd1</dd>
+					<dd>
+						<dl>
+							<dd>
+								dd2 before soft break
+								<br/>
+								after soft break - dd2
+							</dd>
+							<dd>
+								<dl>
+									<dt>
+										dt3
+										<br/>
+										after soft return dt3
+									</dt>
+								</dl>
+							</dd>
+							<dd/>
+						</dl>
+					</dd>
+				</dl>
+            </body></expected>
+</test>
+
+
+
+<test name="Nested Definition list" normalize-white-spaces="true">
+<source><office:document-content><office:body><office:text>
+                <text:p text:style-name="p">Nested Definition</text:p>
+                
+                <text:p text:style-name="dt1">Dterm1</text:p>
+                <text:p text:style-name="dd1">Ddef 1</text:p>
+                <text:p text:style-name="dt1">Dterm2</text:p>
+                <text:p text:style-name="dd1">Dterm2.1</text:p>
+                    <text:p text:style-name="dt2">Ddef 2.1</text:p>
+                    <text:p text:style-name="dd2">Dterm2.2</text:p>
+                    <text:p text:style-name="dt2">Ddef 2.2</text:p>
+                    <text:p text:style-name="dd2">Ddef 2</text:p>
+                <text:p text:style-name="dt1">Dterm3</text:p>
+                <text:p text:style-name="dd1">Ddef 3</text:p>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Nested Definition</p>
+   <dl>
+      <dt>Dterm1</dt>
+      <dd>Ddef 1</dd>
+      <dt>Dterm2</dt>
+      <dd>Dterm2.1</dd>
+      <dd>
+          <dl>
+             <dt>Ddef 2.1</dt>
+             <dd>Dterm2.2</dd>
+             <dt>Ddef 2.2</dt>
+             <dd>Ddef 2</dd>
+          </dl>
+      </dd>    
+      <dt>Dterm3</dt>
+      <dd>Ddef 3</dd>
+   </dl>                
+                
+                
+            </body></expected>
+</test>
+
+
+
+<test name="Fancy Definition list with embedded list level 1" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="li1b" style:list-style-name="li1b"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">Fancy Definition lists with embedded list following dt</text:p>
+                <text:p text:style-name="dt1">Term</text:p>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P2">list 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">list 1 again</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="dd1">Definition goes here am porta tincidunt felis.</text:p>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Fancy Definition lists with embedded list following dt</p>
+                <dl>
+                    <dt>Term</dt>
+                </dl>
+                <ul class="lib">
+                    <li>
+                        <p>list 1</p>
+                    </li>
+                    <li>
+                        <p>list 1 again</p>
+                    </li>
+                </ul>
+                <dl>
+                    <dd>Definition goes here am porta tincidunt felis.</dd>
+                </dl>
+            </body></expected>
+</test>
+<test name="Fancy Definition list with embedded list level 2" normalize-white-spaces="true">
+<source><office:document-content><office:body><office:text>
+                <text:p text:style-name="p">Fancy Definition lists with embedded list following dt</text:p>
+                <text:p text:style-name="dt1">Term</text:p>
+                <text:list text:style-name="li2b">
+                    <text:list-item>
+                        <text:p text:style-name="li2b">list 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="li2b">list 1 again</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="dd1">Definition goes here am porta tincidunt felis.</text:p>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Fancy Definition lists with embedded list following dt</p>
+                <dl>
+                    <dt>Term</dt>
+                    <dd><ul class="lib">
+                        <li>
+                            <p>list 1</p>
+                        </li>
+                        <li>
+                            <p>list 1 again</p>
+                        </li>
+                    </ul>
+                    </dd>
+                    <dd>Definition goes here am porta tincidunt felis.</dd>
+                </dl>
+            </body></expected>
+</test>
+<test name="Definition containing preformatted text level 2" normalize-white-spaces="true">
+<source><office:document-content><office:body><office:text>
+                <text:p text:style-name="dt1">Term</text:p>
+                <text:p text:style-name="pre2">preformatted     text in here</text:p>
+                <text:p text:style-name="dd1">Definition goes here am porta tincidunt felis.</text:p>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <dl>
+                    <dt>Term</dt>
+                    <dd><pre>preformatted     text in here</pre></dd>
+                    <dd>Definition goes here am porta tincidunt felis.</dd>
+                </dl>
+            </body></expected>
+</test>
+<test name="Preformat level 1 in list" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="li1b" style:list-style-name="li1b"/>
+        <style:style style:name="P3" style:family="paragraph" style:parent-style-name="pre1" style:list-style-name="li1b"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 2</text:p>
+                        <text:p text:style-name="P3">preformatted     text in here</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <ul class="lib">
+                    <li>
+                        <p>Item 1</p>
+                    </li>
+                    <li>
+                        <p>Item 2</p>
+                    </li>
+                </ul>
+                <pre>preformatted     text in here</pre>
+                <ul class="lib">
+                    <li>
+                        <p>Item 3</p>
+                    </li>
+                </ul>
+            </body></expected>
+</test>
+<test name="Preformat level 2 in list" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="li1b" style:list-style-name="li1b"/>
+        <style:style style:name="P3" style:family="paragraph" style:parent-style-name="pre2" style:list-style-name="li1b"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 2</text:p>
+                        <text:p text:style-name="P3">preformatted     text in here</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <ul class="lib">
+                    <li>
+                        <p>Item 1</p>
+                    </li>
+                    <li>
+                        <p>Item 2</p>
+                        <pre>preformatted     text in here</pre>
+                    </li>
+                    <li>
+                        <p>Item 3</p>
+                    </li>
+                </ul>
+            </body></expected>
+</test>
+<test name="SIMPLE ordered list nesting" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P5" style:family="paragraph" style:parent-style-name="li1n" style:list-style-name="li1n"/>
+        <style:style style:name="P6" style:family="paragraph" style:parent-style-name="li2n" style:list-style-name="li2n"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">List</text:p>
+                <text:list text:style-name="li1n">
+                    <text:list-item>
+                        <text:p text:style-name="P5">item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P5">item 2</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="li2n">
+                    <text:list-item>
+                        <text:p text:style-name="P6">item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P6">item 1</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="li1n" text:continue-numbering="true">
+                    <text:list-item>
+                        <text:p text:style-name="P5">item 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>List</p>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>item 1</p>
+                    </li>
+                    <li>
+                        <p>item 2</p>
+                        <ol class="lin" style="list-style: decimal;">
+                            <li>
+                                <p>item 1</p>
+                            </li>
+                            <li>
+                                <p>item 1</p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p>item 3</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+<test name="List with starting value set" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <text:list-style style:name="L3">
+            <text:list-level-style-number text:level="1" style:num-suffix="." style:num-format="1" text:start-value="10">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="2" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="3" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="4" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="5" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="6" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="7" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="8" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="9" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="10" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+        </text:list-style>
+        <style:style style:name="P10" style:family="paragraph" style:parent-style-name="li1n" style:list-style-name="L3"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">This list should start at 10</text:p>
+                <text:list text:style-name="L3">
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 10</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 11</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 12</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 13</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 14</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>This list should start at 10</p>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>item 10</p>
+                    </li>
+                    <li>
+                        <p>item 11</p>
+                    </li>
+                    <li>
+                        <p>item 12</p>
+                    </li>
+                    <li>
+                        <p>item 13</p>
+                    </li>
+                    <li>
+                        <p>item 14</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+<test name="Lonely Level 3 Roman List" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P12" style:family="paragraph" style:parent-style-name="li3i" style:list-style-name="li3i"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">Level 3 roman list</text:p>
+                <text:list text:style-name="li3i">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Level 3 roman list</p>
+                <ol class="li-lower-roman" style="list-style: lower-roman;">
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+<test name="3 nested lists" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P1" style:family="paragraph" style:parent-style-name="p" style:master-page-name="Standard"/>
+        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="p">
+            <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm"/>
+        </style:style>
+        <style:style style:name="P3" style:family="paragraph" style:parent-style-name="li1n" style:list-style-name="L1"/>
+        <style:style style:name="P4" style:family="paragraph" style:parent-style-name="li1a" style:list-style-name="L2"/>
+        <style:style style:name="P5" style:family="paragraph" style:parent-style-name="li2n" style:list-style-name="L3"/>
+        <style:style style:name="P6" style:family="paragraph" style:parent-style-name="li3n" style:list-style-name="li3n"/>
+        <style:style style:name="P7" style:family="paragraph" style:parent-style-name="li2n" style:list-style-name="li2n"/>
+        <style:style style:name="P8" style:family="paragraph" style:parent-style-name="li1n" style:list-style-name="L4"/>
+        <style:style style:name="P9" style:family="paragraph" style:parent-style-name="p">
+            <style:paragraph-properties fo:break-before="page"/>
+        </style:style>
+        <text:list-style style:name="L1">
+            <text:list-level-style-number text:level="1" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="2" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="3" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="4" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="5" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="6" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="7" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="8" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="9" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="10" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+        </text:list-style>
+        <text:list-style style:name="L2">
+            <text:list-level-style-number text:level="1" style:num-prefix="(" style:num-suffix=")" style:num-format="a">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="2" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="3" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="4" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="5" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="6" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="7" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="8" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="9" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="10" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+        </text:list-style>
+        <text:list-style style:name="L3">
+            <text:list-level-style-number text:level="1" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="2" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="3" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="4" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="5" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="6" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="7" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="8" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="9" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="10" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:space-before="0.599cm" text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+        </text:list-style>
+        <text:list-style style:name="L4">
+            <text:list-level-style-number text:level="1" style:num-suffix="." style:num-format="1" text:start-value="3">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="2" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="3" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="4" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="5" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="6" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="7" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="8" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="9" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+            <text:list-level-style-number text:level="10" style:num-suffix="." style:num-format="1">
+                <style:list-level-properties text:min-label-width="0.6cm"/>
+            </text:list-level-style-number>
+        </text:list-style>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">3 little nested lists</text:p>
+                <text:list text:style-name="L1">
+                    <text:list-item>
+                        <text:p text:style-name="P3">list 1</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="L2">
+                    <text:list-item>
+                        <text:p text:style-name="P4">list li1a</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="L1" text:continue-numbering="true">
+                    <text:list-item>
+                        <text:p text:style-name="P3">list 1</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="L3">
+                    <text:list-item>
+                        <text:p text:style-name="P5">list 2</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P5">list 2</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="li3n">
+                    <text:list-item>
+                        <text:p text:style-name="P6">list 3</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="li2n">
+                    <text:list-item>
+                        <text:p text:style-name="P7">list 2</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="L4">
+                    <text:list-item>
+                        <text:p text:style-name="P8">list 1</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>3 little nested lists</p>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>list 1</p>
+                    </li>
+                </ol>
+                <ol class="li-lower-alpha" style="list-style: lower-alpha;">
+                    <li>
+                        <p>list li1a</p>
+                    </li>
+                </ol>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>list 1</p>
+                        <ol class="lin" style="list-style: decimal;">
+                            <li>
+                                <p>list 2</p>
+                            </li>
+                            <li>
+                                <p>list 2</p>
+                                <ol class="lin" style="list-style: decimal;">
+                                    <li>
+                                        <p>list 3</p>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <p>list 2</p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p>list 1</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+<test name="more complicated multi-level numbering with paras" normalize-white-spaces="true">
+<source><office:document-content>
+<office:body><office:text>
+                <text:p text:style-name="h1">Module A</text:p>
+                <text:p text:style-name="p" text:level="1">paragraph0</text:p>
+                <text:p text:style-name="h1n">Module One</text:p>
+                <text:p text:style-name="p">paragraph1</text:p>
+                <text:h text:style-name="h1n" text:level="1">Objectivism and Constructivism
+                <text:span text:style-name="T2"> </text:span> stuff</text:h>
+                <text:p text:style-name="p">paragraph2</text:p>
+                <text:h text:style-name="h1n" text:level="1">Objectivism and Constructivism 2
+                <text:span text:style-name="T2"> </text:span> stuff</text:h>
+                <text:p text:style-name="h2">Topic Two Point One Not Numbered</text:p>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="li1b">list item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="li1b">list item 2</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="h-learning">Learning outcomes X</text:p>
+                <text:p text:style-name="h2">Topic Two Point Two Not Numbered</text:p>
+                <text:p text:style-name="h-learning">Learning outcomes Y</text:p>
+                <text:p text:style-name="h-Objective">Objectives</text:p>
+                <text:p text:style-name="p">paragraph2</text:p>
+                <text:p text:style-name="h1n">Module Three</text:p>
+                <text:p text:style-name="h2n">Topic Three Point One</text:p>
+                <text:p text:style-name="h2n">Topic Three Point Two</text:p>
+                <text:p text:style-name="h-Activity">Activity 1.1</text:p>
+                <text:p text:style-name="h3n">Sub-Topic Three Point Two Point One</text:p>
+                <text:p text:style-name="h3n">Sub-Topic Three Point Two Point Two</text:p>
+                <text:p text:style-name="h4n">Idea Three Point Two Point Two Point One</text:p>
+                <text:p text:style-name="h3n">Sub-Topic Three Point Two Point Three</text:p>
+                <text:p text:style-name="h2n">Topic Three Point Three</text:p>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <h1><a id="id1" name="id1"><!--id1--></a>Module A</h1>
+                <p>paragraph0</p>
+                <h1><a id="id2" name="id2"><!--id2--></a>1 Module One</h1>
+                <p>paragraph1</p>
+                <h1><a id="id3" name="id3"><!--id3--></a>2 Objectivism and Constructivism 
+                <span class="T2"> </span> stuff</h1>
+                <p>paragraph2</p>
+                <h1><a id="id4" name="id4"><!--id4--></a>3 Objectivism and Constructivism 2 
+                <span class="T2"> </span> stuff</h1>
+                <h2><a id="id5" name="id5"><!--id5--></a>Topic Two Point One Not Numbered</h2>
+                <ul class="lib">
+                    <li>
+                        <p>list item 1</p>
+                    </li>
+                    <li>
+                        <p>list item 2</p>
+                    </li>
+                </ul>
+                <h6><a id="id7" name="id7"><!--id7--></a>Learning outcomes X</h6>
+                <h2><a id="id8" name="id8"><!--id8--></a>Topic Two Point Two Not Numbered</h2>
+                <h6><a id="id9" name="id9"><!--id9--></a>Learning outcomes Y</h6>
+                <h6><a id="id10" name="id10"><!--id10--></a>Objectives</h6>
+                <p>paragraph2</p>
+    <h1><a id="id11" name="id11"><!--id11--></a>4 Module Three</h1>
+    <h2><a id="id12" name="id12"><!--id12--></a>4.1 Topic Three Point One</h2>
+    <h2><a id="id13" name="id13"><!--id13--></a>4.2 Topic Three Point Two</h2>
+    <h6><a id="id14" name="id14"><!--id14--></a>Activity 1.1</h6>
+    <h3><a id="id15" name="id15"><!--id15--></a>4.2.1 Sub-Topic Three Point Two Point One</h3>
+    <h3><a id="id16" name="id16"><!--id16--></a>4.2.2 Sub-Topic Three Point Two Point Two</h3>
+    <h4><a id="id17" name="id17"><!--id17--></a>4.2.2.1 Idea Three Point Two Point Two Point One</h4>
+    <h3><a id="id18" name="id18"><!--id18--></a>4.2.3 Sub-Topic Three Point Two Point Three</h3>
+    <h2><a id="id19" name="id19"><!--id19--></a>4.3 Topic Three Point Three</h2>
+            </body></expected>
+</test>
+
+<test name="Lower case Roman List" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P12" style:family="paragraph" style:parent-style-name="li3i" style:list-style-name="li3i"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">Level 3 roman list</text:p>
+                <text:list text:style-name="li3i">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Level 3 roman list</p>
+                <ol class="li-lower-roman" style="list-style: lower-roman;">
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+<test name="Upper case Roman List" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P12" style:family="paragraph" style:parent-style-name="li3I" style:list-style-name="li3I"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">Level 3 roman list</text:p>
+                <text:list text:style-name="li3I">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Level 3 roman list</p>
+                <ol class="li-upper-roman" style="list-style: upper-roman;">
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+<test name="Upper Case Alpha List" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P12" style:family="paragraph" style:parent-style-name="li3A" style:list-style-name="li3A"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">Level 3 alpha list</text:p>
+                <text:list text:style-name="li3A">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Level 3 alpha list</p>
+                <ol class="li-upper-alpha" style="list-style: upper-alpha;">
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+<test name="Lower Case Alpha List" normalize-white-spaces="true">
+<source><office:document-content>
+    <office:automatic-styles>
+        <style:style style:name="P12" style:family="paragraph" style:parent-style-name="li3a" style:list-style-name="li3a"/>
+    </office:automatic-styles>
+    <office:body><office:text>
+                <text:p text:style-name="p">Level 3 alpha list</text:p>
+                <text:list text:style-name="li3a">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </office:text></office:body></office:document-content></source>
+<expected match="/html:html/html:body"><body>
+                <p>Level 3 alpha list</p>
+                <ol class="li-lower-alpha" style="list-style: lower-alpha;">
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                    <li>
+                        <p>list level 3</p>
+                    </li>
+                </ol>
+            </body></expected>
+</test>
+        <test name="test test" normalize-white-spaces="true">
+            <source>
+            </source>
+            <expected match="/html:html/html:body">
+                <body/>
+            </expected>
+        </test>
+
+        <test name="Table in a list" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                          
+                            <text:p text:style-name="p">Paragraph</text:p>
+                            <text:list text:style-name="li1b">
+                                <text:list-item>
+                                    <text:p text:style-name="li1b">item 1</text:p>
+                                </text:list-item>
+                            </text:list>
+                            <table:table table:name="Table49" table:style-name="Table49">
+                                <table:table-column table:style-name="Table49.A"/>
+                                <table:table-column table:style-name="Table49.B"/>
+                                <table:table-column table:style-name="Table49.C"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table49.A1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Cell 1</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table49.A1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Cell 2</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table49.C1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Cell 3</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                            
+                            <text:p text:style-name="li1p"/>
+                            <text:list text:style-name="li1b" text:test="Hello">
+                                <text:list-item>
+                                    <text:p text:style-name="li1b">missing item 2</text:p>
+                                </text:list-item>
+                                <text:list-item>
+                                    <text:p text:style-name="li1b">missing item 3</text:p>
+                                </text:list-item>
+                            </text:list>
+                            <text:p text:style-name="p">paragraph</text:p>
+                            
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <p>Paragraph</p>
+                    <ul class="lib">
+                        <li>
+                            <p>item 1</p>
+                            <div class="Table49" style="text-align:left;">
+                                <table class="Table49" style="border-spacing: 0;empty-cells: show; border-collapse: collapse; ">
+                                    <tbody>
+                                        <tr>
+                                            <td class="Table49_A1" style="vertical-align: top; ">
+                                                <p>Cell 1</p>
+                                            </td>
+                                            <td class="Table49_A1" style="vertical-align: top; ">
+                                                <p>Cell 2</p>
+                                            </td>
+                                            <td class="Table49_C1" style="vertical-align: top; ">
+                                                <p>Cell 3</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p/>
+                        </li>
+                        <li>
+                            <p>missing item 2</p>
+                        </li>
+                        <li>
+                            <p>missing item 3</p>
+                        </li>
+                    </ul>
+                    <p>paragraph</p>
+                </body>
+            </expected>    
+        </test>  
+        <test name="Test for standalone li1p" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                          
+                            <text:p text:style-name="p">Paragraph</text:p>
+                            
+                            <text:p text:style-name="li1p">This should be blockquote</text:p>
+                            <text:list text:style-name="li1b" text:test="Hello">
+                                <text:list-item>
+                                    <text:p text:style-name="li1b">missing item 2</text:p>
+                                </text:list-item>
+                                <text:list-item>
+                                    <text:p text:style-name="li1b">missing item 3</text:p>
+                                </text:list-item>
+                            </text:list>
+                            <text:p text:style-name="p">paragraph</text:p>
+                            
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+   <p>Paragraph</p>
+   <ul class="lip" style="list-style-type: None">
+      <li>
+         <p>This should be blockquote</p>
+      </li>
+   </ul>
+   <ul class="lib">
+      <li>
+         <p>missing item 2</p>
+      </li>
+      <li>
+         <p>missing item 3</p>
+      </li>
+   </ul>
+   <p>paragraph</p>                    
+                </body>
+            </expected>    
+        </test>  
+        
+        
+        <test name="Table in a list 2" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <style:style style:name="Table48" style:family="table">
+                            <style:table-properties style:width="12.224cm" fo:margin-left="0.69cm" fo:margin-right="1.688cm" table:align="margins"/>
+                        </style:style>
+                        <style:style style:name="Table48.A" style:family="table-column">
+                            <style:table-column-properties style:column-width="3.812cm" style:rel-column-width="20435*"/>
+                        </style:style>
+                        <style:style style:name="Table48.B" style:family="table-column">
+                            <style:table-column-properties style:column-width="4.5cm" style:rel-column-width="24125*"/>
+                        </style:style>
+                        <style:style style:name="Table48.C" style:family="table-column">
+                            <style:table-column-properties style:column-width="3.912cm" style:rel-column-width="20975*"/>
+                        </style:style>
+                        <style:style style:name="Table48.A1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table48.C1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table48.A2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table48.C2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.002cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Title" style:master-page-name="Standard"/>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="P1">Tables in lists in OOo</text:p>
+                            <text:list text:style-name="li1n">
+                                <text:list-item>
+                                    <text:p text:style-name="li1n">
+                                        List item one
+                                    </text:p>
+                                </text:list-item>
+                                <text:list-item>
+                                    <text:p text:style-name="li1n">
+                                        List item two
+                                    </text:p>
+                                </text:list-item>
+                            </text:list>
+                            <table:table table:name="Table48" table:style-name="Table48">
+                                <table:table-column table:style-name="Table48.A"/>
+                                <table:table-column table:style-name="Table48.B"/>
+                                <table:table-column table:style-name="Table48.C"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row1 Col1</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table48.A1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row1 Col2</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table48.C1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row1 Col3</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table48.A2" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row2 Col1</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table48.A2" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row2 Col2</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table48.C2" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row2 Col3</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table48.A3" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row3 Col1</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table48.A3" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row3 Col2</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table48.C3" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Row3 Col3</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                            <text:p text:style-name="li1p"/>
+                            <text:list text:style-name="li1n" text:continue-numbering="true">
+                                <text:list-item>
+                                    <text:p text:style-name="li1n">
+                                        List item three.
+                                    </text:p>
+                                </text:list-item>
+                                <text:list-item>
+                                    <text:p text:style-name="li1n">
+                                        List item four.
+                                    </text:p>
+                                </text:list-item>
+                                <text:list-item>
+                                    <text:p text:style-name="li1n">
+                                        List item 5.
+                                    </text:p>
+                                </text:list-item>
+                            </text:list>
+                            <text:p text:style-name="p">
+                                A end paragraph.
+                            </text:p>                            
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <ol class="lin" style="list-style: decimal;">
+                        <li>
+                            <p>
+                                List item one
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                List item two
+                            </p>
+                            <div class="Table48" style="width: 100%; margin: 0px; padding: 0px; text-align:left;">
+                                <table class="Table48" style="border-spacing: 0;empty-cells: show; margin-left:0.69cm; margin-right:1.688cm; width:12.224cm; border-collapse: collapse; border: 1.0px solid #000000">
+                                    <colgroup>
+                                        <col style="width:3.812cm;"/>
+                                        <col style="width:4.5cm;"/>
+                                        <col style="width:3.912cm;"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td class="Table48_A1" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; ">
+                                                <p>Row1 Col1</p>
+                                            </td>
+                                            <td class="Table48_A1" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; ">
+                                                <p>Row1 Col2</p>
+                                            </td>
+                                            <td class="Table48_C1" style="vertical-align: top; border:1.0px solid #000000; padding:0.097cm; ">
+                                                <p>Row1 Col3</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="Table48_A2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; ">
+                                                <p>Row2 Col1</p>
+                                            </td>
+                                            <td class="Table48_A2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; ">
+                                                <p>Row2 Col2</p>
+                                            </td>
+                                            <td class="Table48_C2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:1.0px solid #000000; border-top:none; padding:0.097cm; ">
+                                                <p>Row2 Col3</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="Table48_A3" style="vertical-align: top; ">
+                                                <p>Row3 Col1</p>
+                                            </td>
+                                            <td class="Table48_A3" style="vertical-align: top; ">
+                                                <p>Row3 Col2</p>
+                                            </td>
+                                            <td class="Table48_C3" style="vertical-align: top; ">
+                                                <p>Row3 Col3</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p/>
+                        </li>
+                        <li>
+                            <p>
+                                List item three.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                List item four.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                List item 5.
+                            </p>
+                        </li>
+                    </ol>
+                    <p>
+                        A end paragraph.
+                    </p>
+                </body>
+            </expected>    
+        </test>  
+
+        <test name="Table between list list" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:body>
+                        <office:text>
+                            
+                            <text:p text:style-name="p">Paragraph</text:p>
+                            <text:list text:style-name="li1b">
+                                <text:list-item>
+                                    <text:p text:style-name="li1b">item 1</text:p>
+                                </text:list-item>
+                            </text:list>
+                            
+                            <text:p text:style-name="p"/>
+                            
+                            <table:table table:name="Table49" table:style-name="Table49">
+                                <table:table-column table:style-name="Table49.A"/>
+                                <table:table-column table:style-name="Table49.B"/>
+                                <table:table-column table:style-name="Table49.C"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table49.A1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Cell 1</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table49.A1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Cell 2</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table49.C1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Contents">Cell 3</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                            
+                            <text:list text:style-name="li1b" text:test="Hello">
+                                <text:list-item>
+                                    <text:p text:style-name="li1b">missing item 2</text:p>
+                                </text:list-item>
+                                <text:list-item>
+                                    <text:p text:style-name="li1b">missing item 3</text:p>
+                                </text:list-item>
+                            </text:list>
+                            <text:p text:style-name="p">paragraph</text:p>
+                            
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            <expected match="/html:html/html:body">
+                <body>
+                    <p>Paragraph</p>
+                    <ul class="lib">
+                        <li>
+                            <p>item 1</p>
+                        </li>
+                    </ul>
+                    <p/>
+                    <div class="Table49" style="text-align:left;">
+                        <table class="Table49" style="border-spacing: 0;empty-cells: show; border-collapse: collapse; ">
+                            <tbody>
+                                <tr>
+                                    <td class="Table49_A1" style="vertical-align: top; ">
+                                        <p>Cell 1</p>
+                                    </td>
+                                    <td class="Table49_A1" style="vertical-align: top; ">
+                                        <p>Cell 2</p>
+                                    </td>
+                                    <td class="Table49_C1" style="vertical-align: top; ">
+                                        <p>Cell 3</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="lib">
+                        <li>
+                            <p>missing item 2</p>
+                        </li>
+                        <li>
+                            <p>missing item 3</p>
+                        </li>
+                    </ul>
+                    <p>paragraph</p>
+                </body>
+            </expected>    
+        </test>  
+        
+	<test name="Link in List" normalize-white-spaces="true">
+	  <source><office:document-content>
+	    <office:automatic-styles>
+	    </office:automatic-styles>
+	    <office:body>
+		<office:text>
+			<text:list text:style-name="li1n">
+				<text:list-item text:start-value="1">
+			<text:p text:style-name="li1n">A new list</text:p>
+			</text:list-item>
+				<text:list-item>
+				<text:p text:style-name="li1n">link test 
+			<text:a xlink:type="simple" xlink:href="http://localhost:8000/packages/ice-guide/toc.htm">toc</text:a>
+			 test</text:p>
+			</text:list-item>
+				<text:list-item>
+			<text:p text:style-name="li1n">test</text:p>
+			</text:list-item>
+			</text:list>
+	        </office:text>
+	     </office:body>
+	    </office:document-content>
+	  </source>
+	  <expected match="/html:html/html:body">
+		<body>
+		  <ol class="lin" style="list-style: decimal;">
+			<li>
+			  <p>A new list</p>
+			</li>
+			<li>
+			  <p>link test <a href='http://localhost:8000/packages/ice-guide/toc.htm'>toc</a> test</p>
+			</li>
+			<li>
+			  <p>test</p>
+			</li>
+		  </ol>
+	        </body>
+	  </expected>
+	</test>
+
+	<test name="Image in List" normalize-white-spaces="true">
+	  <source><office:document-content>
+	    <office:automatic-styles>
+		<style:style style:name="P4" style:family="paragraph" style:parent-style-name="li1n">
+			<style:paragraph-properties fo:keep-with-next="always"/>
+		</style:style>
+	    </office:automatic-styles>
+	    <office:body>
+		<office:text>
+		<text:list text:style-name="li1n">
+			<text:list-item>
+				<text:p text:style-name="li1n">A 
+					<draw:frame draw:style-name="fr1" draw:name="graphics2" text:anchor-type="as-char" svg:width="0.423cm" svg:height="0.423cm" draw:z-index="0">
+						<draw:image xlink:href="Pictures/100002010000001000000010675A5BF7.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+						<svg:desc>Icon</svg:desc>
+					</draw:frame>
+					 icon. 
+				</text:p>
+			</text:list-item>
+
+			<text:list-item>
+				<text:p text:style-name="P4">Another <text:s/>
+				<draw:frame draw:style-name="fr2" draw:name="graphics1" text:anchor-type="as-char" svg:width="0.556cm" svg:height="0.529cm" draw:z-index="1">
+					<draw:image xlink:href="Pictures/1000000000000015000000148A0C9163.gif" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+				</draw:frame>
+				 icon.
+				</text:p>
+			</text:list-item>
+		</text:list>
+	        </office:text>
+	     </office:body>
+	    </office:document-content>
+	  </source>
+	  <expected match="/html:html/html:body">
+		<body>
+		  <ol class="lin" style="list-style: decimal;">
+		    <li>
+			<p>A
+			  <a name="graphics2"><!-- --></a>
+			  <img alt="graphics2" class="fr1" height="16" longdesc="Icon" src="Pictures/100002010000001000000010675A5BF7.png" style="border:0px; vertical-align: top" width="16"/>
+			  icon. 
+			</p>
+		    </li>
+		    <li>
+			<p>Another
+			  <a name="graphics1"><!-- --></a>
+			  <img alt="graphics1" class="fr2" height="20" src="Pictures/1000000000000015000000148A0C9163.gif" style="border:0px; vertical-align: top" width="21"/> icon.
+			</p>
+		    </li>
+		  </ol>
+	        </body>
+	  </expected>
+	</test>
+
+<test name="Nested lists" normalize-white-spaces="true">
+  <source>
+    <office:document-content>
+	<office:automatic-styles>
+	</office:automatic-styles>
+	<office:body>
+	  <office:text>
+		<text:p text:style-name="p">List paragraphs</text:p>
+		<text:list text:style-name="li1n">
+			<text:list-item>
+				<text:p text:style-name="li1n">item 1</text:p>
+			</text:list-item>
+			<text:list-item>
+				<text:p text:style-name="li1n">item 2</text:p>
+			</text:list-item>
+		</text:list>
+		<text:p text:style-name="li2p">li2p There shouldn't be a bullet on this</text:p>
+		<text:p text:style-name="li1p">li1p There shouldn't be a bullet on this</text:p>
+		<text:list text:style-name="li1n" text:continue-numbering="true">
+			<text:list-item>
+				<text:p text:style-name="li1n">item 3</text:p>
+			</text:list-item>
+		</text:list>
+		<text:p text:style-name="p"/>
+		<text:list text:style-name="li1n">
+			<text:list-item text:start-value="1">
+				<text:p text:style-name="li1n">item 1</text:p>
+			</text:list-item>
+			<text:list-item>
+				<text:p text:style-name="li1n">item 2</text:p>
+			</text:list-item>
+		</text:list>
+		<text:list text:style-name="li2b">
+			<text:list-item>
+				<text:p text:style-name="li2b">li2n</text:p>
+			</text:list-item>
+		</text:list>
+		<text:p text:style-name="li2p">li2p There shouldn't be a bullet on this</text:p>
+		<text:list text:style-name="li1n" text:continue-numbering="true">
+			<text:list-item>
+				<text:p text:style-name="li1n">item 3</text:p>
+			</text:list-item>
+		</text:list>
+	  </office:text>
+	</office:body>
+    </office:document-content>
+  </source>
+  <expected match="/html:html/html:body">
+	<body>
+		<p>List paragraphs</p>
+		<ol class="lin" style="list-style: decimal;">
+			<li><p>item 1</p></li>
+			<li>
+				<p>item 2</p>
+				<p>li2p There shouldn't be a bullet on this</p>
+				<p>li1p There shouldn't be a bullet on this</p>
+			</li>
+			<li>
+				<p>item 3</p>
+			</li>
+		</ol>
+		<p/>
+		<ol class="lin" style="list-style: decimal;">
+			<li><p>item 1</p></li>
+			<li>
+				<p>item 2</p>
+				<ul class="lib">
+					<li>
+						<p>li2n</p>
+						<p>li2p There shouldn't be a bullet on this</p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<p>item 3</p>
+			</li>
+		</ol>
+     	</body>
+  </expected>
+</test>
+<!-- this test will fail as no support for restart numbering done
+<test name="List for restart Numbering" normalize-white-spaces="true">
+  <source>
+    <office:document-content>
+	<office:automatic-styles>
+    	<style:style style:name="P5" style:family="paragraph" style:parent-style-name="li1n" style:master-page-name="">
+            <style:paragraph-properties text:number-lines="false" text:line-number="3"/>
+        </style:style>
+	</office:automatic-styles>
+	<office:body>
+	  <office:text>
+        <text:list text:style-name="li1n">
+        	<text:list-item text:start-value="3">
+                <text:p text:style-name="li1n">This list start at 3</text:p>
+            </text:list-item>
+        </text:list>
+      	<text:list text:style-name="li2a">
+        	<text:list-item text:start-value="1">
+                <text:p text:style-name="li2a"/>
+            </text:list-item>
+        </text:list>
+        <text:list text:style-name="li1n">
+        	<text:list-item text:start-value="1">
+                <text:p text:style-name="li1n">Should start at 3</text:p>
+            </text:list-item>
+        </text:list>
+        <text:list text:style-name="li1n" text:continue-numbering="true">
+        	<text:list-item text:start-value="3">
+                <text:p text:style-name="P5">This list start at 3</text:p>
+            </text:list-item>
+        </text:list>
+	  </office:text>
+	</office:body>
+    </office:document-content>
+  </source>
+  <expected match="/html:html/html:body">
+	<body>
+	<ol class="lin" style="list-style: decimal;" start="3">
+		<li>
+	        <p>This list start at 3</p>
+	    </li>
+	</ol>
+	<ol class="li-lower-alpha" style="list-style: lower-alpha;">
+		<li>
+			<p/>
+		</li>
+	</ol>
+	<ol class="lin" style="list-style: decimal;">
+		<li>
+			<p>Should start at 3</p>
+		</li>
+	</ol>
+	<ol class="lin" style="list-style: decimal;" start="3">
+		<li>
+	        <p>2nd Test This list start at 3</p>
+	    </li>
+	</ol>
+    </body>
+  </expected>
+</test>
+
+-->
+
+<test name="List with in li1n for item inside li1n" normalize-white-spaces="true">
+  <source>
+    <office:document-content>
+	<office:automatic-styles>
+	</office:automatic-styles>
+	<office:body>
+	  <office:text>
+        <text:list text:style-name="li1n">
+	        <text:list-item text:start-value="1">
+	            <text:p text:style-name="li1n">
+                    Outstanding debtors at the end of November would represent the credit sales made during the months of October and November ($250 000 each month). It would also have been possible to prepare a debtors budget as illustrated below. 
+                    <text:line-break/>
+                    <text:line-break/>
+    	            <text:span text:style-name="i-i">
+                        Debtors budget 
+                        <text:line-break/>
+                    </text:span>
+                </text:p>
+            </text:list-item>
+        </text:list>
+        <table:table table:name="Table35" table:style-name="Table35">
+            <table:table-column table:style-name="Table35.A"/>
+            <table:table-column table:style-name="Table35.B"/>
+            <table:table-column table:style-name="Table35.C" table:number-columns-repeated="2"/>
+            <table:table-column table:style-name="Table35.E"/>
+            <table:table-column table:style-name="Table35.B"/>
+            <table:table-column table:style-name="Table35.G"/>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P6"> </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">June</text:span>
+                            </text:span>
+                        </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">July</text:span>
+                            </text:span>
+                        </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">August</text:span>
+                        </text:span>
+                    </text:p>
+                </table:table-cell>
+               	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                   	    <text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">September</text:span>
+                        </text:span>
+                    </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">October</text:span>
+                        </text:span>
+                    </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">November</text:span>
+                        </text:span>
+                    </text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P6">Opening balance </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">200 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">200 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P5">400 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P6">+ Credit sales* </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">100 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">150 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P5">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P6"> </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">300 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">350 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P5">650 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">750 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">750 000</text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="P6">
+                        <text:span text:style-name="i-i">Cash received</text:span>
+                        ** 
+                    </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">100 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">100 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">100 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P5">150 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+                <table:table-cell table:style-name="Table35.A1" office:value-type="string">
+            	    <text:p text:style-name="P6">
+                        <text:span text:style-name="i-i">Closing balance</text:span>
+                    </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">200 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">400 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                	<text:p text:style-name="P4">
+                        <text:span text:style-name="i-b">500 000</text:span>
+                    </text:p>
+                </table:table-cell>
+            </table:table-row>
+        </table:table>
+        <text:list text:style-name="li1n" text:continue-numbering="true">
+        	<text:list-header>
+            	<text:p text:style-name="li1n">
+                    <text:line-break/>
+                    * 
+                    <text:span text:style-name="T2">As stated in the question. </text:span>
+                    <text:line-break/>
+                    ** 
+                	<text:span text:style-name="T2">
+                        Based on debtors taking two months' credit; e.g. April's sales are received in June,       May's sales are received in July, etc.
+                    </text:span>
+                </text:p>
+            </text:list-header>
+        	<text:list-item>
+            	<text:p text:style-name="li1n">
+                    The closing balance of inventory at the end of November was stated in the question.
+                </text:p>
+            </text:list-item>
+        	<text:list-item>
+            	<text:p text:style-name="li1n">
+                    Calculated as $190 000 (balance at the end of May) plus the $200 000 acquisition. Depreciation on the non current assets has been ignored as sufficient details have not been provided to allow it to be calculated. 
+                </text:p>
+            </text:list-item>
+        </text:list>
+	  </office:text>
+	</office:body>
+    </office:document-content>
+  </source>
+  <expected match="/html:html/html:body">
+	<body>
+	<ol class="lin" style="list-style: decimal;">
+		<li>
+			<p>
+				 Outstanding debtors at the end of November would represent the credit sales made during
+ the months of October and November ($250 000 each month). It would also have been possible to prepare a debtors budget as illustrated below. 
+				<br/>
+				<br/>
+				<i>
+					 Debtors budget 
+					<br/>
+				</i>
+			</p>
+			<div class="Table35" style="text-align:left;">
+				<table class="Table35" style="border-spacing: 0;empty-cells: show; border-collapse: collapse; ">
+					<tbody>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p/>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">June</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">July</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">August</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">September</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">October</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">November</span>
+									</b>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>Opening balance </p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>200 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>200 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>400 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>+ Credit sales* </p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>100 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>150 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p/>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>300 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>350 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>650 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>750 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>750 000</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>
+									<i>Cash received</i>
+									 ** 
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>100 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>100 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>100 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>150 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>
+									<i>Closing balance</i>
+								</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>200 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>400 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>
+									<b>500 000</b>
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</li>
+	</ol>
+	<ol class="lin" style="list-style: decimal;">
+		<li>
+			<p>
+				<br/>
+				 * 
+				<span class="T2">As stated in the question. 
+				</span>
+				<br/>
+				 ** 
+				<span class="T2"> Based on debtors taking two months' credit; e.g. April's sales are received in June, May's sales are received in July, etc. 
+				</span>
+			</p>
+		</li>
+	</ol>
+	<ol class="lin" style="list-style: decimal;">
+               <li>
+                       <p>
+                                The closing balance of inventory at the end of November was stated in the question.
+                       </p>
+               </li>
+               <li>
+                       <p>
+                                Calculated as $190 000 (balance at the end of May) plus the $200 000 acquisition. Depreciation on the non current assets has been ignored as sufficient details have not been provided to allow it to be calculated.
+                       </p>
+               </li>
+       </ol>
+    </body>    
+  </expected>
+</test>
+
+<test name="List with in li1p for item inside li1n" normalize-white-spaces="true">
+  <source>
+    <office:document-content>
+	<office:automatic-styles>
+	</office:automatic-styles>
+	<office:body>
+	  <office:text>
+        <text:list text:style-name="li1n">
+	        <text:list-item text:start-value="1">
+	            <text:p text:style-name="li1n">
+                    Outstanding debtors at the end of November would represent the credit sales made during the months of October and November ($250 000 each month). It would also have been possible to prepare a debtors budget as illustrated below. 
+                    <text:line-break/>
+                    <text:line-break/>
+    	            <text:span text:style-name="i-i">
+                        Debtors budget 
+                        <text:line-break/>
+                    </text:span>
+                </text:p>
+            </text:list-item>
+        </text:list>
+        <table:table table:name="Table35" table:style-name="Table35">
+            <table:table-column table:style-name="Table35.A"/>
+            <table:table-column table:style-name="Table35.B"/>
+            <table:table-column table:style-name="Table35.C" table:number-columns-repeated="2"/>
+            <table:table-column table:style-name="Table35.E"/>
+            <table:table-column table:style-name="Table35.B"/>
+            <table:table-column table:style-name="Table35.G"/>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P6"> </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">June</text:span>
+                            </text:span>
+                        </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">July</text:span>
+                            </text:span>
+                        </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">August</text:span>
+                        </text:span>
+                    </text:p>
+                </table:table-cell>
+               	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                   	    <text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">September</text:span>
+                        </text:span>
+                    </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">October</text:span>
+                        </text:span>
+                    </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="p-center">
+                    	<text:span text:style-name="i-b">
+                            <text:span text:style-name="T1">November</text:span>
+                        </text:span>
+                    </text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P6">Opening balance </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">200 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">200 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P5">400 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P6">+ Credit sales* </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">100 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">150 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P5">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B3" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P6"> </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">300 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">350 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P5">650 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">750 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">750 000</text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                	<text:p text:style-name="P6">
+                        <text:span text:style-name="i-i">Cash received</text:span>
+                        ** 
+                    </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">100 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">100 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">100 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P5">150 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.A1" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            </table:table-row>
+            <table:table-row>
+                <table:table-cell table:style-name="Table35.A1" office:value-type="string">
+            	    <text:p text:style-name="P6">
+                        <text:span text:style-name="i-i">Closing balance</text:span>
+                    </text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">200 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">250 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">400 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                    <text:p text:style-name="P4">500 000</text:p>
+                </table:table-cell>
+            	<table:table-cell table:style-name="Table35.B6" office:value-type="string">
+                	<text:p text:style-name="P4">
+                        <text:span text:style-name="i-b">500 000</text:span>
+                    </text:p>
+                </table:table-cell>
+            </table:table-row>
+        </table:table>
+        <text:list text:style-name="li1n" text:continue-numbering="true">
+        	<text:list-header>
+            	<text:p text:style-name="li1p">
+                    <text:line-break/>*<text:span text:style-name="T2">As stated in the question. </text:span>
+                    <text:line-break/>**<text:span text:style-name="T2">Based on debtors taking two months' credit; e.g. April's sales are received in June,       May's sales are received in July, etc.</text:span>
+                </text:p>
+            </text:list-header>
+        	<text:list-item>
+        	    <text:p text:style-name="li1n">
+                    The closing balance of inventory at the end of November was stated in the question.
+                </text:p>
+            </text:list-item>
+        	<text:list-item>
+            	<text:p text:style-name="li1n">
+                    Calculated as $190 000 (balance at the end of May) plus the $200 000 acquisition. Depreciation on the non current assets has been ignored as sufficient details have not been provided to allow it to be calculated. 
+                </text:p>
+        </text:list-item>
+        </text:list>       
+	  </office:text>
+	</office:body>
+    </office:document-content>
+  </source>
+  <expected match="/html:html/html:body">
+	<body>
+      <ol class="lin" style="list-style: decimal;">
+		<li>
+			<p>
+				 Outstanding debtors at the end of November would represent the credit sales made during
+ the months of October and November ($250 000 each month). It would also have been possible to prepare a debtors budget as illustrated below. 
+				<br/>
+				<br/>
+				<i>
+					 Debtors budget 
+					<br/>
+				</i>
+			</p>
+			<div class="Table35" style="text-align:left;">
+				<table class="Table35" style="border-spacing: 0;empty-cells: show; border-collapse: collapse; ">
+					<tbody>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p/>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">June</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">July</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">August</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">September</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">October</span>
+									</b>
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p class="center">
+									<b>
+										<span class="T1">November</span>
+									</b>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>Opening balance </p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>200 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>200 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>400 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>+ Credit sales* </p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>100 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>150 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_B3" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p/>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>300 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>350 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>650 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>750 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>750 000</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>
+									<i>Cash received</i>
+									 ** 
+								</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>100 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>100 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>100 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>150 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="Table35_A1" style="vertical-align: top; ">
+								<p>
+									<i>Closing balance</i>
+								</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>200 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>250 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>400 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>500 000</p>
+							</td>
+							<td class="Table35_B6" style="vertical-align: top; ">
+								<p>
+									<b>500 000</b>
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</li>
+	</ol>
+	<ul class="lip">
+		<li>
+			<p>
+				<br/>*<span class="T2">As stated in the question. </span>
+				<br/>**<span class="T2">Based on debtors taking two months' credit; e.g. April's sales are received in June, May's sales are received in July, etc.</span>
+			</p>
+		</li>
+	</ul>
+	<ol class="lin" style="list-style: decimal;">
+               <li>
+                       <p>
+                                The closing balance of inventory at the end of November was stated in the question.
+                       </p>
+               </li>
+               <li>
+                       <p>
+                                Calculated as $190 000 (balance at the end of May) plus the $200 000 acquisition. Depreciation on the non current assets has been ignored as sufficient details have not been provided to allow it to be calculated.
+                       </p>
+               </li>
+       </ol>	
+    </body>    
+  </expected>
+</test>
+
+<!-- This test will fail as current version of ice doesnot support li1* style anymore
+	<test name="Other List" normalize-white-spaces="true">
+	  <source>
+	    <office:document-content>
+		<office:automatic-styles>
+			<style:font-face style:name="StarSymbol" svg:font-family="StarSymbol" style:font-charset="x-symbol"/>
+			<style:style style:name="h1" style:family="paragraph" style:parent-style-name="Heading_20_1" style:next-style-name="p"/>
+			<style:text-properties style:use-window-font-color="true" fo:font-size="12pt" fo:language="en" fo:country="US" style:font-size-asian="12pt" style:language-asian="none" style:country-asian="none" style:font-size-complex="12pt" style:language-complex="none" style:country-complex="none"/>
+			<style:style style:name="li1_2a_" style:display-name="li1*" style:family="paragraph" style:parent-style-name="p" style:list-style-name="li1_2a_"/>
+			<style:style style:name="Bullet_20_Symbols" style:display-name="Bullet Symbols" style:family="text">
+				<style:text-properties style:font-name="StarSymbol" fo:font-size="9pt" style:font-name-asian="StarSymbol" style:font-size-asian="9pt" style:font-name-complex="StarSymbol" style:font-size-complex="9pt"/>
+			</style:style>
+			<text:list-style style:name="li1_2a_" style:display-name="li1*">
+				<text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+					
+						<text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char=".">
+					<style:list-level-properties text:min-label-width="0.3937in"/>
+					<style:text-properties style:font-name="StarSymbol"/>
+					</text:list-level-style-bullet>
+			</text:list-style> 
+			
+		</office:automatic-styles>
+		<office:body>
+		  <office:text>
+			<text:p text:style-name="h1">Key skills</text:p>
+			<text:list text:style-name="li1_2a_">
+				<text:list-item>
+					<text:p text:style-name="li1_2a_">
+						Synthesising a vision by blending stakeholder experience and expectations with sound technical knowledge of possible solutions.
+					</text:p>
+				</text:list-item>
+				<text:list-item>
+					<text:p text:style-name="li1_2a_">
+						Translating enterprise goals into technical requirements.
+					</text:p>
+				</text:list-item>
+				<text:list-item>
+					<text:p text:style-name="li1_2a_">
+						Rapid application development using the latest software methodologies.
+					</text:p>
+				</text:list-item>
+				<text:list-item>
+					<text:p text:style-name="li1_2a_">Managing successful software projects.</text:p>
+				</text:list-item>
+				<text:list-item>
+					<text:p text:style-name="li1_2a_">Technical and business documentation.</text:p>
+				</text:list-item>
+				<text:list-item>
+					<text:p text:style-name="li1_2a_">
+						Detailed knowledge of Content Management technologies.
+					</text:p>
+				</text:list-item>
+				<text:list-item>
+					<text:p text:style-name="li1_2a_">Incremental delivery of systems to avoid risk.</text:p>
+				</text:list-item>
+			</text:list>
+		  </office:text>
+		</office:body>
+	    </office:document-content>
+	  </source>
+	  <expected match="/html:html/html:body">
+		<body>
+	
+	     </body>
+	  </expected>
+	</test> 
+-->
+
+
+</tests>
+</testData>
+
+
+
+

@@ -1,0 +1,560 @@
+## Cheetah template
+#if $success
+<div>
+    <p class="searchResults">Atom publish was successful
+    #for $publishedUrl in $publishedUrls 
+	    #if $publishedUrl
+	    ,
+	    (<a href="$publishedUrl">view entry</a>)
+	    #end if
+	#end for
+	#if $draft
+	   (draft)
+	#end if 
+    </p>
+    <hr/>
+    $docBody
+</div>
+#else
+$success
+<form style="display: inline;" method="post">
+<script type="text/javascript">
+<!--
+    var jQ = jQuery;
+    
+    jQ(function(){
+        jQ("#newURL").click(function(e){
+            
+           newURL();
+        });
+        
+        jQ("#newEntry").click(function(e){
+           jQ('#NewEntryvalue').attr('value', jQ("#newEntry").is(':checked'));
+           
+           if (jQ("#url").is(':visible')){
+               jQ("#url").attr('disabled',thisChecked);
+               jQ('#newURL').attr('disabled',thisChecked);
+               
+               jQ("#category0").attr('disabled',thisChecked);
+               jQ("#newCategory").attr('disabled',thisChecked);
+           }
+        });
+        
+        jQ("*.category").change(function(e){
+        	c = jQ(this);
+        	id = c.attr("id");
+        	id = "#txtCategory"+id[id.length-1];
+        	jQ(id).attr("value", c.attr("value"));
+        
+        });  
+        jQ("#newCategory").click(function(e){
+           var thisChecked = jQ("#newCategory").is(':checked');
+           id = "#category" + categories;
+           txtId = "#txtCategory" + categories;
+           jQ(id).toggle();
+           jQ(txtId).toggle();
+           if (thisChecked){
+           	jQ(txtId).attr("value", "");
+           }else{
+           	jQ(txtId).attr("value", jQ(id).attr("value"));
+           }
+        });
+       
+        jQ("#url").click(function(e){
+            var atomUrl = jQ("#url").val();
+            while(categories > 0){
+                	jQ("#category"+categories).remove();
+                	jQ("#txtCategory"+categories).remove();
+                	categories -= 1
+           }
+            setAtomValues(atomUrl);
+            jQ("#newEntry").show();
+    		jQ("label[for='newEntry']").show();
+        });
+    });
+    
+     function newURL() {
+           var thisChecked = jQ("#newURL").is(':checked');
+           if (jQ("#url").is(':visible')){
+                //if new URL
+                jQ("#url").hide();
+                jQ("#txturl").val("");
+                jQ("#txturl").show();    
+                jQ("#newCategory").attr("checked",true);
+                jQ("#newCategory").attr("disabled",true);
+                jQ("#category0").hide();
+                jQ('#txtCategory0').val("");
+                jQ('#txtCategory0').show();
+                jQ("#_username").val("");
+                jQ("#_password").val("");
+                jQ("#none").attr('checked',true);
+                jQ('#newEntry').attr('checked',true)
+                jQ('#NewEntryvalue').attr('value',true)
+                jQ('#newEntry').attr('disabled',true)
+                jQ("#newEntry").show();
+    			jQ("label[for='newEntry']").show();
+                while(categories > 0){
+                	jQ("#category"+categories).remove();
+                	jQ("#txtCategory"+categories).remove();
+                	categories -= 1
+                }
+                
+           }else{
+                //if not new 
+                jQ("#txturl").hide();
+                jQ("#url").show();
+                
+                var atomUrl = jQ("#url").val();
+                setAtomValues(atomUrl);
+                jQ('#newEntry').attr('disabled',false)
+           }
+    }
+    
+    function setAtomValues(atomUrl){
+        //get the values
+        var info = new Array();
+        info = eval(jQ("input[rel=" + atomUrl + "]").attr("value"));
+        var username = info[0];
+        var authType = "#"+info[1];
+        jQ("#_username").val(username);
+        
+        jQ(authType).attr('checked',true);
+        
+        var categories = eval(info[2]);
+        if(categories.length > 0)
+        { 
+            var options = ""
+            for(var i = 0; i < categories.length; i++){
+                options += "<option value='" + categories[i] + "'> " + categories[i] + "</option>";
+            }
+            
+            //set the values
+            jQ("#category0").html(options);
+            jQ("#category0").show();
+            jQ("#newCategory").attr("checked",false);
+            jQ("#newCategory").attr("disabled",false);
+            jQ('#txtCategory0').hide();
+            jQ('#txtCategory0').attr("value",jQ("#category0").attr("value"))
+        }else{
+            jQ("#newCategory").attr("checked",true);
+            jQ("#newCategory").attr("disabled",true);
+            jQ('#txtCategory0').show();
+            jQ("#category0").hide();
+            jQ('#txtCategory0').attr("value","")
+        }        
+    
+    }
+    var categories = 0;
+    function addAnotherCategory(){
+    	categories += 1
+    	var id = "category" + categories;
+    	var txtid = "txtCategory" + categories;
+    	jQ("#newCategory").before(" ");
+    	if((jQ("#category0").children().size() == 0) || (jQ("#newURL").is(':checked'))){
+    		//if no children
+    		c = jQ("#txtCategory0").clone();
+    		c.attr("id",txtid);
+    		c.attr("name",txtid);
+    		c.attr("value", "");
+    		jQ("#newCategory").before(c);
+    		
+    	}else{
+    		c = jQ("#category0").clone();
+    		c.attr("id",id);
+    		c.attr("name",id);
+    		c.show();
+    		jQ("#newCategory").before(c);
+    		c = jQ("#txtCategory0").clone();
+    		c.attr("id",txtid);
+    		c.attr("name",txtid);
+    		c.attr("value", c.attr("value"));
+    		c.css("display","none");
+    		jQ("#newCategory").before(c);
+    		jQ("#newCategory").attr("checked",false);
+    	}
+    	jQ("#newEntry").hide();
+    	jQ("label[for='newEntry']").hide();
+    	
+    
+    }
+    
+    function setDisable(id,state){document.getElementById(id).disabled= state;}
+    // -->
+    </script>
+    
+    <input type="hidden" name="postback" value="True" />
+    <input type="hidden" name="func" value="publishThis" />
+    <input type="hidden" name="argPath" value="$argPath" />
+    <input type="hidden" name="isPosted" value="$hasPropAtomEntry" />
+    <input type="hidden" name="NewEntryvalue" id= "NewEntryvalue" value= "$newEntry" />
+    <input type="hidden" name="isNewURL" id= "isNewURL" value= "$newURL" />
+    #set $count = 0
+    #if $hasRecord
+        #for $atom in $atomDict
+            #set $count = $count + 1
+            #set $atomName = atom + str($count) 
+            <input type="hidden" name="$atomName" id="$atomName" value="$atomDict[$atom]" rel="$atom" />
+            #if $atom == 0
+                #set $count = 0
+            #end if
+            
+        #end for
+    #end if
+    <table>
+        <tr>
+            <td colspan="2">
+                #if $error
+	                <span style="color:red;">
+	                    <p>$error</p>
+	                </span>
+	                #if $response==None or $response==""
+	                <p>Server did not respond.</p>
+	                #else
+	                <p>Server response: <pre>$response</pre></p>
+	                #end if
+                	#set $isError = True
+                #else
+                	#set $isError = False
+                #end if
+                #if $status
+	                <span style="color:green;">
+	                    $status
+	                    #if not $newEntry and $draft
+	                    (draft) #slurp
+	                    #end if
+	                </span>
+                #end if
+            </td>
+        </tr>
+        <tr>
+            <td>URL:</td>
+            <td>
+                #try
+                    #set $options = " "
+                    #set $count = 0
+                    #set $activeURLPosition = 0
+                    #set $hasPosted = False
+                    #if $newURL == "newURL"
+                        #set $newURL = True
+                    #else
+                        #set $newURL = False
+                    #end if 
+                    #if $hasRecord 
+                        #for $urlName in $urlList
+                            #if $urlName != ""
+                                #set selected=' '
+                                #if $url == $urlName
+                                    #set $activeURLPosition = $count
+                                    #set selected='selected="selected"'
+                                #end if
+                                #set $options += '<option value="' + $urlName +'" ' +  $selected +' >' + $urlName + '</option>'
+                                #set $count = $count + 1
+                            #end if
+                        #end for
+                   #else 
+                        #set $newURL = True
+                   #end if
+                #except
+                    #if $url != ""
+                        #set $options += '<option value="' + $url +'" ' +  $selected +' >' + $url + '</option>'
+                        
+                    #end if
+                #end try
+                
+                <select id="url" name="url"
+                    #if $newURL or $isError
+                        style="display: none;"
+                    #end if
+                 >
+                    $options
+                    
+                 </select>
+                 
+              
+                 <input type="text" name="txturl" id="txturl" 
+                    size="40"
+                    #if $newURL ==False and $isError == False
+                        style="display: none;"
+                        value=""
+                    #else 
+                        value="$url"
+                    #end if
+                    
+                 
+                 />
+                 
+                 <input type ="checkbox" name="newURL" id="newURL" value="newURL" 
+                        #if $newURL 
+                       checked = 'checked'
+                       #end if
+                       
+                       #if $newURL and not $hasRecord
+                        disabled = "disabled" #slurp
+                       #end if
+                       
+                       #if $isError
+                       	style = "display:none;"
+                       #end if 
+                  />
+                <label for="newURL"
+                	#if $isError
+                		style = "display:none;"
+                	#end if
+                >New URL</label>    
+            </td>
+            <td>
+                #if $newURL 
+                    #set $checkIf = $newURL
+                #else
+                    #if $newEntry
+                        #set $checkIf = $newEntry
+                    #else
+                        #if $hasPropAtomEntry 
+                            #set $checkIf = $hasPropAtomEntry
+                        #else
+                            #set $checkIf = False
+                        #end if
+                    #end if
+                #end if 
+                
+                #set $count = 0
+                #for $category in $categories
+            		#set $count = $count +1
+            	#end for
+                <input type="checkbox" name="newEntry" id="newEntry" value="newEntry"
+                       #if $checkIf
+                       checked="checked" #slurp
+                       #end if
+                       #if $newURL or not $hasPropAtomEntry
+                       disabled="disabled" #slurp
+                       #end if
+                       #if $count >1 
+                       	 style="display: none;"
+                       #end if
+                />
+                <label for="newEntry"
+                	#if $count >1 
+                       	 style="display: none;"
+                    #end if
+                >New entry</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+            	<div id= "categories">
+            	#set $catCount = 0
+            	#if $newCategory == "newCategory"
+                    #set $newCategory = True
+                    
+                 #else
+                    #set $newCategory = False
+                 #end if
+                
+            	#if $count == 0
+            		#set $category = ""
+            		#if $hasRecord
+	                    #set $options= ""
+	                    #if $category <> "" and $categoryList[0] <> ""
+	                        #set $options += '<option value="' + $category + '" ' + $selected +' size="60">' + $category+ '</option>'
+	                    #else
+	                        #for $catName in $categoryList[$activeURLPosition]
+	                            
+	                            #set $catCount = $catCount + 1
+	                            #set selected=''
+	                            #if $category == $catName
+	                                #set selected='selected="selected"'
+	                            #end if
+	                            #set $options += '<option value="' + $catName +'" ' +  $selected + ' size="60">' + $catName + '</option>'
+	                        #end for
+	                        #if $category == "" and $categoryList[$activeURLPosition] != []
+	                        	#set $category = $categoryList[$activeURLPosition][0]
+	                        #end if 
+	                    #end if
+	                 #else 
+	                    #set $newCategory = True
+	                 #end if
+	                 
+	                 #if $newURL 
+	                   #set $displayIf = True
+	                 #else
+	                    #if $catCount == 0 or $newCategory 
+	                        #set $displayIf = True    
+	                    #else 
+	                        #set displayIf = False
+	                    #end if 
+	                 #end if
+            		<select id="category0" name="category0" class="category"
+	                    #if  $displayIf
+	                        style="display: none;"
+	                    #end if
+	                 >
+	                 	$options
+	                 </select>
+	                 <input type="text" name="txtCategory0" id="txtCategory0" value="$category" size="20"
+	                    #unless $displayIf
+	                        style="display: none;"
+	                    #else
+	                    	value = $category
+	                    #end unless
+                	/>
+                #else 
+                	#set i = 0
+                	#for $category in $categories
+                		#set $name = "txtCategory" + str(i)
+                		<input type="text" name=$name id=$name value="$category" size="20"
+		                    	value = $category
+		              	/>
+		              	#set i = i+1
+	                	&nbsp;
+                	#end for 
+                	#set $hidden = True
+            	#end if
+                 #if $newURL or $catCount == 0 
+                   #set $disableIf = True
+                   #set $checkIf = True
+                 #else
+                    #if $newCategory 
+                        #set disableIf = False
+                        #set $checkIf = True    
+                    #else 
+                        #set disableIf = False
+                        #set $checkIf = False
+                    #end if 
+                 #end if
+                
+ 				<input type ="checkbox" name="newCategory" id="newCategory" value="newCategory" 
+	                       #if $disableIf
+	                            disabled="disabled"
+	                       #end if
+	                       #if $checkIf
+	                            checked = 'checked'
+	                       #end if
+	                       #if $hidden
+	                       		style = "display:none"
+	                       #end if 
+	                 />
+	                  
+	            <label for="newCategory"
+	            	#if $hidden
+	                	style = "display:none"
+					#end if 
+	            >New Category</label>
+	            
+                </div>
+               <a id="addAnotherCategory" href="javascript:addAnotherCategory();"
+               	#if $isError
+               		style = "display:none;"
+               	#end if 
+               >Add another category</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Authentication:</td>
+            <td>
+                #try
+                
+                    #if $hasRecord and $loginList[$activeURLPosition][1] != ""
+                        #set $authtype = $loginList[$activeURLPosition][1]
+                    #end if
+                #except:
+                    #if $authtype == ""
+                        $authtype = "none"
+                    #end if
+                #end try
+                <input type="radio" name="authtype" id="none" value="None"
+                       onclick="setDisable('_username',true);setDisable('_password',true);"
+                       #if $authtype=="none"
+                       checked="checked" 
+                       #end if
+                />
+                <label for="none">None</label>
+                <input type="radio" name="authtype" id="basic" value="Basic"
+                       onclick="setDisable('_username',false);setDisable('_password',false);"
+                       #if $authtype=="basic"
+                       checked="checked" 
+                       #end if
+                />
+                <label for="basic">Basic</label>
+                <input type="radio" name="authtype" id="blogger" value="Blogger"
+                       onclick="setDisable('_username',false);setDisable('_password',false);"
+                       #if $authtype=="blogger"
+                       checked="checked" 
+                       #end if
+                />
+                <label for="blogger">Blogger</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>
+            
+                #try
+                    #if $hasRecord and $loginList[$activeURLPosition][0] <> "" and $username == ""
+                        #set $username = $loginList[$activeURLPosition][0]
+                    #end if
+                    
+                #except
+                    #pass
+                #end try
+                <input type="text" name="atompub_username" id="_username" value="$username"
+                       #if $authtype=="none"
+                       disabled="disabled"
+                       #end if
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <input type="password" name="atompub_password" id="_password" value="$password"
+                       #if $authtype=="none"
+                       disabled="disabled"
+                       #end if
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>Author:</td>
+            <td><input type="text" name="author" id="author" value="$author" /></td>
+        </tr>
+        <tr>
+            <td>Title:</td>
+            <td><input type="text" name="title" id="title" value="$title" size="60" /></td>
+        </tr>
+        <tr>
+            <td>Summary:</td>
+            <td><input type="text" name="summary" id="summary" value="$summary" size="60" /></td>
+        </tr>
+        <tr>
+            <td>Options:</td>
+            <td>
+                <input type="checkbox" name="draft" id="draft" value="draft"
+                       #if $draft
+                       checked="checked" #slurp
+                       #end if
+                />
+                <label for="draft">Draft</label>
+            </td>
+        </tr>
+        <tr>
+            <td/>
+            <td>
+                <input type="checkbox" name="pdfLink" id="pdfLink" value="pdfLink"
+                       #if $pdflink
+                       checked="checked" #slurp
+                       #end if
+                />
+                <label for="pdfLink">Include link to PDF version</label>
+            </td>
+        </tr>
+        <tr>
+            <td/>
+            <td>
+                <button type="submit" name="do" title="Publish">Publish</button>
+            </td>
+        </tr>        
+    </table>
+    
+</form>
+#end if

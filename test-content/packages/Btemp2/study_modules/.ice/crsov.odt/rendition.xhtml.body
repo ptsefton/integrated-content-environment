@@ -1,0 +1,277 @@
+<div><p><div class="embedded-html"><div bgcolor="#FFFFFF" topmargin="0" leftmargin="0"><script language="JavaScript1.2">
+  <!--
+    //  PopUp ==
+    //  Institute for Human and Machine Cognition, http://www.ihmc.us/
+    //  CmapTools, Version 4.12, http://cmap.ihmc.us/
+    //  Modify by: CmapTools Developers, cmapsupport@ihmc.us
+    //  Date: 12/14/2006
+
+    var IE = 0;
+    var IE4PC = 0;
+    var NS = 0;
+    var GECKO = 0;
+
+    var openpopups = new Array();
+
+    if (document.all) {                 // Internet Explorer Detected
+	   IE = true;	
+    }
+    else if (document.layers) {         // Netscape Navigator Detected
+	   NS = true;	
+    }
+    else if (document.getElementById) { // Netscape 6 Detected
+       GECKO = true;
+    }
+    else {
+	   alert("Unrecognized Browser Detected::\nSorry, your browser is not compatible.");
+    }
+
+    if (IE)
+    {
+	   OS = navigator.platform;
+	   VER = new String(navigator.appVersion);
+	   VER = VER.substr (0, VER.indexOf(" "));
+	   if ((VER < 4.8) && (OS == "Win32")) 
+	   {
+	       IE4PC = 1;
+	   }
+    }
+
+    function handleResize() {
+	    location.reload();
+	    return false;
+    }
+
+
+    if ((NS) && (navigator.platform == "MacPPC")) {
+	   window.captureEvents (Event.RESIZE);
+	   window.onresize = handleResize;
+    }
+
+    function openResource(event, resourcePath, resourceName, resourceType)
+    {
+	   var newwindow;
+
+       // Resource MIMETypes are enumerated as follows: 
+       // cMap     = Undefined
+       // Image    = 0
+       // Video    = 1
+       // Text     = 2
+       // Audio    = 3
+
+       popDown();
+
+	   switch (resourceType) 
+	   {
+	    case 0:     //Image
+                    newwindow = window.open (resourcePath,resourceName);
+                    newwindow.onBlur = newwindow.focus()
+                    var text ='<center><img src=\"';
+                    text += resourcePath;
+                    text +='\"> </center>';
+             break;
+		
+	    case 1:  text   // Video
+		     newwindow = window.open (resourcePath,resourceName);
+                     newwindow.onBlur = newwindow.focus()
+                     var text ='<embed src=\"';
+                     text += resourcePath;
+                     text +='\" autostart=true> </embed> ';
+             break;
+
+	    case 2:      // Text or Unknown 
+		     newwindow = window.open(resourcePath,resourceName);
+                     newwindow.onBlur = newwindow.focus()
+              break;
+
+	    case 3:       // Audio
+                    newwindow = window.open (resourcePath,resourceName);
+                    newwindow.onBlur = newwindow.focus()
+                    var text ='<embed src=\"';
+                    text += resourcePath;
+                    text +='\" autoplay=true> </embed> ';
+             break;
+
+	    case 4:
+                    newwindow = window.open(resourcePath,resourceName);
+                    newwindow.onBlur = newwindow.focus()
+	     break;
+	    }
+        return;
+    }
+
+
+
+    function popUpEvt(event, popupName)
+    {
+	popDown();
+
+	if (GECKO)
+	{
+	    document.getElementById(popupName).style.left = event.layerX + 'px';
+	    document.getElementById(popupName).style.top = event.layerY + 'px';
+	    document.getElementById(popupName).style.background = "#B3B3B3";
+	    document.getElementById(popupName).style.visibility = "visible";
+	    openpopups.push(popupName);
+	}
+	else if (NS) 
+	{
+	    document.layers[popupName].moveTo (event.pageX, event.pageY);
+	    document.layers[popupName].bgColor = "#B3B3B3";
+	    document.layers[popupName].visibility = "show";
+	    openpopups.push(popupName);
+	}
+	else // if (IE)
+	{
+	    window.event.cancelBubble = true;
+	    if (!IE4PC) {
+		document.all[popupName].style.backgroundColor = "#B3B3B3";
+	    }	
+	    document.all[popupName].style.left = window.event.clientX + document.body.scrollLeft;
+	    document.all[popupName].style.top = window.event.clientY + document.body.scrollTop;
+	    document.all[popupName].style.visibility = "visible";
+	    openpopups[openpopups.length] = popupName;
+	}
+	return false;
+    }
+
+    function popDown()
+    {
+	var popupname;
+	
+	for (var i = 0; i < openpopups.length; i++) 
+	{
+	    popupname = new String (openpopups[i]);      
+	    if (GECKO) {
+		document.getElementById(popupname).style.visibility = "hidden";
+	    }
+	    else if (NS) {
+		document.layers[popupname].visibility = "hide";
+	    }
+	    else {
+		document.all[popupname].style.visibility = "hidden";
+	    }
+	}
+	openpopups = new Array();
+	return;
+    }
+
+    function popDownNoGecko() 
+    {
+	var popupname;
+	for (var i = 0; i < openpopups.length; i++) 
+	{
+	    popupname = new String (openpopups[i]);      
+	    if (GECKO) {
+           //  document.getElementById(popupname).style.visibility = "hidden"; 
+	        return;   // erased for test purposes
+	    }  
+	    else if (NS) {
+	        document.layers[popupname].visibility = "hide";
+	    }
+	    else {
+	        document.all[popupname].style.visibility = "hidden";
+	    }
+	}
+	openpopups = new Array();
+        return;
+    }
+  //-->
+  </script><noscript>
+    <table cellpadding="10" width="90%"><tr><td bgcolor="ff4444">
+	  <font color="000000" size="+1" face="helvetica">
+	    <h1>Warning:</h1>
+	    <b>JavaScript is turned OFF.  None of the links on this page will work until it is reactivated.
+	      <p>
+		<a href="http://cmap.ihmc.us/docs/EnablingJavaScript.html">
+		  If you need help turning JavaScript On, click here.
+		</a>
+	      </p>
+	    </b>
+	</font></td>
+      </tr></table>
+This Concept Map, created with IHMC CmapTools, has information related to: overview, Stored program design related to A typical microcomputer, Microcomputer operation requires knowledge of Number systems, Stored program design requires knowledge of Sequential logic, A typical microcomputer for example The 68HC11 microcontroller, Digital systems covering Microcomputer operation, Stored program design requires knowledge of Combinational logic, Stored program design requires knowledge of Number systems, Microcomputer operation requires knowledge of Sequential logic, Peripheral communications requires knowledge of Sequential logic, Digital systems covering Stored program design, Peripheral communications requires knowledge of Combinational logic, Microcomputer operation related to A typical microcomputer, ELE1301 Computer Engineering "An Introduction to the Digital Computer" is a study of Digital systems, Digital systems covering Peripheral communications, Microcomputer operation requires knowledge of Combinational logic, Peripheral communications requires knowledge of Number systems
+
+</noscript><map name="overview.html"><area shape="rect" href="1210718816394I384997005I546ItextIhtml" coords="108,220,126,238" onclick="popUpEvt(event,'1210718816394I384997005I546ItextIhtml'); return false;"><area shape="rect" href="1210718816394I384997005I546Ix-cmapIx-storable" coords="125,220,143,238" onclick="popUpEvt(event,'1210718816394I384997005I546Ix-cmapIx-storable'); return false;"><area shape="rect" href="1210297304663I745183950I1898ItextIhtml" coords="422,537,440,555" onclick="popUpEvt(event,'1210297304663I745183950I1898ItextIhtml'); return false;"><area shape="rect" href="1210658449319I1832974868I1194Ix-cmapIx-storable" coords="430,220,448,238" onclick="popUpEvt(event,'1210658449319I1832974868I1194Ix-cmapIx-storable'); return false;"><area shape="rect" href="1210658449319I1832974868I1194ItextIhtml" coords="413,220,431,238" onclick="popUpEvt(event,'1210658449319I1832974868I1194ItextIhtml'); return false;"><area shape="rect" href="1210729867351I107314925I3496ItextIhtml" coords="700,337,718,355" onclick="popUpEvt(event,'1210729867351I107314925I3496ItextIhtml'); return false;"><area shape="rect" href="1210729867351I107314925I3496Ix-cmapIx-storable" coords="717,337,735,355" onclick="popUpEvt(event,'1210729867351I107314925I3496Ix-cmapIx-storable'); return false;"><area shape="rect" href="1210729867351I54215334I3499ItextIhtml" coords="116,337,134,355" onclick="popUpEvt(event,'1210729867351I54215334I3499ItextIhtml'); return false;"><area shape="rect" href="1210729867351I54215334I3499Ix-cmapIx-storable" coords="133,337,151,355" onclick="popUpEvt(event,'1210729867351I54215334I3499Ix-cmapIx-storable'); return false;"><area shape="rect" href="1210720596673I1201382086I1143Ix-cmapIx-storable" coords="701,220,719,238" onclick="popUpEvt(event,'1210720596673I1201382086I1143Ix-cmapIx-storable'); return false;"><area shape="rect" href="1210729893738I920149751I3515ItextIhtml" coords="413,337,431,355" onclick="popUpEvt(event,'1210729893738I920149751I3515ItextIhtml'); return false;"><area shape="rect" href="1210729893738I920149751I3515Ix-cmapIx-storable" coords="430,337,448,355" onclick="popUpEvt(event,'1210729893738I920149751I3515Ix-cmapIx-storable'); return false;"/></area></area></area></area></area></area></area></area></area></area></area></map><center>
+  <table cellpadding="0" width="*" cellspacing="0" border="0" height="*"><tr><td align="center" valign="center">
+      <img src="http://localhost:8000/packages/ele_1301_s1/media/resources/cmap/overview1.jpg" align="middle" border="0" onclick="popDown();" usemap="#overview.html"/></td>
+    </tr><tr><td align="right" valign="top">
+      <table><tr><td align="right" valign="middle">
+                 <map name="CmapToolsTrademark"><area shape="rect" href="http://cmap.ihmc.us/" coords="1,1,210,50" onclick="openResource(event,'http://cmap.ihmc.us/', 0, 2); return false;"/></map></td></tr><tr><td align="right" valign="middle">
+               <img src="http://localhost:8000/packages/ele_1301_s1/media/resources/cmap/cmaptoolstrademark.gif" align="middle" height="50" width="210" usemap="#CmapToolsTrademark" alt="IHMC Cmap Tools Trademark" border="0"/></td>
+	     <td valign="middle">
+         </td>
+	</tr></table></td>
+  </tr></table></center><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210718816394I384997005I546ItextIhtml">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/study_modules/module09.htm" title="">
+      Module 9
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210718816394I384997005I546Ix-cmapIx-storable">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/media/resources/cmap/micro_operation.html" title="">
+      Microcomputer operation
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210297304663I745183950I1898ItextIhtml">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/study_modules/module13.htm" title="">
+      Module 13
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210658449319I1832974868I1194Ix-cmapIx-storable">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/media/resources/cmap/peripheral_comms.html" title="">
+      Peripheral Communications
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210658449319I1832974868I1194ItextIhtml">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/study_modules/module14.htm" title="">
+      Module 14
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210729867351I107314925I3496ItextIhtml">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/study_modules/module05.htm" title="">
+      Module 5
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210729867351I107314925I3496Ix-cmapIx-storable">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/media/resources/cmap/sequ_logic_sys.html" title="">
+      Sequential Logic Systems
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210729867351I54215334I3499ItextIhtml">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/study_modules/module02.htm" title="">
+      Module 2
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210729867351I54215334I3499Ix-cmapIx-storable">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/media/resources/cmap/comb_logic_design.html" title="">
+      Combinational Logic Design
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210720596673I1201382086I1143Ix-cmapIx-storable">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/media/resources/cmap/stored_prog_design.html" title="">
+      Stored Program Design
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210729893738I920149751I3515ItextIhtml">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/study_modules/module01.htm" title="">
+      Module 1 - Number systems
+      </a>
+      </font></td>
+    </tr></table></div><div style="POSITION: absolute; Z-INDEX: 20; VISIBILITY: hidden; left: 0; top: 0;" id="1210729893738I920149751I3515Ix-cmapIx-storable">
+  <table cellpadding="1" border="1" cellspacing="0" bgcolor="#dddddd"><tr><td nowrap="nowrap"><font face="Geneva, Arial" size="2">
+      <a href="http://localhost:8000/packages/ele_1301_s1/media/resources/cmap/number_systems.html" title="">
+      Number Systems
+      </a>
+      </font></td>
+    </tr></table></div></div></div></p><h1><a id="id2" name="id2"><!--id2--></a>Concept Maps</h1><p>To help you grasp the relationship between various parts of this course I have provided a series of concept maps.  These maps are hyper-linked to each other and to the course content, so if you wish to know more about a particular concept then click on the link within the map.</p><p>These concept maps provide: </p><ul class="lib"><li><p>an alternate means of navigation into the study material. </p></li><li><p>a means for you to see where the material you are studying fits it to the larger picture. </p></li><li><p>a summary of the main terms and concepts. </p></li><li><p>the interrelationships between terms and concepts that form the body of knowledge on Computer engineering.</p></li></ul><p/><p/></div>

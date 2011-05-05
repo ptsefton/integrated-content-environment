@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="StyleCreator" script:language="StarBasic">#Const MSWD = False
+#Const OOO = Not MSWD
+
+Rem *********************************************************************
+Rem    Copyright (C) 2006  Distance and e-Learning Centre,
+Rem    University of Southern Queensland
+Rem
+Rem    This program is free software; you can redistribute it and/or modify
+Rem    it under the terms of the GNU General Public License as published by
+Rem    the Free Software Foundation; either version 2 of the License, or
+Rem    (at your option) any later version.
+Rem
+Rem    This program is distributed in the hope that it will be useful,
+Rem    but WITHOUT ANY WARRANTY; without even the implied warranty of
+Rem    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+Rem    GNU General Public License for more details.
+Rem
+Rem    You should have received a copy of the GNU General Public License
+Rem    along with this program; if not, write to the Free Software
+Rem    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+Rem
+Rem *********************************************************************
+
+Sub subCreateAllMissingStyles()
+    subCreateMissingStyle (&quot;p&quot;)
+    subCreateMissingStyle (&quot;p-indent&quot;)
+    subCreateMissingStyle (&quot;p-center&quot;)
+    subCreateMissingStyle (&quot;p-right&quot;)
+    For i = 1 To 5
+        Call subCreateMissingStyle(fnMakeStyleName(&quot;li&quot;, i, &quot;a&quot;))
+        Call subCreateMissingStyle(fnMakeStyleName(&quot;li&quot;, i, &quot;i&quot;))
+        Call subCreateMissingStyle(fnMakeStyleName(&quot;li&quot;, i, &quot;A&quot;))
+        Call subCreateMissingStyle(fnMakeStyleName(&quot;li&quot;, i, &quot;I&quot;))
+        Call subCreateMissingStyle(fnMakeStyleName(&quot;li&quot;, i, &quot;n&quot;))
+        Call subCreateMissingStyle(fnMakeStyleName(&quot;li&quot;, i, &quot;b&quot;))
+        Call subCreateMissingStyle(fnMakeStyleName(&quot;h&quot;, i, &quot;&quot;))
+        Call subCreateMissingStyle(fnMakeStyleName(&quot;h&quot;, i, &quot;n&quot;))
+        #If MSWD Then
+            Rem in word this is not created along with the list styles
+            Call subCreateMissingStyle(fnMakeStyleName(&quot;li&quot;, i, &quot;p&quot;))
+        #End If
+    Next
+    subCreateMissingStyle (&quot;bq5&quot;)
+    subCreateMissingStyle (&quot;dt1&quot;)
+    subCreateMissingStyle (&quot;dt5&quot;)
+    subCreateMissingStyle (&quot;bq5source&quot;)
+    subCreateMissingStyle (&quot;pre5&quot;)
+    subCreateMissingStyle (&quot;Title-chapter&quot;)
+    subCreateMissingStyle (&quot;Title-book&quot;)
+
+    subCreateMissingStyle (&quot;i-b&quot;)
+    subCreateMissingStyle (&quot;i-i&quot;)
+    subCreateMissingStyle (&quot;i-code&quot;)
+    subCreateMissingStyle (&quot;i-sub&quot;)
+    subCreateMissingStyle (&quot;i-sup&quot;)
+    subCreateMissingStyle (&quot;i-latex&quot;)
+    printMsgbox (&quot;Completed Creating Missing Styles&quot;)
+
+End Sub
+
+
+Rem ParaTopMargin          (spacing above paragraph)
+Rem ParaBottomMargin       (spacing below paragraph)
+Rem ParaLeftMargin         (spacing to the left)
+Rem ParaRightMargin        (spacing to the right)
+Rem CharWeight             (bold)
+Rem ParaBackColor          (for pre only, 13421772)
+Rem ParaBackTransparent    (for pre only, False)
+Rem ParaLeftMargin         (Amount of Indent)
+Rem ParaAdjust             (alignment, left=0, right=1, justify=2, center=3)
+Rem ParaKeepTogether       (whether it should stay with the next paragraph)
+Rem ParaOrphans            (number of orphans allowed)
+Rem ParaSplit              (whether the paragraph can be split)
+Rem ParaWidows             (number of widows allowed)
+Rem NumberingStyleName     (for lists only, should be same as style name)
+Rem ParaIsNumberingRestart (for lists only)
+Rem CharFontFamily         (Unknown, possibly necessary)
+Rem FollowStyle            (Style that will follow when press enter)
+Rem ParentStyle            (The name of the style that this one inherits from)
+
+
+Function subCreateMissingStyle(sNewStyle As String)
+Dim sParent As String, nAlignment As Integer, sType As String, sFamily As String, nLeftMargin As Integer
+    sFamily = fnGetFamily(sNewStyle)
+    sType = fnGetType(sNewStyle)
+    nLevel = fnGetLevel(sNewStyle)
+    If nLevel &gt; 5 Then
+        nLevel = 5
+        sNewStyle = fnMakeStyleName(sFamily, nLevel, sType)
+    End If
+    Select Case sFamily
+        Case &quot;p&quot;
+            Select Case sType
+                Case &quot;center&quot;
+                    nAlignment = 3
+                    sParent = &quot;p&quot;
+                Case &quot;right&quot;
+                    nAlignment = 1
+                    sParent = &quot;p&quot;
+                Case &quot;indent&quot;
+                    Call subCreateDefaultStyle(sNewStyle, &quot;p&quot;, &quot;Paragraph&quot;, Array( _
+                            &quot;ParaLeftMargin&quot;, 600))
+                Case Else
+                    nAlignment = 0
+                    sParent = &quot;Default&quot;
+            End Select
+            Call subCreateDefaultStyle(sNewStyle, sParent, &quot;Paragraph&quot;, Array( _
+                &quot;CharHeight&quot;, 11, _
+                &quot;CharFontName&quot;, &quot;Times New Roman&quot;, _
+                &quot;CharFontFamily&quot;, 3, _
+                &quot;ParaTopMargin&quot;, 420, _
+                &quot;ParaBottomMargin&quot;, 0, _
+                &quot;ParaLeftMargin&quot;, 0, _
+                &quot;ParaRightMargin&quot;, 0, _
+                &quot;CharPosture&quot;, 0, _
+                &quot;ParaAdjust&quot;, nAlignment))
+        Case &quot;li&quot;
+            If sType &lt;&gt; &quot;p&quot; Then
+                Rem This only set the List Numbering Style Postion value but not the Para Style Value.
+                nLeftMargin = (nLevel - 1) * 600
+                Rem This value will later be added to the ListTabStop Postion thus has to be negative
+                nFirstLineIndent = -600
+                nIndent = nLevel * 600
+                Select Case sType
+                Case &quot;A&quot;
+                    nNumberingType = 0
+                Case &quot;a&quot;
+                    nNumberingType = 1
+                Case &quot;I&quot;
+                    nNumberingType = 2
+                Case &quot;i&quot;
+                    nNumberingType = 3
+                Case &quot;n&quot;
+                    nNumberingType = 4
+                Case &quot;b&quot;
+                    nNumberingType = 6
+                End Select
+            #If MSWD Then
+                Call subCreateDefaultStyle(sNewStyle, &quot;p&quot;, &quot;Numbering&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, nLeftMargin, _
+                    &quot;ParaTopMargin&quot;, 210, _
+                    &quot;ParaBottomMargin&quot;, 0))
+            #Else
+                sParent = fnMakeStyleName(&quot;li&quot;, fnGetLevel(sNewStyle), &quot;p&quot;)
+                If Int(getOOoVersion()) = 2 Then
+                    Call subCreateDefaultStyle(sNewStyle, &quot;&quot;, &quot;Numbering&quot;, Array( _
+                                &quot;LeftMargin&quot;, 600, _
+                                &quot;FirstLineOffset&quot;, nFirstLineIndent, _
+                                &quot;NumberingType&quot;, nNumberingType))
+                Else
+                    Call subCreateDefaultStyle(sNewStyle, &quot;&quot;, &quot;Numbering&quot;, Array( _
+                            &quot;IndentAt&quot;, nIndent, _
+                            &quot;ListtabStopPosition&quot;, nLeftMargin, _
+                            &quot;FirstLineIndent&quot;, nFirstLineIndent, _
+                            &quot;NumberingType&quot;, nNumberingType))
+                End If
+
+                sParent = fnMakeStyleName(&quot;li&quot;, fnGetLevel(sNewStyle), &quot;p&quot;)
+                If fnGetLevel(sNewStyle) = 1 Then
+                    nLeftMargin = 0
+                Else
+                    nLeftMargin = 100 - (100 / (fnGetLevel(sNewStyle)))
+                End If
+
+                Call subCreateDefaultStyle(sNewStyle, sParent, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMarginRelative&quot;, nLeftMargin, _
+                    &quot;CharPosture&quot;, 0, _
+                    &quot;ParaBottomMargin&quot;, 0, _
+                    &quot;ParaTopMargin&quot;, 210))
+            #End If
+            ElseIf sType = &quot;p&quot; Then
+                #If MSWD Then
+                    nLeftMargin = nLevel * 600
+                    Call subCreateDefaultStyle(sNewStyle, &quot;p&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, nLeftMargin, _
+                        &quot;ParaBottomMargin&quot;, 0, _
+                        &quot;ParaTopMargin&quot;, 210))
+                 #Else
+                    If fnGetLevel(sNewStyle) = 1 Then
+                        nLeftMargin = 101
+                        sParent = &quot;p-indent&quot;
+                    Else
+                        nLeftMargin = 100 + (100 / (fnGetLevel(sNewStyle) - 1))
+                        sParent = fnMakeStyleName(&quot;li&quot;, fnGetLevel(sNewStyle) - 1, &quot;p&quot;)
+                    End If
+                    Call subCreateDefaultStyle(sNewStyle, sParent, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMarginRelative&quot;, nLeftMargin, _
+                        &quot;CharPosture&quot;, 0, _
+                        &quot;ParaBottomMargin&quot;, 0, _
+                        &quot;ParaTopMargin&quot;, 210))
+                 #End If
+            End If
+        Case &quot;bq&quot;
+            Select Case sType
+            Case &quot;&quot;
+                Select Case nLevel
+                Case 1
+                    Call subCreateDefaultStyle(sNewStyle, &quot;p&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;CharPosture&quot;, 2, _
+                        &quot;ParaLeftMargin&quot;, 600))
+                Case 2
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq1&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, 1200))
+                Case 3
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq2&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, 1800))
+                Case 4
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq3&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, 2400))
+                Case 5
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq4&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, 3200))
+                End Select
+            Case &quot;source&quot;
+                Select Case nLevel
+                Case 1
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq1&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;CharHeight&quot;, 9, _
+                        &quot;CharPosture&quot;, 0, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;, _
+                        &quot;ParaTopMargin&quot;, 100, _
+                        &quot;ParaLeftMargin&quot;, 600))
+                Case 2
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq1source&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, 1200))
+                Case 3
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq2source&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, 1800))
+                Case 4
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq3source&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, 2400))
+                Case 5
+                    Call subCreateDefaultStyle(sNewStyle, &quot;bq4source&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;ParaLeftMargin&quot;, 3200))
+                End Select
+            End Select
+        Case &quot;h&quot;
+            If sType &lt;&gt; &quot;n&quot; Then
+                sType = &quot;&quot;
+                sNewStyle = fnMakeStyleName(&quot;h&quot;, nLevel, &quot;&quot;)
+            End If
+            Select Case sType
+            Case &quot;&quot;
+                #If OOO Then
+                    oStyles = ThisComponent.styleFamilies.getByName(&quot;ParagraphStyles&quot;)
+                    If Not fnHasStyle(&quot;p&quot;, &quot;Paragraph&quot;) Then
+                        nPCharHeight = 11
+                    Else
+                        nPCharHeight = oStyles.getByName(&quot;p&quot;).CharHeight
+                    End If
+                    If Not oStyles.hasByName(&quot;h1&quot;) Then
+                        Rem Set default starting values
+                        nH1CharHeight = 18
+                        nH1ParaTopMargin = 920
+                        nH1ParaBottomMargin = 350
+                    Else
+                        nH1CharHeight = oStyles.getByName(&quot;h1&quot;).CharHeight
+                        nH1ParaTopMargin = oStyles.getByName(&quot;h1&quot;).ParaTopMargin
+                        nH1ParaBottomMargin = oStyles.getByName(&quot;h1&quot;).ParaBottomMargin
+                    End If
+                    
+                #Else
+                    nPCharHeight = 11
+                    nH1CharHeight = 18
+                    nH1ParaTopMargin = 920
+                    nH1ParaBottomMargin = 350
+                #End If
+                nParaTopMargin = nH1ParaTopMargin - (nH1ParaTopMargin / 5) * (fnGetLevel(sNewStyle) - 1)
+                nParaBottomMargin = nH1ParaBottomMargin - (nH1ParaBottomMargin / 5) * (fnGetLevel(sNewStyle) - 1)
+
+                Rem Calculate character height
+                nCharHeight = nH1CharHeight - ((nH1CharHeight - nPCharHeight) / 6 * fnGetLevel(sNewStyle))
+
+                Select Case nLevel
+                Case 1
+                    Call subCreateDefaultStyle(sNewStyle, &quot;Heading 1&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;CharHeight&quot;, nH1CharHeight, _
+                        &quot;CharFontName&quot;, &quot;Helvetica-Narrow&quot;, _
+                        &quot;ParaTopMargin&quot;, nH1ParaTopMargin, _
+                        &quot;ParaBottomMargin&quot;, nH1ParaBottomMargin, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;, _
+                        &quot;ParaKeepTogether&quot;, True))
+                Case 2
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h1&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;CharHeight&quot;, nCharHeight, _
+                        &quot;ParaTopMargin&quot;, nParaTopMargin, _
+                        &quot;ParaBottomMargin&quot;, nParaBottomMargin, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                Case 3
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h2&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;CharHeight&quot;, nCharHeight, _
+                        &quot;ParaTopMargin&quot;, nParaTopMargin, _
+                        &quot;ParaBottomMargin&quot;, nParaBottomMargin, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                Case 4
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h3&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;CharHeight&quot;, nCharHeight, _
+                        &quot;ParaTopMargin&quot;, nParaTopMargin, _
+                        &quot;ParaBottomMargin&quot;, nParaBottomMargin, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                Case 5
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h4&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;CharHeight&quot;, nCharHeight, _
+                        &quot;ParaTopMargin&quot;, nParaTopMargin, _
+                        &quot;ParaBottomMargin&quot;, 0, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                End Select
+            Case &quot;n&quot;
+                Select Case nLevel
+                Case 0
+                    Rem this is for word h-n property
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h1&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;NumberingStyleName&quot;, &quot;Outline&quot;, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                Case 1
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h1&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;NumberingStyleName&quot;, &quot;Outline&quot;, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                Case 2
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h2&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;NumberingStyleName&quot;, &quot;Outline&quot;, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                Case 3
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h3&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;NumberingStyleName&quot;, &quot;Outline&quot;, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                Case 4
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h4&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;NumberingStyleName&quot;, &quot;Outline&quot;, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                Case 5
+                    Call subCreateDefaultStyle(sNewStyle, &quot;h5&quot;, &quot;Paragraph&quot;, Array( _
+                        &quot;NumberingStyleName&quot;, &quot;Outline&quot;, _
+                        &quot;FollowStyle&quot;, &quot;p&quot;))
+                End Select
+                #If OOO Then
+                    Call subChangeChapterNumberingRules(ThisComponent, nLevel, Array( _
+                        &quot;ParentNumbering&quot;, nLevel, _
+                        &quot;NumberingType&quot;, 4, _
+                        &quot;HeadingStyleName&quot;, sNewStyle))
+                #Else
+                    Call subChangeChapterNumberingRules(sNewStyle, nLevel, Array())
+                #End If
+            End Select
+        Case &quot;pre&quot;
+            Select Case nLevel
+            Case 1
+                Call subCreateDefaultStyle(sNewStyle, &quot;bq1&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;CharFontName&quot;, &quot;Courier New&quot;, _
+                    &quot;CharHeight&quot;, 10, _
+                    &quot;ParaLeftMargin&quot;, 600, _
+                    &quot;ParaBackColor&quot;, 13421772, _
+                    &quot;CharPosture&quot;, 0, _
+                    &quot;ParaBackTransparent&quot;, False))
+            Case 2
+                Call subCreateDefaultStyle(sNewStyle, &quot;pre1&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 1200))
+            Case 3
+                Call subCreateDefaultStyle(sNewStyle, &quot;pre2&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 1800))
+            Case 4
+                Call subCreateDefaultStyle(sNewStyle, &quot;pre3&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 2400))
+            Case 5
+                Call subCreateDefaultStyle(sNewStyle, &quot;pre4&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 3200))
+            End Select
+        Case &quot;Title&quot;
+            Select Case sType
+            Case &quot;chapter&quot;
+                Call subCreateDefaultStyle(sNewStyle, &quot;Title&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;FollowStyle&quot;, &quot;p&quot;, _
+                    &quot;NumberingStyleName&quot;, &quot;Outline&quot;))
+                #If OOO Then
+                    Call subChangeChapterNumberingRules(ThisComponent, 0, Array( _
+                       &quot;NumberingType&quot;, 4, _
+                       &quot;HeadingStyleName&quot;, sNewStyle))
+                #Else
+                    Call subChangeChapterNumberingRules(sNewStyle, 0, Array())
+                #End If
+                
+
+            Case &quot;book&quot;
+                Call subCreateDefaultStyle(sNewStyle, &quot;Title&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;CharHeight&quot;, 36, _
+                    &quot;FollowStyle&quot;, &quot;p&quot;, _
+                    &quot;ParaTopMargin&quot;, 1400))
+            End Select
+        Case &quot;dd&quot;
+            Select Case nLevel
+            Case 1
+                Call subCreateDefaultStyle(sNewStyle, &quot;p&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 600, _
+                    &quot;CharPosture&quot;, 0, _
+                    &quot;ParaTopMargin&quot;, 210))
+            Case 2
+                Call subCreateDefaultStyle(sNewStyle, &quot;dd1&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 1200))
+            Case 3
+                Call subCreateDefaultStyle(sNewStyle, &quot;dd2&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 1800))
+            Case 4
+                Call subCreateDefaultStyle(sNewStyle, &quot;dd3&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 2400))
+            Case 5
+                Call subCreateDefaultStyle(sNewStyle, &quot;dd4&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;ParaLeftMargin&quot;, 3200))
+            End Select
+        Case &quot;dt&quot;
+            Select Case nLevel
+            Case 1
+                Call subCreateDefaultStyle(sNewStyle, &quot;p&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;CharWeight&quot;, 150, _
+                    &quot;FollowStyle&quot;, &quot;dd1&quot;, _
+                    &quot;ParaLeftMargin&quot;, 0, _
+                    &quot;ParaTopMargin&quot;, 210))
+                    
+            Case 2
+                Call subCreateDefaultStyle(sNewStyle, &quot;dt1&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;CharWeight&quot;, 150, _
+                    &quot;FollowStyle&quot;, &quot;dd2&quot;, _
+                    &quot;ParaLeftMargin&quot;, 600, _
+                    &quot;ParaTopMargin&quot;, 210))
+            Case 3
+                Call subCreateDefaultStyle(sNewStyle, &quot;dt2&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;FollowStyle&quot;, &quot;dd3&quot;, _
+                    &quot;ParaLeftMargin&quot;, 1200))
+            Case 4
+                Call subCreateDefaultStyle(sNewStyle, &quot;dt3&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;FollowStyle&quot;, &quot;dd4&quot;, _
+                    &quot;ParaLeftMargin&quot;, 1800))
+            Case 5
+                Call subCreateDefaultStyle(sNewStyle, &quot;dt4&quot;, &quot;Paragraph&quot;, Array( _
+                    &quot;FollowStyle&quot;, &quot;dd5&quot;, _
+                    &quot;ParaLeftMargin&quot;, 2400))
+            End Select
+        Case &quot;i&quot;
+            Select Case sType
+            Case &quot;b&quot;
+                Call subCreateDefaultStyle(sNewStyle, &quot;&quot;, &quot;Character&quot;, Array( _
+                    &quot;CharWeight&quot;, 150))
+            Case &quot;i&quot;
+                Call subCreateDefaultStyle(sNewStyle, &quot;&quot;, &quot;Character&quot;, Array( _
+                    &quot;CharPosture&quot;, 2))
+            Case &quot;code&quot;
+                Call subCreateDefaultStyle(sNewStyle, &quot;&quot;, &quot;Character&quot;, Array( _
+                    &quot;CharFontName&quot;, &quot;Courier New&quot;, _
+                    &quot;CharHeight&quot;, 11))
+            Case &quot;sup&quot;
+                Call subCreateDefaultStyle(sNewStyle, &quot;&quot;, &quot;Character&quot;, Array( _
+                    &quot;CharHeight&quot;, 9, _
+                    &quot;CharEscapement&quot;, 33))
+            Case &quot;sub&quot;
+                Call subCreateDefaultStyle(sNewStyle, &quot;&quot;, &quot;Character&quot;, Array( _
+                    &quot;CharHeight&quot;, 9, _
+                    &quot;CharEscapement&quot;, -33))
+            Case &quot;latex&quot;
+                Call subCreateDefaultStyle(sNewStyle, &quot;i-code&quot;, &quot;Character&quot;, Array())
+            End Select
+        Case &quot;xRef&quot;
+            If sNewStyle = &quot;xRef-Base&quot; Then
+                Call subCreateDefaultStyle(sNewStyle, &quot;&quot;, &quot;Character&quot;, Array())
+            Else
+                Call subCreateDefaultStyle(sNewStyle, &quot;xRef-Base&quot;, &quot;Character&quot;, Array())
+            End If
+    End Select
+    
+    #If MSWD Then
+        sFamily = fnGetFamily(sNewStyle)
+        Rem remove the underline from other styles than Title.
+        If sFamily &lt;&gt; &quot;Title&quot; And sFamily &lt;&gt; &quot;li&quot; Then
+            Call subNoUnderLine(sNewStyle)
+        End If
+    #End If
+End Function
+
+Sub subNoUnderLine(sStyleName)
+    ActiveDocument.Styles(sStyleName).Font.Underline = wdUnderlineNone
+End Sub
+
+Sub subNoItalic(sStyleName)
+    Rem For word only
+    ActiveDocument.Styles(sStyleName).Font.Italic = False
+End Sub
+Sub subItalic(sStyleName)
+    Rem For word only
+    ActiveDocument.Styles(sStyleName).Font.Italic = True
+End Sub
+Sub subNoBold(sStyleName)
+    Rem For word only
+    ActiveDocument.Styles(sStyleName).Font.Bold = False
+End Sub
+Sub subBold(sStyleName)
+    Rem For word only
+    ActiveDocument.Styles(sStyleName).Font.Bold = True
+End Sub
+Sub subFixWordStyle(sStyleName)
+Rem if the italic and bold are set for the paragraph, then the word regards it is part of the style
+    sFamily = fnGetFamily(sStyleName)
+    sType = fnGetType(sStyleName)
+    If sFamily = &quot;p&quot; Or sFamily = &quot;pre&quot; Or sFamily = &quot;dd&quot; Or sFamily = &quot;bq&quot; Or _
+        (sFamily = &quot;li&quot; And sType = &quot;p&quot;) Or sFamily = &quot;Title&quot; Or (sFamily = &quot;i&quot; And sStyleName &lt;&gt; &quot;i-b&quot;) Then
+        Rem These styles must not have bold
+        Call subNoBold(sStyleName)
+    ElseIf sFamily &lt;&gt; &quot;li&quot; Then
+        Call subBold(sStyleName)
+    End If
+    If sFamily = &quot;p&quot; Or sFamily = &quot;pre&quot; Or sFamily = &quot;dd&quot; Or sFamily = &quot;dt&quot; Or _
+        sFamily = &quot;h&quot; Or sFamily = &quot;Title&quot; Or (sFamily = &quot;bq&quot; And sType = &quot;source&quot;) Or _
+        (sFamily = &quot;li&quot; And sType = &quot;p&quot;) Or (sFamily = &quot;i&quot; And sStyleName &lt;&gt; &quot;i-i&quot;) Then
+        Call subNoItalic(sStyleName)
+    ElseIf sFamily &lt;&gt; &quot;li&quot; Then
+        Call subItalic(sStyleName)
+    End If
+End Sub
+Sub FixTitle()
+Rem To fix the title style in word 2007
+
+    #If MSWD Then
+        With ActiveDocument.Styles(&quot;Title&quot;)
+            With .Font
+                .Name = &quot;Arial&quot;
+                .Size = 18
+                .Bold = True
+                .Color = wdColorBlack
+                .Spacing = 0
+            End With
+            With .ParagraphFormat
+                .SpaceAfter = 3
+                .SpaceBefore = 12
+                .Alignment = wdAlignParagraphCenter
+            End With
+            .Borders(wdBorderBottom).Visible = False
+        End With
+    #End If
+    
+End Sub
+Function fnListTemplate(sListTemplateName As String)
+    Rem For word Only
+    Dim oListTemplate
+
+On Error GoTo NoListTemplate
+
+    Set fnListTemplate = ActiveDocument.ListTemplates(sListTemplateName)
+    Exit Function
+NoListTemplate:
+    Set oListTemplate = ActiveDocument.ListTemplates.Add
+    oListTemplate.Name = sListTemplateName
+    oListTemplate.OutlineNumbered = True
+    Set fnListTemplate = ActiveDocument.ListTemplates(sListTemplateName)
+End Function
+
+Sub subCreateDefaultStyle(sStyleName As String, sParentStyleName As String, sStyleType As String, mArgArray)
+    Dim oStyles As Object, oStyle As Object, i As Integer, j As Long
+    Dim sPropertyName As String, vPropertyValue
+
+
+    #If MSWD Then
+        If fnHasStyle(sStyleName) Then Exit Sub
+        If sStyleName = &quot;&quot; Then Exit Sub
+        Dim sListTemplateName As String, oListTemplate, nLevel As Integer
+        
+        If sStyleType = &quot;Character&quot; Then
+            Set oStyle = ActiveDocument.Styles.Add(Name:=sStyleName, Type:=wdStyleTypeCharacter)
+            For i = 0 To UBound(mArgArray) Step 2
+                Call subWordApplyProperty(oStyle, mArgArray(i), mArgArray(i + 1))
+            Next
+        ElseIf sStyleType = &quot;Paragraph&quot; Then
+            Set oStyle = ActiveDocument.Styles.Add(Name:=sStyleName, Type:=wdStyleTypeParagraph)
+            ActiveDocument.Styles(sStyleName).AutomaticallyUpdate = False
+            ActiveDocument.Styles(sStyleName).Frame.Delete
+            
+            On Error Resume Next
+            Rem remove the list style just in case
+            Rem list style causing dt2 to lost indent space(changing from list to dt2)
+            &apos;ActiveDocument.Styles(sStyleName).LinkStyle = &quot;Normal&quot;
+            &apos;ActiveDocument.Styles(sStyleName).ListTemplate = wdListNumberStyleNone
+            ActiveDocument.Styles(sStyleName).LinkToListTemplate ListTemplate:=Nothing
+            On Error GoTo 0
+            If fnGetFamily(sStyleName) = &quot;Title&quot; And fnGetType(sStyleName) = &quot;chapter&quot; Then
+                ActiveDocument.Styles(sStyleName).ParagraphFormat.OutlineLevel = 1
+            End If
+            If fnGetFamily(sStyleName) = &quot;h&quot; And fnGetType(sStyleName) = &quot;n&quot; Then
+                ActiveDocument.Styles(sStyleName).ParagraphFormat.OutlineLevel = fnGetLevel(sStyleName) + 1
+            End If
+            
+            For i = 0 To UBound(mArgArray) Step 2
+                 sPropertyName = mArgArray(i)
+                 vPropertyValue = mArgArray(i + 1)
+                 If sPropertyName = &quot;FollowStyle&quot; And Not fnHasStyle(vPropertyValue) Then
+                     subCreateMissingStyle (vPropertyValue)
+                 End If
+                 Call subWordApplyProperty(oStyle, sPropertyName, vPropertyValue)
+            Next
+            oStyle.Font.Color = wdBlack
+            
+        Else
+            Dim sStyle As String
+            Rem While Word doesn&apos;t have a numbering style as such, it does have ListTemplates
+            sStyle = sStyleName
+            sType = fnGetType(sStyleName)
+            nLevel = fnGetLevel(sStyleName)
+            Select Case sType
+                Case &quot;A&quot;:
+                    sStyleName = Trim(fnGetFamily(sStyleName)) + Trim(str(nLevel)) + &quot;UpperA&quot;
+                Case &quot;a&quot;
+                    sStyleName = Trim(fnGetFamily(sStyleName)) + Trim(str(nLevel)) + &quot;LowerA&quot;
+                Case &quot;I&quot;
+                    sStyleName = Trim(fnGetFamily(sStyleName)) + Trim(str(nLevel)) + &quot;UpperI&quot;
+                Case &quot;i&quot;
+                    sStyleName = Trim(fnGetFamily(sStyleName)) + Trim(str(nLevel)) + &quot;LowerI&quot;
+            End Select
+            Set oStyle = ActiveDocument.Styles.Add(Name:=sStyleName, Type:=wdStyleTypeParagraph)
+            ActiveDocument.Styles(sStyleName).NameLocal = sStyle
+            ActiveDocument.Styles(sStyle).AutomaticallyUpdate = False
+            
+            ActiveDocument.Styles(sStyle).Frame.Delete
+            
+            
+            sListTemplateName = MakeOutlineName(sType)
+            Call subChangeListTemplate(sListTemplateName, sStyle)
+            oStyle.ParagraphFormat.TabStops.ClearAll
+        End If
+        
+        
+        If Not (sParentStyleName = &quot;&quot; Or fnHasStyle(sParentStyleName)) Then
+            Call subCreateMissingStyle(sParentStyleName)
+            
+        End If
+        If Not sStyleName = sParentStyleName Then
+            If sStyle &lt;&gt; &quot;&quot; Then
+                ActiveDocument.Styles(sStyle).BaseStyle = sParentStyleName
+            Else
+                ActiveDocument.Styles(sStyleName).BaseStyle = sParentStyleName
+            End If
+        End If
+        Call subFixWordStyle(sStyleName)
+        
+    #Else
+        oStyles = ThisComponent.styleFamilies.getByName(sStyleType + &quot;Styles&quot;)
+        If Not fnHasStyle(sStyleName, sStyleType) Then
+            oStyle = ThisComponent.createInstance(&quot;com.sun.star.style.&quot; + sStyleType + &quot;Style&quot;)
+            If sStyleType = &quot;Paragraph&quot; Or sStyleType = &quot;Character&quot; Then
+                For i = 0 To (UBound(mArgArray)) Step 2
+                    sPropertyName = mArgArray(i)
+                    vPropertyValue = mArgArray(i + 1)
+                    If sPropertyName = &quot;FollowStyle&quot; And Not fnHasStyle(vPropertyValue) Then
+                        subCreateMissingStyle (vPropertyValue)
+                    End If
+                    oStyle.setPropertyValue(sPropertyName, vPropertyValue)
+                Next
+            End If
+            If Not (sParentStyleName = &quot;&quot; Or fnHasStyle(sParentStyleName)) Then
+                subCreateMissingStyle (sParentStyleName)
+            End If
+            Rem  the insertbyname has error but still adding there. need to find out why it is giving error but still working
+            On Error GoTo SkipLine
+            oStyles.insertByName(sStyleName, oStyle)
+SkipLine:
+            If sStyleType = &quot;Numbering&quot; Then
+                Call subChangeNumberingRules(oStyle, mArgArray)
+            End If
+            oStyle.setParentStyle (sParentStyleName)
+
+        Else
+            Rem for debugging
+            oStyle = oStyles.getByName(sStyleName)
+        End If
+    #End If
+End Sub
+
+
+
+Sub subChangeListTemplate(sListTemplateName As String, sStyleName As String)
+Rem  FOr Word Only
+    sType = fnGetType(sStyleName)
+    nLevel = fnGetLevel(sStyleName)
+    If sListTemplateName = &quot;SectOutline&quot; Then
+        nLevel = nLevel + 1
+    End If
+
+    Set oListTemplate = fnListTemplate(sListTemplateName)
+    For j = 1 To nLevel
+        With oListTemplate.ListLevels(j)
+            If sListTemplateName = &quot;SectOutline&quot; Then
+                numFormat = &quot;&quot;
+                If j &lt;&gt; 1 Then
+                    startNo = 2
+                Else
+                    startNo = 1
+                End If
+                For i = startNo To j
+                    numFormat = numFormat + &quot;%&quot; + Trim(str(i)) + &quot;.&quot;
+                Next i
+                numFormat = Left(numFormat, Len(numFormat) - 1) + &quot; &quot;
+            ElseIf sType &lt;&gt; &quot;b&quot; Then
+                numFormat = &quot;%&quot; + Trim(str(j)) + &quot;.&quot;
+            End If
+            .NumberFormat = numFormat
+            Select Case sListTemplateName
+                Case &quot;LUppercaseAlpha&quot;:
+                    .NumberStyle = wdListNumberStyleUppercaseLetter
+                Case &quot;LLowercaseAlpha&quot;:
+                    .NumberStyle = wdListNumberStyleLowercaseLetter
+                Case &quot;LUppercaseRoman&quot;:
+                    .NumberStyle = wdListNumberStyleUppercaseRoman
+                Case &quot;LLowercaseRoman&quot;:
+                    .NumberStyle = wdListNumberStyleLowercaseRoman
+                Case &quot;Lb&quot;:
+                    .NumberFormat = ChrW(61623)
+                    .NumberStyle = wdListNumberStyleBullet
+                    With .Font
+                      .Name = &quot;Symbol&quot;
+                      .Size = wdUndefined
+                    End With
+                Case &quot;Ln&quot;:
+                    .NumberStyle = wdListNumberStyleArabic
+                Case &quot;SectOutline&quot;:
+                    .NumberStyle = wdListNumberStyleArabic
+
+            End Select
+            If sListTemplateName = &quot;SectOutline&quot; And nLevel = 1 Then
+                .Alignment = wdListLevelAlignCenter
+            Else
+                .Alignment = wdListLevelAlignLeft
+            End If
+            oListTemplate.ListLevels(j).NumberPosition = 0
+            Rem not working now.: .NumberPosition = 0
+
+            
+            .ResetOnHigher = True
+            .StartAt = 1
+            If sListTemplateName = &quot;SectOutline&quot; Then
+                .TrailingCharacter = wdTrailingNone
+                
+                Rem calculate the numbering heading position.
+                oListTemplate.ListLevels(j).NumberPosition = 0
+                oListTemplate.ListLevels(j).TextPosition = 0
+                oListTemplate.ListLevels(j).TabPosition = 0
+            Else
+                .TrailingCharacter = wdTrailingTab
+                
+                listPosition = 0.6 * j
+                numPosition = listPosition - 0.6
+                oListTemplate.ListLevels(j).NumberPosition = CentimetersToPoints(numPosition)
+                Rem .NumberPosition = CentimetersToPoints(numPosition)
+                oListTemplate.ListLevels(j).TextPosition = CentimetersToPoints(listPosition)
+                oListTemplate.ListLevels(j).TabPosition = CentimetersToPoints(listPosition)
+            End If
+            
+            If nLevel = j Then
+                .LinkedStyle = sStyleName
+            Else
+                Rem no linked style yet
+                If sListTemplateName = &quot;SectOutline&quot; Then
+                    Rem if it is outline list
+                    If j = 1 Then
+                        sLinkedStyle = &quot;Title-chapter&quot;
+                    Else
+                        sLinkedStyle = fnGetFamily(sStyleName) + Trim(str(j - 1)) + sType
+                    End If
+                Else
+                    sLinkedStyle = fnGetFamily(sStyleName) + Trim(str(j)) + sType
+                End If
+                If Not fnHasStyle(sLinkedStyle) Then
+                    subCreateMissingStyle (sLinkedStyle)
+                End If
+                .LinkedStyle = sLinkedStyle
+            End If
+        End With
+    Next j
+End Sub
+
+Sub subChangeNumberingRules(oObject, mArgArray)
+Rem not for word
+    Dim oNumRules, i As Integer, j As Integer, mSetOfRules, nRuleIndex
+    Rem this is very necessary
+    oNumRules = oObject.NumberingRules
+    For i = 0 To (UBound(mArgArray)) Step 2
+        For j = 0 To oNumRules.getCount - 1
+            Rem This require inner loop as numbering rules have multiple level.
+            Rem This will loop through each level and then modify the rule.
+            Set mSetOfRules = oNumRules.getByIndex(j)
+
+            nRuleIndex = fnFindPropertyIndex(mSetOfRules, mArgArray(i))
+            If nRuleIndex &gt; 0 Then
+               mSetOfRules(nRuleIndex).value = mArgArray(i + 1)
+               oNumRules.replaceByIndex(j, mSetOfRules)
+            End If
+        Next
+     Next
+     oObject.NumberingRules = oNumRules
+End Sub
+
+Sub subChangeChapterNumberingRules(oObject, j, mArgArray)
+    Dim oNumRules, i As Integer, mSetOfRules, nRuleIndex
+
+    #If MSWD Then
+        Dim sStyle As String
+         Rem  in case oObject is not string
+        sStyle = oObject
+        Call subChangeListTemplate(&quot;SectOutline&quot;, sStyle)
+    #Else
+        oNumRules = oObject.getChapterNumberingRules
+        For i = 0 To (UBound(mArgArray)) Step 2
+                Set mSetOfRules = oNumRules.getByIndex(j)
+                nRuleIndex = fnFindPropertyIndex(mSetOfRules, mArgArray(i))
+
+                If nRuleIndex &gt; 0 Then
+                    mSetOfRules(nRuleIndex).value = mArgArray(i + 1)
+                    oNumRules.replaceByIndex(j, mSetOfRules)
+               End If
+        Next
+        oObject.getChapterNumberingRules = oNumRules
+    #End If
+End Sub
+
+Function fnFindPropertyIndex(aArrayOfProperties, cPropName As String) As Long
+Rem not for word
+    For i = LBound(aArrayOfProperties) To UBound(aArrayOfProperties)
+        oProp = aArrayOfProperties(i)
+        If oProp.Name = cPropName Then
+            fnFindPropertyIndex() = i
+            Exit Function
+        End If
+    Next
+End Function
+
+Function fnCreatePropDictionary()
+Rem for word only
+    Set fnCreatePropDictionary = fnCreateDictionary(Array( _
+        &quot;CharEscapement&quot;, &quot;Position&quot;, _
+        &quot;CharFontFamily&quot;, &quot;&quot;, _
+        &quot;CharFontName&quot;, &quot;Name&quot;, _
+        &quot;CharHeight&quot;, &quot;Size&quot;, _
+        &quot;CharPosture&quot;, &quot;Italic&quot;, _
+        &quot;CharWeight&quot;, &quot;Bold&quot;, _
+        &quot;NumberingStyleName&quot;, &quot;LinkToListTemplate&quot;, _
+        &quot;ParaAdjust&quot;, &quot;Alignment&quot;, _
+        &quot;ParaBackColor&quot;, &quot;BackgroundPatternColor&quot;, _
+        &quot;ParaBackTransparent&quot;, &quot;&quot;, _
+        &quot;ParaBottomMargin&quot;, &quot;SpaceAfter&quot;, _
+        &quot;ParaFirstLineIndent&quot;, &quot;FirstLineIndent&quot;, _
+        &quot;ParaLeftMarginRelative&quot;, &quot;LeftIndent&quot;, _
+        &quot;ParaLeftMargin&quot;, &quot;LeftIndent&quot;, _
+        &quot;ParaRightMargin&quot;, &quot;RightIndent&quot;, _
+        &quot;ParaTopMargin&quot;, &quot;SpaceBefore&quot;, _
+        &quot;FollowStyle&quot;, &quot;NextParagraphStyle&quot; _
+        ))
+End Function
+
+Function fnCreatePropValueDictionary()
+Rem for word only
+    Set fnCreatePropValueDictionary = fnCreateDictionary(Array( _
+        &quot;CharWeight_150&quot;, True, _
+        &quot;CharWeight_100&quot;, False, _
+        &quot;CharPosture_2&quot;, True, _
+        &quot;CharPosture_0&quot;, False, _
+        &quot;ParaAdjust_1&quot;, 2, _
+        &quot;ParaAdjust_3&quot;, 1, _
+        &quot;NumberingType_0&quot;, 3, _
+        &quot;NumberingType_1&quot;, 4, _
+        &quot;NumberingType_2&quot;, 1, _
+        &quot;NumberingType_3&quot;, 2, _
+        &quot;NumberingType_4&quot;, 0, _
+        &quot;NumberingType_6&quot;, 10 _
+        ))
+End Function
+
+Function fnCreateConversionDictionary()
+Rem for word only
+    Set fnCreateConversionDictionary = fnCreateDictionary(Array( _
+        &quot;CharPosture&quot;, &quot;Dic&quot;, _
+        &quot;CharWeight&quot;, &quot;Dic&quot;, _
+        &quot;NumberingStyleName&quot;, &quot;rn&quot;, _
+        &quot;ParaAdjust&quot;, &quot;Dic&quot;, _
+        &quot;ParaBottomMargin&quot;, &quot;2p&quot;, _
+        &quot;ParaFirstLineIndent&quot;, &quot;2p&quot;, _
+        &quot;ParaLeftMargin&quot;, &quot;2p&quot;, _
+        &quot;ParaRightMargin&quot;, &quot;2p&quot;, _
+        &quot;ParaTopMargin&quot;, &quot;2p&quot; _
+        ))
+End Function
+
+Function fnCreateDictionary(m)
+Rem for word only
+Dim d, i As Integer
+Rem Word&apos;s help file is wrong the quotes are required in the following line
+Set d = CreateObject(&quot;Scripting.Dictionary&quot;)
+For i = 0 To UBound(m) Step 2
+    d.Add m(i), m(i + 1)
+Next
+Set fnCreateDictionary = d
+End Function
+
+Sub subWordApplyProperty(oObject, sPropName, vPropValue)
+Rem for word only
+    Static PropDictionary, PropValueDictionary, PropConvMethodDictionary
+    Dim sPropType As String, sWordProp As String, vWordPropValue, oSubObject
+    Dim sConvMethod As String, oTemplate, nLevel As Integer
+
+    If IsEmpty(PropDictionary) Then
+        Set PropDictionary = fnCreatePropDictionary()
+        Set PropValueDictionary = fnCreatePropValueDictionary()
+        Set PropConvMethodDictionary = fnCreateConversionDictionary()
+    End If
+    sWordProp = PropDictionary.Item(sPropName)
+    sConvMethod = PropConvMethodDictionary.Item(sPropName)
+    Select Case sConvMethod
+        Case &quot;&quot;
+            vWordPropValue = vPropValue
+            If sPropName = &quot;CharEscapement&quot; Then
+                vWordPropValue = vWordPropValue / 10
+            End If
+        Case &quot;Dic&quot;
+            vWordPropValue = PropValueDictionary.Item(sPropName &amp; &quot;_&quot; &amp; vPropValue)
+        Case &quot;2p&quot;
+            vWordPropValue = CentimetersToPoints(vPropValue / 1000)
+        Case &quot;rn&quot;
+               vWordPropValue = fnGetType(vPropValue)
+
+   End Select
+
+    sPropType = Left(sPropName, 4)
+    Select Case sPropType
+    Case &quot;Char&quot;
+        Set oSubObject = oObject.Font
+    Case &quot;Para&quot;
+        Set oSubObject = oObject.ParagraphFormat
+        If sPropName = &quot;ParaBackColor&quot; Then
+            Set oSubObject = oSubObject.Shading
+        End If
+    Case Else
+        Set oSubObject = oObject
+    End Select
+    If sWordProp = &quot;&quot; Then Exit Sub
+
+    If sWordProp = &quot;LinkToListTemplate&quot; Then
+        Dim sListTemplateName As String
+        sListTemplateName = MakeOutlineName(vWordPropValue)
+        If sListTemplateName = &quot;L&quot; Then
+            Rem if it is Outline, Make outline Name return only &quot;L&quot;
+            sListTemplateName = &quot;SectOutline&quot;
+        End If
+        nLevel = fnGetLevel(oObject.NameLocal)
+        If nLevel = 0 Then nLevel = 1
+        Set oListTemplate = fnListTemplate(sListTemplateName)
+        oSubObject.LinkToListTemplate ListTemplate:=oListTemplate, ListLevelNumber:=nLevel
+    Else
+        CallByName oSubObject, sWordProp, VbLet, vWordPropValue
+    End If
+End Sub</script:module>

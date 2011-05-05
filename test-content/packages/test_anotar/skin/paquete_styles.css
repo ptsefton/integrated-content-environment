@@ -1,0 +1,51 @@
+/*
+ * Copyright (C) 2010 University of Southern Queensland
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * 
+ */
+ 
+
+ 
+/* page toc tree */
+a {color:#000000; text-decoration:none; font-weight:normal;}
+
+.paquete-toc {padding-right:5px; }
+.paquete-toc ul {list-style-type:none; padding-left: 0px; color:#000000;}
+.paquete-toc ul li {padding:5px 3px 5px 3px;}
+.paquete-toc ul li a{text-decoration:none; font-weight:normal; color:#000000;}
+.paquete-toc li ul{margin-left:20px;}
+
+.paquete-toc .hide{display:none;}
+
+
+
+
+/* hover */
+
+.paquete-toc ul li a:hover{ color:#000000;text-decoration:underline;background-color:#FFFF99;}
+/* this does not work for IE. use jQuery hover*/
+
+
+/* selected */
+/* this does not work for IE.*/
+.paquete-toc li.selected a{font-weight:bold;}
+
+ /* Navigation */
+.paquete-navigation {float:right;}
+
+div.body { padding-left:10px; )
+
+

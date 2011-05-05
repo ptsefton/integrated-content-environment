@@ -1,0 +1,31 @@
+<div><p>The fault is with how the javascript is <span class="spCh spChx201c">&#x201C;</span>cleaned<span class="spCh spChx201d">&#x201D;</span> when embedded.</p><p class="P6">Original text:</p><pre>&lt;html&gt;
+</pre><pre>    &lt;head&gt;
+</pre><pre>        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+</pre><pre>        &lt;meta name="generator" content="Aspose.Words for .NET 5.2.1.0" /&gt;
+</pre><pre>        &lt;title&gt;Introduction to Normative and Meta-Ethics&lt;/title&gt;    
+</pre><pre>    &lt;/head&gt;
+</pre><pre>    &lt;body&gt;</pre><pre>    &lt;p&gt;Watch this video before doing workshop number 3.&lt;/p&gt;
+</pre><pre>&lt;script type="text/javascript" src="media/mediaplayer/swfobject.js"&gt;&lt;!-- --&gt;&lt;/script&gt;</pre><pre>  &lt;div id='preview'&gt;There was a problem loading the video.&lt;/div&gt;</pre><pre>  &lt;script type="text/javascript"&gt;</pre><pre>  var s1 = new SWFObject('media/mediaplayer/player.swf','ply','470','320','9','#ffffff');</pre><pre>  s1.addParam('allowfullscreen','true');</pre><pre>  s1.addParam('allowscriptaccess','always');</pre><pre>  s1.addParam('wmode','opaque');</pre><pre>  s1.addParam('flashvars','file=../video/computerEthics1.flv');</pre><pre>  s1.write('preview');</pre><pre>&lt;/script&gt;
+</pre><pre>    &lt;/body&gt;
+</pre><pre>&lt;/html&gt;</pre><p class="P6">Code after embedding:</p><p class="P7">Note the way the two script tags have been transformed into one, which breaks the code.</p><pre>&lt;div class="embedded-html"&gt;
+    </pre><pre>&lt;p id="hcc8c204fp1"&gt;Watch this video before doing workshop number 3.&lt;/p&gt;
+</pre><pre>&lt;script type="text/javascript" src="media/mediaplayer/swfobject.js"&gt;
+  
+&lt;div id="preview"&gt;There was a problem loading the video.&lt;/div&gt;
+
+  &lt;script type="text/javascript"&gt;
+  var s1 = new SWFObject('media/mediaplayer/player.swf','ply','470','320','9','#ffffff');
+  s1.addParam('allowfullscreen','true');
+  s1.addParam('allowscriptaccess','always');
+  s1.addParam('wmode','opaque');
+  s1.addParam('flashvars','file=../video/computerEthics1.flv');
+  s1.write('preview');
+&lt;/script&gt;
+&lt;/div&gt;</pre><p class="P6">Example file embedded in this document</p><p class="P6">Note:<span style="font-weight:normal; "><span class="T1"> The actual media files have not been added, this example is to show how the code is changed.</span></span></p><p><div class="embedded-html"><div><p>Watch this video before doing workshop number 3.</p><script type="text/javascript" src="media/mediaplayer/swfobject.js"><!-- --></script><div id="preview">There was a problem loading the video.</div><script type="text/javascript">
+  var s1 = new SWFObject('media/mediaplayer/player.swf','ply','470','320','9','#ffffff');
+  s1.addParam('allowfullscreen','true');
+  s1.addParam('allowscriptaccess','always');
+  s1.addParam('wmode','opaque');
+  s1.addParam('flashvars','file=../video/computerEthics1.flv');
+  s1.write('preview');
+</script></div></div></p></div>

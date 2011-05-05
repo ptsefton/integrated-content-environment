@@ -1,0 +1,629 @@
+<?xml version="1.0"?>
+<testData xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" office:version="1.0">
+    <!-- xmlns="http://www.w3.org/1999/xhtml" -->
+    <tests>
+        <test name="Sample test one" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <style:style style:name="Table2" style:family="table">
+                            <style:table-properties style:width="14.601cm" table:align="margins"/>
+                        </style:style>
+                        <style:style style:name="Table2.A" style:family="table-column">
+                            <style:table-column-properties style:column-width="7.301cm" style:rel-column-width="32767*"/>
+                        </style:style>
+                        <style:style style:name="Table2.A1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table2.B1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table2.A2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table2.B2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.002cm                                 solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid                                 #000000"/>
+                        </style:style>
+                        <style:style style:name="Table3" style:family="table">
+                            <style:table-properties style:width="14.601cm" table:align="margins"/>
+                        </style:style>
+                        <style:style style:name="Table3.A" style:family="table-column">
+                            <style:table-column-properties style:column-width="7.301cm" style:rel-column-width="32767*"/>
+                        </style:style>
+                        <style:style style:name="Table3.A1.1.1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table3.A1.1.2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table3.B1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table3.B2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.002cm                                 solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid                                 #000000"/>
+                        </style:style>
+                        <style:style style:name="Table4" style:family="table">
+                            <style:table-properties style:width="14.601cm" table:align="margins"/>
+                        </style:style>
+                        <style:style style:name="Table4.A" style:family="table-column">
+                            <style:table-column-properties style:column-width="3.649cm" style:rel-column-width="16383*"/>
+                        </style:style>
+                        <style:style style:name="Table4.B" style:family="table-column">
+                            <style:table-column-properties style:column-width="3.651cm" style:rel-column-width="16384*"/>
+                        </style:style>
+                        <style:style style:name="Table4.C" style:family="table-column">
+                            <style:table-column-properties style:column-width="7.301cm" style:rel-column-width="32767*"/>
+                        </style:style>
+                        <style:style style:name="Table4.A1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table4.C1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table4.A2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table4.C2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.002cm                                 solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid                                 #000000"/>
+                        </style:style>
+                        <style:style style:name="Table5" style:family="table">
+                            <style:table-properties style:width="14.601cm" table:align="margins"/>
+                        </style:style>
+                        <style:style style:name="Table5.A" style:family="table-column">
+                            <style:table-column-properties style:column-width="7.301cm" style:rel-column-width="32767*"/>
+                        </style:style>
+                        <style:style style:name="Table5.A1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table6" style:family="table">
+                            <style:table-properties style:width="7.103cm" table:align="margins" style:writing-mode="lr-tb"/>
+                        </style:style>
+                        <style:style style:name="Table6.A" style:family="table-column">
+                            <style:table-column-properties style:column-width="3.551cm" style:rel-column-width="32767*"/>
+                        </style:style>
+                        <style:style style:name="Table6.A1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table6.B1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table6.A2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table6.B2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.002cm                                 solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid                                 #000000"/>
+                        </style:style>
+                        <style:style style:name="Table5.B1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm                                 solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table5.A2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table5.B2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.002cm                                 solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid                                 #000000"/>
+                        </style:style>
+                        <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Title">
+                            <style:paragraph-properties fo:break-before="page"/>
+                        </style:style>
+                        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                            <style:paragraph-properties fo:text-align="start" style:justify-single-word="false"/>
+                        </style:style>
+                        
+                        <style:style style:name="Table7" style:family="table">
+                            <style:table-properties style:width="14.601cm" table:align="margins"/>
+                        </style:style>
+                        <style:style style:name="Table7.A" style:family="table-column">
+                            <style:table-column-properties style:column-width="5.002cm" style:rel-column-width="2836*"/>
+                        </style:style>
+                        <style:style style:name="Table7.B" style:family="table-column">
+                            <style:table-column-properties style:column-width="8.597cm" style:rel-column-width="4874*"/>
+                        </style:style>
+                        <style:style style:name="Table7.C" style:family="table-column">
+                            <style:table-column-properties style:column-width="0.998cm" style:rel-column-width="566*"/>
+                        </style:style>
+                        <style:style style:name="Table7.A1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table7.C1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table7.A2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table7.C2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.002cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="P1">Table Test</text:p>
+                            
+                            <!-- table -->
+                            <table:table table:name="Table2" table:style-name="Table2">
+                                <table:table-column table:style-name="Table2.A" table:number-columns-repeated="2"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table2.A1" office:value-type="string">
+                                        <text:p text:style-name="P2">One</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table2.B1" office:value-type="string">
+                                        <text:p text:style-name="P2">Two</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table2.A2" office:value-type="string">
+                                        <text:p text:style-name="P2">Three</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table2.B2" office:value-type="string">
+                                        <text:p text:style-name="P2">Four</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                            <text:p text:style-name="p"/>
+                            
+                            <!-- Horizontal split (done as a table inside a table 
+                                                    Note: @table:is-sub-table)
+                                 Should be using rowspan instead  
+                            ->
+                            <table:table table:name="Table3" table:style-name="Table3">
+                                <table:table-column table:style-name="Table3.A"
+                                    table:number-columns-repeated="2"/>
+                                <table:table-row>
+                                    <table:table-cell>
+                                        
+                                        <table:table table:is-sub-table="true">
+                                            <table:table-column table:style-name="Table3.A"/>
+                                            <table:table-row>
+                                                <table:table-cell table:style-name="Table3.A1.1.1"
+                                                  office:value-type="string">
+                                                  <text:p text:style-name="P2">Horizontal
+                                                  Split</text:p>
+                                                </table:table-cell>
+                                            </table:table-row>
+                                            <table:table-row>
+                                                <table:table-cell table:style-name="Table3.A1.1.2"
+                                                  office:value-type="string">
+                                                  <text:p text:style-name="P2">HSplit</text:p>
+                                                </table:table-cell>
+                                            </table:table-row>
+                                        </table:table>
+                                        
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table3.B1"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P2">Two</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table3.A1.1.2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P2">Three</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table3.B2"
+                                        office:value-type="string">
+                                        <text:p text:style-name="P2">Four</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                            <text:p text:style-name="p"/>
+                            -->
+                            <!-- Vertical split -->
+                            <table:table table:name="Table4" table:style-name="Table4">
+                                <table:table-column table:style-name="Table4.A"/>
+                                <table:table-column table:style-name="Table4.B"/>
+                                <table:table-column table:style-name="Table4.C"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table4.A1" office:value-type="string">
+                                        <text:p text:style-name="P2">Vertical</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table4.A1" office:value-type="string">
+                                        <text:p text:style-name="P2">Split</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table4.C1" office:value-type="string">
+                                        <text:p text:style-name="P2">Two</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table4.A2" table:number-columns-spanned="2" office:value-type="string">
+                                        <text:p text:style-name="P2">Three</text:p>
+                                    </table:table-cell>
+                                    <table:covered-table-cell/>
+                                    <table:table-cell table:style-name="Table4.C2" office:value-type="string">
+                                        <text:p text:style-name="P2">Four</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                            <text:p text:style-name="p"/>
+                            
+                            <!-- Table inside a table -->
+                            <table:table table:name="Table5" table:style-name="Table5">
+                                <table:table-column table:style-name="Table5.A" table:number-columns-repeated="2"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table5.A1" office:value-type="string">
+                                        
+                                        <table:table table:name="Table6" table:style-name="Table6">
+                                            <table:table-column table:style-name="Table6.A" table:number-columns-repeated="2"/>
+                                            <table:table-row>
+                                                <table:table-cell table:style-name="Table6.A1" office:value-type="string">
+                                                  <text:p text:style-name="P2">1</text:p>
+                                                </table:table-cell>
+                                                <table:table-cell table:style-name="Table6.B1" office:value-type="string">
+                                                  <text:p text:style-name="P2">2</text:p>
+                                                </table:table-cell>
+                                            </table:table-row>
+                                            <table:table-row>
+                                                <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+                                                  <text:p text:style-name="P2">3</text:p>
+                                                </table:table-cell>
+                                                <table:table-cell table:style-name="Table6.B2" office:value-type="string">
+                                                  <text:p text:style-name="P2">4</text:p>
+                                                </table:table-cell>
+                                            </table:table-row>
+                                        </table:table>
+                                        <text:p text:style-name="P2"/>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table5.B1" office:value-type="string">
+                                        <text:p text:style-name="P2">Two</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+                                        <text:p text:style-name="P2">Three</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table5.B2" office:value-type="string">
+                                        <text:p text:style-name="P2">Four</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                            <text:p text:style-name="p"/>
+                            
+                            <text:p text:style-name="p">Column width</text:p>
+                            <table:table table:name="Table7" table:style-name="Table7">
+                                <table:table-column table:style-name="Table7.A"/>
+                                <table:table-column table:style-name="Table7.B"/>
+                                <table:table-column table:style-name="Table7.C"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table7.A1" office:value-type="string"><text:p text:style-name="P2">S One</text:p></table:table-cell>
+                                    <table:table-cell table:style-name="Table7.A1" office:value-type="string"><text:p text:style-name="P2">W Two</text:p></table:table-cell>
+                                    <table:table-cell table:style-name="Table7.C1" office:value-type="string"><text:p text:style-name="P2">s1</text:p></table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table7.A2" office:value-type="string"><text:p text:style-name="P2">S Three</text:p></table:table-cell>
+                                    <table:table-cell table:style-name="Table7.A2" office:value-type="string"><text:p text:style-name="P2">W Four</text:p></table:table-cell>
+                                    <table:table-cell table:style-name="Table7.C2" office:value-type="string"><text:p text:style-name="P2">s2</text:p></table:table-cell>
+                                </table:table-row>
+                            </table:table>
+                            <text:p text:style-name="p"/>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            
+            <expected match="/html:html/html:body">
+                <body>
+                    <div class="Table2" style="width: 100%; margin: 0px; padding: 0px; text-align:left;">
+                        <table class="Table2" style="border-spacing: 0;empty-cells: show; width:14.601cm; border-collapse: collapse; border: 1.0px solid #000000">
+                            <colgroup>
+                                <col style="width:7.301cm;"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td class="Table2_A1" style="vertical-align: top; border-bottom:1.0px                                 solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; ">
+                                        <p class="P2">One</p>
+                                    </td>
+                                    <td class="Table2_B1" style="vertical-align: top; border:1.0px                                 solid #000000; padding:0.097cm; ">
+                                        <p class="P2">Two</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="Table2_A2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; ">
+                                        <p class="P2">Three</p>
+                                    </td>
+                                    <td class="Table2_B2" style="vertical-align: top; border-bottom:1.0px solid                                 #000000; border-left:1.0px solid #000000; border-right:1.0px                                 solid #000000; border-top:none; padding:0.097cm; ">
+                                        <p class="P2">Four</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p/>
+
+                    <div class="Table4" style="width: 100%; margin: 0px; padding: 0px; text-align:left;">
+                        <table class="Table4" style="border-spacing: 0;empty-cells: show; width:14.601cm; border-collapse: collapse; border: 1.0px solid #000000">
+                            <colgroup>
+                                <col style="width:3.649cm;"/>
+                                <col style="width:3.651cm;"/>
+                                <col style="width:7.301cm;"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td class="Table4_A1" style="vertical-align: top; border-bottom:1.0px                                 solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; ">
+                                        <p class="P2">Vertical</p>
+                                    </td>
+                                    <td class="Table4_A1" style="vertical-align: top; border-bottom:1.0px                                 solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; ">
+                                        <p class="P2">Split</p>
+                                    </td>
+                                    <td class="Table4_C1" style="vertical-align: top; border:1.0px                                 solid #000000; padding:0.097cm; ">
+                                        <p class="P2">Two</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="Table4_A2" colspan="2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; ">
+                                        <p class="P2">Three</p>
+                                    </td>
+                                    <td class="Table4_C2" style="vertical-align: top; border-bottom:1.0px solid                                 #000000; border-left:1.0px solid #000000; border-right:1.0px                                 solid #000000; border-top:none; padding:0.097cm; ">
+                                        <p class="P2">Four</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p/>
+                    <div class="Table5" style="width: 100%; margin: 0px; padding: 0px; text-align:left;">
+                        <table class="Table5" style="border-spacing: 0;empty-cells: show; width:14.601cm; border-collapse: collapse; border: 1.0px solid #000000">
+                            <colgroup>
+                                <col style="width:7.301cm;"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td class="Table5_A1" style="vertical-align: top; border-bottom:1.0px                                 solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; ">
+                                        <div class="Table6" style="width: 100%; margin: 0px; padding: 0px; text-align:left;">
+                                            <table class="Table6" style="border-spacing: 0;empty-cells: show; width:7.103cm; border-collapse: collapse; border: 1.0px solid #000000">
+                                                <colgroup>
+                                                    <col style="width:3.551cm;"/>
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="Table6_A1" style="vertical-align: top; border-bottom:1.0px                                 solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; ">
+                                                            <p class="P2">1</p>
+                                                        </td>
+                                                        <td class="Table6_B1" style="vertical-align: top; border:1.0px                                 solid #000000; padding:0.097cm; ">
+                                                            <p class="P2">2</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="Table6_A2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; ">
+                                                            <p class="P2">3</p>
+                                                        </td>
+                                                        <td class="Table6_B2" style="vertical-align: top; border-bottom:1.0px solid                                 #000000; border-left:1.0px solid #000000; border-right:1.0px                                 solid #000000; border-top:none; padding:0.097cm; ">
+                                                            <p class="P2">4</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p class="P2"/>
+                                    </td>
+                                    <td class="Table5_B1" style="vertical-align: top; border:1.0px                                 solid #000000; padding:0.097cm; ">
+                                        <p class="P2">Two</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="Table5_A2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; ">
+                                        <p class="P2">Three</p>
+                                    </td>
+                                    <td class="Table5_B2" style="vertical-align: top; border-bottom:1.0px solid                                 #000000; border-left:1.0px solid #000000; border-right:1.0px                                 solid #000000; border-top:none; padding:0.097cm; ">
+                                        <p class="P2">Four</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p/>
+                    
+                    <p>Column width</p>
+                    <div class="Table7" style="width: 100%; margin: 0px; padding: 0px; text-align:left;">
+                        <table class="Table7" style="border-spacing: 0;empty-cells: show; width:14.601cm; border-collapse: collapse; border: 1.0px solid #000000">
+                            <colgroup>
+                                <col style="width:5.002cm;"/>
+                                <col style="width:8.597cm;"/>
+                                <col style="width:0.998cm;"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td class="Table7_A1" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; "><p class="P2">S One</p></td>
+                                    <td class="Table7_A1" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; "><p class="P2">W Two</p></td>
+                                    <td class="Table7_C1" style="vertical-align: top; border:1.0px solid #000000; padding:0.097cm; "><p class="P2">s1</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="Table7_A2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; "><p class="P2">S Three</p></td>
+                                    <td class="Table7_A2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; "><p class="P2">W Four</p></td>
+                                    <td class="Table7_C2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:1.0px solid #000000; border-top:none; padding:0.097cm; "><p class="P2">s2</p></td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                     <p/>
+                </body>
+                
+                <!-- Temp removed -->
+                <div class="Table3" style="text-align:left;">
+                    <table class="Table3">
+                        <tbody>
+                            <tr>
+                                <td class="Table3_A1_1_1">
+                                    <p>Horizontal Split</p>
+                                </td>
+                                <td class="Table3_B1" rowspan="2">
+                                    <p>Two</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="Table3_A1_1_2">
+                                    <p>HSplit</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="Table3_A1_1_2">
+                                    <p>Three</p>
+                                </td>
+                                <td class="Table3_B2">
+                                    <p>Four</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p/>
+                
+            </expected>
+        </test>
+
+        <test name="Table headings" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+                        <style:style style:name="Table6" style:family="table">
+                            <style:table-properties style:width="14.601cm" table:align="margins"/>
+                        </style:style>
+                        <style:style style:name="Table6.A" style:family="table-column">
+                            <style:table-column-properties style:column-width="7.301cm" style:rel-column-width="32767*"/>
+                        </style:style>
+                        <style:style style:name="Table6.A1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table6.B1" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table6.A2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="Table6.B2" style:family="table-cell">
+                            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.002cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+                        </style:style>
+                        <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Title" style:master-page-name="">
+                            <style:paragraph-properties fo:break-before="page"/>
+                        </style:style>
+                        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                            <style:paragraph-properties fo:text-align="start" style:justify-single-word="false"/>
+                        </style:style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+                            <text:p text:style-name="P1">Table heading test</text:p>
+                            <table:table table:name="Table6" table:style-name="Table6">
+                                <table:table-column table:style-name="Table6.A" table:number-columns-repeated="2"/>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table6.A1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Heading">Heading One</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table6.B1" office:value-type="string">
+                                        <text:p text:style-name="Table_20_Heading">Heading Two</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                                <table:table-row>
+                                    <table:table-cell table:style-name="Table6.A2" office:value-type="string">
+                                        <text:p text:style-name="P2">one</text:p>
+                                    </table:table-cell>
+                                    <table:table-cell table:style-name="Table6.B2" office:value-type="string">
+                                        <text:p text:style-name="P2">two</text:p>
+                                    </table:table-cell>
+                                </table:table-row>
+                             </table:table>
+                             <text:p text:style-name="p"/>
+                            <text:p text:style-name="p">The end.</text:p>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            
+            <expected match="/html:html/html:body">
+                <body>
+                    <div class="Table6" style="width: 100%; margin: 0px; padding: 0px; text-align:left;">
+                        <table class="Table6" style="border-spacing: 0;empty-cells: show; width:14.601cm; border-collapse: collapse; border: 1.0px solid #000000">
+                            <colgroup>
+                                <col style="width:7.301cm;"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="Table6_A1" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:1.0px solid #000000; padding:0.097cm; ">
+                                        <p>Heading One</p>
+                                    </th>
+                                    <th class="Table6_B1" style="vertical-align: top; border:1.0px solid #000000; padding:0.097cm; ">
+                                        <p>Heading Two</p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="Table6_A2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:none; border-top:none; padding:0.097cm; ">
+                                        <p class="P2">one</p>
+                                    </td>
+                                    <td class="Table6_B2" style="vertical-align: top; border-bottom:1.0px solid #000000; border-left:1.0px solid #000000; border-right:1.0px solid #000000; border-top:none; padding:0.097cm; ">
+                                        <p class="P2">two</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p/>
+                    <p>The end.</p>
+                </body>
+            </expected>
+        </test>
+
+        <test name="p-caption in Table" normalize-white-spaces="true">
+            <source>
+                <office:document-content>
+                    <office:automatic-styles>
+			<style:style style:name="Table59" style:family="table">
+				<style:table-properties style:width="14.601cm" table:align="margins"/>
+			</style:style>
+			<style:style style:name="Table59.A" style:family="table-column">
+				<style:table-column-properties style:column-width="14.601cm" style:rel-column-width="65535*"/>
+			</style:style>
+			<style:style style:name="P12" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+				<style:paragraph-properties fo:text-align="start" style:justify-single-word="false"/>
+			</style:style>
+                    </office:automatic-styles>
+                    <office:body>
+                        <office:text>
+<table:table table:name="Table59" table:style-name="Table59">
+  <table:table-column table:style-name="Table59.A"/>
+  <table:table-row>
+    <table:table-cell office:value-type="string">
+      <text:p text:style-name="h-slide"/>
+    </table:table-cell>
+   </table:table-row>
+   <table:table-row>
+     <table:table-cell office:value-type="string">
+       <text:p text:style-name="P12">
+	 <draw:frame draw:style-name="fr1" draw:name="Object1" text:anchor-type="as-char" svg:width="14.099cm" svg:height="9.999cm" draw:z-index="0">
+           <draw:object xlink:href="./Object 2" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+           <draw:image xlink:href="./ObjectReplacements/Object 2" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+         </draw:frame>
+        </text:p>
+<!--
+	<text:p text:style-name="p">Testing One X</text:p>
+	<text:p text:style-name="p">Testing Two</text:p>
+	<text:p text:style-name="p">Testing Three X</text:p>
+	<text:p text:style-name="p">Testing 4</text:p>
+	<text:p text:style-name="p">Testing 5 X</text:p>
+-->
+	<text:p text:style-name="p-caption">
+		Figure 
+               <text:sequence text:ref-name="refIllustration0" text:name="Illustration" 			text:formula="ooow:Illustration+1" style:num-format="1">1</text:sequence>
+		: ICE authoring, via a stylesheet and some guidelines for authors, uses an 			interoperable sub-set of features from the Office Open XML (OOXML) and Open 			Document Formats (ODF), while targeting a large subset of XHTML.
+	</text:p>
+    </table:table-cell>
+  </table:table-row> 
+</table:table>
+                        </office:text>
+                    </office:body>
+                </office:document-content>
+            </source>
+            
+            <expected match="/html:html/html:body">
+                <body>
+		  <div class="slide">
+		    <h1/>
+		    <p class="P12"><a name="Object1"><!-- --></a><img alt="Object1" class="fr1" height="378" src="./ObjectReplacements/Object 2" style="border:0px; vertical-align: top" width="533"/>
+		    </p>
+		    <p class="caption">
+Figure 1 : ICE authoring, via a stylesheet and some guidelines for authors, uses an interoperable sub-set of features from the Office Open XML (OOXML) and Open Document Formats (ODF), while targeting a large subset of XHTML.
+		     </p>
+		  </div>
+		</body>
+            </expected>
+        </test>
+
+    </tests>
+</testData>

@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition"
+    xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+    xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+    xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+    xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+    xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+    xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+    xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+    xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+    xmlns:math="http://www.w3.org/1998/Math/MathML"
+    xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+    xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+    xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer"
+    xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events"
+    xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <utfx:stylesheet src="ooo2xhtml.xsl"/>
+    <utfx:test>
+        <utfx:name>REAL TEXT</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P2" style:family="paragraph"
+                        style:parent-style-name="li1n" style:list-style-name="li1n"/>
+                </office:automatic-styles>
+                <div>
+                    <text:p text:style-name="p">There are a number of interesting challenges here:</text:p>
+                    <text:list text:style-name="li1n">
+                        <text:list-item>
+                            <text:p text:style-name="P2">How to make a customised export based on styles in Writer.</text:p>
+                        </text:list-item>
+                        <text:list-item>
+                            <text:p text:style-name="P2">This is specific to Writer, and at this stage of the game it&apos;s a moving target.</text:p>
+                        </text:list-item>
+                        <text:list-item>
+                            <text:p text:style-name="P2">How to map styles to nicely nested XHTML.</text:p>
+                        </text:list-item>
+                        <text:list-item>
+                            <text:p text:style-name="P2">This is a perennial topic; while there are word processors with their own idea about structure, which is largely flat.</text:p>
+                        </text:list-item>
+                    </text:list>
+                </div>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>There are a number of interesting challenges here:</p>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>How to make a customised export based on styles in Writer.</p>
+                    </li>
+                    <li>
+                        <p>This is specific to Writer, and at this stage of the game it's a moving target.</p>
+                    </li>
+                    <li>
+                        <p>How to map styles to nicely nested XHTML.</p>
+                    </li>
+                    <li>
+                        <p>This is a perennial topic; while there are word processors with their own idea about structure, which is largely flat.</p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>List Para test</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P1" style:family="paragraph"
+                        style:parent-style-name="li1b" style:master-page-name="Standard"/>
+                </office:automatic-styles>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P1">One</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="li1p">test li1p one</text:p>
+                <text:p text:style-name="li1p">test li1p two</text:p>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="li1b">Two</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <ul class="lib">
+                    <li>
+                        <p>One</p>
+                        <p>test li1p one</p>
+                        <p>test li1p two</p>
+                    </li>
+                    <li>
+                        <p>Two</p>
+                    </li>
+                </ul>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>SIMPLE LIST</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P2" style:family="paragraph"
+                        style:parent-style-name="li1b" style:list-style-name="li1b"/>
+                </office:automatic-styles>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P2">(li1b) List</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">(li1b) List</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <ul class="lib">
+                    <li>
+                        <p>(li1b) List</p>
+                    </li>
+                    <li>
+                        <p>(li1b) List</p>
+                    </li>
+                </ul>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Simple Definition list</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <text:p text:style-name="p">Simple Definition</text:p>
+                <text:p text:style-name="dt1">Term</text:p>
+                <text:p text:style-name="dd1">Definition: text</text:p>
+                <text:p text:style-name="dt1">Term 2</text:p>
+                <text:p text:style-name="dd1">Definition 2: text</text:p>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Simple Definition</p>
+                <dl>
+                    <dt>Term</dt>
+                    <dd>Definition: text</dd>
+                    <dt>Term 2</dt>
+                    <dd>Definition 2: text</dd>
+                </dl>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Fancy Definition list with embedded list level 1</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P2" style:family="paragraph"
+                        style:parent-style-name="li1b" style:list-style-name="li1b"/>
+                </office:automatic-styles>
+                <text:p text:style-name="p">Fancy Definition lists with embedded list following dt</text:p>
+                <text:p text:style-name="dt1">Term</text:p>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P2">list 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">list 1 again</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="dd1">Definition goes here am porta tincidunt felis.</text:p>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Fancy Definition lists with embedded list following dt</p>
+                <dl>
+                    <dt>Term</dt>
+                </dl>
+                <ul class="lib">
+                    <li>
+                        <p> list 1 </p>
+                    </li>
+                    <li>
+                        <p> list 1 again </p>
+                    </li>
+                </ul>
+                <dl>
+                    <dd>Definition goes here am porta tincidunt felis.</dd>
+                </dl>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Fancy Definition list with embedded list level 2</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <text:p text:style-name="p">Fancy Definition lists with embedded list following dt</text:p>
+                <text:p text:style-name="dt1">Term</text:p>
+                <text:list text:style-name="li2b">
+                    <text:list-item>
+                        <text:p text:style-name="li2b">list 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="li2b">list 1 again</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="dd1">Definition goes here am porta tincidunt felis.</text:p>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Fancy Definition lists with embedded list following dt</p>
+                <dl>
+                    <dt>Term</dt>
+                    <dd><ul class="lib">
+                        <li>
+                            <p> list 1 </p>
+                        </li>
+                        <li>
+                            <p> list 1 again </p>
+                        </li>
+                    </ul>
+                    </dd>
+                    <dd>Definition goes here am porta tincidunt felis.</dd>
+                </dl>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Definition containing preformatted text level 2</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <text:p text:style-name="dt1">Term</text:p>
+                <text:p text:style-name="pre2">preformatted     text in here</text:p>
+                <text:p text:style-name="dd1">Definition goes here am porta tincidunt felis.</text:p>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <dl>
+                    <dt>Term</dt>
+                    <dd><pre>preformatted     text in here</pre></dd>
+                    <dd>Definition goes here am porta tincidunt felis.</dd>
+                </dl>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Preformat level 1 in list</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P2" style:family="paragraph"
+                        style:parent-style-name="li1b" style:list-style-name="li1b"/>
+                    <style:style style:name="P3" style:family="paragraph"
+                        style:parent-style-name="pre1" style:list-style-name="li1b"/>
+                </office:automatic-styles>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 2</text:p>
+                        <text:p text:style-name="P3">preformatted     text in here</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <ul class="lib">
+                    <li>
+                        <p>Item 1</p>
+                    </li>
+                    <li>
+                        <p>Item 2</p>
+                    </li>
+                </ul>
+                <pre>preformatted     text in here</pre>
+                <ul class="lib">
+                    <li>
+                        <p>Item 3</p>
+                    </li>
+                </ul>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Preformat level 2 in list</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P2" style:family="paragraph"
+                        style:parent-style-name="li1b" style:list-style-name="li1b"/>
+                    <style:style style:name="P3" style:family="paragraph"
+                        style:parent-style-name="pre2" style:list-style-name="li1b"/>
+                </office:automatic-styles>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 2</text:p>
+                        <text:p text:style-name="P3">preformatted     text in here</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P2">Item 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <ul class="lib">
+                    <li>
+                        <p>Item 1</p>
+                    </li>
+                    <li>
+                        <p>Item 2</p>
+                        <pre>preformatted     text in here</pre>
+                    </li>
+                    <li>
+                        <p>Item 3</p>
+                    </li>
+                </ul>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>SIMPLE ordered list nesting</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P5" style:family="paragraph"
+                        style:parent-style-name="li1n" style:list-style-name="li1n"/>
+                    <style:style style:name="P6" style:family="paragraph"
+                        style:parent-style-name="li2n" style:list-style-name="li2n"/>
+                </office:automatic-styles>
+                <text:p text:style-name="p">List</text:p>
+                <text:list text:style-name="li1n">
+                    <text:list-item>
+                        <text:p text:style-name="P5">item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P5">item 2</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="li2n">
+                    <text:list-item>
+                        <text:p text:style-name="P6">item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P6">item 1</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="li1n" text:continue-numbering="true">
+                    <text:list-item>
+                        <text:p text:style-name="P5">item 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>List</p>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p> item 1 </p>
+                    </li>
+                    <li>
+                        <p> item 2 </p>
+                        <ol class="lin" style="list-style: decimal;">
+                            <li>
+                                <p> item 1 </p>
+                            </li>
+                            <li>
+                                <p> item 1 </p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p> item 3 </p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <!-- 
+              Re-numbering is not supported by strict xhtml in lists
+              This test is to check we are handling the list correctly when OOo sets the list start value
+              NB: If a list is split the numbering should restart in the content anyway
+         -->
+        <utfx:name>List with starting value set</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <text:list-style style:name="L3">
+                        <text:list-level-style-number text:level="1" style:num-suffix="."
+                            style:num-format="1" text:start-value="10">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="2" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="3" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="4" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="5" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="6" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="7" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="8" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="9" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="10" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                    </text:list-style>
+                    <style:style style:name="P10" style:family="paragraph"
+                        style:parent-style-name="li1n" style:list-style-name="L3"/>
+                </office:automatic-styles>
+                <text:p text:style-name="p">This list should start at 10</text:p>
+                <text:list text:style-name="L3">
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 10</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 11</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 12</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 13</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P10">item 14</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>This list should start at 10</p>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>item 10</p>
+                    </li>
+                    <li>
+                        <p>item 11</p>
+                    </li>
+                    <li>
+                        <p>item 12</p>
+                    </li>
+                    <li>
+                        <p>item 13</p>
+                    </li>
+                    <li>
+                        <p>item 14</p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Lonely Level 3 Roman List</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P12" style:family="paragraph"
+                        style:parent-style-name="li3i" style:list-style-name="li3i"/>
+                </office:automatic-styles>
+                <text:p text:style-name="p">Level 3 roman list</text:p>
+                <text:list text:style-name="li3i">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Level 3 roman list</p>
+                <ol class="li-lower-roman" style="list-style: lower-roman;">
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>3 nested lists</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <text:list-style style:name="L1">
+                        <style:style style:name="P1" style:family="paragraph"
+                            style:parent-style-name="p" style:master-page-name="Standard"/>
+                        <style:style style:name="P2" style:family="paragraph"
+                            style:parent-style-name="p">
+                            <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm"/>
+                        </style:style>
+                        <style:style style:name="P3" style:family="paragraph"
+                            style:parent-style-name="li1n" style:list-style-name="L1"/>
+                        <style:style style:name="P4" style:family="paragraph"
+                            style:parent-style-name="li1a" style:list-style-name="L2"/>
+                        <style:style style:name="P5" style:family="paragraph"
+                            style:parent-style-name="li2n" style:list-style-name="L3"/>
+                        <style:style style:name="P6" style:family="paragraph"
+                            style:parent-style-name="li3n" style:list-style-name="li3n"/>
+                        <style:style style:name="P7" style:family="paragraph"
+                            style:parent-style-name="li2n" style:list-style-name="li2n"/>
+                        <style:style style:name="P8" style:family="paragraph"
+                            style:parent-style-name="li1n" style:list-style-name="L4"/>
+                        <style:style style:name="P9" style:family="paragraph"
+                            style:parent-style-name="p">
+                            <style:paragraph-properties fo:break-before="page"/>
+                        </style:style>
+                        <text:list-level-style-number text:level="1" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="2" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="3" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="4" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="5" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="6" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="7" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="8" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="9" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="10" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                    </text:list-style>
+                    <text:list-style style:name="L2">
+                        <text:list-level-style-number text:level="1" style:num-prefix="("
+                            style:num-suffix=")" style:num-format="a">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="2" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="3" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="4" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="5" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="6" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="7" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="8" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="9" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="10" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                    </text:list-style>
+                    <text:list-style style:name="L3">
+                        <text:list-level-style-number text:level="1" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="2" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="3" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="4" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="5" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="6" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="7" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="8" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="9" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="10" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:space-before="0.599cm"
+                                text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                    </text:list-style>
+                    <text:list-style style:name="L4">
+                        <text:list-level-style-number text:level="1" style:num-suffix="."
+                            style:num-format="1" text:start-value="3">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="2" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="3" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="4" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="5" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="6" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="7" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="8" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="9" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                        <text:list-level-style-number text:level="10" style:num-suffix="."
+                            style:num-format="1">
+                            <style:list-level-properties text:min-label-width="0.6cm"/>
+                        </text:list-level-style-number>
+                    </text:list-style>
+                </office:automatic-styles>
+                <text:p text:style-name="p">3 little nested lists</text:p>
+                <text:list text:style-name="L1">
+                    <text:list-item>
+                        <text:p text:style-name="P3">list 1</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="L2">
+                    <text:list-item>
+                        <text:p text:style-name="P4">list li1a</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="L1" text:continue-numbering="true">
+                    <text:list-item>
+                        <text:p text:style-name="P3">list 1</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="L3">
+                    <text:list-item>
+                        <text:p text:style-name="P5">list 2</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P5">list 2</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="li3n">
+                    <text:list-item>
+                        <text:p text:style-name="P6">list 3</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="li2n">
+                    <text:list-item>
+                        <text:p text:style-name="P7">list 2</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:list text:style-name="L4">
+                    <text:list-item>
+                        <text:p text:style-name="P8">list 1</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>3 little nested lists</p>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>list 1</p>
+                    </li>
+                </ol>
+                <ol class="li-lower-alpha" style="list-style: lower-alpha;">
+                    <li>
+                        <p>list li1a</p>
+                    </li>
+                </ol>
+                <ol class="lin" style="list-style: decimal;">
+                    <li>
+                        <p>list 1</p>
+                        <ol class="lin" style="list-style: decimal;">
+                            <li>
+                                <p>list 2</p>
+                            </li>
+                            <li>
+                                <p>list 2</p>
+                                <ol class="lin" style="list-style: decimal;">
+                                    <li>
+                                        <p> list 3 </p>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <p>list 2</p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p>list 1</p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- test numbering up and down -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <utfx:test>
+        <utfx:name>more complicated multi-level numbering with paras</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <text:p text:style-name="h1">Module A</text:p>
+                <text:p text:style-name="p" text:level="1">paragraph0</text:p>
+                <text:p text:style-name="h1n">Module One</text:p>
+                <text:p text:style-name="p">paragraph1</text:p>
+                <text:h text:style-name="h1n" text:level="1">Objectivism and Constructivism
+                <text:span text:style-name="T2"> </text:span> stuff</text:h>
+                <text:p text:style-name="p">paragraph2</text:p>
+                <text:h text:style-name="h1n" text:level="1">Objectivism and Constructivism 2
+                <text:span text:style-name="T2"> </text:span> stuff</text:h>
+                <text:p text:style-name="h2">Topic Two Point One Not Numbered</text:p>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="li1b">list item 1</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="li1b">list item 2</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="h-learning">Learning outcomes X</text:p>
+                <text:p text:style-name="h2">Topic Two Point Two Not Numbered</text:p>
+                <text:p text:style-name="h-learning">Learning outcomes Y</text:p>
+                <text:p text:style-name="h-Objective">Objectives</text:p>
+                <text:p text:style-name="p">paragraph2</text:p>
+                <text:p text:style-name="h1n">Module Three</text:p>
+                <text:p text:style-name="h2n">Topic Three Point One</text:p>
+                <text:p text:style-name="h2n">Topic Three Point Two</text:p>
+                <text:p text:style-name="h-Activity">Activity 1.1</text:p>
+                <text:p text:style-name="h3n">Sub-Topic Three Point Two Point One</text:p>
+                <text:p text:style-name="h3n">Sub-Topic Three Point Two Point Two</text:p>
+                <text:p text:style-name="h4n">Idea Three Point Two Point Two Point One</text:p>
+                <text:p text:style-name="h3n">Sub-Topic Three Point Two Point Three</text:p>
+                <text:p text:style-name="h2n">Topic Three Point Three</text:p>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <h1><a name="test"><!--test--></a>Module A</h1>
+                <p>paragraph0</p>
+                <h1><a name="test"><!--test--></a>1 Module One</h1>
+                <p>paragraph1</p>
+                <h1><a name="test"><!--test--></a>2 Objectivism and Constructivism 
+                <span class="T2"> </span> stuff</h1>
+                <p>paragraph2</p>
+                <h1><a name="test"><!--test--></a>3 Objectivism and Constructivism 2 
+                <span class="T2"> </span> stuff</h1>
+                <h2><a name="test"><!--test--></a>Topic Two Point One Not Numbered</h2>
+                <ul class="lib">
+                    <li>
+                        <p>list item 1</p>
+                    </li>
+                    <li>
+                        <p>list item 2</p>
+                    </li>
+                </ul>
+                <h6><a name="test"><!--test--></a>Learning outcomes X</h6>
+                <h2><a name="test"><!--test--></a>Topic Two Point Two Not Numbered</h2>
+                <h6><a name="test"><!--test--></a>Learning outcomes Y</h6>
+                <h6><a name="test"><!--test--></a>Objectives</h6>
+                <p>paragraph2</p>
+                <h1><a name="test"><!--test--></a>4 Module Three</h1>
+                <h2><a name="test"><!--test--></a>4.1 Topic Three Point One</h2>
+                <h2><a name="test"><!--test--></a>4.2 Topic Three Point Two</h2>
+                <h6><a name="test"><!--test--></a>Activity 1.1</h6>
+                <h3><a name="test"><!--test--></a>4.2.1 Sub-Topic Three Point Two Point One</h3>
+                <h3><a name="test"><!--test--></a>4.2.2 Sub-Topic Three Point Two Point Two</h3>
+                <h4><a name="test"><!--test--></a>4.2.2.1 Idea Three Point Two Point Two Point One</h4>
+                <h3><a name="test"><!--test--></a>4.2.3 Sub-Topic Three Point Two Point Three</h3>
+                <h2><a name="test"><!--test--></a>4.3 Topic Three Point Three</h2>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Lower case Roman List</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P12" style:family="paragraph"
+                        style:parent-style-name="li3i" style:list-style-name="li3i"/>
+                </office:automatic-styles>
+                <text:p text:style-name="p">Level 3 roman list</text:p>
+                <text:list text:style-name="li3i">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Level 3 roman list</p>
+                <ol class="li-lower-roman" style="list-style: lower-roman;">
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Upper case Roman List</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P12" style:family="paragraph"
+                        style:parent-style-name="li3I" style:list-style-name="li3I"/>
+                </office:automatic-styles>
+                <text:p text:style-name="p">Level 3 roman list</text:p>
+                <text:list text:style-name="li3I">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Level 3 roman list</p>
+                <ol class="li-upper-roman" style="list-style: upper-roman;">
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Upper Case Alpha List</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P12" style:family="paragraph"
+                        style:parent-style-name="li3A" style:list-style-name="li3A"/>
+                </office:automatic-styles>
+                <text:p text:style-name="p">Level 3 alpha list</text:p>
+                <text:list text:style-name="li3A">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Level 3 alpha list</p>
+                <ol class="li-upper-alpha" style="list-style: upper-alpha;">
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <utfx:test>
+        <utfx:name>Lower Case Alpha List</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <office:automatic-styles>
+                    <style:style style:name="P12" style:family="paragraph"
+                        style:parent-style-name="li3a" style:list-style-name="li3a"/>
+                </office:automatic-styles>
+                <text:p text:style-name="p">Level 3 alpha list</text:p>
+                <text:list text:style-name="li3a">
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="P12">list level 3</text:p>
+                    </text:list-item>
+                </text:list>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Level 3 alpha list</p>
+                <ol class="li-lower-alpha" style="list-style: lower-alpha;">
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                    <li>
+                        <p> list level 3 </p>
+                    </li>
+                </ol>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    <!-- # Commented out as not scheduled to be fixed unitl version 2 see ticket #2611 -->
+    <!-- A table in the list caused the remain list items not to be rendered -->
+    <!--        
+    <utfx:test>
+        <utfx:name>Table in list with missing list items</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no">
+                <text:p text:style-name="p">Paragraph</text:p>
+                <text:list text:style-name="li1b">
+                    <text:list-item>
+                        <text:p text:style-name="li1b">item 1 </text:p>
+                    </text:list-item>
+                </text:list>
+                <table:table table:name="Table49" table:style-name="Table49">
+                    <table:table-column table:style-name="Table49.A"/>
+                    <table:table-column table:style-name="Table49.B"/>
+                    <table:table-column table:style-name="Table49.C"/>
+                    <table:table-row>
+                        <table:table-cell table:style-name="Table49.A1" office:value-type="string">
+                            <text:p text:style-name="Table_20_Contents">Cell 1</text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table49.A1" office:value-type="string">
+                            <text:p text:style-name="Table_20_Contents">Cell 2</text:p>
+                        </table:table-cell>
+                        <table:table-cell table:style-name="Table49.C1" office:value-type="string">
+                            <text:p text:style-name="Table_20_Contents">Cell 3</text:p>
+                        </table:table-cell>
+                    </table:table-row>
+                </table:table>
+                
+                <text:p text:style-name="li1p"/>
+                <text:list text:style-name="li1b" text:test="Hello">
+                    <text:list-item>
+                        <text:p text:style-name="li1b">missing item 2</text:p>
+                    </text:list-item>
+                    <text:list-item>
+                        <text:p text:style-name="li1b">missing item 3</text:p>
+                    </text:list-item>
+                </text:list>
+                <text:p text:style-name="p">paragraph</text:p>
+            </utfx:source>
+            <utfx:expected validate="no">
+                <p>Paragraph</p>
+                <ul class="lib">
+                    <li>
+                        <p>item 1</p>
+                    </li>
+                </ul>
+                <div class="Table49" align="left"><table class="Table49"><tbody>   
+                        <tr>
+                            <td class="Table49_A1">
+                                <p xmlns="">Cell 1</p></td>
+                            <td class="Table49_A1">
+                                <p xmlns="">Cell 2</p></td>
+                            <td class="Table49_C1">
+                                <p xmlns="">Cell 3</p></td>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <ul class="lib">
+                    <li>
+                        <p>missing item 2</p>
+                    </li>
+                    <li>
+                        <p>missing item 3</p>
+                    </li>
+                </ul>
+                <p>paragraph</p>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    -->
+    
+</utfx:tests>

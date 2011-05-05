@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }</style></head><body><p/><p/><p><object width="400" type="text/plain" data="http://www.usq.edu.au" height="400"><param name="src" value="http://www.usq.edu.au"/><param name="type" value="text/plain"/><param name="autoStart" value="0"/><param name="controller" value="true"/><p title="Object failed to load, alternative text provided"><a href="http://www.usq.edu.au">text</a></p></object></p></body></html>

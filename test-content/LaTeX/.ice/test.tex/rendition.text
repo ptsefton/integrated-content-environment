@@ -1,0 +1,56 @@
+
+   
+     
+     Default Template 
+     
+      .rendition-links { text-align: right; }
+      .body table td { vertical-align: top; }
+     
+     
+   
+   
+     
+       
+     
+       
+     
+     
+       
+        the importance of being Fractal
+       
+       
+         Bron Chandler 
+       
+       
+         June 23, 2009 
+       
+     
+     
+       To solve the differential equation
+       y “  -   y ‘  -  2 y  =
+      0,
+       
+       substitute the exponential  y  = exp( λt ),
+       
+       and deduce that  λ 2   - 
+       λ   -  2 = 0.
+       
+     
+     
+       
+     
+     
+     
+       
+         
+           
+             
+           
+         
+         
+          (1)
+         
+       
+     
+     
+   

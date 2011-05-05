@@ -1,0 +1,1329 @@
+<?xml version="1.0"?>
+<html>
+<head>
+	
+	<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+	<title/>
+	<meta content="openoffice.org 2.3  (win32)" name="generator"/>
+	<meta content="20090506;15201400" name="created"/>
+	<meta content="chandler" name="changedby"/>
+	<meta content="20090506;15201400" name="changed"/>
+	
+	<style>
+		<!-- 
+		BODY,DIV,TABLE,THEAD,TBODY,TFOOT,TR,TH,TD,P { font-family:"Arial"; font-size:x-small }
+		 -->
+	</style>
+	
+</head>
+
+<body text="#000000">
+<hr/>
+	<p><center>
+		<h1>Overview</h1>
+		<a href="#table0">All Creative Works</a><br/>
+		<a href="#table1">OrigianlCreativeWorks</a><br/>
+		<a href="#table2">Curated</a><br/>
+		<a href="#table3">Recorded</a><br/>
+		<a href="#table4">LivePerformance</a><br/>
+		
+	</center></p>
+<hr/>
+<a name="table0"><h1>Sheet 1: <em>All Creative Works</em></h1></a>
+<table rules="none" cellspacing="0" frame="void" border="0" cols="4">
+	<colgroup><col width="130"><col width="175"><col width="123"><col width="200"/></col></col></col></colgroup>
+	<tbody>
+		<tr>
+			<td colspan="4" align="center" valign="middle" width="628" height="38"><b><font size="5">Single New Type for All Creative Works </font></b></td>
+			</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="center" valign="middle"><b>Field Label</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Type of Field/</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Mandatory?</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Explanation (help text)</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="113" align="left" valign="top"><b>Item Type  dc:type</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><b>set:  Book, Book Chapter, Conference Item, Conference Paper, Creative Work, Journal Article, Other, QUT Thesis, Report, Review, Thesis, Working Paper  </b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Mandatory</td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b><br/></b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>Title  dc:title</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Mandatory</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The title of the work (mandatory)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="289" align="left" valign="top"><b>Creative Work Sub-type</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">set (visual Art Work, Design/Architectural Work, Textual Work,Exhibition/Event, Web-based Exhibition, Festival, Film/video, Performance, Inter-arts, Digital Creative Work, Website, Live performance (Music), Live Performance (Play), Live performance (Dance), Other)  </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Mandatory</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select one subtype from the set that best describes the work.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Description  dc:description</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Mandatory</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">A description of the work or the context of the work. No complicated text formatting is possible.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Date dc:date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">date  YYYY</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Mandatory</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The date this work was published or first  made public (for non-text items)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="160" align="left" valign="top"><b>Authors/Creators dc:creator</b></td>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="middle"><font face="courier new">compound</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Mandatory (if no oganisational authors/creators)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Those primarily responsible for the creation of this work. If there are more than four creators, click on the [More input rows] button.    If the work has been created by a named group rather than individuals, please fill in the 'Organisational creators'' instead.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="112" align="left" valign="top"><b>Oganisational authors/ Creators dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Mandatory (if no personal authors/creators)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Companies, organisations, research centres/groups, or collaborative partnerships that have created this work.  Example: Education Queensland. Please put funding bodies and sponsorship in the <span class="spCh spChx2018">&#x2018;</span>Funders<span class="spCh spChx2019">&#x2019;</span> field. </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="496" align="left" valign="top"><b>Other Contributors dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">compound, set for role (Actor, Actress, Animator, Author of screenplay, Calligrapher, Choreographer, Cinematographer, Composer, Conductor, Conference organiser, Costume designer, Curator, Dancer, Designer, Director, Exhibitor, Film editor, illustrator, Instrumentalist,  Librettist, Lighting designer, Lyricist, Musician, Performer, Photographer, Printmaker, Producer, Production personnel, Programmer, Recording engineer, Researcher, Set designer, Singer, Translator, Videographer, Vocalist)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The names of others who have contributed to the production of this work and the role they have played, such as director, curator or photographer.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Copyright Holders dc:rights</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the name of the person, firm or corporate body which holds the copyright for the work</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Funders</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The sponsoring bodies who contributed funding for the creation of this work.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>RM Number</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Insert the Research master number if known</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="82" align="left" valign="top"><b>Material</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are descibing a physical object(s), state the media, Example: Oil on Canvas, Example:Silk, Example: 3 Screen Video.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="82" align="left" valign="top"><b>Measurements or Duration</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are describing a physical object(s), state its dimensions. If you are describing a video, film, audio work or performance, state its duration.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Published source dc:source</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publication details for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Publisher dc:publisher</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publisher name for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="145" align="left" valign="top"><b>Locations/venues</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">Compound: "Location" (text), "from date" (date) "to date" (date)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If this item is an exhibition or performance, fill in the locations/venues where it has taken place. Put in the most recent locations/venues first. You can also use this field to specify the location of installations, site-specific, or public art works.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="113" align="left" valign="top"><b>Number of pieces</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you were one of the exhibitors, fill in the number of your pieces that were shown in this exhibition. If you were the curator or organiser, fill in the total number of pieces in this exhibition.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Related Exhibitions</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Exhibitions that this work has featured in. If there is a URL for the exhibition, please enter this in the 'Related URLs' field</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="113" align="left" valign="top"><b>Contact Email Address</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">email</font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The contact email address for this work. If the full content is not available to the public, then requests to view the full content will be sent to this email. The email address will not be made public.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Additional URLs dc:relation</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">URLs that are related to this work, such as an artist's website or a a gallery website, eg http://www.mywebsite.com.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="97" align="left" valign="top"><b>Related Publications</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Any publications relating to this work, such as an exhibition catalogue, article or review. If there is a URL for the publication, please enter this in the 'Additional URLs' field.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="113" align="left" valign="top"><b>References</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Collapsed (  Use + symbol to display field )<img src="qut_creative_works_draft_files/3fb9a415_64x34.jpg" vspace="39" hspace="29" width="64" height="34"/>
+			</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left">If any of your documents have a list of references, you are strongly encouraged to paste this list into the box below. It may be used to link your item to those it cites and to those that cite it.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="113" align="left" valign="top"><b>Additional Information</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Collapsed</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you think you can specify some useful information about your deposit that can't be entered anywhere else, please enter it here. This information will appear on the public summary page for this item.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Subjects dc:subject</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (ANZSRC subject Headings)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle">Select 1-3 subject headings from the list</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Keywords</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter salient keywords.  Enter keyword phrases in separate boxes or use semi-colons as delimiters.</td>
+		</tr>
+		<tr>
+			<td align="left" height="32"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="left" height="30"><font size="5">Metadata for attached files: </font></td>
+			</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Type of Field</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Mandatory?</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle">Help Text</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="273" align="left" valign="top"><b>Content</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (accepted version, published version, supplemental material, presentation, cover image, additional metadata, catalogue, poster, programme, promotional material, review, draft version, submitted version, Updated version, other)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select an appropriate descriptor from the set for the file being uploaded.  If none are appropriate, select "other" and use the 'Description' field below to enter a short description (1-2 words). Where there are multiple files attached to an eprint record, the Content/Description helps differentiate the files. Example: an eprint record for a journal article may include an open access copy of the 'accepted version' of the article plus a file contatining supplementary material.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Image credit</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the image credit, if different from the creator of the work (who created the image of the work?)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="273" align="left" valign="top"><b>Format    dc:format</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (HTML, PDF, Postscript, Plain text, MS Power point, MS Word, Audio (AC3), Audio (MP3/MPEG), Audio (WAV), Image (JPEG), Image (PNG), Image (GIF), Image (BMP), Image (TIFF) Image (Photoshop), Image (PDF), Video (MPEG), Video (Quicktime) Video (Windows Media), Video (AVI), Video (Flash), Archive (Zip), Other</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please select the format of this document. If the format you are uploading is not in the set, select "other" and use the Description field to enter the file format.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Description </b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If content or format is 'other', add a brief description</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="193" align="left" valign="top"><b>Visible to</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (Anyone, Registered users only, Repository staff only) </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please indicate the required "security level" of this document. Who is allowed to download it? If you set this to anything other than "anyone" then please provide a contact email for this eprint when prompted. This will allow users to use a web form to request a copy of the document, and you can decide on a case-by-case basis.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="97" align="left" valign="top"><b>Sensitivity</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Description of how to be handled if culturally or commercially sensitive.  It is also possible to restrict access to the attached file by selecting Repository Staff Only.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="304" align="left" valign="top"><b>License</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (All rights reserved, Creative Commons Attribution No Derivatives, CC Attribution, CC Attribution Non-commercial,CC Attribution Non-commercial no derivatives, CC Attribution Non-commercial Share-Alike, CC Attribution Share-Alike, CC Public Domain Dedication, CC GNU GPL (Software), CC GNU LGPL (Software)  </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Specify an explicit 'end-user' license for this document. This repository supports Creative Commons Licenses. The default license is 'Attribution No Derivatives'. To find out more about the differences between licenses, click here. If you are depositing an image, film or audio file, and you want to prevent users downloading it, select 'All Rights Reserved'. users will still be able to preview it but will not be given the option to download it</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="82" align="left" valign="top"><b>Embargo expiry date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the date that a publisher- or sponsor-imposed embargo expires (if known). On and after this date, this document will be made publicly accessible.</td>
+		</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td height="36" colspan="4" align="left" rowspan="2" valign="middle">Acknowledgement:  This metadata table is based on the work of the JISC-funded Kultur Project in the UK.  See: http://kultur.eprints.org/</td>
+			</tr>
+	</tbody>
+</table>
+<!-- ************************************************************************** -->
+<hr/>
+<a name="table1"><h1>Sheet 2: <em>OrigianlCreativeWorks</em></h1></a>
+<table rules="none" cellspacing="0" frame="void" border="0" cols="4">
+	<colgroup><col width="130"><col width="175"><col width="123"><col width="271"/></col></col></col></colgroup>
+	<tbody>
+		<tr>
+			<td colspan="3" align="center" width="428" height="38"><b><font size="5">New Eprint Types for QUT ePrints </font></b></td>
+			<td width="271" align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center" sdnum="3081;3081;mmm-yy" height="18">Note:  This is a work in progress as consultation with QUT research community is still ongoing</td>
+			</tr>
+		<tr>
+			<td colspan="4" align="left" height="35" sdnum="3081;3081;mmm-yy" valign="middle"><br/></td>
+			</tr>
+		<tr>
+			<td colspan="3" align="left" height="30"><b><font size="5">Type = Original Creative Work</font></b></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="3" style="border-bottom: 1px solid #000000" align="left" height="18"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="center" valign="middle"><b>Field Label</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Type of Field/</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center"><b>Help Text</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="134" align="left" valign="top"><b>Item Type  dc:type</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">set:  Book, Book Chapter, Conference Item, Conference Paper, Original Creative Work, Curated Exhibition or Event, Recorded/Rendered Work/ Live Performance, Journal Article, Other, QUT Thesis, Report, Review, Thesis, Working Paper  </td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><b>Scope Notes Original Creative Work:   Includes; paintings, sculptures, photographic images,installations, designs, music compositions and written creative works such as novels, plays, poems &amp; art reviews that are not suitable for inclusion as a scholarly  book or journal article</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>Title  dc:title</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The title of the work (mandatory)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Original Creative Work Sub-type</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set visual Art Work, Design/Architectural Work, Textual Work, other</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select one subtype from the set that best describes the work.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Description  dc:description</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">A description of the work or the context of the work. No complicated text formatting is possible.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Date dc:date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">date  YYYY</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The date this work was published or first  made public (for non-text items)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="144" align="left" valign="top"><b>Authors/Creators dc:creator</b></td>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="middle"><font face="courier new">compound</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required (if organisational creators not filled in)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Those primarily responsible for the creation of this work. If there are more than four creators, click on the [More input rows] button.    If the work has been created by a named group rather than individuals, please fill in the 'Organisational creators'' instead.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="97" align="left" valign="top"><b>Oganisational authors/ Creators dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required (if creators not filled in)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Companies, organisations, research centres/groups, or collaborative partnerships that have created this work.  Example: Education Queensland. Please put funding bodies and sponsorship in the <span class="spCh spChx2018">&#x2018;</span>Funders<span class="spCh spChx2019">&#x2019;</span> field. </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="496" align="left" valign="top"><b>Other Contributors dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">compound, set for role (Actor, Actress, Animator, Author of screenplay, Calligrapher, Choreographer, Cinematographer, Composer, Conductor, Conference organiser, Costume designer, Curator, Dancer, Designer, Director, Exhibitor, Film editor, illustrator, Instrumentalist,  Librettist, Lighting designer, Lyricist, Musician, Performer, Photographer, Printmaker, Producer, Production personnel, Programmer, Recording engineer, Researcher, Set designer, Singer, Translator, Videographer, Vocalist)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The names of others who have contributed to the production of this work and the role they have played, such as director, curator or photographer.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Copyright Holders dc:rights</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the name of the person, firm or corporate body which holds the copyright for the work</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Funders</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The sponsoring bodies who contributed funding for the creation of this work.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>RM Number</b></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">text</font></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The grant number relating to this funding</td>
+		</tr>
+		<tr>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>RM project code</b></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The project or series that this work is part of.</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Material</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are descibing a physical object(s), state the media, Example: Oil on Canvas, Example:Silk, Example: 3 Screen Video.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Measurements or Duration</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are describing a physical object(s), state its dimensions. If you are describing a video, film, audio work or performance, state its duration.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Published source dc:source</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publication details for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Publisher dc:publisher</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publisher name for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="113" align="left" valign="top"><b>Locations/venues</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">Compound: "Location" (text), "from date" (date) "to date" (date)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If this item is an exhibition or performance, fill in the locations/venues where it has taken place. Put in the most recent locations/venues first. You can also use this field to specify the location of installations, site-specific, or public art works.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Related Exhibitions</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Exhibitions that this work has featured in. If there is a URL for the exhibition, please enter this in the 'Related URLs' field</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="82" align="left" valign="top"><b>Contact Email Address</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">email</font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The contact email address for this work. If the full content is not available to the public, then requests to view the full content will be sent to this email. The email address will not be made public.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Additional URLs dc:relation</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">URLs that are related to this work, such as an artist's website or a a gallery website, eg http://www.mywebsite.com.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Related Publications</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Any publications relating to this work, such as an exhibition catalogue, article or review. If there is a URL for the publication, please enter this in the 'Additional URLs' field.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="82" align="left" valign="top"><b>References</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">C (collapsed)  Use + symbol to display field <img src="qut_creative_works_draft_files/3fb9a415_64x26.jpg" vspace="28" hspace="29" width="64" height="26"/>
+			</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left">If any of your documents have a list of references, you are strongly encouraged to paste this list into the box below. It may be used to link your item to those it cites and to those that cite it.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="82" align="left" valign="top"><b>Additional Information</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">C</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you think you can specify some useful information about your deposit that can't be entered anywhere else, please enter it here. This information will appear on the public summary page for this item.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Subjects dc:subject</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (ANZSRC subject Headings)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle">Select 1-3 subject headings from the list</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Keywords</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter salient keywords.  Enter keyword phrases in separate boxes or use semi-colons as delimiters.</td>
+		</tr>
+		<tr>
+			<td align="left" height="308"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="left" height="30"><font size="5">Metadata for attached files: </font></td>
+			</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Type of Field</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b> Original Creative Work</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle">Help Text</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="241" align="left" valign="top"><b>Content</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (accepted version, published version, supplemental material, presentation, cover image, additional metadata, catalogue, poster, programme, promotional material, review, draft version, submitted version, Updated version, other)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select an appropriate descriptor from the set for the file being uploaded.  If none are appropriate, select "other" and use the 'Description' field below to enter a short description (1-2 words). Where there are multiple files attached to an eprint record, the Content/Description helps differentiate the files. Example: an eprint record for a journal article may include an open access copy of the 'accepted version' of the article plus a file contatining supplementary material.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Image credit</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the image credit, if different from the creator of the work (who created the image of the work?)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="273" align="left" valign="top"><b>Format    dc:format</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (HTML, PDF, Postscript, Plain text, MS Power point, MS Word, Audio (AC3), Audio (MP3/MPEG), Audio (WAV), Image (JPEG), Image (PNG), Image (GIF), Image (BMP), Image (TIFF) Image (Photoshop), Image (PDF), Video (MPEG), Video (Quicktime) Video (Windows Media), Video (AVI), Video (Flash), Archive (Zip), Other</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please select the format of this document. If the format you are uploading is not in the set, select "other" and use the Description field to enter the file format.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Description </b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If content or format is 'other', add a brief description</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="129" align="left" valign="top"><b>Visible to</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (Anyone, Registered users only, Repository staff only) </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please indicate the required "security level" of this document. Who is allowed to download it? If you set this to anything other than "anyone" then please provide a contact email for this eprint when prompted. This will allow users to use a web form to request a copy of the document, and you can decide on a case-by-case basis.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Sensitivity</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Description of how to be handled if culturally or commercially sensitive.  It is also possible to restrict access to the attached file by selecting Repository Staff Only.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="304" align="left" valign="top"><b>License</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (All rights reserved, Creative Commons Attribution No Derivatives, CC Attribution, CC Attribution Non-commercial,CC Attribution Non-commercial no derivatives, CC Attribution Non-commercial Share-Alike, CC Attribution Share-Alike, CC Public Domain Dedication, CC GNU GPL (Software), CC GNU LGPL (Software)  </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Specify an explicit 'end-user' license for this document. This repository supports Creative Commons Licenses. The default license is 'Attribution No Derivatives'. To find out more about the differences between licenses, click here. If you are depositing an image, film or audio file, and you want to prevent users downloading it, select 'All Rights Reserved'. users will still be able to preview it but will not be given the option to download it</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Embargo expiry date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the date that a publisher- or sponsor-imposed embargo expires (if known). On and after this date, this document will be made publicly accessible.</td>
+		</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td height="36" colspan="4" align="left" rowspan="2" valign="middle">Acknowledgement:  This metadata table is based on the work of the JISC-funded Kultur Project in the UK.  See: http://kultur.eprints.org/</td>
+			</tr>
+	</tbody>
+</table>
+<!-- ************************************************************************** -->
+<hr/>
+<a name="table2"><h1>Sheet 3: <em>Curated</em></h1></a>
+<table rules="none" cellspacing="0" frame="void" border="0" cols="4">
+	<colgroup><col width="130"><col width="245"><col width="119"><col width="402"/></col></col></col></colgroup>
+	<tbody>
+		<tr>
+			<td width="130" align="left" height="38"><b><font size="5">New Eprint Types for QUT ePrints </font></b></td>
+			<td width="245" align="left" valign="top"><br/></td>
+			<td width="119" align="left"><br/></td>
+			<td width="402" align="left"><br/></td>
+		</tr>
+		<tr>
+			<td align="left" sdnum="3081;3081;mmm-yy" height="18">Note:  This is a work in progress as consultation with QUT research community is still ongoing</td>
+			<td align="left" sdnum="3081;3081;mmm-yy"><br/></td>
+			<td align="left" sdnum="3081;3081;mmm-yy"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="left" height="35" sdnum="3081;3081;mmm-yy" valign="middle"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="left" height="31"><b><font size="5">Type = Curated Exhibition or Event</font></b></td>
+			</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="center" valign="middle"><b>Field Label</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="top"><b>Type of Field/</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Explanation (help text)</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="113" align="left" valign="top"><b>Item Type  dc:type</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">set:  Book, Book Chapter, Conference Item, Conference Paper, Original Creative Work, Curated Exhibition or Event, Recorded/Rendered Work/ Live Performance, Journal Article, Other, QUT Thesis, Report, Review, Thesis, Working Paper  </td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><b>Scope Notes for Curated Exhibition or Event:  Includes: the  curation and/or production of   festivals, events or exhibitions. The research component is within the curation rather than the creation of the works in the  exhibited collections.</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>Title  dc:title</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The title of the work (mandatory)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Sub-type of Curated/Exhibited Work</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (Exhibition/Event, , Web-based Exhibition, Festival, Other)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select one subtype from the set that best describes the work.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Description  dc:description</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">A description of the work or the context of the work. No complicated text formatting is possible.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Date dc:date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">date  YYYY</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The date this work was published or first  made public (for non-text items)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="97" align="left" valign="top"><b>Authors/Creators dc:creator</b></td>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top"><font face="courier new">compound</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required (if group creators not filled in)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Those primarily responsible for the creation of this work. If there are more than four creators, click on the [More input rows] button.    If the work has been created by a named group rather than individuals, please fill in the 'Organisational creators'' instead.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="65" align="left" valign="top"><b>Oganisational authors/ Creators dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required (if creators not filled in)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Companies, organisations, research centres/groups, or collaborative partnerships that have created this work.  Example: Education Queensland. Please put funding bodies and sponsorship in the <span class="spCh spChx2018">&#x2018;</span>Funders<span class="spCh spChx2019">&#x2019;</span> field. </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="337" align="left" valign="top"><b>Other Contributors dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">compound, set for role (Actor, Actress, Animator, Author of screenplay, Calligrapher, Choreographer, Cinematographer, Composer, Conductor, Conference organiser, Costume designer, Curator, Dancer, Designer, Director, Exhibitor, Film editor, illustrator, Instrumentalist,  Librettist, Lighting designer, Lyricist, Musician, Performer, Photographer, Printmaker, Producer, Production personnel, Programmer, Recording engineer, Researcher, Set designer, Singer, Translator, Videographer, Vocalist)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The names of others who have contributed to the production of this work and the role they have played, such as director, curator or photographer.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Copyright Holders dc:rights</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the name of the person, firm or corporate body which holds the copyright for the work</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Funders</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The sponsoring bodies who contributed funding for the creation of this work.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>RM Number</b></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The grant number relating to this funding</td>
+		</tr>
+		<tr>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>RM project code</b></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The project or series that this work is part of.</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Material</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are descibing a physical object(s), state the media, Example: Oil on Canvas, Example:Silk, Example: 3 Screen Video.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Measurements or Duration</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are describing a physical object(s), state its dimensions. If you are describing a video, film, audio work or performance, state its duration.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Published source dc:source</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publication details for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Publisher dc:publisher</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publisher name for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Locations/venues</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">Compound: "Location" (text), "from date" (date) "to date" (date)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If this item is an exhibition or performance, fill in the locations/venues where it has taken place. Put in the most recent locations/venues first. You can also use this field to specify the location of installations, site-specific, or public art works.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Number of pieces</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you were one of the exhibitors, fill in the number of your pieces that were shown in this exhibition. If you were the curator or organiser, fill in the total number of pieces in this exhibition.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Related Exhibitions</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Exhibitions that this work has featured in. If there is a URL for the exhibition, please enter this in the 'Related URLs' field</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Contact Email Address</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">email</font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The contact email address for this work. If the full content is not available to the public, then requests to view the full content will be sent to this email. The email address will not be made public.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Additional URLs dc:relation</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">URLs that are related to this work, such as an artist's website or a a gallery website, eg http://www.mywebsite.com.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Related Publications</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Any publications relating to this work, such as an exhibition catalogue, article or review. If there is a URL for the publication, please enter this in the 'Additional URLs' field.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>References</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Compressed</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left">If any of your documents have a list of references, you are strongly encouraged to paste this list into the box below. It may be used to link your item to those it cites and to those that cite it.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Additional Information</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Compressed<img src="qut_creative_works_draft_files/3fb9a415_64x26.jpg" vspace="19" hspace="27" width="64" height="26"/>
+			</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you think you can specify some useful information about your deposit that can't be entered anywhere else, please enter it here. This information will appear on the public summary page for this item.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Subjects dc:subject</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (ANZSRC subject Headings)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="middle">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle">Select 1-3 subject headings from the list</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Keywords</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter salient keywords.  Enter keyword phrases in separate boxes or use semi-colons as delimiters.</td>
+		</tr>
+		<tr>
+			<td align="left" height="135"><br/></td>
+			<td align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="left" height="30"><font size="5">Metadata for attached files: </font></td>
+			</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><b>Type of Field</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle"><b>Curated Exhibition or Event</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle">Help Text</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="161" align="left" valign="top"><b>Content</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (accepted version, published version, supplemental material, presentation, cover image, additional metadata, catalogue, poster, programme, promotional material, review, draft version, submitted version, Updated version, other)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select an appropriate descriptor from the set for the file being uploaded.  If none are appropriate, select "other" and use the 'Description' field below to enter a short description (1-2 words). Where there are multiple files attached to an eprint record, the Content/Description helps differentiate the files. Example: an eprint record for a journal article may include an open access copy of the 'accepted version' of the article plus a file contatining supplementary material.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Image credit</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the image credit, if different from the creator of the work (who created the image of the work?)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="209" align="left" valign="top"><b>Format    dc:format</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (HTML, PDF, Postscript, Plain text, MS Power point, MS Word, Audio (AC3), Audio (MP3/MPEG), Audio (WAV), Image (JPEG), Image (PNG), Image (GIF), Image (BMP), Image (TIFF) Image (Photoshop), Image (PDF), Video (MPEG), Video (Quicktime) Video (Windows Media), Video (AVI), Video (Flash), Archive (Zip), Other</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please select the format of this document. If the format you are uploading is not in the set, select "other" and use the Description field to enter the file format.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>Description </b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">O</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If content or format is 'other', add a brief description</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="97" align="left" valign="top"><b>Visible to</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (Anyone, Registered users only, Repository staff only) </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">O</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please indicate the required "security level" of this document. Who is allowed to download it? If you set this to anything other than "anyone" then please provide a contact email for this eprint when prompted. This will allow users to use a web form to request a copy of the document, and you can decide on a case-by-case basis.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Sensitivity</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Description of how to be handled if culturally or commercially sensitive.  It is also possible to restrict access to the attached file by selecting Repository Staff Only.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="209" align="left" valign="top"><b>License</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (All rights reserved, Creative Commons Attribution No Derivatives, CC Attribution, CC Attribution Non-commercial,CC Attribution Non-commercial no derivatives, CC Attribution Non-commercial Share-Alike, CC Attribution Share-Alike, CC Public Domain Dedication, CC GNU GPL (Software), CC GNU LGPL (Software)  </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Specify an explicit 'end-user' license for this document. This repository supports Creative Commons Licenses. The default license is 'Attribution No Derivatives'. To find out more about the differences between licenses, click here. If you are depositing an image, film or audio file, and you want to prevent users downloading it, select 'All Rights Reserved'. users will still be able to preview it but will not be given the option to download it</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Embargo expiry date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the date that a publisher- or sponsor-imposed embargo expires (if known). On and after this date, this document will be made publicly accessible.</td>
+		</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><br/></td>
+		</tr>
+		<tr>
+			<td height="36" colspan="4" align="left" rowspan="2" valign="middle">Acknowledgement:  This metadata table is based on the work of the JISC-funded Kultur Project in the UK.  See: http://kultur.eprints.org/</td>
+			</tr>
+	</tbody>
+</table>
+<!-- ************************************************************************** -->
+<hr/>
+<a name="table3"><h1>Sheet 4: <em>Recorded</em></h1></a>
+<table rules="none" cellspacing="0" frame="void" border="0" cols="4">
+	<colgroup><col width="130"><col width="283"><col width="108"><col width="383"/></col></col></col></colgroup>
+	<tbody>
+		<tr>
+			<td width="130" align="left" height="38"><b><font size="5">New Eprint Types for QUT ePrints </font></b></td>
+			<td width="283" align="left"><br/></td>
+			<td width="108" align="left"><br/></td>
+			<td width="383" align="left"><br/></td>
+		</tr>
+		<tr>
+			<td align="left" sdnum="3081;3081;mmm-yy" height="18">Note:  This is a work in progress as consultation with QUT research community is still ongoing</td>
+			<td align="left" sdnum="3081;3081;mmm-yy"><br/></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left" height="35" sdnum="3081;3081;mmm-yy" valign="middle"><br/></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="left" height="31"><b><font size="5">Type = Recorded /Rendered Work</font></b></td>
+			</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="center" valign="middle"><b>Field Label</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Type of Field/</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Explanation (help text)</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="97" align="left" valign="top"><b>Item Type  dc:type</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">set:  Book, Book Chapter, Conference Item, Conference Paper, Original Creative Work, Curated Exhibition or Event, Recorded/Rendered Work/ Live Performance, Journal Article, Other, QUT Thesis, Report, Review, Thesis, Working Paper  </td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><b>Scope Notes for Recorded/Rendered Work: Includes: films, videos, digtial artworks,computer games, animations, creative 3D models, digital outputs of architectural /design projects. The research component is within the innovative recording or rendering of the work.</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>Title  dc:title</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The title of the work (mandatory)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Sub-type of Recorded Work/Production Innovation</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">set (Film/video, Performance, Inter-arts, Digital Creative Work, Website, Web Exhibition, Other) </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select one subtype from the set that best describes the work.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Description  dc:description</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">A description of the work or the context of the work. No complicated text formatting is possible.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Date dc:date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">date  YYYY</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The date this work was published or first  made public (for non-text items)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="112" align="left" valign="top"><b>Authors/Creators dc:creator</b></td>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="middle"><font face="courier new">compound</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required (if group creators not filled in)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Those primarily responsible for the creation of this work. If there are more than four creators, click on the [More input rows] button.    If the work has been created by a named group rather than individuals, please fill in the 'Organisational creators'' instead.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="65" align="left" valign="top"><b>Oganisational authors/ Creators dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required (if creators not filled in)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Companies, organisations, research centres/groups, or collaborative partnerships that have created this work.  Example: Education Queensland. Please put funding bodies and sponsorship in the <span class="spCh spChx2018">&#x2018;</span>Funders<span class="spCh spChx2019">&#x2019;</span> field. </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="273" align="left" valign="top"><b>Other Contributors dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">compound, set for role (Actor, Actress, Animator, Author of screenplay, Calligrapher, Choreographer, Cinematographer, Composer, Conductor, Conference organiser, Costume designer, Curator, Dancer, Designer, Director, Exhibitor, Film editor, illustrator, Instrumentalist,  Librettist, Lighting designer, Lyricist, Musician, Performer, Photographer, Printmaker, Producer, Production personnel, Programmer, Recording engineer, Researcher, Set designer, Singer, Translator, Videographer, Vocalist)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The names of others who have contributed to the production of this work and the role they have played, such as director, curator or photographer.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Copyright Holders dc:rights</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the name of the person, firm or corporate body which holds the copyright for the work</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Funders</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The sponsoring bodies who contributed funding for the creation of this work.</td>
+		</tr>
+		<tr>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>RM Number</b></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">text</font></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The grant number relating to this funding</td>
+		</tr>
+		<tr>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>RM project code</b></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td bgcolor="#c0c0c0" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The project or series that this work is part of.</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Material</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are descibing a physical object(s), state the media, Example: Oil on Canvas, Example:Silk, Example: 3 Screen Video.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Measurements or Duration</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are describing a physical object(s), state its dimensions. If you are describing a video, film, audio work or performance, state its duration.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Published source dc:source</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publication details for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Publisher dc:publisher</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publisher name for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Contact Email Address</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">email</font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The contact email address for this work. If the full content is not available to the public, then requests to view the full content will be sent to this email. The email address will not be made public.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Additional URLs dc:relation</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">URLs that are related to this work, such as an artist's website or a a gallery website, eg http://www.mywebsite.com.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Related Publications</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Any publications relating to this work, such as an exhibition catalogue, article or review. If there is a URL for the publication, please enter this in the 'Additional URLs' field.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>References</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Compressed<img src="qut_creative_works_draft_files/3fb9a415_63x20.jpg" vspace="22" hspace="22" width="63" height="20"/>
+			</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left">If any of your documents have a list of references, you are strongly encouraged to paste this list into the box below. It may be used to link your item to those it cites and to those that cite it.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Additional Information</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Compressed</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you think you can specify some useful information about your deposit that can't be entered anywhere else, please enter it here. This information will appear on the public summary page for this item.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Subjects dc:subject</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (ANZSRC subject Headings)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle">Select 1-3 subject headings from the list</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Keywords</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter salient keywords.  Enter keyword phrases in separate boxes or use semi-colons as delimiters.</td>
+		</tr>
+		<tr>
+			<td align="left" height="32"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="left" height="30"><font size="5">Metadata for attached files: </font></td>
+			</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Type of Field</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Recorded Performance Work</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle">Help Text</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="129" align="left" valign="top"><b>Content</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (accepted version, published version, supplemental material, presentation, cover image, additional metadata, catalogue, poster, programme, promotional material, review, draft version, submitted version, Updated version, other)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select an appropriate descriptor from the set for the file being uploaded.  If none are appropriate, select "other" and use the 'Description' field below to enter a short description (1-2 words). Where there are multiple files attached to an eprint record, the Content/Description helps differentiate the files. Example: an eprint record for a journal article may include an open access copy of the 'accepted version' of the article plus a file contatining supplementary material.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Image credit</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the image credit, if different from the creator of the work (who created the image of the work?)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="161" align="left" valign="top"><b>Format    dc:format</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (HTML, PDF, Postscript, Plain text, MS Power point, MS Word, Audio (AC3), Audio (MP3/MPEG), Audio (WAV), Image (JPEG), Image (PNG), Image (GIF), Image (BMP), Image (TIFF) Image (Photoshop), Image (PDF), Video (MPEG), Video (Quicktime) Video (Windows Media), Video (AVI), Video (Flash), Archive (Zip), Other</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please select the format of this document. If the format you are uploading is not in the set, select "other" and use the Description field to enter the file format.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>Description </b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If content or format is 'other', add a brief description</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="97" align="left" valign="top"><b>Visible to</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (Anyone, Registered users only, Repository staff only) </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please indicate the required "security level" of this document. Who is allowed to download it? If you set this to anything other than "anyone" then please provide a contact email for this eprint when prompted. This will allow users to use a web form to request a copy of the document, and you can decide on a case-by-case basis.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Sensitivity</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Description of how to be handled if culturally or commercially sensitive.  It is also possible to restrict access to the attached file by selecting Repository Staff Only.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="177" align="left" valign="top"><b>License</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (All rights reserved, Creative Commons Attribution No Derivatives, CC Attribution, CC Attribution Non-commercial,CC Attribution Non-commercial no derivatives, CC Attribution Non-commercial Share-Alike, CC Attribution Share-Alike, CC Public Domain Dedication, CC GNU GPL (Software), CC GNU LGPL (Software)  </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Specify an explicit 'end-user' license for this document. This repository supports Creative Commons Licenses. The default license is 'Attribution No Derivatives'. To find out more about the differences between licenses, click here. If you are depositing an image, film or audio file, and you want to prevent users downloading it, select 'All Rights Reserved'. users will still be able to preview it but will not be given the option to download it</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Embargo expiry date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the date that a publisher- or sponsor-imposed embargo expires (if known). On and after this date, this document will be made publicly accessible.</td>
+		</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td height="36" colspan="4" align="left" rowspan="2" valign="middle">Acknowledgement:  This metadata table is based on the work of the JISC-funded Kultur Project in the UK.  See: http://kultur.eprints.org/</td>
+			</tr>
+	</tbody>
+</table>
+<!-- ************************************************************************** -->
+<hr/>
+<a name="table4"><h1>Sheet 5: <em>LivePerformance</em></h1></a>
+<table rules="none" cellspacing="0" frame="void" border="0" cols="4">
+	<colgroup><col width="130"><col width="261"><col width="130"><col width="441"/></col></col></col></colgroup>
+	<tbody>
+		<tr>
+			<td width="130" align="left" height="38"><b><font size="5">New Eprint Types for QUT ePrints </font></b></td>
+			<td width="261" align="left"><br/></td>
+			<td width="130" align="left"><br/></td>
+			<td width="441" align="left"><br/></td>
+		</tr>
+		<tr>
+			<td align="left" sdnum="3081;3081;mmm-yy" height="18">Note:  This is a work in progress as consultation with QUT research community is still ongoing</td>
+			<td align="left" sdnum="3081;3081;mmm-yy"><br/></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left" height="35" sdnum="3081;3081;mmm-yy" valign="middle"><br/></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="left" height="31"><b><font size="5">Type = Live Performance</font></b></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="center" valign="middle"><b>Field Label</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Type of Field/</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Explanation (help text)</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="103" align="left" valign="top"><b>Item Type  dc:type</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">set:  Book, Book Chapter, Conference Item, Conference Paper, Original Creative Work, Curated Exhibition or Event, Recorded/Rendered Work/ Live Performance, Journal Article, Other, QUT Thesis, Report, Review, Thesis, Working Paper  </td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><b>Scope Notes for Live Performance:      Includes: the peformance of new works or innovative interpretations or productions of existing works.  The research component  is within the actual public performance of the music, dance, play etc.</b></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Type of Performance</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">set (Music, Play, Dance, other)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select one subtype from the set that best describes the work.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Description  dc:description</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">A description of the work or the context of the work. No complicated text formatting is possible.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Date dc:date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">date  YYYY</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Required</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The date this work was published or first  made public (for non-text items)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="97" align="left" valign="top"><b>Authors/Creators dc:creator</b></td>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="middle"><font face="courier new">compound</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required  (if group creators not filled in)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Those primarily responsible for the creation of this work. If there are more than four creators, click on the [More input rows] button.    If the work has been created by a named group rather than individuals, please fill in the 'Organisational creators'' instead.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="65" align="left" valign="top"><b>Oganisational authors/ Creators dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Required (if creators not filled in)</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Companies, organisations, research centres/groups, or collaborative partnerships that have created this work.  Example: Education Queensland. Please put funding bodies and sponsorship in the <span class="spCh spChx2018">&#x2018;</span>Funders<span class="spCh spChx2019">&#x2019;</span> field. </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="321" align="left" valign="top"><b>Other Contributors dc:contributor</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">compound, set for role (Actor, Actress, Animator, Author of screenplay, Calligrapher, Choreographer, Cinematographer, Composer, Conductor, Conference organiser, Costume designer, Curator, Dancer, Designer, Director, Exhibitor, Film editor, illustrator, Instrumentalist,  Librettist, Lighting designer, Lyricist, Musician, Performer, Photographer, Printmaker, Producer, Production personnel, Programmer, Recording engineer, Researcher, Set designer, Singer, Translator, Videographer, Vocalist)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The names of others who have contributed to the production of this work and the role they have played, such as director, curator or photographer.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Copyright Holders dc:rights</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the name of the person, firm or corporate body which holds the copyright for the work</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Funders</b></td>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The sponsoring bodies who contributed funding for the creation of this work.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>RM Number</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Insert the Research Master number if known</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Material</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are descibing a physical object(s), state the media, Example: Oil on Canvas, Example:Silk, Example: 3 Screen Video.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Measurements or Duration</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you are describing a physical object(s), state its dimensions. If you are describing a video, film, audio work or performance, state its duration.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Published source dc:source</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publication details for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Publisher dc:publisher</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Provide publisher name for published creative writing (eg poems). </td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="66" align="left" valign="top"><b>Locations/venues</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">Compound: "Location" (text), "from date" (date) "to date" (date)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If this item is an exhibition or performance, fill in the locations/venues where it has taken place. Put in the most recent locations/venues first. You can also use this field to specify the location of installations, site-specific, or public art works.</td>
+		</tr>
+		<tr>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Contact Email Address</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">email</font></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">The contact email address for this work. If the full content is not available to the public, then requests to view the full content will be sent to this email. The email address will not be made public.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Additional URLs dc:relation</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">URLs that are related to this work, such as an artist's website or a a gallery website, eg http://www.mywebsite.com.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Related Publications</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Any publications relating to this work, such as an exhibition catalogue, article or review. If there is a URL for the publication, please enter this in the 'Additional URLs' field.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>References</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Compressed<img src="qut_creative_works_draft_files/3fb9a415_63x16.jpg" vspace="17" hspace="33" width="63" height="16"/>
+			</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left">If any of your documents have a list of references, you are strongly encouraged to paste this list into the box below. It may be used to link your item to those it cites and to those that cite it.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Additional Information</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle"><font face="courier new">longtext</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Compressed</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If you think you can specify some useful information about your deposit that can't be entered anywhere else, please enter it here. This information will appear on the public summary page for this item.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Subjects dc:subject</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (ANZSRC subject Headings)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="middle">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="middle">Select 1-3 subject headings from the list</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Keywords</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter salient keywords.  Enter keyword phrases in separate boxes or use semi-colons as delimiters.</td>
+		</tr>
+		<tr>
+			<td align="left" height="32"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="left" height="30"><font size="5">Metadata for attached files: </font></td>
+			</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="center" valign="middle"><b><br/></b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle"><b>Type of Field</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle"><b>Live Performance</b></td>
+			<td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle">Help Text</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="161" align="left" valign="top"><b>Content</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (accepted version, published version, supplemental material, presentation, cover image, additional metadata, catalogue, poster, programme, promotional material, review, draft version, submitted version, Updated version, other)</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Select an appropriate descriptor from the set for the file being uploaded.  If none are appropriate, select "other" and use the 'Description' field below to enter a short description (1-2 words). Where there are multiple files attached to an eprint record, the Content/Description helps differentiate the files. Example: an eprint record for a journal article may include an open access copy of the 'accepted version' of the article plus a file contatining supplementary material.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="34" align="left" valign="top"><b>Image credit</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the image credit, if different from the creator of the work (who created the image of the work?)</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="193" align="left" valign="top"><b>Format    dc:format</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (HTML, PDF, Postscript, Plain text, MS Power point, MS Word, Audio (AC3), Audio (MP3/MPEG), Audio (WAV), Image (JPEG), Image (PNG), Image (GIF), Image (BMP), Image (TIFF) Image (Photoshop), Image (PDF), Video (MPEG), Video (Quicktime) Video (Windows Media), Video (AVI), Video (Flash), Archive (Zip), Other</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please select the format of this document. If the format you are uploading is not in the set, select "other" and use the Description field to enter the file format.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign="top"><b>Description </b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">If content or format is 'other', add a brief description</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="82" align="left" valign="top"><b>Visible to</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (Anyone, Registered users only, Repository staff only) </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Please indicate the required "security level" of this document. Who is allowed to download it? If you set this to anything other than "anyone" then please provide a contact email for this eprint when prompted. This will allow users to use a web form to request a copy of the document, and you can decide on a case-by-case basis.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Sensitivity</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">text</font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Description of how to be handled if culturally or commercially sensitive.  It is also possible to restrict access to the attached file by selecting Repository Staff Only.</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="193" align="left" valign="top"><b>License</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new">set (All rights reserved, Creative Commons Attribution No Derivatives, CC Attribution, CC Attribution Non-commercial,CC Attribution Non-commercial no derivatives, CC Attribution Non-commercial Share-Alike, CC Attribution Share-Alike, CC Public Domain Dedication, CC GNU GPL (Software), CC GNU LGPL (Software)  </font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Specify an explicit 'end-user' license for this document. This repository supports Creative Commons Licenses. The default license is 'Attribution No Derivatives'. To find out more about the differences between licenses, click here. If you are depositing an image, film or audio file, and you want to prevent users downloading it, select 'All Rights Reserved'. users will still be able to preview it but will not be given the option to download it</td>
+		</tr>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="50" align="left" valign="top"><b>Embargo expiry date</b></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top"><font face="courier new"><br/></font></td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="left" valign="top">Optional</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="top">Enter the date that a publisher- or sponsor-imposed embargo expires (if known). On and after this date, this document will be made publicly accessible.</td>
+		</tr>
+		<tr>
+			<td align="left" height="17"><br/></td>
+			<td align="left"><font face="courier new"><br/></font></td>
+			<td align="left"><br/></td>
+			<td align="left"><br/></td>
+		</tr>
+		<tr>
+			<td height="36" colspan="4" align="left" rowspan="2" valign="middle">Acknowledgement:  This metadata table is based on the work of the JISC-funded Kultur Project in the UK.  See: http://kultur.eprints.org/</td>
+			</tr>
+	</tbody>
+</table>
+<!-- ************************************************************************** -->
+</body>
+
+</html>

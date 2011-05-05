@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>This was originally chapter 3</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_left.P2 {font-weight:bold; }
+Header_20_left.P3 {margin-bottom:0.212cm; margin-top:0cm; }
+Header_20_right.P5 {font-weight:bold; }
+Footer.P6 {font-style:italic; margin-left:-1.319cm; margin-right:-0.891cm; text-indent:0cm; }
+Footer.P7 {margin-left:-0.319cm; margin-right:-0.861cm; text-align:end; text-indent:0cm; }
+span.T1 {font-style:italic; }
+span.T2 {font-style:italic; }</style></head><body><p>Text</p><p/></body></html>

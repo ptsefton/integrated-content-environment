@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Embedded LaTeX</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_right.P1 {margin-bottom:0cm; margin-top:0cm; }
+Header_20_left.P3 {font-weight:normal; }</style></head><body><h1><a id="id1" name="id1"><!--id1--></a>LaTex file</h1><p><div class="embedded-html">
+		<div class="rendition-links">
+		  <span class="pdf-rendition-link"><a href="./latexexample.pdf" title="View the printable version of this page">PDF version</a></span>
+		</div>
+		<h1 class="title"> </h1>
+		<div class="page-toc"/>
+		<div class="body">
+    <div>
+      <h2 class="titleHead">
+        LaTeX Typesetting By Example
+      </h2>
+      <div class="author">
+        <span class="cmr-12">Phil Farrell</span><br/>
+        <span class="cmr-12">Stanford University School of Earth
+        Sciences</span>
+      </div><br/>
+      <div class="date">
+        <span class="cmr-12">November 2, 1994</span>
+      </div>
+    </div>This article demonstrates a basic set of LaTeX formatting
+    commands. Compare the typeset output side-by-side with the
+    input document.
+    <h3>
+      <span class="titlemark">1</span> <a id="x1-10001" name="x1-10001"/>Plain Text
+    </h3>
+    <p>
+      Type your text in free-format; lines can be as long or as
+      short as you wish. You can indent or space out your input
+      text in any way you like to highlight the structure of your
+      manuscript and make it easier to edit. LaTeX fills lines and
+      adjusts spacing between words to produce an aesthetically
+      pleasing result. 
+    </p>
+    <p>
+      Completely blank lines in the input file break your text into
+      paragraphs. To change the font for a single character, word,
+      or set of words, enclose the word and the font changing
+      command within braces, <span class="cmti-10x-x-109">like
+      this</span>. A font changing command not enclosed in braces,
+      like the change to <span class="cmbx-10x-x-109">bold
+      here,</span> <span class="cmbx-10x-x-109">keeps that change
+      in effect until the end of the document or until
+      countermanded by</span> <span class="cmbx-10x-x-109">another
+      font switch, like this change back to</span> roman. 
+      
+    </p>
+    <p/>
+    <h3>
+      <span class="titlemark">2</span> <a id="x1-20002" name="x1-20002"/>Displayed Text
+    </h3>
+    <p>
+      Use the &#x201C;quote&#x201D; and &#x201C;quotation&#x201D;
+      environments for typesetting quoted material or any other
+      text that should be slightly indented and set off from the
+      normal text.
+    </p>
+    <div>
+      
+      <p class="indent">
+        The quote and quotation environments are similar, but use
+        different settings for paragraph indentation and spacing. 
+        
+      </p>
+      <p class="indent">
+        <span class="cmti-10x-x-109">When in doubt, consult the
+        manual.</span>
+      </p>
+    </div>
+    <p>
+      So far, I have demonstrated titles, paragraphs, font changes,
+      and section headings. Now, I am going to show lists and
+      tables.
+    </p>
+    <ol>
+      <li class="enumerate">
+        <a id="x1-2002x1" name="x1-2002x1"/>The
+        &#x201C;enumerate&#x201D; environment numbers the list
+        elements, like this. 
+        <p class="noindent">
+          Items in a list can contain multiple paragraphs. These
+          paragraphs are appropriately spaced and indented
+          according to their position in the list.
+        </p>
+        <ul class="itemize1">
+          <li class="itemize">The &#x201C;itemize&#x201D; environment
+          sets off list items with &#x201C;bullets&#x201D;, like
+          this. Finally, the &#x201C;description&#x201D; environment
+          lets you put your own
+            <dl class="description">
+              <dt class="description">
+                <span class="cmbx-10x-x-109">A</span>
+              </dt>
+              <dd class="description">
+                label on each item, like this &#x201C;A&#x201D;.
+              </dd>
+              <dt class="description">
+                <span class="cmbx-10x-x-109">If the label is
+                long,</span>
+              </dt>
+              <dd class="description">
+                the first line of the item text will be spaced over
+                to the right as needed.
+              </dd>
+            </dl>
+          </li>
+          <li class="itemize">Of course, lists can be nested, each
+          type up to at least four levels. One type of list can be
+          nested within another type.
+            <ul class="itemize2">
+              <li class="itemize">Nested lists of the same type
+              will change style of numbering or
+              &#x201C;bullets&#x201D; as needed.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="enumerate">
+        <a id="x1-2004x2" name="x1-2004x2"/>Don&#x2019;t forget
+        to close off all list environments with the appropriate
+        <span class="verb"><span class="cmtt-10x-x-109">\end{...}</span> command. Indenting
+        <span class="verb"><span class="cmtt-10x-x-109">\begin{...}</span>, <span class="verb"><span class="cmtt-10x-x-109">\item</span>, and
+        <span class="verb"><span class="cmtt-10x-x-109">\end{...}</span> commands in the input
+        document according to their nesting level can help clarify
+        the structure.</span></span></span></span>
+      </li>
+    </ol>
+    <p>
+      Here is a very simple table showing data lined up in columns.
+      Notice that I include the table in a &#x201C;center&#x201D;
+      environment to display it properly. The title is created
+      simply as another paragraph in the center environment, rather
+      than as part of the table itself.
+    </p>
+    <div>
+      
+      <p class="noindent">
+        
+      </p>
+      <p class="noindent">
+        Numbers of Computers on Earth Sciences Network, By Type.
+      </p>
+      <div class="tabular">
+        <table cellpadding="0" cellspacing="0" class="tabular">
+          <colgroup id="TBL-2-1g">
+            <col id="TBL-2-1"/>
+            <col id="TBL-2-2"/>
+          </colgroup>
+          <tr id="TBL-2-1-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-2-1-1" style="white-space:nowrap; text-align:left;">
+              Macintosh
+            </td>
+            <td class="td11" id="TBL-2-1-2" style="white-space:nowrap; text-align:right;">
+              175
+            </td>
+          </tr>
+          <tr id="TBL-2-2-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-2-2-1" style="white-space:nowrap; text-align:left;">
+              DOS/Windows PC
+            </td>
+            <td class="td11" id="TBL-2-2-2" style="white-space:nowrap; text-align:right;">
+              60
+            </td>
+          </tr>
+          <tr id="TBL-2-3-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-2-3-1" style="white-space:nowrap; text-align:left;">
+              UNIX Workstation or server
+            </td>
+            <td class="td11" id="TBL-2-3-2" style="white-space:nowrap; text-align:right;">
+              110
+            </td>
+          </tr>
+          <tr id="TBL-2-4-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-2-4-1" style="white-space:nowrap; text-align:left;"/>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <p>
+      Here is a more complicated table that has been boxed up, with
+      a multi-column header and paragraph entries set in one of the
+      columns.
+    </p>
+    <div>
+      
+      <p class="noindent"/>
+      <div class="tabular">
+        <table cellpadding="0" cellspacing="0" class="tabular" rules="groups">
+          <colgroup id="TBL-3-1g">
+            <col id="TBL-3-1"/>
+          </colgroup>
+          <colgroup id="TBL-3-2g">
+            <col id="TBL-3-2"/>
+          </colgroup>
+          <colgroup id="TBL-3-3g">
+            <col id="TBL-3-3"/>
+          </colgroup>
+          <tr class="hline">
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+          </tr>
+          <tr id="TBL-3-1-" style="vertical-align:baseline;">
+            <td class="td11" colspan="3" id="TBL-3-1-1" style="white-space:nowrap; text-align:left;">
+              <div class="multicolumn" style="white-space:nowrap; text-align:center;">
+                Places to Go Backpacking
+              </div>
+            </td>
+          </tr>
+          <tr class="hline">
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+          </tr>
+          <tr id="TBL-3-2-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-3-2-1" style="white-space:nowrap; text-align:left;">
+              Name
+            </td>
+            <td class="td11" id="TBL-3-2-2" style="white-space:nowrap; text-align:center;">
+              Driving Time
+            </td>
+            <td class="td11" id="TBL-3-2-3" style="white-space:wrap; text-align:left;">
+              
+              <p class="noindent">
+                Notes
+              </p>
+            </td>
+          </tr>
+          <tr id="TBL-3-3-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-3-3-1" style="white-space:nowrap; text-align:left;"/>
+            <td class="td11" id="TBL-3-3-2" style="white-space:nowrap; text-align:center;">
+              (hours)
+            </td>
+            <td class="td11" id="TBL-3-3-3" style="white-space:wrap; text-align:left;">
+              
+              <p class="noindent"/>
+            </td>
+          </tr>
+          <tr class="hline">
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+          </tr>
+          <tr id="TBL-3-4-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-3-4-1" style="white-space:nowrap; text-align:left;">
+              Big Basin
+            </td>
+            <td class="td11" id="TBL-3-4-2" style="white-space:nowrap; text-align:center;">
+              1.5
+            </td>
+            <td class="td11" id="TBL-3-4-3" style="white-space:wrap; text-align:left;">
+              
+              <p class="noindent">
+                Very nice overnight to Berry Creek Falls from
+                either Headquarters or ocean side.
+              </p>
+            </td>
+          </tr>
+          <tr class="hline">
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+          </tr>
+          <tr id="TBL-3-5-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-3-5-1" style="white-space:nowrap; text-align:left;">
+              Sunol
+            </td>
+            <td class="td11" id="TBL-3-5-2" style="white-space:nowrap; text-align:center;">
+              1
+            </td>
+            <td class="td11" id="TBL-3-5-3" style="white-space:wrap; text-align:left;">
+              
+              <p class="noindent">
+                Technicolor green in the spring. Watch out for the
+                cows.
+              </p>
+            </td>
+          </tr>
+          <tr class="hline">
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+          </tr>
+          <tr id="TBL-3-6-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-3-6-1" style="white-space:nowrap; text-align:left;">
+              Henry Coe
+            </td>
+            <td class="td11" id="TBL-3-6-2" style="white-space:nowrap; text-align:center;">
+              1.5
+            </td>
+            <td class="td11" id="TBL-3-6-3" style="white-space:wrap; text-align:left;">
+              
+              <p class="noindent">
+                Large wilderness nearby suitable for multi-day
+                treks.
+              </p>
+            </td>
+          </tr>
+          <tr class="hline">
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+            <td>
+              <hr/>
+            </td>
+          </tr>
+          <tr id="TBL-3-7-" style="vertical-align:baseline;">
+            <td class="td11" id="TBL-3-7-1" style="white-space:nowrap; text-align:left;"/>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <p/>
+    <h3>
+      <span class="titlemark">3</span> <a id="x1-30003" name="x1-30003"/>Mathematical Equations
+    </h3>
+    <p>
+      Simple equations, like <span class="cmmi-10x-x-109">x</span><sup><span class="cmmi-8">y</span></sup> or <span class="cmmi-10x-x-109">x</span><sub><span class="cmmi-8">n</span></sub> = <img alt="&#x221A;a-+--b" class="sqrt" src="./latexexample0x.png"/> can be typeset right in the
+      text line by enclosing them in a pair of single dollar sign
+      symbols. Don&#x2019;t forget that if you want a real dollar
+      sign in your text, like $2000, you have to use the
+      <span class="verb"><span class="cmtt-10x-x-109">\$</span>
+      command. </span>
+    </p>
+    <p>
+      A more complicated equation should be typeset in <span class="cmti-10x-x-109">displayed math</span> mode, like this:
+    </p>
+    <center>
+      <img alt=" ( &#x2218; --------------------- ) x + 1 z (1 + &#x3C9;i+1 + &#x3B6; - -----y + 1 ) = 1 &#x398; + 1 " class="math-display" src="./latexexample1x.png"/>
+    </center>
+    <p>
+      The &#x201C;equation&#x201D; environment displays your
+      equations, and automatically numbers them consecutively
+      within your document, like this:
+    </p>
+    <table>
+      <tr>
+        <td>
+          <center class="math-display">
+            <img alt="[ N ] &#x2211; X + a &#x2265; &#x2C6;a- lxim&#x2192;k &#x3B4;C i " class="math-display" src="./latexexample2x.png"/><a id="x1-3001r1" name="x1-3001r1"/>
+          </center>
+        </td>
+        <td class="equation-label">
+          (1)
+        </td>
+      </tr>
+    </table>
+    <p>
+      
+    </p>
+    <p>
+      <span class="cmbx-12x-x-120">Here is the input file that
+      produced this document:</span>
+    </p>
+    <table>
+      <tr class="verbatim">
+        <td class="verbatim">
+          <div class="verbatim">
+            %&#xA0;Example&#xA0;LaTeX&#xA0;document&#xA0;for&#xA0;GP111&#xA0;-&#xA0;note&#xA0;%&#xA0;sign&#xA0;indicates&#xA0;a&#xA0;comment
+            &#xA0;<br/>
+            \documentstyle[11pt]{article} &#xA0;<br/>
+            %&#xA0;Default&#xA0;margins&#xA0;are&#xA0;too&#xA0;wide&#xA0;all&#xA0;the&#xA0;way&#xA0;around.&#xA0;&#xA0;I&#xA0;reset&#xA0;them&#xA0;here
+            &#xA0;<br/>
+            \setlength{\topmargin}{-.5in} &#xA0;<br/>
+            \setlength{\textheight}{9in} &#xA0;<br/>
+            \setlength{\oddsidemargin}{.125in} &#xA0;<br/>
+            \setlength{\textwidth}{6.25in} &#xA0;<br/>
+            \begin{document} &#xA0;<br/>
+            \title{LaTeX&#xA0;Typesetting&#xA0;By&#xA0;Example}
+            &#xA0;<br/>
+            \author{Phil&#xA0;Farrell\\ &#xA0;<br/>
+            Stanford&#xA0;University&#xA0;School&#xA0;of&#xA0;Earth&#xA0;Sciences}
+            &#xA0;<br/>
+            \renewcommand{\today}{November&#xA0;2,&#xA0;1994}
+            &#xA0;<br/>
+            \maketitle &#xA0;<br/>
+            This&#xA0;article&#xA0;demonstrates&#xA0;a&#xA0;basic&#xA0;set&#xA0;of&#xA0;LaTeX&#xA0;formatting&#xA0;commands.
+            &#xA0;<br/>
+            Compare&#xA0;the&#xA0;typeset&#xA0;output&#xA0;side-by-side&#xA0;with&#xA0;the&#xA0;input&#xA0;document.
+            &#xA0;<br/>
+            &#xA0;<br/>
+            \section&#xA0;{Plain&#xA0;Text} &#xA0;<br/>
+            Type&#xA0;your&#xA0;text&#xA0;in&#xA0;free-format;&#xA0;lines&#xA0;can&#xA0;be&#xA0;as&#xA0;long
+            &#xA0;<br/>
+            or&#xA0;as&#xA0;short &#xA0;<br/>
+            as&#xA0;you&#xA0;wish. &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;You&#xA0;can&#xA0;indent&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;or&#xA0;space&#xA0;out
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;your&#xA0;input
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;text&#xA0;in
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;any&#xA0;way&#xA0;you&#xA0;like&#xA0;to&#xA0;highlight&#xA0;the&#xA0;structure
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;of&#xA0;your&#xA0;manuscript&#xA0;and&#xA0;make&#xA0;it&#xA0;easier&#xA0;to&#xA0;edit.
+            &#xA0;<br/>
+            LaTeX&#xA0;fills&#xA0;lines&#xA0;and&#xA0;adjusts&#xA0;spacing&#xA0;between&#xA0;words&#xA0;to&#xA0;produce&#xA0;an
+            &#xA0;<br/>
+            aesthetically&#xA0;pleasing&#xA0;result. &#xA0;<br/>
+            &#xA0;<br/>
+            Completely&#xA0;blank&#xA0;lines&#xA0;in&#xA0;the&#xA0;input&#xA0;file&#xA0;break&#xA0;your&#xA0;text&#xA0;into
+            &#xA0;<br/>
+            paragraphs. &#xA0;<br/>
+            To&#xA0;change&#xA0;the&#xA0;font&#xA0;for&#xA0;a&#xA0;single&#xA0;character,&#xA0;word,&#xA0;or&#xA0;set&#xA0;of&#xA0;words,
+            &#xA0;<br/>
+            enclose&#xA0;the&#xA0;word&#xA0;and&#xA0;the&#xA0;font&#xA0;changing&#xA0;command&#xA0;within&#xA0;braces,
+            &#xA0;<br/>
+            {\em&#xA0;like&#xA0;this}. &#xA0;<br/>
+            A&#xA0;font&#xA0;changing&#xA0;command&#xA0;not&#xA0;enclosed&#xA0;in&#xA0;braces,&#xA0;like&#xA0;the&#xA0;change&#xA0;to&#xA0;\bf
+            &#xA0;<br/>
+            bold&#xA0;here,&#xA0;keeps&#xA0;that&#xA0;change&#xA0;in&#xA0;effect&#xA0;until&#xA0;the&#xA0;end&#xA0;of&#xA0;the&#xA0;document&#xA0;or
+            &#xA0;<br/>
+            until&#xA0;countermanded&#xA0;by&#xA0;another&#xA0;font&#xA0;switch,&#xA0;like&#xA0;this&#xA0;change&#xA0;back&#xA0;to
+            &#xA0;<br/>
+            \rm&#xA0;roman. &#xA0;<br/>
+            &#xA0;<br/>
+            \section&#xA0;{Displayed&#xA0;Text} &#xA0;<br/>
+            Use&#xA0;the&#xA0;&#x2018;&#x2018;quote&#x2019;&#x2019;&#xA0;and&#xA0;&#xA0;&#x2018;&#x2018;quotation&#x2019;&#x2019;&#xA0;environments&#xA0;for&#xA0;typesetting&#xA0;quoted
+            &#xA0;<br/>
+            material&#xA0;or&#xA0;any&#xA0;other&#xA0;text&#xA0;that&#xA0;should&#xA0;be&#xA0;slightly&#xA0;indented&#xA0;and&#xA0;set&#xA0;off
+            &#xA0;<br/>
+            from&#xA0;the&#xA0;normal&#xA0;text. &#xA0;<br/>
+            \begin{quotation} &#xA0;<br/>
+            The&#xA0;quote&#xA0;and&#xA0;quotation&#xA0;environments&#xA0;are&#xA0;similar,&#xA0;but&#xA0;use&#xA0;different
+            &#xA0;<br/>
+            settings&#xA0;for&#xA0;paragraph&#xA0;indentation&#xA0;and&#xA0;spacing.
+            &#xA0;<br/>
+            &#xA0;<br/>
+            \em&#xA0;When&#xA0;in&#xA0;doubt,&#xA0;consult&#xA0;the&#xA0;manual.
+            &#xA0;<br/>
+            \end{quotation} &#xA0;<br/>
+            &#xA0;<br/>
+            So&#xA0;far,&#xA0;I&#xA0;have&#xA0;demonstrated&#xA0;titles,&#xA0;paragraphs,&#xA0;font&#xA0;changes,&#xA0;and
+            &#xA0;<br/>
+            section&#xA0;headings. &#xA0;<br/>
+            Now,&#xA0;I&#xA0;am&#xA0;going&#xA0;to&#xA0;show&#xA0;lists&#xA0;and&#xA0;tables.
+            &#xA0;<br/>
+            \begin{enumerate} &#xA0;<br/>
+            \item &#xA0;<br/>
+            The&#xA0;&#x2018;&#x2018;enumerate&#x2019;&#x2019;&#xA0;environment&#xA0;numbers&#xA0;the&#xA0;list&#xA0;elements,&#xA0;like&#xA0;this.
+            &#xA0;<br/>
+            &#xA0;<br/>
+            Items&#xA0;in&#xA0;a&#xA0;list&#xA0;can&#xA0;contain&#xA0;multiple&#xA0;paragraphs.
+            &#xA0;<br/>
+            These&#xA0;paragraphs&#xA0;are&#xA0;appropriately&#xA0;spaced&#xA0;and&#xA0;indented&#xA0;according&#xA0;to&#xA0;their
+            &#xA0;<br/>
+            position&#xA0;in&#xA0;the&#xA0;list. &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;\begin{itemize} &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;\item&#xA0;The&#xA0;&#x2018;&#x2018;itemize&#x2019;&#x2019;&#xA0;environment&#xA0;sets&#xA0;off&#xA0;list&#xA0;items&#xA0;with&#xA0;&#x2018;&#x2018;bullets&#x2019;&#x2019;,
+            &#xA0;<br/>
+            like&#xA0;this.&#xA0;&#xA0;Finally,&#xA0;the&#xA0;&#x2018;&#x2018;description&#x2019;&#x2019;&#xA0;environment&#xA0;lets&#xA0;you&#xA0;put&#xA0;your&#xA0;own
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;\begin{description}
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;\item[A]&#xA0;label&#xA0;on&#xA0;each&#xA0;item,&#xA0;like&#xA0;this&#xA0;&#x2018;&#x2018;A&#x2019;&#x2019;.
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;\item[If&#xA0;the&#xA0;label&#xA0;is&#xA0;long,]&#xA0;the&#xA0;first&#xA0;line&#xA0;of&#xA0;the&#xA0;item&#xA0;text&#xA0;will
+            &#xA0;<br/>
+            be&#xA0;spaced&#xA0;over&#xA0;to&#xA0;the&#xA0;right&#xA0;as&#xA0;needed.
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;\end{description}
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;\item&#xA0;Of&#xA0;course,&#xA0;lists&#xA0;can&#xA0;be&#xA0;nested,&#xA0;each&#xA0;type&#xA0;up&#xA0;to&#xA0;at&#xA0;least&#xA0;four&#xA0;levels.
+            &#xA0;<br/>
+            One&#xA0;type&#xA0;of&#xA0;list&#xA0;can&#xA0;be&#xA0;nested&#xA0;within&#xA0;another&#xA0;type.
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;\begin{itemize}
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;\item&#xA0;Nested&#xA0;lists&#xA0;of&#xA0;the&#xA0;same&#xA0;type&#xA0;will&#xA0;change&#xA0;style&#xA0;of&#xA0;numbering
+            &#xA0;<br/>
+            or&#xA0;&#x2018;&#x2018;bullets&#x2019;&#x2019;&#xA0;as&#xA0;needed.
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;\end{itemize}
+            &#xA0;<br/>
+            &#xA0;&#xA0;&#xA0;\end{itemize} &#xA0;<br/>
+            \item&#xA0;Don&#x2019;t&#xA0;forget&#xA0;to&#xA0;close&#xA0;off&#xA0;all&#xA0;list&#xA0;environments&#xA0;with&#xA0;the
+            &#xA0;<br/>
+            appropriate&#xA0;\verb+\end{...}+&#xA0;command.
+            &#xA0;<br/>
+            Indenting&#xA0;\verb+\begin{...}+,&#xA0;\verb+\item+,&#xA0;and&#xA0;\verb+\end{...}+
+            &#xA0;<br/>
+            commands&#xA0;in&#xA0;the&#xA0;input&#xA0;document&#xA0;according&#xA0;to&#xA0;their&#xA0;nesting&#xA0;level&#xA0;can&#xA0;help
+            &#xA0;<br/>
+            clarify&#xA0;the&#xA0;structure. &#xA0;<br/>
+            \end{enumerate} &#xA0;<br/>
+            &#xA0;<br/>
+            Here&#xA0;is&#xA0;a&#xA0;very&#xA0;simple&#xA0;table&#xA0;showing&#xA0;data&#xA0;lined&#xA0;up&#xA0;in&#xA0;columns.
+            &#xA0;<br/>
+            Notice&#xA0;that&#xA0;I&#xA0;include&#xA0;the&#xA0;table&#xA0;in&#xA0;a&#xA0;&#x2018;&#x2018;center&#x2019;&#x2019;&#xA0;environment&#xA0;to&#xA0;display
+            &#xA0;<br/>
+            it&#xA0;properly. &#xA0;<br/>
+            The&#xA0;title&#xA0;is&#xA0;created&#xA0;simply&#xA0;as&#xA0;another&#xA0;paragraph&#xA0;in&#xA0;the&#xA0;center&#xA0;environment,
+            &#xA0;<br/>
+            rather&#xA0;than&#xA0;as&#xA0;part&#xA0;of&#xA0;the&#xA0;table&#xA0;itself.
+            &#xA0;<br/>
+            \begin{center} &#xA0;<br/>
+            Numbers&#xA0;of&#xA0;Computers&#xA0;on&#xA0;Earth&#xA0;Sciences&#xA0;Network,&#xA0;By&#xA0;Type.
+            &#xA0;<br/>
+            &#xA0;<br/>
+            \begin{tabular}{lr} &#xA0;<br/>
+            Macintosh&amp;175\\ &#xA0;<br/>
+            DOS/Windows&#xA0;PC&amp;60\\ &#xA0;<br/>
+            UNIX&#xA0;Workstation&#xA0;or&#xA0;server&amp;110\\
+            &#xA0;<br/>
+            \end{tabular} &#xA0;<br/>
+            \end{center} &#xA0;<br/>
+            &#xA0;<br/>
+            Here&#xA0;is&#xA0;a&#xA0;more&#xA0;complicated&#xA0;table&#xA0;that&#xA0;has&#xA0;been&#xA0;boxed&#xA0;up,&#xA0;with&#xA0;a&#xA0;multi-column
+            &#xA0;<br/>
+            header&#xA0;and&#xA0;paragraph&#xA0;entries&#xA0;set&#xA0;in&#xA0;one&#xA0;of&#xA0;the&#xA0;columns.
+            &#xA0;<br/>
+            \begin{center} &#xA0;<br/>
+            \begin{tabular}{|l|c|p{3.5in}|} &#xA0;<br/>
+            \hline &#xA0;<br/>
+            \multicolumn{3}{|c|}{Places&#xA0;to&#xA0;Go&#xA0;Backpacking}\\&#xA0;\hline
+            &#xA0;<br/>
+            Name&amp;Driving&#xA0;Time&amp;Notes\\ &#xA0;<br/>
+            &amp;(hours)&amp;\\&#xA0;\hline &#xA0;<br/>
+            Big&#xA0;Basin&amp;1.5&amp;Very&#xA0;nice&#xA0;overnight&#xA0;to&#xA0;Berry&#xA0;Creek&#xA0;Falls&#xA0;from
+            &#xA0;<br/>
+            either&#xA0;Headquarters&#xA0;or&#xA0;ocean&#xA0;side.\\&#xA0;\hline
+            &#xA0;<br/>
+            Sunol&amp;1&amp;Technicolor&#xA0;green&#xA0;in&#xA0;the&#xA0;spring.&#xA0;&#xA0;Watch&#xA0;out&#xA0;for&#xA0;the&#xA0;cows.\\&#xA0;\hline
+            &#xA0;<br/>
+            Henry&#xA0;Coe&amp;1.5&amp;Large&#xA0;wilderness&#xA0;nearby&#xA0;suitable&#xA0;for&#xA0;multi-day&#xA0;treks.\\&#xA0;\hline
+            &#xA0;<br/>
+            \end{tabular} &#xA0;<br/>
+            &#xA0;<br/>
+            \section&#xA0;{Mathematical&#xA0;Equations}
+            &#xA0;<br/>
+            Simple&#xA0;equations,&#xA0;like&#xA0;$x^y$&#xA0;or&#xA0;$x_n&#xA0;=&#xA0;\sqrt{a&#xA0;+&#xA0;b}$&#xA0;can&#xA0;be&#xA0;typeset&#xA0;right
+            &#xA0;<br/>
+            in&#xA0;the&#xA0;text&#xA0;line&#xA0;by&#xA0;enclosing&#xA0;them&#xA0;in&#xA0;a&#xA0;pair&#xA0;of&#xA0;single&#xA0;dollar&#xA0;sign&#xA0;symbols.
+            &#xA0;<br/>
+            Don&#x2019;t&#xA0;forget&#xA0;that&#xA0;if&#xA0;you&#xA0;want&#xA0;a&#xA0;real&#xA0;dollar&#xA0;sign&#xA0;in&#xA0;your&#xA0;text,&#xA0;like&#xA0;\$2000,
+            &#xA0;<br/>
+            you&#xA0;have&#xA0;to&#xA0;use&#xA0;the&#xA0;\verb+\$+&#xA0;command.
+            &#xA0;<br/>
+            &#xA0;<br/>
+            A&#xA0;more&#xA0;complicated&#xA0;equation&#xA0;should&#xA0;be&#xA0;typeset&#xA0;in&#xA0;{\em&#xA0;displayed&#xA0;math\/}&#xA0;mode,
+            &#xA0;<br/>
+            like&#xA0;this: &#xA0;<br/>
+            \[ &#xA0;<br/>
+            z&#xA0;\left(&#xA0;1&#xA0;\&#xA0;+\&#xA0;&#xA0;\sqrt{\omega_{i+1}&#xA0;+&#xA0;\zeta&#xA0;-\frac{x+1}{\Theta&#xA0;+1}&#xA0;y&#xA0;+&#xA0;1}
+            &#xA0;<br/>
+            \&#xA0;\right) &#xA0;<br/>
+            \&#xA0;\&#xA0;\&#xA0;=\&#xA0;\&#xA0;\&#xA0;&#xA0;1
+            &#xA0;<br/>
+            \] &#xA0;<br/>
+            The&#xA0;&#x2018;&#x2018;equation&#x2019;&#x2019;&#xA0;environment&#xA0;displays&#xA0;your&#xA0;equations,&#xA0;and&#xA0;automatically
+            &#xA0;<br/>
+            numbers&#xA0;them&#xA0;consecutively&#xA0;within&#xA0;your&#xA0;document,&#xA0;like&#xA0;this:
+            &#xA0;<br/>
+            \begin{equation} &#xA0;<br/>
+            \left[ &#xA0;<br/>
+            {\bf&#xA0;X}&#xA0;+&#xA0;{\rm&#xA0;a}&#xA0;\&#xA0;\geq\
+            &#xA0;<br/>
+            \underline{\hat&#xA0;a}&#xA0;\sum_i^N&#xA0;\lim_{x&#xA0;\rightarrow&#xA0;k}&#xA0;\delta&#xA0;C
+            &#xA0;<br/>
+            \right] &#xA0;<br/>
+            \end{equation} &#xA0;<br/>
+            &#xA0;<br/>
+            \end{document}
+          </div>
+        </td>
+      </tr>
+    </table>
+    <p/>
+  </div>
+	</div></p><h1><a id="id2" name="id2"><!--id2--></a>OpenOffice.org content</h1><p>krjnvceklrwcnve</p></body></html>

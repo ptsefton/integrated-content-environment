@@ -1,0 +1,43 @@
+<div>
+## Cheetah Template
+		<h2>Advanced search</h2>
+			<form method="POST">
+			<input type="hidden" name="ispostback" value="1"/>
+            <input type="hidden" name="packagePath" value="$packagePath"/>
+			<table>
+				<tr>
+					<td colspan="2"><input type="text" size="50" name="query" value="$query" title="Enter search query here"/></td>
+				</tr>
+				<tr>
+					<td>Search options: </td>
+					<td>
+#if $enableTags
+						<input type="checkbox" name="tagsOnly" id="tagsOnly" $tagsOnly/>Tags only
+#end if
+						<input type="radio" name="searchPath" id="searchPath" value="/" $root/>Search all
+					    <input type="radio" name="searchPath" id="searchPath" value="$packagePath" $package/> Search path: $packagePath
+					</td>
+				</tr>
+				<tr>
+					<td>Filename: </td>
+					<td><input type="text" size="30" name="fileName" value="$fileName" title="Enter filename here"/></td>
+				</tr>
+				<tr><td colspan="2"><button type="submit" name="search" id="search" title="Search">Search</button></td></tr>
+			</table>
+			
+		</form>
+
+
+	<div class='searchResults'>
+		<h2>Search results in: $searchPath</h2>
+		#if $message
+			<div style="font-weight:bold;text-align:left;padding: 2px;">$message&#160;</div>
+		#else
+			#for result in $searchResult
+				<div class='search-result'><a href="$result[0]">$result[1]</a><div class='search-result-desc'>$result[2]</div></div>
+			#end for
+		#end if
+	</div>
+    <p> </p>
+</div>
+

@@ -1,0 +1,121 @@
+/*	This work is licensed under Creative Commons GNU LGPL License.
+
+	License: http://creativecommons.org/licenses/LGPL/2.1/
+	Version: 1.0
+
+	Author:  Stefan Goessner/2005
+	Web:     http://goessner.net/
+	
+	Modified: Daniel de Byl
+	Web:    http://ice.usq.edu.au
+*/
+@media screen, projection {
+body {
+  
+  padding: 0;
+  margin: 0;
+  color: #2C2638; 
+  border-color: #678; 
+  font-size: 1em;
+  font-family: Verdana, Helvetica, sans-serif;
+}
+#statusbar {
+  display: none;
+  position: absolute; z-index: 10;
+  top: auto; bottom: 0; left: 0; right: 0;
+  height: 2em;
+  background-color: #E8E8E8;
+  color: #2C2638;
+  font-size: 60%;
+  padding: 0.5em 0.5em 0 2px;
+  border-top: solid 1px #000;
+  font-family: Verdana, Helvetica, sans-serif;
+}
+#statusbar button, #tocbox {
+  cursor: pointer; 
+  color:  #2C2638;
+  background-color: #B599B7;
+  margin: 1px;
+  padding: 0 0.5em;
+  border: inset 1px black;
+  font-family: Verdana, Helvetica, sans-serif;
+}
+#statusbar button:hover, #tocbox:hover {
+  background-color: #ECE4EC;
+  border: outset 1px black;
+  font-family: Verdana, Helvetica, sans-serif;
+}
+#tocbox {
+  width: 15em;
+}
+#eos {
+  visibility: hidden;
+  color: #021;
+  background-color: snow;
+  border: inset 1px black;
+  font-size: 120%;
+}
+div.header{
+    padding: 5px;
+    background-color: #ECE4EC;
+    border-bottom: solid 1px black;
+    border: outset 1px black;
+    font-family: Verdana, Helvetica, sans-serif;
+    height: 45px;
+}
+
+div.slide {
+   display: block;
+   margin-left: 150px;
+   padding: 0 100px;
+   font-family: Verdana, Helvetica, sans-serif;
+   padding-left: 10px;
+}
+
+div.slide h1 {
+  display: block;
+  color: navy;
+  /* text-align: center;*/
+  padding-top: 15px;
+  font-size: 1.5em;
+  /*border-bottom: solid 1px black;*/
+  font-family: Verdana, Helvetica, sans-serif;
+ }
+
+div.slide h1.title {
+    margin-left: -100px;
+    font-size: 2em;
+    text-align: center;
+}
+
+dt{ font-weight: bold; }
+
+div.handout { display: none;}
+
+   
+body>#statusbar {   /* ie6 hack for fixing the statusbar - in quirks mode */
+  position: fixed;  /* thanks to Anne van Kesteren and Arthur Steiner */
+}                   /* see http://limpid.nl/lab/css/fixed/footer */
+* html body {
+  overflow: hidden;
+}
+* html div.slide {
+  height: 100%;
+  padding-bottom: 2em;
+  overflow: auto;
+}                   /* end ie6-hack */
+
+} /* @media screen, projection */
+
+@media print {
+body {
+  color: black;
+  font-family: sans-serif;
+  font-size: 11pt;
+}
+
+#statusbar { display: none; }
+div.slide { page-break-after: always; }
+div.handout { display: block; }
+
+} /* @media print */

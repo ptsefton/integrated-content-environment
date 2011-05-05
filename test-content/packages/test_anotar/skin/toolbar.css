@@ -1,0 +1,218 @@
+/*button, .ice-tab-inactive, div.ice-taggedwith span.command, span.mytag, span.mytags,.ice-tab-whitespace span.command
+  { behavior: url('/skin/IEFixes.htc')
+  }
+*/
+    
+
+/* Toolbar */
+.ice-toolbar{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	background-color: transparent;
+	float:left;
+	width:100%;
+	position:fixed;
+	z-index:2;
+	
+	
+}
+
+/*Top Bar*******************************************************************/
+
+div.ice-tab-common-content {
+	overflow:hidden;
+	height: 2.1em;
+	background: url('/skin/toolbar_bg.png') repeat-x;               
+	
+	
+}
+	  
+.ice-tab-common-content-left, .ice-tab-common-content-right{
+	
+	display: inline;
+	
+	
+}
+
+.ice-tab-common-content-left {
+	float: left;
+}
+     
+.ice-tab-common-content-right {
+	float: right;
+	
+}
+
+
+
+.ice-tab-common-content button:hover, .ice-tab-inactive:hover, .ice-tab-inactive.hover {
+	background:none;
+	background-color: #c0d0ff;
+}
+
+.ice-tab-content button.disabled, ice-tab-common-content-left button.disabled{
+	color:gray;
+	cursor:default;
+	
+}
+
+
+span.ice-fm-home, span.ice-fm-refresh, .ice-tab-common-content form, .ice-tab-common-content button, .ice-tab-common-content input, .ice-tab-common-content img, .ice-tab-content select, .ice-tab-publish-content form{
+	float:left;
+	
+}
+ 
+div.ice-tab-common-content-right select, div.ice-tab-common-content-right button {
+	float:none;
+}  
+.ice-tab-content button.disabled:hover, ice-tab-common-content button.disabled:hover{
+	color:gray;
+	cursor:default;
+	
+}
+
+.ice-tab-common-content form{
+	
+	border: 0px solid black;
+}
+
+.ice-tab-common-content button{
+	background-color: transparent;
+	border: 0px;
+	padding:4px 5px 4px 5px;
+	font-size: 1em;
+	height: 100%;
+	cursor: pointer;
+
+}
+
+.ice-tab-common-content-left img{
+	cursor: pointer;
+	margin:4px 10px 0px 7px;
+	height:16px;
+	width:16px;
+	border:0px solid #000000;
+	
+}
+
+.ice-tab-common-content .app-login {
+	color: blue;
+}
+
+.ice-tab-common-content .app-logout {
+	color: green;
+}	
+	
+.ice-tab-common-content-right select, .ice-tab-common-content-right input {
+	margin:3px 0px 0px 0px;
+
+} 	  	  
+	  
+.ice-toolbar select, .ice-toolbar input {
+
+	border: 1px solid gray;
+	text-decoration: none;
+	text-align: left;
+	font-size: 1em;
+	padding-left: 2px;
+}
+
+.toolbar-label{
+	padding:0px 2px 0px 7px;
+}
+
+
+/*Tab Bar*******************************************************************/
+
+.ice-tabs-main{
+	padding-top:3px;
+	width:100%;
+	height:22px;
+	background-color: gray;
+	width:100%;
+	
+}
+
+.ice-tab{
+	display: block;
+	cursor: pointer; 
+	padding: 4px;
+	width: 6em;
+	float:left;
+	margin-left:4px;
+	background: url('/skin/tab_inactive.png') repeat; 
+	text-align: center;
+	color: #0d2474;
+	
+	
+	
+}
+ 
+.ice-tab-active { 
+	border-bottom: 1px solid #d9d9d9;
+	color: gray;
+	background: none;
+	background-color: #d9d9d9;
+	border-bottom: 0px solid #d9d9d9;
+	
+	
+}
+
+
+/* Tab content*******************************************************************/
+.ice-tab-content {
+	background-color: #d9d9d9;
+	border-bottom: 1px solid gray;
+	overflow:auto;
+	height:52px;
+	clear:left;
+}
+.ice-tab-advanced-form select,.ice-tab-publish-content select, .ice-tab-manage-content button, .ice-tab-advanced-content button, .ice-tab-usq-content button, .ice-tab-publish-content button, .ice-tab-add-content button, .ice-tab-add-content select, .ice-tab-add-content file, .ice-tab-add-content input{
+	min-width:50px;
+	background-color: #bdbdbd;
+	padding:1px 1px 1px 1px;
+	font-size: 1em;
+	border: 1px solid gray;
+	overflow:visible;
+	display:inline;
+	margin:2px 0px 2px 2px;
+	
+	
+}
+
+.ice-tab-advanced-form{
+	display:inline;
+}
+
+.ice-tab-add-content form{
+	margin:0px 5px 0px 2px;
+	float:left;
+	display:block;
+}
+
+.ice-tab-publish-content select, .ice-tab-advanced-form select, .ice-tab-add-content select, .ice-tab-add-content file, .ice-tab-add-content input{
+	background-color:#FFFFFF;
+	float:none;
+	padding:0px;
+	
+}
+
+
+.ice-tab-add-content input[type="hidden"]{
+	border: 0px solid gray;
+}
+
+
+       
+
+     
+   
+   
+
+
+
+
+
+	
+
+

@@ -1,0 +1,51 @@
+REM  *****  Only For OOO  *****
+
+Sub RepairGraphicsLinks()
+	rem this is just in case we want to create a new macro button for repairing graphs links
+	rem this macros can repair the links for rendition,
+	rem this macros will not repair any graphics anchor to page .
+	rem this macros is not used in the toolbar. we used repair macro instead.
+	oTextElementEnum = ThisComponent.getText().createEnumeration()
+	While oTextElementEnum.hasMoreElements()
+		oTextElement = oTextElementEnum.nextElement()
+		if oTextElement.supportsService("com.sun.star.text.Paragraph") Then
+			Call RepairParaGraphics(oTextElement)
+			call RepairCharGraphics(oTextElement)
+		End if
+
+	Wend
+End Sub
+
+Sub RepairParaGraphics(oTextElement)
+	REM inspired by Andrew Pitonyak's macro
+	rem for graphics anchor to paragraphs
+	oPortionEnum = oTextElement.createContentEnumeration("com.sun.star.text.TextContent")
+	While oPortionEnum.hasMoreElements()
+		oPortion = oPortionEnum.nextElement()
+		if oPortion.supportsService("com.sun.star.text.TextGraphicObject") or oPortion.supportsService("com.sun.star.text.GraphicObjectShape")Then
+			oPortion.AnchorType = 1 rem  AS_Character
+		End if
+	Wend
+End Sub
+
+Sub RepairCharGraphics(oTextElement)
+	REM inspired by Andrew Pitonyak's macro
+	REM For graphics anchor to character or as character
+	oPortionEnum = oTextElement.createEnumeration()
+	Do While oPortionEnum.hasMoreElements()
+		oPortion = oPortionEnum.nextElement()
+		If oPortion.TextPortionType = "Frame" Then
+			rem if it is graphics.
+			oContentEnum = oPortion.createContentEnumeration("com.sun.star.text.TextGraphicObject")
+			while oContentEnum.hasMoreElements()
+				oContent = oContentEnum.nextElement()
+				oContent.AnchorType = 1 rem  AS_CHARACTER
+				If oContent.HyperLinkURL <> "" Then
+					oPortion.HyperLinkName = oContent.HyperLinkName
+					oPortion.HyperLinkTarget = oContent.HyperLinkTarget
+					oPortion.HyperLinkURL = oContent.HyperLinkURL rem copy the url to character property so that it can be rendered into the ice.
+				End if
+			Wend
+		End if
+	Loop
+End Sub

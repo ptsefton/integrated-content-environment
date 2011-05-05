@@ -1,0 +1,186 @@
+/*	This work is licensed under Creative Commons GNU LGPL License.
+
+	License: http://creativecommons.org/licenses/LGPL/2.1/
+	Version: 1.0
+
+	Author:  Stefan Goessner/2005
+	Web:     http://goessner.net/
+
+	Modified: Daniel de Byl/2006
+*/
+@media screen, projection {
+body {
+  
+  padding: 0;
+  margin: 0;
+  color: #000000; 
+  border-color: #678; 
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.linetop, .linefooter, .mainmenu-top, .specialmenuheading-top{background-color:#fc0; height:7px; background-position:top left; background-repeat:no-repeat}
+.linetopright, .linefooterright, .specialmenuheading-topright{float:right; position:relative; width:50%; height:7px; background-position:top right; background-repeat:no-repeat}
+.linetop{background-image:url(left_topcorner_line.gif); margin:0px 5px 5px 5px}
+.linetopright{background-image:url(right_topcorner_line.gif)}
+.linefooter{background-image:url(left_botcorner_line.gif); margin:5px 5px 0px 5px}
+.linefooterright{background-image:url(right_botcorner_line.gif)}
+
+#statusbar, .footer {
+  display: none;
+  position: absolute; z-index: 10;
+  top: auto; bottom: 0; left: 0; right: 0;
+  color: #2C2638;
+  font-size: 12px;
+  padding: 2px; 0.5em 12px 2px;
+  font-family: Verdana, Helvetica, sans-serif;
+  height: 46px;
+}
+
+#statusbar span {
+	margin-top: 22px;
+}
+
+#statusbar button, #tocbox {
+  cursor: pointer; 
+  color:  #2C2638;
+  margin: 1px;
+  padding: 0;
+  font-family: Verdana, Helvetica, sans-serif;
+}
+#statusbar button:hover, #tocbox:hover {
+  font-family: Verdana, Helvetica, sans-serif;
+}
+
+blockquote {
+     font-style:italic;
+     border-left: 2px dotted black;
+     padding-left: .4em;
+}
+
+blockquote.bqs {
+    margin-top: -1em;
+    border: 0px;
+}
+
+a.close-slide {
+	text-decoration: none;
+	color: #000000;
+	margin-left: 4px;
+}
+
+a.close-slide:hover{
+	text-decoration: none;
+	color: blue;
+	background-color: none;
+	
+}
+
+
+#tocbox {
+  width: 15em;
+}
+#eos {
+  visibility: hidden;
+  color: #021;
+  border: inset 1px black;
+  font-size: 120%;
+}
+div.header{
+	border-bottom: 1px dotted black;
+    height: 50px;
+	background-repeat: repeat;
+}
+
+div.slide {
+   display: block;
+   padding-left: 25px;
+   padding-right: 15px;
+   padding-bottom: 25px;
+   padding-top: 0;
+   font-family: Verdana, Helvetica, sans-serif;
+   font-size: 1em;
+   margin-bottom: 5px;
+   border: 0px;
+   background-color: transparent;
+}
+
+div.slide h1 {
+	display: block;
+  	color: #000000; 
+  	font-size: 2em;
+	font-family: Arial, Helvetica, sans-serif;
+	border: 0px;
+    background-color: transparent;
+    text-align: center;
+ }
+
+div.slide h1.title {
+    font-size: 2.5em;
+    text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000; 
+	
+}
+
+div.slide h2 {
+	font-size: 1.1em;
+}
+
+
+div.slide h3 {
+	font-size: 1.05em;
+	font-weight: bold;
+}
+
+
+div.slide h4 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+li {
+	padding: 0px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+li li {
+	font-size: .9em;
+}
+
+li li li {
+	font-size: .8em;
+}
+
+dt{ font-weight: bold; }
+
+div.handout { display: none;}
+
+   
+body>#statusbar {   /* ie6 hack for fixing the statusbar - in quirks mode */
+  position: fixed;  /* thanks to Anne van Kesteren and Arthur Steiner */
+}                   /* see http://limpid.nl/lab/css/fixed/footer */
+* html body {
+  overflow: hidden;
+}
+* html div.slide {
+  height: 100%;
+  padding-bottom: 2em;
+  overflow: auto;
+}                   /* end ie6-hack */
+
+} /* @media screen, projection */
+
+@media print {
+body {
+  color: black;
+  font-family: sans-serif;
+  font-size: 11pt;
+}
+
+#statusbar { display: none; }
+div.slide { page-break-after: always; }
+div.handout { display: block; }
+
+} /* @media print */

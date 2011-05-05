@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<testData xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" office:version="1.0">
+    <!-- xmlns="http://www.w3.org/1999/xhtml" -->
+    
+<tests>
+
+<test name="Footnotes" normalize-white-spaces="true">
+	<source>
+	  <office:document-content>
+	    <office:body>
+		<office:text>
+<text:p text:style-name="p">Footnote test document</text:p>
+<text:p text:style-name="p"><text:bookmark-start text:name="bookmarkOne"/>Bookmark<text:bookmark-end text:name="bookmarkOne"/>.</text:p>
+<text:p text:style-name="p">
+  <text:note text:id="ftn1" text:note-class="footnote">
+    <text:note-citation>1</text:note-citation>
+	<text:note-body>
+	<text:p text:style-name="Footnote">Footnote test <text:span text:style-name="T1">bold</text:span>
+		 and 
+		<text:span text:style-name="T2">lager</text:span>. <text:s/>
+		<text:a xlink:type="simple" xlink:href="#bookmarkOne">Link</text:a>!
+	</text:p>
+	<text:list text:style-name="li1n">
+	  <text:list-item>
+	    <text:p text:style-name="li1n">Number list one</text:p>
+	  </text:list-item>
+	  <text:list-item>
+	    <text:p text:style-name="li1n">two</text:p>
+	  </text:list-item>
+	</text:list>
+    </text:note-body>
+  </text:note>
+</text:p>
+      	</office:text>
+	    </office:body>
+	  </office:document-content>
+	</source>
+	<expected match="/html:html/html:body">
+   	  <body>
+		<p>Footnote test document</p>
+		<p><a name="bookmarkOne"><!--bookmarkOne--></a>Bookmark.</p>
+		<p><span class="footnote"><a class="footnote" href="#ftn1" name="ftn1-text">1</a>
+            <span class="footnote-text">
+                <a href="#ftn1-text" name="ftn1">1</a>
+                Footnote test <span class="T1">bold</span> and <span class="T2">lager</span> .
+                <a href="#bookmarkOne">Link</a> !
+                <ol class="lin" style="list-style: decimal;">
+                  <li>
+                    <p>Number list one</p>
+                  </li>
+                  <li>
+                    <p>two</p>
+                  </li>
+                </ol>
+            </span>
+        </span></p>
+		<hr/>
+		<p>
+		<div style="font-size: .9em;">
+		  <span class="footnote-defined"><a href="#ftn1-text" name="ftn1">1</a> Footnote test
+				<span class="T1">bold</span> and <span class="T2">lager</span> . 
+				<a href="#bookmarkOne">Link</a> !
+			<ol class="lin" style="list-style: decimal;">
+				<li><p>Number list one</p></li>
+				<li><p>two</p></li>
+			</ol>
+		  </span>
+		</div>
+	    </p>
+        </body>
+	</expected>
+</test>
+
+<test name="image in pre" normalize-white-spaces="true">
+	<source>
+	  <office:document-content>
+	    <office:body>
+		<office:text>
+<text:p text:style-name="pre1">
+	<draw:frame draw:style-name="fr1" draw:name="graphics1" text:anchor-type="as-char" svg:width="8.509cm" svg:height="11.356cm" draw:z-index="0">
+	  <draw:image xlink:href="Pictures/10000000000001B40000024632DC26C8.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+	</draw:frame>
+</text:p>
+<text:p text:style-name="p">
+	<text:span text:style-name="i-b">Figure 1</text:span>
+</text:p>
+      	</office:text>
+	    </office:body>
+	  </office:document-content>
+	</source>
+	<expected match="/html:html/html:body">
+   	  <body>
+		<pre>
+		  <a name="graphics1"><!-- --></a><img alt="graphics1" class="fr1" height="429" src="Pictures/10000000000001B40000024632DC26C8.jpg" style="border:0px; vertical-align: top" width="322"/>
+		</pre>
+		<p><b>Figure 1</b></p>
+        </body>
+	</expected>
+</test>
+
+<test name="do not render indexes test" normalize-white-spaces="true">
+	<source>
+	  <office:document-content>
+	    <office:body>
+		<office:text>
+<text:illustration-index text:style-name="Sect1" text:protected="true" text:name="Illustration Index1">
+	<text:illustration-index-source text:caption-sequence-name="Figure" text:caption-sequence-format="caption">
+<text:index-title-template text:style-name="Illustration_20_Index_20_Heading">Illustration Index</text:index-title-template>
+	<text:illustration-index-entry-template text:style-name="Illustration_20_Index_20_1">
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:illustration-index-entry-template>
+</text:illustration-index-source>
+	<text:index-body>
+	<text:index-title text:style-name="Sect1" text:name="Illustration Index1_Head">
+<text:p text:style-name="Illustration_20_Index_20_Heading">Illustration Index</text:p>
+</text:index-title>
+	<text:p text:style-name="P2">
+First figure
+<text:tab/>
+1
+</text:p>
+	<text:p text:style-name="P2">
+First figure
+<text:tab/>
+1
+</text:p>
+</text:index-body>
+</text:illustration-index>
+
+<text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Table of Contents1">
+	<text:table-of-content-source text:outline-level="10">
+<text:index-title-template text:style-name="Contents_20_Heading">Table of Contents</text:index-title-template>
+	<text:table-of-content-entry-template text:outline-level="1" text:style-name="Contents_20_1">
+<text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="2" text:style-name="Contents_20_2"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="3" text:style-name="Contents_20_3"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="4" text:style-name="Contents_20_4"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="5" text:style-name="Contents_20_5"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="6" text:style-name="Contents_20_6"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="7" text:style-name="Contents_20_7"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="8" text:style-name="Contents_20_8"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="9" text:style-name="Contents_20_9"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template><text:table-of-content-entry-template text:outline-level="10" text:style-name="Contents_20_10"><text:index-entry-chapter/>
+<text:index-entry-text/>
+<text:index-entry-tab-stop style:type="right" style:leader-char="."/>
+<text:index-entry-page-number/>
+</text:table-of-content-entry-template>
+</text:table-of-content-source>
+	<text:index-body>
+	<text:index-title text:style-name="Sect1" text:name="Table of Contents1_Head">
+<text:p text:style-name="Contents_20_Heading">Table of Contents</text:p>
+</text:index-title>
+	<text:p text:style-name="P3">Module 2 - Captions<text:tab/>1</text:p>
+	<text:p text:style-name="P4">2.1 Images<text:tab/>1</text:p>
+	<text:p text:style-name="P4">2.2 Tables<text:tab/>1</text:p>
+</text:index-body>
+</text:table-of-content>
+      	</office:text>
+	    </office:body>
+	  </office:document-content>
+	</source>
+	<expected match="/html:html/html:body">
+   	  <body>
+
+        </body>
+	</expected>
+</test>
+
+<test name="blockquote test" normalize-white-spaces="true">
+	<source>
+	  <office:document-content>
+          <office:automatic-styles>
+          </office:automatic-styles>
+	    <office:body>
+		  <office:text>
+            <text:p text:style-name="bq1">
+                Test text
+                <text:a xlink:type="simple" xlink:href="http://diveintopython3.org/about.html">link</text:a>
+                , and more text <text:span text:style-name="User_20_Entry">Ctrl-R</text:span>
+                the end.
+            </text:p>
+      	  </office:text>
+	    </office:body>
+	  </office:document-content>
+	</source>
+	<expected match="/html:html/html:body">
+   	  <body>
+        <blockquote class="bq">
+            <p>
+                Test text
+                <a href="http://diveintopython3.org/about.html">link</a>
+                , and more text
+                <span class="User_20_Entry">Ctrl-R</span>
+                the end.
+            </p>
+        </blockquote>
+      </body>
+	</expected>
+</test>
+
+
+<test name="caption test" normalize-white-spaces="true">
+	<source>
+	  <office:document-content>
+          <office:automatic-styles>
+            <style:style style:name="P1" style:family="paragraph" style:parent-style-name="p">
+              <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0cm"/>
+            </style:style>
+            <style:style style:name="P3" style:family="paragraph" style:parent-style-name="Illustration">
+              <style:paragraph-properties fo:margin-top="0.212cm" fo:margin-bottom="0.212cm"/>
+            </style:style>
+            <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Frame">
+             <style:graphic-properties style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="char" fo:background-color="#ffffff" style:background-transparency="0%" fo:padding="0.026cm" fo:border="none">
+              <style:background-image/>
+             </style:graphic-properties>
+            </style:style>
+            <style:style style:name="fr2" style:family="graphic" style:parent-style-name="Graphics">
+             <style:graphic-properties fo:margin-left="0cm" fo:margin-right="0cm" style:vertical-pos="top" style:vertical-rel="baseline" fo:background-color="#ffffff" style:background-transparency="0%" fo:padding-left="0.28cm" fo:padding-right="0.28cm" fo:padding-top="0.153cm" fo:padding-bottom="0.153cm" fo:border="none" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard">
+              <style:background-image/>
+             </style:graphic-properties>
+            </style:style>
+          </office:automatic-styles>
+	    <office:body>
+		  <office:text>
+            <text:p text:style-name="p">
+             a
+             <draw:frame draw:style-name="fr1" draw:name="Frame1" text:anchor-type="as-char"
+                    svg:y="0cm" svg:width="10.499cm" svg:height="8.698cm" draw:z-index="0">
+              <draw:text-box>
+               <text:p text:style-name="P1">
+                <draw:frame draw:style-name="fr2" draw:name="graphics1" text:anchor-type="as-char"
+                        svg:width="10.506cm" svg:height="7.211cm" draw:z-index="1">
+                 <draw:image xlink:href="pic.png"
+                        xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                </draw:frame>
+                Illustration
+                <text:sequence text:ref-name="refIllustration0" text:name="Illustration"
+                        text:formula="ooow:Illustration+1" style:num-format="1">1</text:sequence>
+                : Caption Text
+               </text:p>
+              </draw:text-box>
+             </draw:frame>
+             testing
+            </text:p>
+
+            <text:p text:style-name="p">
+             <draw:frame draw:style-name="fr1" draw:name="Frame2" text:anchor-type="as-char"
+                    svg:y="0cm" svg:width="14.99cm" svg:height="7.116cm" draw:z-index="2">
+              <draw:text-box>
+               <text:p text:style-name="P3">
+                <draw:frame draw:style-name="fr2" draw:name="graphics2" text:anchor-type="as-char"
+                        svg:width="15.004cm" svg:height="6.346cm" draw:z-index="3">
+                 <draw:image xlink:href="pic2.png" xlink:type="simple" xlink:show="embed"
+                        xlink:actuate="onLoad"/>
+                </draw:frame>
+                Illustration
+                <text:sequence text:ref-name="refIllustration1" text:name="Illustration"
+                        text:formula="ooow:Illustration+1" style:num-format="1">2</text:sequence>
+                : Another caption
+               </text:p>
+              </draw:text-box>
+             </draw:frame>
+            </text:p>
+          </office:text>
+	    </office:body>
+	  </office:document-content>
+	</source>
+	<expected match="/html:html">
+     <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+       <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+       <title>Untitled</title>
+       <style type="text/css">table {border-spacing: 0;empty-cells: show; }
+        .body .indent {margin-left: 25px;} 
+        .body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+        .spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+        span.underline {text-decoration:underline; }
+        p.P1 {margin-bottom:0cm; margin-top:0.42cm; }
+        Illustration.P3 {margin-bottom:0.212cm; margin-top:0.212cm; }
+        Frame.fr1 {background-color:#ffffff; border:none; padding:0.026cm; }
+        img.fr2 {background-color:#ffffff; border:none; margin-left:0cm; margin-right:0cm;
+        padding-bottom:0.153cm; padding-left:0.28cm; padding-right:0.28cm; padding-top:0.153cm; }</style>
+      </head>
+   	  <body>
+       <p>
+         a
+         <p class="P1" style="width:397px;">
+             <a name="graphics1"><!-- --></a>
+             <img alt="graphics1" class="fr2" height="273" src="pic.png"
+                    style="border:0px; vertical-align: top" width="397"/>
+             Illustration 1 : Caption Text
+         </p>
+         testing
+       </p>
+
+       <p>
+        <p class="Illustration.P3" style="margin-bottom:0.212cm; margin-top:0.212cm; width:567px;">
+          <a name="graphics2"><!-- --></a>
+          <img alt="graphics2" class="fr2" height="240" src="pic2.png"
+                  style="border:0px; vertical-align: top" width="567"/>
+            Illustration 2 : Another caption
+        </p>
+       </p>
+      </body>
+     </html>
+	</expected>
+</test>
+
+<test name="empty test" normalize-white-spaces="true">
+	<source>
+	  <office:document-content>
+	    <office:body>
+		<office:text>
+
+      	</office:text>
+	    </office:body>
+	  </office:document-content>
+	</source>
+	<expected match="/html:html/html:body">
+   	  <body>
+
+        </body>
+	</expected>
+</test>
+
+
+</tests>
+</testData>

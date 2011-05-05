@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }</style></head><body><p class="P1">This document is to demonstrate faults with nested lists</p><p>List paragraphs</p><ol class="lin" style="list-style: decimal;"><li><p>item 1</p></li><li><p>item 2</p><p>li2p There shouldn't be a bullet on this</p></li><li><p>item 3</p></li></ol><p/><ol class="lin" style="list-style: decimal;"><li><p>item 1</p></li><li><p>item 2</p><ul class="lib"><li><p>li2n</p><p>li2p There shouldn't be a bullet on this</p></li></ul></li><li><p>item 3</p></li></ol></body></html>

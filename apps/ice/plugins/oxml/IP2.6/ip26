@@ -1,0 +1,1 @@
+mono /home/ward/downloads/fepy/IP/IronPython-2.6.1/ipy.exe -X:AutoIndent -X:ColorfulConsole -X:TabCompletion -X:Frames $*

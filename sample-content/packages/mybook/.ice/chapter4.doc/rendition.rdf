@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:ore="http://www.openarchives.org/ore/terms/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs1="http://www.w3.org/2001/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.htm?exportVersion=1">
+    <dc:format>text/html</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation">
+    <dc:title>Untitled</dc:title>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/slideicon.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.dc"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.htm?exportVersion=1"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/default.css"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/pdf.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.pdf"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_next.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dc:format>application/rdf+xml</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/inactive_previous.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/pdf.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.pdf">
+    <dc:format>application/pdf</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/up.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/up.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/up.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.htm%3FexportVersion%3D1&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.htm?exportVersion=1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf">
+    <dc:format></dc:format>
+    <dcterms:modified>2008-11-05 11:50:57</dcterms:modified>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/ResourceMap"/>
+    <dcterms:created>2008-11-05 11:50:57</dcterms:created>
+    <ore:describes rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.dc">
+    <dc:format>text/xml</dc:format>
+    <dcterms:conformsTo>http://www.openarchives.org/OAI/2.0/oai_dc/</dcterms:conformsTo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/previous.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/pdf.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/pdf.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/previous.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/previous.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/inactive_up.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_up.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/default.css&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/default.css"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.dc&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.dc"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/inactive_next.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_next.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.pdf&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.pdf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/Aggregation">
+    <rdfs1:label>Aggregation</rdfs1:label>
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/inactive_up.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/ResourceMap">
+    <rdfs1:label>ResourceMap</rdfs1:label>
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/inactive_next.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/slideicon.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/slideicon.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/slideicon.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/default.css">
+    <dc:format>text/css</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/inactive_previous.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_previous.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/next.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/next.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/packages/mybook/chapter4.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/packages/mybook/chapter4.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/next.gif"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,1500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+    xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+    xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+    xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+    xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+    xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+    xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+    xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+    xmlns:math="http://www.w3.org/1998/Math/MathML"
+    xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+    xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+    xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer"
+    xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events"
+    xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" office:version="1.0">
+    <office:scripts/>
+    <office:font-face-decls>
+        <style:font-face style:name="StarSymbol" svg:font-family="StarSymbol"
+            style:font-charset="x-symbol"/>
+        <style:font-face style:name="Tahoma2" svg:font-family="Tahoma"/>
+        <style:font-face style:name="Courier" svg:font-family="Courier"
+            style:font-adornments="Regular" style:font-family-generic="modern"
+            style:font-pitch="fixed"/>
+        <style:font-face style:name="Courier New" svg:font-family="&apos;Courier New&apos;"
+            style:font-adornments="Regular" style:font-family-generic="modern"
+            style:font-pitch="fixed"/>
+        <style:font-face style:name="HG Mincho Light J" svg:font-family="&apos;HG Mincho Light
+            J&apos;, &apos;MS Mincho&apos;, &apos;HG Mincho J&apos;,
+            &apos;HG Mincho L&apos;, &apos;HG Mincho&apos;, Mincho, &apos;MS
+            PMincho&apos;, &apos;HG Mincho Light J&apos;, &apos;MS Gothic&apos;,
+            &apos;HG Gothic J&apos;, &apos;HG Gothic B&apos;, &apos;HG
+            Gothic&apos;, Gothic, &apos;MS PGothic&apos;, &apos;Andale Sans
+            UI&apos;, &apos;Arial Unicode MS&apos;, &apos;Lucida Sans
+            Unicode&apos;, Tahoma" style:font-pitch="variable"/>
+        <style:font-face style:name="Helvetica-Narrow2" svg:font-family="Helvetica-Narrow"
+            style:font-adornments="Bold" style:font-pitch="variable"/>
+        <style:font-face style:name="Helvetica-Narrow3" svg:font-family="Helvetica-Narrow"
+            style:font-adornments="Regular" style:font-pitch="variable"/>
+        <style:font-face style:name="Lucida Sans Unicode" svg:font-family="&apos;Lucida Sans
+            Unicode&apos;" style:font-pitch="variable"/>
+        <style:font-face style:name="Tahoma" svg:font-family="Tahoma" style:font-pitch="variable"/>
+        <style:font-face style:name="Tahoma1" svg:font-family="Tahoma, Lucidasans, &apos;Lucida
+            Sans&apos;, &apos;Arial Unicode MS&apos;" style:font-pitch="variable"/>
+        <style:font-face style:name="Times1" svg:font-family="Times" style:font-adornments="Bold"
+            style:font-family-generic="roman" style:font-pitch="variable"/>
+        <style:font-face style:name="Times" svg:font-family="Times" style:font-adornments="Regular"
+            style:font-family-generic="roman" style:font-pitch="variable"/>
+        <style:font-face style:name="Times New Roman" svg:font-family="&apos;Times New
+            Roman&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
+        <style:font-face style:name="Times New Roman1" svg:font-family="&apos;Times New
+            Roman&apos;" style:font-adornments="Regular" style:font-family-generic="roman"
+            style:font-pitch="variable"/>
+        <style:font-face style:name="Arial" svg:font-family="Arial"
+            style:font-family-generic="swiss" style:font-pitch="variable"/>
+        <style:font-face style:name="Helvetica" svg:font-family="Helvetica"
+            style:font-adornments="Regular" style:font-family-generic="swiss"
+            style:font-pitch="variable"/>
+        <style:font-face style:name="Helvetica-Narrow" svg:font-family="Helvetica-Narrow"
+            style:font-adornments="Bold" style:font-family-generic="swiss"
+            style:font-pitch="variable"/>
+        <style:font-face style:name="Helvetica-Narrow1" svg:font-family="Helvetica-Narrow"
+            style:font-adornments="Regular" style:font-family-generic="swiss"
+            style:font-pitch="variable"/>
+    </office:font-face-decls>
+    <office:automatic-styles>
+        <style:style style:name="Table2" style:family="table">
+            <style:table-properties style:width="14.601cm" style:rel-width="100%" table:align="left"
+                style:writing-mode="lr-tb"/>
+        </style:style>
+        <style:style style:name="Table2.A" style:family="table-column">
+            <style:table-column-properties style:column-width="2.043cm"
+                style:rel-column-width="1158*"/>
+        </style:style>
+        <style:style style:name="Table2.B" style:family="table-column">
+            <style:table-column-properties style:column-width="12.559cm"
+                style:rel-column-width="7118*"/>
+        </style:style>
+        <style:style style:name="Table2.A1" style:family="table-cell">
+            <style:table-cell-properties fo:padding-left="0cm" fo:padding-right="0cm"
+                fo:padding-top="0.101cm" fo:padding-bottom="0.101cm" fo:border="none"/>
+        </style:style>
+        <style:style style:name="navigationoptions" style:family="table">
+            <style:table-properties style:width="14.601cm" style:rel-width="100%" table:align="left"
+            />
+        </style:style>
+        <style:style style:name="navigationoptions.A" style:family="table-column">
+            <style:table-column-properties style:column-width="5.823cm"
+                style:rel-column-width="3301*"/>
+        </style:style>
+        <style:style style:name="navigationoptions.B" style:family="table-column">
+            <style:table-column-properties style:column-width="8.779cm"
+                style:rel-column-width="4976*"/>
+        </style:style>
+        <style:style style:name="navigationoptions.A1" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="none" fo:border-top="0.002cm solid #000000"
+                fo:border-bottom="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="navigationoptions.B1" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="navigationoptions.A2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"
+            />
+        </style:style>
+        <style:style style:name="navigationoptions.B2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="0.002cm solid #000000" fo:border-top="none"
+                fo:border-bottom="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table3" style:family="table">
+            <style:table-properties style:width="14.601cm" style:rel-width="100%" table:align="left"
+            />
+        </style:style>
+        <style:style style:name="Table3.A" style:family="table-column">
+            <style:table-column-properties style:column-width="2.277cm"
+                style:rel-column-width="1291*"/>
+        </style:style>
+        <style:style style:name="Table3.B" style:family="table-column">
+            <style:table-column-properties style:column-width="12.324cm"
+                style:rel-column-width="6986*"/>
+        </style:style>
+        <style:style style:name="Table3.A1" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="none" fo:border-top="0.002cm solid #000000"
+                fo:border-bottom="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table3.B1" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table3.A2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"
+            />
+        </style:style>
+        <style:style style:name="Table3.B2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="0.002cm solid #000000" fo:border-top="none"
+                fo:border-bottom="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table52" style:family="table">
+            <style:table-properties style:width="14.601cm" style:rel-width="100%" table:align="left"
+            />
+        </style:style>
+        <style:style style:name="Table52.A" style:family="table-column">
+            <style:table-column-properties style:column-width="2.277cm"
+                style:rel-column-width="1291*"/>
+        </style:style>
+        <style:style style:name="Table52.B" style:family="table-column">
+            <style:table-column-properties style:column-width="12.324cm"
+                style:rel-column-width="6986*"/>
+        </style:style>
+        <style:style style:name="Table52.A1" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="none" fo:border-top="0.002cm solid #000000"
+                fo:border-bottom="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table52.B1" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table52.A2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"
+            />
+        </style:style>
+        <style:style style:name="Table52.B2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="0.002cm solid #000000" fo:border-top="none"
+                fo:border-bottom="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table4" style:family="table">
+            <style:table-properties style:width="14.601cm" style:rel-width="100%" table:align="left"
+            />
+        </style:style>
+        <style:style style:name="Table4.A" style:family="table-column">
+            <style:table-column-properties style:column-width="1.538cm"
+                style:rel-column-width="872*"/>
+        </style:style>
+        <style:style style:name="Table4.B" style:family="table-column">
+            <style:table-column-properties style:column-width="0.529cm"
+                style:rel-column-width="300*"/>
+        </style:style>
+        <style:style style:name="Table4.C" style:family="table-column">
+            <style:table-column-properties style:column-width="12.534cm"
+                style:rel-column-width="7103*"/>
+        </style:style>
+        <style:style style:name="Table4.B1" style:family="table-cell">
+            <style:table-cell-properties style:vertical-align="middle"/>
+        </style:style>
+        <style:style style:name="Table5" style:family="table">
+            <style:table-properties style:width="14.6cm" table:align="left"/>
+        </style:style>
+        <style:style style:name="Table5.A" style:family="table-column">
+            <style:table-column-properties style:column-width="1.242cm"/>
+        </style:style>
+        <style:style style:name="Table5.B" style:family="table-column">
+            <style:table-column-properties style:column-width="13.358cm"/>
+        </style:style>
+        <style:style style:name="Table5.A1" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="none" fo:border-top="0.002cm solid #000000"
+                fo:border-bottom="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table5.B1" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table5.A2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"
+            />
+        </style:style>
+        <style:style style:name="Table5.B2" style:family="table-cell">
+            <style:table-cell-properties fo:padding="0.097cm" fo:border-left="0.002cm solid #000000"
+                fo:border-right="0.002cm solid #000000" fo:border-top="none"
+                fo:border-bottom="0.002cm solid #000000"/>
+        </style:style>
+        <style:style style:name="Table53" style:family="table">
+            <style:table-properties style:width="14.601cm" style:rel-width="100%" table:align="left"
+                style:writing-mode="lr-tb"/>
+        </style:style>
+        <style:style style:name="Table53.A" style:family="table-column">
+            <style:table-column-properties style:column-width="2.043cm"
+                style:rel-column-width="1158*"/>
+        </style:style>
+        <style:style style:name="Table53.B" style:family="table-column">
+            <style:table-column-properties style:column-width="12.559cm"
+                style:rel-column-width="7118*"/>
+        </style:style>
+        <style:style style:name="Table53.A1" style:family="table-cell">
+            <style:table-cell-properties fo:padding-left="0cm" fo:padding-right="0cm"
+                fo:padding-top="0.101cm" fo:padding-bottom="0.101cm" fo:border="none"/>
+        </style:style>
+        <style:style style:name="P1" style:family="paragraph"
+            style:parent-style-name="Title-chapter" style:master-page-name="">
+            <style:paragraph-properties fo:break-before="page"/>
+        </style:style>
+        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="p"
+            style:master-page-name="">
+            <style:paragraph-properties fo:keep-with-next="always"/>
+        </style:style>
+        <style:style style:name="P3" style:family="paragraph"
+            style:parent-style-name="Table_20_Contents">
+            <style:paragraph-properties fo:text-align="start" style:justify-single-word="false"/>
+        </style:style>
+        <style:style style:name="P4" style:family="paragraph" style:parent-style-name="p">
+            <style:paragraph-properties fo:text-align="start" style:justify-single-word="false"/>
+        </style:style>
+        <style:style style:name="P5" style:family="paragraph" style:parent-style-name="p"
+            style:master-page-name="">
+            <style:paragraph-properties fo:keep-together="always"/>
+        </style:style>
+        <style:style style:name="P6" style:family="paragraph" style:parent-style-name="li1b"
+            style:master-page-name="">
+            <style:paragraph-properties fo:keep-together="always"/>
+        </style:style>
+        <style:style style:name="P7" style:family="paragraph" style:parent-style-name="p">
+            <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.42cm"
+                fo:text-align="start" style:justify-single-word="false"/>
+            <style:text-properties fo:color="#000000"/>
+        </style:style>
+        <style:style style:name="P8" style:family="paragraph" style:parent-style-name="p"
+            style:master-page-name="">
+            <style:paragraph-properties fo:keep-together="always" fo:keep-with-next="always"/>
+        </style:style>
+        <style:style style:name="P9" style:family="paragraph" style:parent-style-name="li1n"
+            style:master-page-name="">
+            <style:paragraph-properties fo:keep-together="always"/>
+        </style:style>
+        <style:style style:name="P10" style:family="paragraph" style:parent-style-name="li1p"
+            style:master-page-name="">
+            <style:paragraph-properties fo:keep-together="always"/>
+        </style:style>
+        <style:style style:name="P11" style:family="paragraph" style:parent-style-name="li1p"
+            style:master-page-name=""/>
+        <style:style style:name="P12" style:family="paragraph" style:parent-style-name="li1p">
+            <style:paragraph-properties fo:keep-together="always"/>
+        </style:style>
+        <style:style style:name="P13" style:family="paragraph" style:parent-style-name="p">
+            <style:paragraph-properties fo:break-before="page"/>
+        </style:style>
+        <style:style style:name="T1" style:family="text">
+            <style:text-properties fo:font-size="11pt" fo:font-style="normal"
+                style:font-style-asian="normal" style:font-style-complex="normal"/>
+        </style:style>
+        <style:style style:name="T2" style:family="text">
+            <style:text-properties fo:font-size="11pt" fo:font-style="normal"
+                style:font-size-asian="11pt" style:font-style-asian="normal"
+                style:font-size-complex="11pt" style:font-style-complex="normal"/>
+        </style:style>
+        <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+            <style:graphic-properties style:vertical-pos="from-top" style:horizontal-pos="from-left"
+                style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm 0cm 0cm 0cm)"
+                draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%"
+                draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%"
+                draw:color-mode="standard"/>
+        </style:style>
+        <style:style style:name="fr2" style:family="graphic" style:parent-style-name="Graphics">
+            <style:graphic-properties style:vertical-pos="from-top" style:horizontal-pos="center"
+                style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm 0cm 0cm 0cm)"
+                draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%"
+                draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%"
+                draw:color-mode="standard"/>
+        </style:style>
+        <style:style style:name="fr3" style:family="graphic" style:parent-style-name="Graphics">
+            <style:graphic-properties style:vertical-pos="top" style:vertical-rel="baseline"
+                style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none"
+                fo:clip="rect(0cm 0cm 0cm 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%"
+                draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false"
+                draw:image-opacity="100%" draw:color-mode="standard"/>
+        </style:style>
+        <style:style style:name="fr4" style:family="graphic" style:parent-style-name="Graphics">
+            <style:graphic-properties style:vertical-pos="top" style:vertical-rel="baseline"
+                style:mirror="none" fo:clip="rect(0cm 0cm 0cm 0cm)" draw:luminance="0%"
+                draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%"
+                draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+        </style:style>
+        <text:list-style style:name="L1">
+            <text:list-level-style-number text:level="1" style:num-prefix="Module "
+                style:num-suffix=" – " style:num-format="1" text:start-value="2"/>
+            <text:list-level-style-number text:level="2" style:num-suffix=" " style:num-format="1"
+                text:display-levels="2"/>
+            <text:list-level-style-number text:level="3" style:num-suffix=" " style:num-format="1"
+                text:display-levels="3"/>
+            <text:list-level-style-number text:level="4" style:num-suffix=" " style:num-format="1"
+                text:display-levels="4"/>
+            <text:list-level-style-number text:level="5" style:num-suffix=" " style:num-format="1"
+                text:display-levels="5"/>
+            <text:list-level-style-number text:level="6" style:num-suffix=" " style:num-format="1"
+                text:display-levels="6"/>
+            <text:list-level-style-number text:level="7" style:num-format=""/>
+            <text:list-level-style-number text:level="8" style:num-format=""/>
+            <text:list-level-style-number text:level="9" style:num-format=""/>
+            <text:list-level-style-number text:level="10" style:num-format=""/>
+        </text:list-style>
+    </office:automatic-styles>
+    <office:body>
+        <office:text>
+            <office:forms form:automatic-focus="false" form:apply-design-mode="false">
+                <form:form form:name="Standard" form:apply-filter="true" form:command-type="table"
+                    form:control-implementation="ooo:com.sun.star.form.component.Form"
+                    office:target-frame="" xlink:href="">
+                    <form:properties>
+                        <form:property form:property-name="GroupBy" office:value-type="string"
+                            office:string-value=""/>
+                        <form:property form:property-name="HavingClause" office:value-type="string"
+                            office:string-value=""/>
+                        <form:property form:property-name="MaxRows" office:value-type="float"
+                            office:value="0"/>
+                        <form:property form:property-name="UpdateCatalogName"
+                            office:value-type="string" office:string-value=""/>
+                        <form:property form:property-name="UpdateSchemaName"
+                            office:value-type="string" office:string-value=""/>
+                        <form:property form:property-name="UpdateTableName"
+                            office:value-type="string" office:string-value=""/>
+                    </form:properties>
+                </form:form>
+            </office:forms>
+            <text:sequence-decls>
+                <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
+                <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
+                <text:sequence-decl text:display-outline-level="0" text:name="Text"/>
+                <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
+            </text:sequence-decls>
+            <text:h text:style-name="P1" text:outline-level="1">Using the ICE system</text:h>
+            <text:p text:style-name="h1">Module overview</text:p>
+            <text:p text:style-name="p">In this module you will learn how to use the Integrated
+                Content Environment (ICE) system to develop your content.</text:p>
+            <text:h text:style-name="h1n" text:outline-level="2">Start the ICE server and
+                OpenOffice.org (OOo) Writer</text:h>
+            <text:p text:style-name="p">The ICE server and OpenOffice.org Writer must be started to
+                gain access to the ICE system in your browser. </text:p>
+            <text:p text:style-name="h2">Windows users</text:p>
+            <text:p text:style-name="p">If OOo is automatically loaded at start-up, you will see a
+                Quickstarter <draw:frame draw:style-name="fr1" draw:name="Quickstarter icon"
+                    text:anchor-type="as-char" svg:y="-0.344cm" svg:width="0.423cm"
+                    svg:height="0.423cm" draw:z-index="0">
+                    <draw:image xlink:href="Pictures/100000000000001000000010832BB915.gif"
+                        xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                </draw:frame> icon on the Windows Taskbar which means it is running. Check if the
+                start-up option has been set using the following process.</text:p>
+            <text:p text:style-name="p">Tools...Options...OpenOffice.org (expand if
+                necessary)...Memory. From the right-hand pane, select the option to Load
+                OpenOffice.or during system start-up.</text:p>
+            <text:p text:style-name="p">If the Quickstarter is not available, start Writer from the
+                Start menu on the Windows Taskbar (e.g.
+                Start...Programs...OpenOffice.org 2.0...OpenOffice.org Writer).</text:p>
+            <text:p text:style-name="p">Start the ICE server from the Start menu on the Windows
+                Taskbar (e.g. Start...Programs...ICE...ICE server) or from a shortcut if you have
+                one created on your Windows Taskbar or Desktop. </text:p>
+            <text:p text:style-name="h2">Mac users</text:p>
+            <text:p text:style-name="p">To start OpenOffice.org, run the application file via Finder
+                (e.g. Finder...Applications...OpenOffice.org2.0.app).</text:p>
+            <text:p text:style-name="p">To start the ICE server, run the application file via Finder
+                (e.g. Finder...Applications...Ice.app). </text:p>
+            <text:h text:style-name="h1n" text:outline-level="2">Login or work offline</text:h>
+            <text:p text:style-name="P2">To access the repository you need to login using your
+                username and password. The Login screen provides an option to work offline. This
+                means you can still use the ICE system to view and edit content, however you can’t
+                synchronize with the repository.</text:p>
+            <table:table table:name="Table2" table:style-name="Table2">
+                <table:table-column table:style-name="Table2.A"/>
+                <table:table-column table:style-name="Table2.B"/>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table2.A1" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr2" draw:name="Note icon"
+                                text:anchor-type="as-char" svg:y="-1.709cm" svg:width="1.498cm"
+                                svg:height="1.498cm" draw:z-index="2">
+                                <draw:image
+                                    xlink:href="Pictures/10000000000000B1000000B111167E99.png"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell>
+                        <table:table table:is-sub-table="true">
+                            <table:table-column table:style-name="Table2.B"/>
+                            <table:table-row>
+                                <table:table-cell table:style-name="Table2.A1"
+                                    office:value-type="string">
+                                    <text:p text:style-name="h-note">Note </text:p>
+                                </table:table-cell>
+                            </table:table-row>
+                            <table:table-row>
+                                <table:table-cell table:style-name="Table2.A1"
+                                    office:value-type="string">
+                                    <text:p text:style-name="p">The ICE system will timeout after
+                                        approximately 15 minutes of inactivity. You will have to
+                                        login to resume full access.</text:p>
+                                </table:table-cell>
+                            </table:table-row>
+                        </table:table>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:h text:style-name="h2n" text:outline-level="3">
+                <text:bookmark text:name="login"/>Login</text:h>
+            <text:list text:style-name="li1n">
+                <text:list-item>
+                    <text:p text:style-name="li1n">Start your ICE Server.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Open an Internet browser.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">First time user or unsure of full URL: Insert the
+                        following URL in the Address text box: http://localhost:8000/</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">Existing user: If you have bookmarked or remember the
+                full URL to your content, include it in the Address text box.</text:p>
+            <text:list text:style-name="li1n" text:continue-numbering="true">
+                <text:list-item>
+                    <text:p text:style-name="li1n">When the Login screen displays, insert your
+                        username and password then click the Submit button.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">First time user: Follow the links to your
+                        content.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">Bookmarked URL: Your content will display.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">Work offline</text:h>
+            <text:list text:style-name="li1n">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1n">Start your ICE Server.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Open an Internet browser.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">First time user or unsure of full URL: Insert the
+                        following URL in the Address text box: http://localhost:8000/.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">Existing user: If you have bookmarked or remember the
+                full URL to your content, include it in the Address text box.</text:p>
+            <text:list text:style-name="li1n" text:continue-numbering="true">
+                <text:list-item>
+                    <text:p text:style-name="li1n">When the Login screen displays, click the Work
+                        Offline button.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">First time user: Follow the links to your
+                        content.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">Bookmarked URL: Your content will display.</text:p>
+            <text:h text:style-name="h1n" text:outline-level="2">The manifest and skin</text:h>
+            <text:p text:style-name="P2">A file called manifest.xml is automatically created in the
+                root of the content structure when ICE is run with content for the first time. </text:p>
+            <text:p text:style-name="p">The manifest is a text file that contains the structure
+                information for the site. Use the package organizer to setup the structure. You will
+                not modify the manifest file directly.</text:p>
+            <text:p text:style-name="p">The skin is a wrapper to display the content. For example,
+                the logo, layout and CSS (Cascading Style Sheet). The skin is customizable.</text:p>
+            <text:h text:style-name="h1n" text:outline-level="2">Navigation</text:h>
+            <text:p text:style-name="p">Various navigation options are available within the ICE
+                website.</text:p>
+            <table:table table:name="navigationoptions" table:style-name="navigationoptions">
+                <table:table-column table:style-name="navigationoptions.A"/>
+                <table:table-column table:style-name="navigationoptions.B"/>
+                <table:table-row>
+                    <table:table-cell table:style-name="navigationoptions.A1"
+                        office:value-type="string">
+                        <text:p text:style-name="P3">
+                            <draw:frame draw:style-name="fr1" draw:name="left-hand menu"
+                                text:anchor-type="as-char" svg:y="-1.88cm" svg:width="3.969cm"
+                                svg:height="4.445cm" draw:z-index="3">
+                                <draw:image
+                                    xlink:href="Pictures/1000000000000096000000A857E4E925.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="navigationoptions.B1"
+                        office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:span text:style-name="i-b">Left-hand menu</text:span> – The
+                            default display is first level items. When an item is accessed, second
+                            level items will display, if applicable, indented as shown in the
+                            example.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="navigationoptions.A2"
+                        office:value-type="string">
+                        <text:p text:style-name="P3">
+                            <draw:frame draw:style-name="fr3" draw:name="breadcrumb trail"
+                                text:anchor-type="as-char" svg:width="5.398cm" svg:height="0.503cm"
+                                draw:z-index="4">
+                                <draw:image
+                                    xlink:href="Pictures/10000000000000CC0000001396A245C2.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="navigationoptions.B2"
+                        office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:span text:style-name="i-b">Breadcrumb trail</text:span> – The
+                            breadcrumb trail displays above the content on a screen. Use to see
+                            where you are in the content structure.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="navigationoptions.A2"
+                        office:value-type="string">
+                        <text:p text:style-name="P3">
+                            <draw:frame draw:style-name="fr3" draw:name="contents navigation"
+                                text:anchor-type="as-char" svg:width="5.398cm" svg:height="3.201cm"
+                                draw:z-index="5">
+                                <draw:image
+                                    xlink:href="Pictures/10000000000000CC00000079CADCA932.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="navigationoptions.B2"
+                        office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:span text:style-name="i-b">Contents</text:span> – Access from the
+                            Contents link at the top of the left-hand menu. The first and second
+                            level items for the whole content are displayed.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="navigationoptions.A2"
+                        office:value-type="string">
+                        <text:p text:style-name="P3">
+                            <draw:frame draw:style-name="fr3" draw:name="mini table of contents"
+                                text:anchor-type="as-char" svg:width="4.71cm" svg:height="3.863cm"
+                                draw:z-index="6">
+                                <draw:image
+                                    xlink:href="Pictures/10000000000000B200000092EAB409B1.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="navigationoptions.B2"
+                        office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:span text:style-name="i-b">Mini table of contents</text:span> –
+                            Displays first and second level items below the title of each
+                        screen.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="p"/>
+            <text:h text:style-name="h1n" text:outline-level="2">Toolbar functions</text:h>
+            <text:p text:style-name="p">A toolbar at the top of the ICE website contains buttons to
+                call ICE functions. The toolbar does not stay with the content when exported.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">Re-render</text:h>
+            <text:p text:style-name="p">Load all modified and new files into the ICE site. After you
+                modify a document, save the file. Click the Re-render button to display the updated
+                content.</text:p>
+            <text:p text:style-name="P4">While browsing the content, ICE will automatically
+                re-render a document about to be viewed if it recognizes that changes have occurred.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">Get changes</text:h>
+            <text:p text:style-name="p">Close your documents before using this function. Download
+                any new or changed files from the server. It is a good idea to use this function
+                before making changes to your local content to ensure you are working on the latest
+                version.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">Sync</text:h>
+            <text:p text:style-name="P4">Close your documents before using this function.
+                Synchronize with the server and other users. It checks for new and changed files and
+                sends all modified files to the server. Remember to perform a Syn at the end of each
+                editing session.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">
+                <text:bookmark text:name="organizer"/>Organizer</text:h>
+            <text:p text:style-name="p">The Package organizer is used to arrange the content
+                structure for the manifest and edit properties. </text:p>
+            <text:p text:style-name="h3">Links toolbar functions</text:p>
+            <text:p text:style-name="P5">
+                <text:span text:style-name="i-b">Expand all</text:span> and <text:span
+                    text:style-name="i-b">Minimize all</text:span> – Expand or minimize the display
+                of children of all parent items.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Edit properties</text:span> – Edit the upper level
+                properties of the package.</text:p>
+            <text:list text:style-name="li1b">
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Title</text:span> – If required, change the
+                        package title displaying in the website. Click the Edit properties
+                        link...Edit the title...Click the OK button.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Set as Home page</text:span> – Select this
+                        option for the list of contents to display as the opening screen of the
+                        website. Click the Edit properties link...Select or deselect the Set as Home
+                        page option...Click the OK button.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="h3">Icons</text:p>
+            <table:table table:name="Table3" table:style-name="Table3">
+                <table:table-column table:style-name="Table3.A"/>
+                <table:table-column table:style-name="Table3.B"/>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table3.A1" office:value-type="string">
+                        <text:p text:style-name="P3">
+                            <draw:frame draw:style-name="fr3" draw:name="root move here icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="7">
+                                <draw:image
+                                    xlink:href="Pictures/100002000000001800000018B18A86C9.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table3.B1" office:value-type="string">
+                        <text:p text:style-name="P3">Move the selected item/s before the following
+                            item.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="move here icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="8">
+                                <draw:image
+                                    xlink:href="Pictures/10000200000000180000001854BE17FD.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table3.B2" office:value-type="string">
+                        <text:p text:style-name="p">Move the selected item/s to the next level
+                            (child) in relation to the parent item. </text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="moving here icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="9">
+                                <draw:image
+                                    xlink:href="Pictures/10000200000000180000001854BE17FD.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame> <draw:frame draw:style-name="fr3" draw:name="expand icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="10">
+                                <draw:image
+                                    xlink:href="Pictures/100002000000001800000018697ED958.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table3.B2" office:value-type="string">
+                        <text:p text:style-name="p">When there are children items, a plus sign icon
+                            will appear. Use this icon to expand the items.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table3.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="move icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="11">
+                                <draw:image
+                                    xlink:href="Pictures/10000200000000180000001854BE17FD.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame> <draw:frame draw:style-name="fr3" draw:name="minimize
+                                icon" text:anchor-type="as-char" svg:width="0.635cm"
+                                svg:height="0.635cm" draw:z-index="12">
+                                <draw:image
+                                    xlink:href="Pictures/100002000000001800000018EE02DC03.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table3.B2" office:value-type="string">
+                        <text:p text:style-name="p">While the items are expanded, a minus sign icon
+                            will appear. Use this to minimize the items.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="h3">Other functions</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">View</text:span> – View the item content in the ICE
+                website.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Edit properties</text:span> – Access the item
+                properties. The options will vary depending on the type of file.</text:p>
+            <text:list text:style-name="li1b">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Title</text:span> – The title included here
+                        is from the document property field. It is displayed in the website
+                        navigation. You may wish to shorten the title in the web version for the
+                        navigation. If you change the title properties in the document, you also
+                        need to edit the properties here in the organizer. Click the Edit properties
+                        link...Edit the title (if document properties have been changed, it will
+                        display here to await acceptance)...Click the OK button.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Hide</text:span> – Hide the item from the
+                        website navigation. Click the Edit properties link...Select or deselect the
+                        Hide option...Click the OK button.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Set as Home page</text:span> – Select for
+                        the item to display as the opening screen of the website. Click the Edit
+                        properties link...Select or deselect the Set as Home page option...Click the
+                        OK button.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Render (ICE document)</text:span> – This
+                        option is available for Word documents. If the option is selected, the
+                        document will be converted in the website. If the option is deselected, the
+                        document will display as a Word document. Click the Edit properties
+                        link...Select or deselect the Render (ICE document) option...Click the OK
+                        button.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:h text:style-name="h2n" text:outline-level="3">
+                <text:bookmark text:name="filemanager"/>ICE file manager</text:h>
+            <text:p text:style-name="P2">Manage your ICE content files using this function instead
+                of using your Windows file managers.</text:p>
+            <text:p text:style-name="h3">Links toolbar functions</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Update selected</text:span> – Update the selected
+                item with the most recent version from the server. Select the relevant
+                checkbox...Click the Update selected link.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Sync selected</text:span> – Send the selected new
+                or modified item to the server. Select the relevant checkbox...Click the Sync
+                selected link.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Re-render selected</text:span> – Re-render selected
+                items only. Select the relevant checkbox...Click the Re-render selected link.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Force re-render selected</text:span> – Force a
+                re-render of selected items whether they have been changed or not. For example, use
+                a force re-render to implement development fixes in ICE.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Add new folder</text:span> – Creates a new folder
+                to add content. Use the file manager to navigate to the required location then click
+                the Add new folder link. Under the links toolbar, a New folder name option will
+                display. Type the required folder name then click the Add button. The new folder
+                will be added to the displayed list. Click the folder name to open it.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Cut selected</text:span> – Use when an item needs
+                to be moved from one location to another. Select the relevant checkbox...Click the
+                Cut selected link...Navigate to the required location...Click the Paste link. The
+                item will not be removed from the original location until it has been pasted in the
+                new location.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Copy selected</text:span> – Copy an item so it can
+                be added to another location. Select the relevant checkbox...Click the Copy selected
+                link...Navigate to the required location...Click the Paste link.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Paste</text:span> – This function will only be
+                available after using Cut selected or Copy selected. Navigate to the required
+                location then click the Paste link. </text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Delete selected</text:span> – Permanently remove an
+                item. Select the relevant checkbox...Click the Delete selected link.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Revert selected</text:span> – Revert an item to the
+                previous repository version. All local changes that have not been synchronized with
+                the repository will be lost. Select the relevant checkbox...Click the Revert select
+                link.</text:p>
+            <text:p text:style-name="p">
+                <text:bookmark text:name="advancedoptions"/>
+                <text:span text:style-name="i-b">Advanced options</text:span> – Use to repair Writer
+                documents. For example, apply the latest ICE Writer template to documents based on a
+                previous version. After the repair, check formatting and apply styles as required.
+                For example, a heading that was previously h1-chapter requires the h1n style
+                applied.</text:p>
+            <text:list text:style-name="li1b">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Use default template file</text:span> –
+                        This template is for documents that do not require outline numbering based
+                        on a module number. Click the Use default template file link...Ensure the
+                        required file path is displayed on the Repair selected link...Select the
+                        file/s...Click the Repair selected link.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="P6">
+                        <text:span text:style-name="i-b">Set selected file as template
+                        file</text:span> – Select a specific template file. Using the file manager,
+                        navigate to the template file and select it...Click the Set selected file as
+                        template file link...Ensure the required file path is displayed on the
+                        Repair selected link...Navigate to the file/s to be repaired...Select the
+                        file/s...Click the Repair selected link.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Repair selected</text:span> – The suffix
+                        (without template file) indicates a template for repairing the document has
+                        not been selected. When a template file has been selected, the suffix will
+                        change to include the path of the file. <text:line-break/>
+                    </text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Create OpenOffice.org Writer file</text:span> or
+                    <text:span text:style-name="i-b">Create Word file</text:span> – Creates a new
+                Writer or Word file from an ICE template. Use the file manager to navigate to the
+                required location then click the Create OpenOffice.org Writer file or Create Word
+                file link. Under the links toolbar, the options for inserting a filename and
+                selecting a template type will display. Type the required filename...Select the
+                template type from the Type dropdown list...Click the Create button. The new file
+                will be added to the displayed list. Click the filename to open the document and
+                start working.</text:p>
+            <text:list text:style-name="li1b">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Template type</text:span>
+                    </text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">Default – For documents that do not require outline
+                numbering based on a module number. </text:p>
+            <text:p text:style-name="li1p">Module – For documents that require outline numbering
+                based on a module number. <text:line-break/>
+            </text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Upload file</text:span> – Upload one file at a time
+                into your ICE content structure. Use the file manager to navigate to the required
+                location then click the Upload file link. Under the links toolbar, an Upload file
+                from your file system option will display. Click the Browse... button. Locate the
+                file then click the Open button. Click the Upload button.</text:p>
+            <text:p text:style-name="h3">Icons</text:p>
+            <table:table table:name="Table52" table:style-name="Table52">
+                <table:table-column table:style-name="Table52.A"/>
+                <table:table-column table:style-name="Table52.B"/>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table52.A1" office:value-type="string">
+                        <text:p text:style-name="P3">
+                            <draw:frame draw:style-name="fr3" draw:name="graphics15"
+                                text:anchor-type="as-char" svg:width="0.82cm" svg:height="0.873cm"
+                                draw:z-index="13">
+                                <draw:image
+                                    xlink:href="Pictures/100002000000001F000000217D2D7775.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table52.B1" office:value-type="string">
+                        <text:p text:style-name="P3">Folder – Click the link next to the icon to
+                            take you to the contents of the folder.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table52.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="graphics16"
+                                text:anchor-type="as-char" svg:width="0.873cm" svg:height="0.847cm"
+                                draw:z-index="14">
+                                <draw:image
+                                    xlink:href="Pictures/100002000000002100000020B2784EA2.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table52.B2" office:value-type="string">
+                        <text:p text:style-name="p">File – Open the file in the ICE
+                        website.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table52.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="graphics17"
+                                text:anchor-type="as-char" svg:width="1.296cm" svg:height="0.397cm"
+                                draw:z-index="15">
+                                <draw:image
+                                    xlink:href="Pictures/10000000000000310000000F2A7BBE63.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table52.B2" office:value-type="string">
+                        <text:p text:style-name="p">Parent – Navigate up one level in the
+                        structure.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table52.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="graphics14"
+                                text:anchor-type="as-char" svg:width="0.847cm" svg:height="0.344cm"
+                                draw:z-index="16">
+                                <draw:image
+                                    xlink:href="Pictures/10000000000000200000000DBC1D09BB.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table52.B2" office:value-type="string">
+                        <text:p text:style-name="p">All checkboxes – Select/deselect all of the
+                            items displayed with one click.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table52.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="graphics3"
+                                text:anchor-type="as-char" svg:width="0.344cm" svg:height="0.344cm"
+                                draw:z-index="17">
+                                <draw:image
+                                    xlink:href="Pictures/100000000000000D0000000D447EFCC9.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table52.B2" office:value-type="string">
+                        <text:p text:style-name="p">Checkbox – Select/deselect individual items
+                            displayed.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="h3">Other functions</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">File name link</text:span> – Word and Writer
+                filenames include a link so you can open the file directly from the file manager in
+                its native program.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Log comment</text:span> – It is optional to include
+                a comment when synchronizing a selected item with the repository. Select the
+                relevant checkbox...Type a comment in the Log comment text box...Click the Sync
+                selected link. During collaboration between two or more authors, a comment could
+                assist with explaining what has been edited in a document. This function is not
+                available when using the Sync toolbar button to synchronize the entire site. </text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Path</text:span> – The file manager path of the
+                displayed files and folders. The path links can quickly take you to higher level
+                directories.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Refresh</text:span> – Refresh the view of the file
+                manager screen. For example, after looking at a log which displays under an item,
+                click the Refresh link to remove the log list.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">View</text:span> – Exits the file manager to take
+                you to the folder of the displayed path.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Name</text:span> – Displays the name of each item
+                in the selected directory.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Date</text:span> – Represents the date you
+                retrieved the item or changes from the repository or when you last modified the
+                item. Format is year-month-day.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Commands</text:span>
+            </text:p>
+            <text:list text:style-name="li1b">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Rename</text:span> – Change the name of an
+                        item. Click the Rename link for the item name to become editable and the
+                        Rename link changes to a Save button. Change the item name then click the
+                        Save button.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Log</text:span> – View the last three
+                        revision history items. The log will display below the item. Use the Refresh
+                        link to close the log.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="P6">
+                        <text:span text:style-name="i-b">Revert and Sync</text:span> – After
+                        deleting a selected file, you are given the options to revert and sync.
+                        Revert will revert the item to the previous repository version. Sync will
+                        synchronize the deletion with the repository.<text:line-break/>
+                    </text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="P2">
+                <text:span text:style-name="i-b">Status</text:span>
+            </text:p>
+            <text:list text:style-name="li1b">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Added</text:span> – The item is marked as
+                        added for the repository.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Modified</text:span> – The item has been
+                        modified compared to the same item in the repository.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">PropModified</text:span> – The Subversion
+                        properties of the item (e.g. HTML or PDF) is different to the repository
+                        version.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Out-of-date</text:span> – The item is older
+                        than the version in the repository.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1b">
+                        <text:span text:style-name="i-b">Conflict</text:span> – The item is modified
+                        and out-of-date compared to the repository version.<text:line-break/>
+                    </text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Action</text:span> – Displays a summary of the
+                action performed.</text:p>
+            <text:p text:style-name="p">
+                <text:span text:style-name="i-b">Details</text:span> – Displays further details
+                about the action performed.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">Check links</text:h>
+            <text:p text:style-name="p">Validate links between content in your content structure.
+                Invalid internal links will be listed so you can correct them. </text:p>
+            <text:p text:style-name="p">A list of external links used will also be displayed. It is
+                impossible for ICE to verify external links, as firewalls and server problems can
+                occur. You will need to manually check these yourself to ensure they are valid.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">Template</text:h>
+            <text:p text:style-name="p">The options available from the dropdown list are Default, CD
+                or Web. Select the required template before you use the Export function.</text:p>
+            <table:table table:name="Table4" table:style-name="Table4">
+                <table:table-column table:style-name="Table4.A"/>
+                <table:table-column table:style-name="Table4.B"/>
+                <table:table-column table:style-name="Table4.C"/>
+                <table:table-row>
+                    <table:table-cell office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:span text:style-name="i-b">Default</text:span>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table4.B1" office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:s/>– </text:p>
+                    </table:table-cell>
+                    <table:table-cell office:value-type="string">
+                        <text:p text:style-name="P4">Includes branding at the top of the
+                        screen.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:span text:style-name="i-b">CD</text:span>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table4.B1" office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:s/>– </text:p>
+                    </table:table-cell>
+                    <table:table-cell office:value-type="string">
+                        <text:p text:style-name="P4">Includes a splash screen with relevant links.
+                            Used when CD replication is required.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:span text:style-name="i-b">Web</text:span>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table4.B1" office:value-type="string">
+                        <text:p text:style-name="P4">
+                            <text:s/>– </text:p>
+                    </table:table-cell>
+                    <table:table-cell office:value-type="string">
+                        <text:p text:style-name="P4">Does not include branding at the top of the
+                            screen. Usually used for uploading to WebCT.</text:p>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="p"/>
+            <text:h text:style-name="h2n" text:outline-level="3">Export</text:h>
+            <text:p text:style-name="P7">After a template has been selected, the export function
+                creates a standalone HTML version of the content being viewed. The exported content
+                is in a Zip file which is saved in the root of the content <text:span
+                    text:style-name="T1">structure</text:span>. For further details, see <text:a
+                    xlink:type="simple" xlink:href="#export">2.10 Content export from ICE</text:a>.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">Logout and login</text:h>
+            <text:p text:style-name="p">When you have finished working on your content, use this
+                button to logout of the system. A timeout will occur if the system has been inactive
+                for approximately 15 minutes. The Logout button will be replaced with a Login
+                button. You will still be able to work on your content and use the system functions
+                except for Get changes and Sync. Login to regain access to Get changes and Sync.</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">Content status</text:h>
+            <text:p text:style-name="P2">The icons at the right-hand end of the toolbar will change
+                depending on the status of your content.</text:p>
+            <table:table table:name="Table5" table:style-name="Table5">
+                <table:table-column table:style-name="Table5.A"/>
+                <table:table-column table:style-name="Table5.B"/>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table5.A1" office:value-type="string">
+                        <text:p text:style-name="P3">
+                            <draw:frame draw:style-name="fr3" draw:name="conflict icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="18">
+                                <draw:image
+                                    xlink:href="Pictures/1000020000000018000000183149CE76.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table5.B1" office:value-type="string">
+                        <text:p text:style-name="P3">Conflict – red with white exclamation mark
+                        </text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="modifications icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="20">
+                                <draw:image
+                                    xlink:href="Pictures/1000020000000018000000188FB56ED6.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table5.B2" office:value-type="string">
+                        <text:p text:style-name="p">Local changes – blue with white tick</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="offline icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="21">
+                                <draw:image
+                                    xlink:href="Pictures/1000020000000018000000184E2B4DB7.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table5.B2" office:value-type="string">
+                        <text:p text:style-name="p">Offline – gray with white emblem</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="offline modifications icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="22">
+                                <draw:image
+                                    xlink:href="Pictures/100002000000001800000018E98EB1A3.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table5.B2" office:value-type="string">
+                        <text:p text:style-name="p">Offline modifications – blue with white
+                        emblem</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="in sync icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="23">
+                                <draw:image
+                                    xlink:href="Pictures/100002000000001800000018BC807CA7.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table5.B2" office:value-type="string">
+                        <text:p text:style-name="p">In sync – green with white tick</text:p>
+                    </table:table-cell>
+                </table:table-row>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table5.A2" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr3" draw:name="out of sync icon"
+                                text:anchor-type="as-char" svg:width="0.635cm" svg:height="0.635cm"
+                                draw:z-index="24">
+                                <draw:image
+                                    xlink:href="Pictures/1000020000000018000000186F2F3CC4.gif"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell table:style-name="Table5.B2" office:value-type="string">
+                        <text:p text:style-name="p">Out of sync – yellow with white question
+                        mark</text:p>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="p"/>
+            <text:h text:style-name="h1n" text:outline-level="2">Conflicts</text:h>
+            <text:p text:style-name="p">A conflict occurs when the same file you are editing has
+                changed in the repository since you last used Sync or Get changes. ICE deals with
+                this by making a copy of your modified file and replaces the modified file with the
+                latest copy from the repository.</text:p>
+            <table:table table:name="Table53" table:style-name="Table53">
+                <table:table-column table:style-name="Table53.A"/>
+                <table:table-column table:style-name="Table53.B"/>
+                <table:table-row>
+                    <table:table-cell table:style-name="Table53.A1" office:value-type="string">
+                        <text:p text:style-name="p">
+                            <draw:frame draw:style-name="fr2" draw:name="graphics18"
+                                text:anchor-type="as-char" svg:y="-1.736cm" svg:width="1.498cm"
+                                svg:height="1.498cm" draw:z-index="1">
+                                <draw:image
+                                    xlink:href="Pictures/10000201000000B1000000B1A5B3681F.png"
+                                    xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                            </draw:frame>
+                        </text:p>
+                    </table:table-cell>
+                    <table:table-cell>
+                        <table:table table:is-sub-table="true">
+                            <table:table-column table:style-name="Table53.B"/>
+                            <table:table-row>
+                                <table:table-cell table:style-name="Table53.A1"
+                                    office:value-type="string">
+                                    <text:p text:style-name="h-example">Example – when a conflict
+                                        occurs</text:p>
+                                </table:table-cell>
+                            </table:table-row>
+                            <table:table-row>
+                                <table:table-cell table:style-name="Table53.A1"
+                                    office:value-type="string">
+                                    <text:p text:style-name="p">If a conflict occurs on module01.odt
+                                        your modified file will be renamed to
+                                        myChanges_module01.odt. The module01.odt file will be
+                                        updated with the latest file in the repository. A message in
+                                        the browser will advise when this occurs.</text:p>
+                                </table:table-cell>
+                            </table:table-row>
+                        </table:table>
+                    </table:table-cell>
+                </table:table-row>
+            </table:table>
+            <text:p text:style-name="p"/>
+            <text:h text:style-name="h1n" text:outline-level="2">Printable version of content</text:h>
+            <text:p text:style-name="P2">A PDF icon will display on the top right-hand corner of
+                content that has a printable version. When you click the icon a PDF will open for
+                printing.</text:p>
+            <text:p text:style-name="p">If a PDF icon is on the Contents screen, your content
+                structure contains a master document. A master document can contain the combined
+                content for printing if it has been set up.</text:p>
+            <text:h text:style-name="h1n" text:outline-level="2">Access new repository content</text:h>
+            <text:p text:style-name="P8">If you are granted access to more content in the
+                repository, it is necessary to update your directories to be able to view the
+                content.</text:p>
+            <text:list text:style-name="li1n">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1n">Ensure that the ICE server and OpenOffice.org
+                        Writer are started. </text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Open an Internet browser and insert the following
+                        URL in the Address text box: http://localhost:8000/.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Login using your username and password.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the packages directory link.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">From the Packages screen, click the Get changes
+                        button on the toolbar.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Be patient while ICE downloads new files and
+                        folders from the server.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="p"/>
+            <text:h text:style-name="h1n" text:outline-level="2">Edit process</text:h>
+            <text:p text:style-name="P2">Use the following chart as a guide to consistent editing
+                processes.</text:p>
+            <text:p text:style-name="p">
+                <draw:frame draw:style-name="fr4" draw:name="graphics1" text:anchor-type="as-char"
+                    svg:width="14.601cm" svg:height="20.137cm" draw:z-index="19">
+                    <draw:image xlink:href="Pictures/2000018900003D99000054F5E619E73D.wmf"
+                        xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+                </draw:frame>
+            </text:p>
+            <text:h text:style-name="h1n" text:outline-level="2">
+                <text:bookmark text:name="export"/>Content export from ICE</text:h>
+            <text:p text:style-name="P2">Use the following process to export ICE content.</text:p>
+            <text:list text:style-name="li1n">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1n">Log in to the ICE website for your content (see
+                            <text:a xlink:type="simple" xlink:href="#login">2.2.1 Login</text:a>) to
+                        finish editing and/or proofing your content.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the Check links button on the ICE toolbar.
+                        If you have invalid links, correct them before proceeding. Ensure external
+                        links are still valid.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">From the ICE toolbar, select a template from the
+                        Template dropdown list.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the Export button. This process packs up
+                        all of the converted content into a Zip file. The Zip file can be located at
+                        the root level of your content. For example:</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p"
+                >FET8660_2006S1_Default.zip<text:line-break/>FET8660_2006S1_CD.zip<text:line-break/>FET8660_2006S1_Web.zip</text:p>
+            <text:h text:style-name="h1n" text:outline-level="2">ICE content for a LMS</text:h>
+            <text:p text:style-name="p">The Zip file containing exported ICE content can be uploaded
+                into a LMS (Learning Management System).</text:p>
+            <text:h text:style-name="h2n" text:outline-level="3">
+                <text:bookmark text:name="upload"/>Upload content into WebCT</text:h>
+            <text:list text:style-name="li1n">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1n">Follow the export process in <text:a
+                            xlink:type="simple" xlink:href="#export">2.10 Content export from
+                        ICE</text:a>.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Open a browser and insert the URL for your WebCT
+                        Institution.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the Log In button. The Log In screen will
+                        display.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Enter your user name and password then click the
+                        OK button. Your Course List will display.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">If a Warning-Security screen displays, select Yes if you
+                want the screen to display each time of entry or select Always so the message does
+                not appear again.</text:p>
+            <text:list text:style-name="li1n" text:continue-numbering="true">
+                <text:list-item>
+                    <text:p text:style-name="P9">Click the required course link. An information page
+                        about the tabs may display. If it does display, either click the Start
+                        button or select the option to not show the page again then click the Start
+                        button to proceed.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the Build tab then click the Basic View
+                        tab.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">From the right-hand side of the same row where
+                        the Basic View tab is located, click the File Manager link. The File Manager
+                        displays.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">Click the Upload File button. The Upload File screen
+                displays.</text:p>
+            <text:p text:style-name="li1p">In the File section, click the Browse button, locate the
+                path, select the Zip file then click the Open button.</text:p>
+            <text:p text:style-name="li1p">Click the checkbox to select Automatically expand
+                uploaded Zip files.</text:p>
+            <text:p text:style-name="li1p">From the dropdown list in the Character Set section,
+                select Unicode (UTF-8).</text:p>
+            <text:p text:style-name="P10">Click the Save button. Be patient while this process
+                occurs. When the upload is complete, you will be taken back to the File Manager. You
+                will notice that the uploaded Zip file will be listed.</text:p>
+            <text:list text:style-name="li1n" text:continue-numbering="true">
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the Basic View tab.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">From the Add to Home Page section on the
+                        left-hand side, click the Content File link.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the Select File button. The File Browser
+                        will display.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">Locate the Zip file you uploaded and its related folder.
+                The folder will be sitting directly above the Zip file. Click the folder name. The
+                contents will display.</text:p>
+            <text:p text:style-name="li1p">Click the checkbox next to the opening file (e.g.
+                default.htm) then click the Add Selected button. The content item will be added to
+                the Organizer Page.</text:p>
+            <text:list text:style-name="li1n" text:continue-numbering="true">
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the content name link then select Edit. The
+                        Edit Content File screen displays.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">In the Title textbox, replace the title with Course
+                materials then click the Save button. You will be returned to the Organizer Page.</text:p>
+            <text:list text:style-name="li1n" text:continue-numbering="true">
+                <text:list-item>
+                    <text:p text:style-name="P9">To reposition the content name link, click the name
+                        then use the Move arrows. Repeat until it is in the correct
+                    position.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">Click the Student View tab and test the content
+                        link.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:h text:style-name="h2n" text:outline-level="3">Replace uploaded content in WebCT</text:h>
+            <text:p text:style-name="p">Currently the Replace function in WebCT is not working
+                correctly. Previously uploaded content needs to be removed before uploading the
+                replacement content.</text:p>
+            <text:list text:style-name="li1n">
+                <text:list-item text:start-value="1">
+                    <text:p text:style-name="li1n">Perform Steps 1–6 in <text:a xlink:type="simple"
+                            xlink:href="#upload">2.11.1 Upload content into WebCT</text:a>.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">To remove the content name link from the
+                        Organizer Page, click the arrow next to it and click the Remove link. This
+                        only removes the link to the content but does not remove the content from
+                        the File Manager.</text:p>
+                </text:list-item>
+                <text:list-item>
+                    <text:p text:style-name="li1n">From the right-hand side of the same row where
+                        the Basic View tab is located, click the File Manager link. The File Manager
+                        displays.</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="li1p">From the File Manager, click the checkboxes next to the
+                Zip file and its related folder, click the Delete button then click the OK button.</text:p>
+            <text:p text:style-name="P11">Click the Upload File button. The Upload File screen
+                displays.</text:p>
+            <text:p text:style-name="li1p">In the File section, click the Browse button, locate the
+                path, select the Zip file then click the Open button.</text:p>
+            <text:p text:style-name="li1p">Click the checkbox to select Automatically expand
+                uploaded Zip files.</text:p>
+            <text:p text:style-name="li1p">From the dropdown list in the Character Set section,
+                select Unicode (UTF-8).</text:p>
+            <text:p text:style-name="P12">Click the Save button. Be patient while this process
+                occurs. When the upload is complete, you will be taken back to the File Manager. You
+                will notice that the uploaded Zip file will be listed.</text:p>
+            <text:list text:style-name="li1n" text:continue-numbering="true">
+                <text:list-item>
+                    <text:p text:style-name="li1n">
+                        <text:span text:style-name="T2">Perform Steps 8–13 in </text:span>
+                        <text:a xlink:type="simple" xlink:href="#upload">2.11.1 Upload content into
+                            WebCT</text:a>
+                        <text:span text:style-name="T2">.</text:span>
+                    </text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="p"/>
+            <text:p text:style-name="P13"/>
+            <text:p text:style-name="p"/>
+        </office:text>
+    </office:body>
+</office:document-content>

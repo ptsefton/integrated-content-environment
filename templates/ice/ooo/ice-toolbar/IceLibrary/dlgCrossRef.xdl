@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dlg:window PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "dialog.dtd">
+<dlg:window xmlns:dlg="http://openoffice.org/2000/dialog" xmlns:script="http://openoffice.org/2000/script" dlg:id="dlgCrossRef" dlg:left="122" dlg:top="0" dlg:width="218" dlg:height="235" dlg:page="3" dlg:closeable="true" dlg:moveable="true" dlg:title="Cross reference headings">
+ <dlg:styles>
+  <dlg:style dlg:style-id="0" dlg:font-name="Courier" dlg:font-stylename="Regular" dlg:font-family="modern" dlg:font-weight="100"/>
+ </dlg:styles>
+ <dlg:bulletinboard>
+  <dlg:textfield dlg:id="TextField1" dlg:tab-index="5" dlg:left="145" dlg:top="55" dlg:width="68" dlg:height="12" dlg:help-text="If Ref. text checked then this text will be inserted" dlg:value=" "/>
+  <dlg:textfield dlg:id="TextField2" dlg:tab-index="8" dlg:left="145" dlg:top="116" dlg:width="68" dlg:height="12" dlg:help-text="If Page checked then this text will be inserted" dlg:value=" on page "/>
+  <dlg:textfield dlg:id="TextField3" dlg:tab-index="10" dlg:left="145" dlg:top="148" dlg:width="68" dlg:height="12" dlg:help-text="If Direction checked then this text will be inserted" dlg:value=" "/>
+  <dlg:text dlg:id="LabelLevel" dlg:tab-index="11" dlg:left="145" dlg:top="14" dlg:width="18" dlg:height="12" dlg:page="1" dlg:value="Level:"/>
+  <dlg:menulist dlg:id="ListBoxLevel" dlg:tab-index="14" dlg:left="163" dlg:top="14" dlg:width="15" dlg:height="12" dlg:page="1" dlg:help-text="Show headings up to this level" dlg:spin="true" dlg:linecount="10">
+   <dlg:menupopup>
+    <dlg:menuitem dlg:value="1"/>
+    <dlg:menuitem dlg:value="2"/>
+    <dlg:menuitem dlg:value="3"/>
+    <dlg:menuitem dlg:value="4"/>
+    <dlg:menuitem dlg:value="5"/>
+    <dlg:menuitem dlg:value="6"/>
+    <dlg:menuitem dlg:value="7"/>
+    <dlg:menuitem dlg:value="8"/>
+    <dlg:menuitem dlg:value="9"/>
+    <dlg:menuitem dlg:value="10"/>
+   </dlg:menupopup>
+   <script:event script:event-name="on-performaction" script:location="document" script:macro-name="XrefHeadings.XRefHeadings.subEventListBoxLevels_Initiate" script:language="StarBasic"/>
+  </dlg:menulist>
+  <dlg:checkbox dlg:id="CheckBoxChapter" dlg:tab-index="4" dlg:left="145" dlg:top="45" dlg:width="68" dlg:height="10" dlg:help-text="Check for the chapter number of the heading" dlg:value="Chapter" dlg:checked="true"/>
+  <dlg:checkbox dlg:id="CheckBoxPage" dlg:tab-index="9" dlg:left="145" dlg:top="132" dlg:width="68" dlg:height="10" dlg:help-text="Check for page description number for the heading" dlg:value="Page" dlg:checked="true"/>
+  <dlg:checkbox dlg:id="CheckBoxDirection" dlg:tab-index="12" dlg:left="145" dlg:top="162" dlg:width="68" dlg:height="10" dlg:help-text="Check for above / below" dlg:value="Direction" dlg:checked="true"/>
+  <dlg:button dlg:id="CommandButtonInsert" dlg:tab-index="13" dlg:left="146" dlg:top="219" dlg:width="37" dlg:height="12" dlg:default="true" dlg:value="Insert">
+   <script:event script:event-name="on-performaction" script:location="document" script:macro-name="XrefHeadings.XRefHeadings.subEventCommandButtonInsert_Initiate" script:language="StarBasic"/>
+  </dlg:button>
+  <dlg:button dlg:id="CommandButtonClose" dlg:tab-index="15" dlg:left="187" dlg:top="219" dlg:width="26" dlg:height="12" dlg:default="true" dlg:value="Close">
+   <script:event script:event-name="on-performaction" script:location="document" script:macro-name="XrefHeadings.XRefHeadings.subSaveDialogSettings" script:language="StarBasic"/>
+  </dlg:button>
+  <dlg:menulist dlg:style-id="0" dlg:id="ListBoxHeadings" dlg:tab-index="1" dlg:left="1" dlg:top="33" dlg:width="140" dlg:height="185">
+   <script:event script:event-name="on-performaction" script:location="document" script:macro-name="XrefHeadings.XRefHeadings.subEventListBoxheadings_Initiate" script:language="StarBasic"/>
+  </dlg:menulist>
+  <dlg:menulist dlg:id="ListBoxDocs" dlg:tab-index="2" dlg:left="1" dlg:top="219" dlg:width="140" dlg:height="12" dlg:spin="true">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.XRef.subEventChangeDoc?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:menulist>
+  <dlg:textfield dlg:id="TextField0" dlg:tab-index="3" dlg:left="145" dlg:top="31" dlg:width="68" dlg:height="12" dlg:help-text="If Ref. text checked then this text will be inserted" dlg:value="See "/>
+  <dlg:menulist dlg:id="ListBoxType" dlg:tab-index="0" dlg:left="1" dlg:top="12" dlg:width="140" dlg:height="14" dlg:spin="true" dlg:linecount="10">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.XRef.subEventType?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:menulist>
+  <dlg:text dlg:id="Label1" dlg:tab-index="17" dlg:left="1" dlg:top="1" dlg:width="140" dlg:height="11" dlg:value="Reference Type:"/>
+  <dlg:checkbox dlg:id="CheckBoxRight" dlg:tab-index="7" dlg:left="145" dlg:top="94" dlg:width="68" dlg:height="9" dlg:page="3" dlg:value="Text to right of number" dlg:checked="true"/>
+  <dlg:checkbox dlg:id="CheckBoxRefh" dlg:tab-index="16" dlg:left="145" dlg:top="105" dlg:width="68" dlg:height="10" dlg:page="1" dlg:help-text="Check fo rthe actual text of the heading" dlg:value="Reference text" dlg:checked="true"/>
+  <dlg:checkbox dlg:id="CheckBoxLeft" dlg:tab-index="6" dlg:left="145" dlg:top="70" dlg:width="68" dlg:height="9" dlg:page="3" dlg:value="Text to left &amp; number" dlg:checked="true"/>
+  <dlg:checkbox dlg:id="CheckBoxRefb" dlg:tab-index="18" dlg:left="145" dlg:top="105" dlg:width="68" dlg:height="10" dlg:page="2" dlg:help-text="Check fo rthe actual text of the heading" dlg:value="Reference text" dlg:checked="true"/>
+ </dlg:bulletinboard>
+</dlg:window>

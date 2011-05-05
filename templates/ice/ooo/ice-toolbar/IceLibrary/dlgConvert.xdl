@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dlg:window PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "dialog.dtd">
+<dlg:window xmlns:dlg="http://openoffice.org/2000/dialog" xmlns:script="http://openoffice.org/2000/script" dlg:id="dlgConvert" dlg:left="221" dlg:top="0" dlg:width="207" dlg:height="138" dlg:closeable="true" dlg:moveable="true" dlg:title="ICE Convert To HTML">
+ <dlg:bulletinboard>
+  <dlg:text dlg:id="Label1" dlg:tab-index="9" dlg:left="8" dlg:top="10" dlg:width="22" dlg:height="9" dlg:value="Options:"/>
+  <dlg:checkbox dlg:id="chkTitle" dlg:tab-index="0" dlg:left="8" dlg:top="22" dlg:width="54" dlg:height="9" dlg:value="Title" dlg:checked="true"/>
+  <dlg:checkbox dlg:id="chkTableOfContents" dlg:tab-index="1" dlg:left="8" dlg:top="35" dlg:width="61" dlg:height="9" dlg:value="Table of Contents" dlg:checked="false"/>
+  <dlg:checkbox dlg:id="chkPDF" dlg:tab-index="2" dlg:left="8" dlg:top="49" dlg:width="54" dlg:height="9" dlg:value="PDF Link" dlg:checked="false"/>
+  <dlg:filecontrol dlg:id="filTemplate" dlg:tab-index="3" dlg:left="51" dlg:top="75" dlg:width="153" dlg:height="14"/>
+  <dlg:text dlg:id="lblTemplate" dlg:tab-index="10" dlg:left="4" dlg:top="78" dlg:width="44" dlg:height="10" dlg:value="Template file:"/>
+  <dlg:text dlg:id="lblSaveDir" dlg:tab-index="11" dlg:left="4" dlg:top="94" dlg:width="45" dlg:height="9" dlg:value="Output location: "/>
+  <dlg:button dlg:id="butPreview" dlg:tab-index="6" dlg:left="53" dlg:top="119" dlg:width="41" dlg:height="14" dlg:value="Preview">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.Publisher.subConvertPreview?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:button>
+  <dlg:button dlg:id="butConvert" dlg:tab-index="7" dlg:left="113" dlg:top="119" dlg:width="41" dlg:height="14" dlg:default="true" dlg:value="Convert">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.Publisher.subConvertExecute?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:button>
+  <dlg:button dlg:id="CommandButton1" dlg:tab-index="5" dlg:left="8" dlg:top="119" dlg:width="41" dlg:height="14" dlg:value="View Log">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.Publisher.subViewLog?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:button>
+  <dlg:textfield dlg:id="filSaveDir" dlg:tab-index="4" dlg:left="51" dlg:top="92" dlg:width="153" dlg:height="14"/>
+  <dlg:button dlg:id="butClose" dlg:tab-index="8" dlg:left="157" dlg:top="119" dlg:width="41" dlg:height="14" dlg:value="Close" dlg:button-type="cancel"/>
+ </dlg:bulletinboard>
+</dlg:window>

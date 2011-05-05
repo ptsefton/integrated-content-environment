@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title/><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+table.Table1 {margin-left:-0.075in; width:6.6507in; }
+div.Table1 {width: 100%; margin: 0px; padding: 0px; }
+span.Table1_1 {keep-together:auto; }
+th.Table1_A1, td.Table1_A1 {vertical-align: top; border:none; padding-bottom:0in; padding-left:0.075in; padding-right:0.075in; padding-top:0in; }
+p.P1 {country:US; language:en; }
+caption.P5 {keep-with-next:always; }
+span.P9 {text-align:center; }
+span.P10 {font-size:18pt; text-align:center; }
+span.T1 {country:US; language:en; }
+span.T2 {country:US; font-size:10pt; language:en; }
+span.gr2 {padding-bottom:0.0492in; padding-left:0.0984in; padding-right:0.0984in; padding-top:0.0492in; wrap-option:wrap; }</style></head><body/></html>
