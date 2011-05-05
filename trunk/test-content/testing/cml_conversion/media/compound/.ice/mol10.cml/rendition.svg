@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="mol10.mol" xmlns="http://www.w3.org/2000/svg">
+  <text x="10.0" y="10.0" style=" stroke : none; font-size : 10.0;">mol10.mol</text>
+  <g transform="matrix(1.0,0., 0.,1.0,114.98925917088867,143.4525350608218)">
+    <g transform="matrix(1.0,0., 0.,-1.0,0.0,0.0)" style=" fill : black; font-family : helvetica; font-size : 17.0; font-weight : normal;">
+      <g>
+        <line x1="-86.34909066354727" y1="-2.0905579618140484" x2="-86.34909066354727" y2="-71.08465581534051" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b1"/>
+      </g>
+      <g>
+        <line x1="-86.34909066354727" y1="-71.08465581534051" x2="-32.408250523517474" y2="-114.10352119213324" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b2"/>
+      </g>
+      <g>
+        <line x1="-32.408250523517474" y1="-114.10352119213324" x2="34.85472269295687" y2="-98.74919832436663" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b3"/>
+      </g>
+      <g>
+        <line x1="34.85472269295687" y1="-98.74919832436663" x2="64.79397970091138" y2="-36.58760688857727" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b4"/>
+      </g>
+      <g>
+        <line x1="64.79397970091138" y1="-36.58760688857727" x2="34.85472269295687" y2="25.57398454721208" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b5"/>
+      </g>
+      <g>
+        <line x1="34.85472269295687" y1="25.57398454721208" x2="-32.408250523517474" y2="40.9283074149787" style=" stroke : black; stroke-width : 4.437508350633003;" id="b6"/>
+        <line x1="34.85472269295687" y1="25.57398454721208" x2="-32.408250523517474" y2="40.9283074149787" style=" stroke : white; stroke-width : 1.331252505189901;" id="b6"/>
+      </g>
+      <g>
+        <line x1="-32.408250523517474" y1="40.9283074149787" x2="-86.34909066354727" y2="-2.0905579618140484" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b7"/>
+      </g>
+      <g>
+        <line x1="-32.408250523517474" y1="40.9283074149787" x2="-47.76257339128409" y2="108.19128063145304" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b8"/>
+      </g>
+      <g>
+        <line x1="-47.76257339128409" y1="108.19128063145304" x2="11.990496810345794" y2="142.68832955821628" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b9"/>
+      </g>
+      <g>
+        <line x1="11.990496810345794" y1="142.68832955821628" x2="11.990496810345794" y2="211.68242741174274" style=" stroke : black; stroke-width : 4.437508350633003;" id="b10"/>
+        <line x1="11.990496810345794" y1="142.68832955821628" x2="11.990496810345794" y2="211.68242741174274" style=" stroke : white; stroke-width : 1.331252505189901;" id="b10"/>
+      </g>
+      <g>
+        <line x1="11.990496810345794" y1="142.68832955821628" x2="71.74356701197567" y2="108.19128063145304" style=" stroke : black; stroke-width : 1.7401993531894129;" id="b11"/>
+      </g>
+      <g class="atom" id="g_a1" transform="matrix(1.0,0., 0.,-1.0,-86.34909066354727,-2.0905579618140484)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a2" transform="matrix(1.0,0., 0.,-1.0,-86.34909066354727,-71.08465581534051)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a3" transform="matrix(1.0,0., 0.,-1.0,-32.408250523517474,-114.10352119213324)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a4" transform="matrix(1.0,0., 0.,-1.0,34.85472269295687,-98.74919832436663)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a5" transform="matrix(1.0,0., 0.,-1.0,64.79397970091138,-36.58760688857727)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a6" transform="matrix(1.0,0., 0.,-1.0,34.85472269295687,25.57398454721208)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a7" transform="matrix(1.0,0., 0.,-1.0,-32.408250523517474,40.9283074149787)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a8" transform="matrix(1.0,0., 0.,-1.0,-47.76257339128409,108.19128063145304)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : red; stroke : none; font-size : 25.0;">O</text>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a9" transform="matrix(1.0,0., 0.,-1.0,11.990496810345794,142.68832955821628)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a10" transform="matrix(1.0,0., 0.,-1.0,11.990496810345794,211.68242741174274)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : red; stroke : none; font-size : 25.0;">O</text>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <g class="atom" id="g_a11" transform="matrix(1.0,0., 0.,-1.0,71.74356701197567,108.19128063145304)">
+        <circle cx="0.0" cy="0.0" r="13.750000000000002" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="-8.75" y="9.25" style=" fill : black; stroke : none; font-size : 25.0;"/>
+        <circle cx="36.0" cy="-16.5" r="16.5" style=" fill : white; stroke : none; stroke-width : 0.5; opacity : 1.0;"/>
+        <text x="25.5" y="-5.400000000000001" style=" fill : green; stroke : none; font-size : 30.0;"/>
+      </g>
+      <rect x="-154.98925917088866" y="-183.4525350608218" width="294.5231881147531" height="455.13496247256455" style=" fill : none; stroke : red; stroke-width : 2.0;"/>
+    </g>
+  </g>
+</svg>

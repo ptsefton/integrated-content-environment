@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }</style></head><body><p class="P1"/><blockquote class="bq"><p>fqerwfqerferferf <span class="footnote"><a class="footnote" href="#ftn0" name="ftn0-text">1</a><span class="footnote-text"> footnote</span></span></p><p>cklfjnerlkcfreql <a href="#ftn1" name="ftn1-text"><span style="vertical-align: super;"><span class="endnote">1</span></span></a></p></blockquote><p/><hr/><p><div style="font-size: .9em;"><span class="footnote-defined"><a href="#ftn0-text" name="ftn0">1</a> footnote</span></div></p><p><div style="font-size: .9em;"><span class="endnote"><a href="#ftn1-text" name="ftn1">1</a> endnote</span></div></p></body></html>

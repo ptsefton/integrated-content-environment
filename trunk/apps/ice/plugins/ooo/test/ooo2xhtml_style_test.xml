@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition"
+
+      xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+      xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+      xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+      xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+      xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+      xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+      xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+      xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+      xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+      xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+      xmlns:math="http://www.w3.org/1998/Math/MathML"
+      xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+      xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+      xmlns:ooo="http://openoffice.org/2004/office"
+      xmlns:ooow="http://openoffice.org/2004/writer"
+      xmlns:oooc="http://openoffice.org/2004/calc"
+      xmlns:dom="http://www.w3.org/2001/xml-events"
+      xmlns:xforms="http://www.w3.org/2002/xforms"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      >
+      <utfx:stylesheet src="ooo2xhtml.xsl"/>
+      <utfx:test>
+            <utfx:name>Style Families dl2 </utfx:name>
+            <utfx:assert-equal>
+                  <utfx:source validate="no">
+                        <get-family>dd5</get-family>
+                        <get-family>dt1</get-family>
+                        <get-family>bq2</get-family>
+                        <get-family>li1b</get-family>
+                        <get-family>li1p</get-family>
+                        <get-family>pre3</get-family>
+                        <get-family>h5</get-family>
+                        <get-family>p-center</get-family>
+                        <get-family/>
+                  </utfx:source>
+                  <utfx:expected validate="no">
+                        <f>dd</f>
+                        <f>dt</f>
+                        <f>bq</f>
+                        <f>li</f>
+                        <f>li</f>
+                        <f>pre</f>
+                        <f>h</f>
+                        <f>p</f>
+                        <f>p</f>
+                  </utfx:expected>
+            </utfx:assert-equal>
+      </utfx:test>
+      <utfx:test>
+            <utfx:name>Style levels</utfx:name>
+            <utfx:assert-equal>
+                  <utfx:source validate="no">
+                        <get-level>dd5</get-level>
+                        <get-level>dt1</get-level>
+                        <get-level>bq2</get-level>
+                        <get-level>li1b</get-level>
+                        <get-level>li1p</get-level>
+                        <get-level>pre3</get-level>
+                        <get-level>p</get-level>
+                        <get-level>h5</get-level>
+                        <get-level/>
+                  </utfx:source>
+                  <utfx:expected validate="no">
+                        <l>5</l>
+                        <l>1</l>
+                        <l>2</l>
+                        <l>1</l>
+                        <l>1</l>
+                        <l>3</l>
+                        <l>0</l>
+                        <l>0</l>
+                        <l>0</l>
+                  </utfx:expected>
+            </utfx:assert-equal>
+      </utfx:test>
+      <utfx:test>
+            <utfx:name>Heading style levels</utfx:name>
+            <utfx:assert-equal>
+                  <utfx:source validate="no">
+                        <get-heading-level>h5</get-heading-level>
+                        <get-heading-level>h1n</get-heading-level>
+                        <get-heading-level>h2</get-heading-level>
+                        <get-heading-level>h-reading</get-heading-level>
+                        <get-heading-level>h-</get-heading-level>
+                        <get-heading-level>h3</get-heading-level>
+                        <get-heading-level>h</get-heading-level>
+                        <get-heading-level>Title-module</get-heading-level>
+                        <get-heading-level>h1-module</get-heading-level>
+                        <get-heading-level/>
+                  </utfx:source>
+                  <utfx:expected validate="no">
+                        <l>5</l>
+                        <l>1</l>
+                        <l>2</l>
+                        <l>0</l>
+                        <l>0</l>
+                        <l>3</l>
+                        <l>0</l>
+                        <l>1</l>
+                        <l>2</l>
+                        <l>0</l>
+                  </utfx:expected>
+            </utfx:assert-equal>
+      </utfx:test>
+      <utfx:test>
+            <utfx:name>Style types</utfx:name>
+            <utfx:assert-equal>
+                  <utfx:source validate="no">
+                        <get-type>dd5</get-type>
+                        <get-type>dt1</get-type>
+                        <get-type>bq2</get-type>
+                        <get-type>li1b</get-type>
+                        <get-type>li1n</get-type>
+                        <get-type>li4a</get-type>
+                        <get-type>li3I</get-type>
+                        <get-type>li1p</get-type>
+                        <get-type>pre3</get-type>
+                        <get-type>p</get-type>
+                        <get-type>h1-module</get-type>
+                        <get-type>h1n</get-type>
+                        <get-type>Title-module</get-type>
+                        <get-type>p-center</get-type>
+                        <get-type/>
+                  </utfx:source>
+                  <utfx:expected validate="no">
+                        <t/>
+                        <t/>
+                        <t/>
+                        <t>bullet</t>
+                        <t>number</t>
+                        <t>a</t>
+                        <t>I</t>
+                        <t>p</t>
+                        <t/>
+                        <t/>
+                        <t>module</t>
+                        <t>number</t>
+                        <t>module</t>
+                        <t>center</t>
+                        <t/>
+                  </utfx:expected>
+            </utfx:assert-equal>
+      </utfx:test>
+      
+      <utfx:test>
+            <utfx:name>EndNote Hanging Indent with Italics</utfx:name>
+            <utfx:call-template name="root-test"/>
+            <utfx:assert-equal>
+                  <utfx:source validate="no">
+                        <office:automatic-styles>
+                              <style:style style:name="P2" style:family="paragraph" style:parent-style-name="p">
+                                    <style:paragraph-properties fo:margin-left="1.27cm" fo:margin-right="0cm"
+                                          fo:margin-top="0cm" fo:margin-bottom="0cm" fo:text-indent="-1.27cm"
+                                          style:auto-text-indent="false"/>
+                              </style:style>
+                              <style:style style:name="T1" style:family="text">
+                                    <style:text-properties fo:font-style="italic" style:font-style-asian="italic"/>
+                              </style:style>
+                        </office:automatic-styles>
+                    <office:body>
+                      <office:text>
+                         <text:p text:style-name="P2">USQ. (2005). ICE Logo (1 ed., pp. <text:span text:style-name="T1">Integrated Content Environment</text:span>). Toowoomba: USQ.</text:p>
+                      </office:text>
+                     </office:body>
+                  </utfx:source>
+                  <utfx:expected validate="no">
+                        <html><head>
+                                    <title>Untitled</title>
+                              <style type="text/css">table {border-spacing: 0;empty-cells: show;} p.P2 {margin-bottom:0cm; margin-left:1.27cm; margin-right:0cm; margin-top:0cm; text-indent:-1.27cm; } span.T1 {font-style:italic; }</style>
+                              </head>
+                              <body><p class="P2">USQ. (2005). ICE Logo (1 ed., pp.<span class="T1">Integrated Content Environment</span>). Toowoomba: USQ.</p></body>
+                         </html>
+                         <p class="P2">USQ. (2005). ICE Logo (1 ed., pp.<span class="T1">Integrated Content Environment</span>). Toowoomba: USQ.</p>
+                  </utfx:expected>
+            </utfx:assert-equal>
+      </utfx:test>
+      <utfx:test>
+            <utfx:name>EndNote Hanging Indent with Bold</utfx:name>
+            <utfx:call-template name="root-test"/>
+            <utfx:assert-equal>
+                  <utfx:source validate="no">
+                        <office:automatic-styles>
+                              <style:style style:name="P2" style:family="paragraph" style:parent-style-name="p">
+                                    <style:paragraph-properties fo:margin-left="1.27cm" fo:margin-right="0cm"
+                                          fo:margin-top="0cm" fo:margin-bottom="0cm" fo:text-indent="-1.27cm"
+                                          style:auto-text-indent="false"/>
+                              </style:style>
+                              <style:style style:name="T1" style:family="text">
+                                    <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+                              </style:style>
+                        </office:automatic-styles>
+                        <office:body>
+                              <office:text>
+                                    <text:p text:style-name="P2">USQ. (2005). ICE Logo (1 ed., pp. <text:span text:style-name="T1">Integrated Content Environment</text:span>). Toowoomba: USQ.</text:p>
+                              </office:text>
+                        </office:body>
+                  </utfx:source>
+                  <utfx:expected validate="no">
+                        <html><head>
+                              <title>Untitled</title>
+                              <style type="text/css">table {border-spacing: 0;empty-cells: show;} p.P2 {margin-bottom:0cm; margin-left:1.27cm; margin-right:0cm; margin-top:0cm; text-indent:-1.27cm; } span.T1 {font-weight:bold; }</style>
+                        </head>
+                              <body><p class="P2">USQ. (2005). ICE Logo (1 ed., pp.<span class="T1">Integrated Content Environment</span>). Toowoomba: USQ.</p></body>
+                        </html>
+                        <p class="P2">USQ. (2005). ICE Logo (1 ed., pp.<span class="T1">Integrated Content Environment</span>). Toowoomba: USQ.</p>
+                  </utfx:expected>
+            </utfx:assert-equal>
+      </utfx:test>
+      <utfx:test>
+            <utfx:name>p-hanging-indent style</utfx:name>
+            
+            <utfx:assert-equal>
+                  <utfx:source validate="no">
+                        <office:body>
+                              <office:text>
+                                    <text:p text:style-name="p-hanging-indent">USQ. (2005). ICE Logo (1 ed., pp. <text:span text:style-name="T1">Integrated Content Environment</text:span>). Toowoomba: USQ.</text:p>
+                              </office:text>
+                        </office:body>
+                  </utfx:source>
+                  <utfx:expected validate="no">
+                        <p class="hanging-indent">USQ. (2005). ICE Logo (1 ed., pp.<span class="T1">Integrated Content Environment</span>). Toowoomba: USQ.</p>
+                  </utfx:expected>
+            </utfx:assert-equal>
+      </utfx:test>
+</utfx:tests>

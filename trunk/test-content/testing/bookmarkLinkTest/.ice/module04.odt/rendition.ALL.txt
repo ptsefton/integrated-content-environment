@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Enter title</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_right.P1 {margin-bottom:0cm; margin-top:0cm; }
+Header_20_left.P3 {font-weight:normal; }</style></head><body><p>This is first page</p><p class="P4">Through localhost:</p><p>This is second page with a <a href="module01.htm#second">link</a> to module01.htm#second (will work)</p><p>This is second page with a <a href="module01.odt#second">link</a> to module01.odt#second (will not work and will give you module01.odt download file instead)</p><p/><p/><p>Through filesystem</p><p>This is second page with a <a href="../module01.odt#second">link</a> to module01.odt#second (will not work and will give you page not found to module01.odt)</p><p>Additional text</p></body></html>

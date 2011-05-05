@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Sample MathType in Word</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_right.P3 {font-weight:bold; }
+Header_20_left.P4 {font-weight:bold; }
+Header_20_left.P5 {margin-bottom:0.212cm; margin-top:0cm; }
+span.T1 {color:#000000; country:US; font-size:10pt; language:en; }
+OLE.fr1 {border:none; margin-left:0cm; margin-right:0cm; padding-bottom:0.153cm; padding-left:0.28cm; padding-right:0.28cm; padding-top:0.153cm; }
+OLE.fr2 {border:none; margin-left:0cm; margin-right:0cm; padding-bottom:0.153cm; padding-left:0.28cm; padding-right:0.28cm; padding-top:0.153cm; }</style></head><body><p>modified</p><p><a name="Object1"/><img alt="Object1" class="fr1" height="47" src="sample_mathtype_files/36f2bf7fs104x47.jpg" style="border:0px;" width="104"/></p><p><a name="Object2"/><img alt="Object2" class="fr2" height="52" src="sample_mathtype_files/md1311c6s127x52.jpg" style="border:0px;" width="127"/></p></body></html>

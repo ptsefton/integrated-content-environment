@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Chapter Title</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }</style></head><body><h1><a id="id1" name="id1"><!--id1--></a>Section heading (h1)</h1><p class="first">P-first</p><p>paragraph</p><ul class="lib"><li><p>bullet</p></li><li><p/></li></ul><p class="first"/><p/></body></html>

@@ -1,0 +1,33 @@
+The fault is with how the javascript is  “ cleaned ”  when embedded. Original text: <html>
+     <head>
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+         <meta name="generator" content="Aspose.Words for .NET 5.2.1.0" />
+         <title>Introduction to Normative and Meta-Ethics</title>    
+     </head>
+     <body>     <p>Watch this video before doing workshop number 3.</p>
+ <script type="text/javascript" src="media/mediaplayer/swfobject.js"><!-- --></script>   <div id='preview'>There was a problem loading the video.</div>   <script type="text/javascript">   var s1 = new SWFObject('media/mediaplayer/player.swf','ply','470','320','9','#ffffff');   s1.addParam('allowfullscreen','true');   s1.addParam('allowscriptaccess','always');   s1.addParam('wmode','opaque');   s1.addParam('flashvars','file=../video/computerEthics1.flv');   s1.write('preview'); </script>
+     </body>
+ </html> Code after embedding: Note the way the two script tags have been transformed into one, which breaks the code. <div class="embedded-html">
+     <p id="hcc8c204fp1">Watch this video before doing workshop number 3.</p>
+ <script type="text/javascript" src="media/mediaplayer/swfobject.js">
+  
+<div id="preview">There was a problem loading the video.</div>
+
+  <script type="text/javascript">
+  var s1 = new SWFObject('media/mediaplayer/player.swf','ply','470','320','9','#ffffff');
+  s1.addParam('allowfullscreen','true');
+  s1.addParam('allowscriptaccess','always');
+  s1.addParam('wmode','opaque');
+  s1.addParam('flashvars','file=../video/computerEthics1.flv');
+  s1.write('preview');
+</script>
+</div> Example file embedded in this document Note:  The actual media files have not been added, this example is to show how the code is changed. 
+	 Watch this video before doing workshop number 3. 
+ There was a problem loading the video. 
+   
+  var s1 = new SWFObject('media/mediaplayer/player.swf','ply','470','320','9','#ffffff');
+  s1.addParam('allowfullscreen','true');
+  s1.addParam('allowscriptaccess','always');
+  s1.addParam('wmode','opaque');
+  s1.addParam('flashvars','file=../video/computerEthics1.flv');
+  s1.write('preview');

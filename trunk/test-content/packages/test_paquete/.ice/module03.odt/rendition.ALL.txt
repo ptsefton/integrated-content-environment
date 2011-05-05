@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title/><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_left.P1 {font-size:10pt; }</style></head><body><h1><a id="id2" name="id2"><!--id2--></a>3.1 Install Paquete</h1><p>This page is meant for Developers' reference. This paquete installation is using Paquete 0.2.</p><h2><a id="id3" name="id3"><!--id3--></a>3.1.1 Download Paquete </h2><p>Either download  <a href="http://fascinator.usq.edu.au/svn/code/paquete/client/tags/0.1/paquete.js">Paquete Client</a> for single javascript file download or </p><p>Check out from SVN for complete download, including demonstration.</p>
+<pre>svn co http://fascinator.usq.edu.au/svn/code/paquete/client/tags/0.2rc1</pre><h2><a id="id5" name="id5"><!--id5--></a>3.1.2 Setup Paquete</h2><ol class="lin" style="list-style: decimal;"><li><p>Copy the package files into a web folder.</p></li><li><p>Locate the host page, the main page of the package. For example default.html or index.html </p><dl><dt>    Note</dt><dd>See example at http://fascinator.usq.edu.au/svn/code/paquete/client/tags/0.1/demo&gt;default.htm.</dd></dl></li><li><p>Host page should have similar structure in body content as follows:</p>
+<pre>&lt;body&gt;</pre>
+<pre>   &lt;table border="0" cellpadding="0" cellspacing="0" class="layout"&gt;</pre>
+<pre>     &lt;tr&gt;</pre>
+<pre>        &lt;td colspan=2&gt;&lt;h1 class="title"&gt;Paquete Demo&lt;/h1&gt;&lt;/td&gt;</pre>
+<pre>     &lt;/tr&gt;</pre>
+<pre>     &lt;tr&gt;</pre>
+<pre>      &lt;td class="layout-left" style="vertical-align: top;" rowspan="2" width="20%"&gt;</pre>
+<pre>          &lt;div class="page-toc" /&gt;</pre>
+<pre>      &lt;/td&gt;</pre>
+<pre>      &lt;td style="vertical-align: top;"&gt;</pre>
+<pre>          &lt;div class="body" id="body"&gt;&lt;/div&gt;</pre>
+<pre>      &lt;/td&gt;</pre></li></ol>
+<pre>      &lt;/tr&gt;    </pre>
+<pre>   &lt;/table&gt;</pre>
+<pre>&lt;/body&gt;</pre><dl><dt>      Note</dt><dd> The structure can be changed and is reconfigurable. </dd></dl><ol class="lin" style="list-style: decimal;"><li><p> Edit host page. In header section add the links to javascript files and initializing script. </p></li></ol>
+<pre>&lt;!-- Paquete setup --&gt;</pre>
+<pre>    &lt;script type="text/javascript" src="../shared/jquery-1.4.1.min.js"&gt;&lt;/script&gt;</pre>
+<pre>    &lt;script type="text/javascript" src="../shared/json2.js"&gt;&lt;/script&gt;</pre>
+<pre>    &lt;script type="text/javascript" src="../paquete.js"&gt;&lt;/script&gt;</pre>
+<pre>    &lt;script type="text/javascript"&gt;</pre>
+<pre>        jQuery(function(){</pre>
+<pre>            var jQ = jQuery;</pre>
+<pre>            var paquete = paqueteFactory(jQ);</pre>
+<pre>            paquete.contentSelector = "div.body";</pre>
+<pre>            paquete.titleSelector = "div.title";</pre>
+<pre>            paquete.tocSelector = "div.page-toc";</pre>
+<pre>            paquete.contentBaseUrl = "./";</pre>
+<pre>            paquete.getManifestJson("manifest.json");</pre>
+<pre>        });</pre>
+<pre>    &lt;/script&gt;</pre><dl><dt>    Note: </dt><dd>contentSelector, titleSelector and tocSelector define where to put contents, titles and TOCs respectively.</dd></dl></body></html>

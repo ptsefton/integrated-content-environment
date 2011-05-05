@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>ICE Login</title>
+		<link class="sub css" rel="stylesheet" href="skin/default.css" />
+		<!--[if gt IE 5]>
+			<style>
+			.body table { border-collapse: collapse;}
+			</style>
+		<![endif]-->
+		<style type="text/css">
+		.linetop, .linefooter, .mainmenu-top, .specialmenuheading-top{background-color:#fc0; height:7px; background-position:top left; background-repeat:no-repeat}
+		.linetopright, .linefooterright, .specialmenuheading-topright{float:right; position:relative; width:50%; height:7px; background-position:top right; background-repeat:no-repeat}
+		.linetop{background-image:url(/skin/left_topcorner_line.gif); margin:0px 5px 5px 5px}
+		.linetopright{background-image:url(/skin/right_topcorner_line.gif)}
+		.linefooter{background-image:url(/skin/left_botcorner_line.gif); margin:5px 5px 0px 5px}
+		.linefooterright{background-image:url(/skin/right_botcorner_line.gif)}
+		.mainbanner{border-top:1px dotted #959ca1; border-bottom:1px dotted #959ca1; background-color:#F2F2F4; width:100%; margin-bottom:0px; padding-bottom:0px}
+
+		</style>
+		
+	</head>
+	<body onLoad="document.getElementById('username').focus()" style="padding-top: 0px; margin-top: 0px;">
+    <div class="header" style="padding-bottom: 1px; border-bottom:1px dotted #959ca1; margin-bottom:15px;">
+	  <div class="linetop"><div class="linetopright"><!-- --></div></div>
+	<div class="header_logo">
+        <a href="http://www.usq.edu.au/">
+          <img style="border: 0px;" src="/skin/usqlogo_line.gif" alt="USQ Logo" />
+        </a>
+       
+      </div>
+	</div>
+	<div class="maincontent" style="padding-bottom: 1px; border-bottom:1px dotted #959ca1; ">
+					<div class="ins body">
+					<div class="login" style="margin: 10px;">
+						<form method="POST" name="f" id="f">
+							<input type="hidden" name="login" value="login"/>
+							<table style="border:1px solid black;">
+							<tr>
+							<td rowspan="4" style="vertical-align:top;">
+							<p>
+					 			<a href="http://ice.usq.edu.au/">
+          							<img style="border: 0px;" src="/skin/ice.gif" alt="ICE"></img>
+       				 			</a>
+       				 		</p>
+       				 		
+       				 		
+							</td>
+							</tr>
+								<tr>
+									<td> Username: </td>
+									<td>
+										<input type="text" name="username" id="username" value="" style="width:160px;"/>
+									</td>
+								</tr>
+								<tr>
+									<td> Password: </td>
+									<td>
+										<input type="password" name="password" id="password" value="" style="width:160px;"/>
+									</td>
+								</tr>
+								<tr>
+									<td>&#160;</td>
+									<td>
+										<input type="submit" name="submitBut" value="Submit"/>
+										<input type="submit" name="workOffline" value="Work Offline"/>
+																			</td>
+								</tr>
+							</table>
+							
+						 <p style="font-size: .9em;">Enter your U<i>Connect</i> username and password</p>
+						</form>
+						
+						</div>
+					</div>
+			</div>
+			<div class="linefooter">
+        		<div class="linefooterright" />
+      		</div>
+			
+	</body>
+</html>

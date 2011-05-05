@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:ore="http://www.openarchives.org/ore/terms/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs1="http://www.w3.org/2001/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m934e6b9_192x52.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m490f7e2f_80x25bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/4c89e016_172x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.png">
+    <dc:title>[ICE.skin] fancyzoom/tl.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m34004919_215x130.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m410f8983_149x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.gif">
+    <dc:title>[ICE.skin] fancyzoom/bl.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.png">
+    <dc:title>[ICE.skin] fancyzoom/bl.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m2f4f04c4_430x117.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/504a2577_15x22bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/ResourceMap">
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+    <rdfs1:label>ResourceMap</rdfs1:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/3da3cdcb_389x51bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/jquery.js">
+    <dc:title>[ICE.skin] jquery.js</dc:title>
+    <dc:format>application/x-javascript</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m70f25a55_108x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/496149f5_92x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.gif">
+    <dc:title>[ICE.skin] fancyzoom/tr.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m4c4afb4_243x33.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.png">
+    <dc:title>[ICE.skin] fancyzoom/mr.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m6a75c36e_104x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.gif">
+    <dc:title>[ICE.skin] fancyzoom/bm.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.gif">
+    <dc:title>[ICE.skin] fancyzoom/ml.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.htm?exportVersion=1">
+    <dc:title>Module 3 – Boolean algebra and mapping techniques</dc:title>
+    <dc:format>text/html</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/5eaed110_295x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m62c5e38f_131x23bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m61781707_234x384.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/br.png">
+    <dc:title>[ICE.skin] fancyzoom/br.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/69383660_177x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/2b9b082_156x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m66b47fe5_16x20bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m26a701dd_217x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/mfea1af1_545x254.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.png">
+    <dc:title>[ICE.skin] fancyzoom/tm.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m5ac1df0b_15x20bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m35c24eef_56x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m6b7bf4f0_208x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.odt">
+    <dc:title>Original document</dc:title>
+    <dc:format>application/vnd.oasis.opendocument.text</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.gif">
+    <dc:title>[ICE.skin] fancyzoom/closebox.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.rdf#aggregation">
+    <dc:title>Module 3 – Boolean algebra and mapping techniques</dc:title>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m934e6b9_192x52.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m490f7e2f_80x25bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m34004919_215x130.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m410f8983_149x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m2f4f04c4_430x117.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/504a2577_15x22bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/3da3cdcb_389x51bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/4c89e016_172x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/jquery.js"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m70f25a55_108x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/496149f5_92x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m4c4afb4_243x33.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m6a75c36e_104x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/1474f304_41x17bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.htm?exportVersion=1"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/5eaed110_295x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/mab705b0_471x305.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m61781707_234x384.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/br.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/69383660_177x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/2b9b082_156x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m66b47fe5_16x20bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m26a701dd_217x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/mfea1af1_545x254.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m5ac1df0b_15x20bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m35c24eef_56x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m6b7bf4f0_208x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.odt"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/7c8be0c1_17x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m70ee1a0f_25x19bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/2a174ac6_65x20bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/1029a345_497x209.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/3d20b852_117x59bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m6d21ca63_111x45bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m463e730b_387x297.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/52684236_291x197bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m1249876c_172x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/72a976c2_140x23bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/5254cc42_57x57.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/default.css"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m47c1fb5d_153x25bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/6da84405_351x70.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/fd111ca_53x8.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m2b048fec_101x27bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m6e8c360c_481x413.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/slideicon.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m5f794ef2_472x452.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/12a7d4f3_108x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.pdf"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/70947ef4_546x295.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/34e2bdc7_405x194.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m7827a41f_71x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m59c719e6_362x220.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/pdf.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/6cbecd7_57x57.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m4a9bf011_460x351.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.dc"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m70c0d5f6_324x178.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/magnifier.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/fancyzoom.js"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/68a5f672_100x27bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m62c5e38f_131x23bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/br.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m473a8581_95x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m4e0cd0b4_27x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m45289629_207x24bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/1de44b46_89x26bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/25c35412_41x27bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/10cae742_236x456.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/mfddad32_85x25bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/c836b23_438x102.jpg"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/2af5d4d0_513x300bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/36aa3de0_68x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/47619c09_203x21bw.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/7fdc5317_79x814.jpg"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dc:format>application/rdf+xml</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_previous.gif">
+    <dc:title>[ICE.skin] inactive_previous.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/7c8be0c1_17x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m70ee1a0f_25x19bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/2a174ac6_65x20bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/1029a345_497x209.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.png">
+    <dc:title>[ICE.skin] fancyzoom/closebox.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/3d20b852_117x59bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m6d21ca63_111x45bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m463e730b_387x297.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/52684236_291x197bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m1249876c_172x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/25c35412_41x27bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/5254cc42_57x57.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/default.css">
+    <dc:title>[ICE.skin] default.css</dc:title>
+    <dc:format>text/css</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m47c1fb5d_153x25bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/6da84405_351x70.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/fd111ca_53x8.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m2b048fec_101x27bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m6e8c360c_481x413.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/slideicon.gif">
+    <dc:title>[ICE.skin] slideicon.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.png">
+    <dc:title>[ICE.skin] fancyzoom/ml.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/next.gif">
+    <dc:title>[ICE.skin] next.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/Aggregation">
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+    <rdfs1:label>Aggregation</rdfs1:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m5f794ef2_472x452.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_up.gif">
+    <dc:title>[ICE.skin] inactive_up.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.gif">
+    <dc:title>[ICE.skin] fancyzoom/tl.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/12a7d4f3_108x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_next.gif">
+    <dc:title>[ICE.skin] inactive_next.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.pdf">
+    <dc:title>Module 3 – Boolean algebra and mapping techniques (PDF)</dc:title>
+    <dc:format>application/pdf</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/70947ef4_546x295.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/34e2bdc7_405x194.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m7827a41f_71x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.png">
+    <dc:title>[ICE.skin] fancyzoom/bm.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m59c719e6_362x220.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/pdf.gif">
+    <dc:title>[ICE.skin] pdf.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/mab705b0_471x305.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/6cbecd7_57x57.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.png">
+    <dc:title>[ICE.skin] fancyzoom/tr.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m4a9bf011_460x351.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.dc">
+    <dc:title>Dublin Core Metadata</dc:title>
+    <dc:format>text/xml</dc:format>
+    <dcterms:conformsTo>http://www.openarchives.org/OAI/2.0/oai_dc/</dcterms:conformsTo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m70c0d5f6_324x178.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.gif">
+    <dc:title>[ICE.skin] fancyzoom/tm.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.gif">
+    <dc:title>[ICE.skin] fancyzoom/mr.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/magnifier.png">
+    <dc:title>[ICE.skin] magnifier.png</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/fancyzoom.js">
+    <dc:title>[ICE.skin] fancyzoom/fancyzoom.js</dc:title>
+    <dc:format>application/x-javascript</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/68a5f672_100x27bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/previous.gif">
+    <dc:title>[ICE.skin] previous.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/1474f304_41x17bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/br.gif">
+    <dc:title>[ICE.skin] fancyzoom/br.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m473a8581_95x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m4e0cd0b4_27x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/m45289629_207x24bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/1de44b46_89x26bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/up.gif">
+    <dc:title>[ICE.skin] up.gif</dc:title>
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/72a976c2_140x23bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/10cae742_236x456.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/mfddad32_85x25bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/c836b23_438x102.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/2af5d4d0_513x300bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/36aa3de0_68x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/47619c09_203x21bw.png">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/png</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.rdf">
+    <dcterms:modified>2009-12-08T10:40:31</dcterms:modified>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/ResourceMap"/>
+    <dc:format></dc:format>
+    <ore:describes rdf:resource="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03.rdf#aggregation"/>
+    <dcterms:created>2009-12-08T10:40:31</dcterms:created>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/packages/ele_1301_s1/study_modules/module03_files/7fdc5317_79x814.jpg">
+    <dc:title>[image]</dc:title>
+    <dc:format>image/jpeg</dc:format>
+  </rdf:Description>
+</rdf:RDF>

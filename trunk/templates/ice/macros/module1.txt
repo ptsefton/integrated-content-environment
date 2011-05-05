@@ -1,0 +1,246 @@
+'************************************************************
+'	This is a program that alters one of the configuration
+'	 settings of the OpenOffice.org office software.
+'	The setting altered determines how or whether OOo will
+'	 allow a remote UNO connection to the office.
+'
+'**********************************************************************
+'	Copyright (c) 2003-2004 Danny Brewer
+'	d29583@groovegarden.com
+'
+'	This library is free software; you can redistribute it and/or
+'	modify it under the terms of the GNU Lesser General Public
+'	License as published by the Free Software Foundation; either
+'	version 2.1 of the License, or (at your option) any later version.
+'
+'	This library is distributed in the hope that it will be useful,
+'	but WITHOUT ANY WARRANTY; without even the implied warranty of
+'	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+'	Lesser General Public License for more details.
+'
+'	You should have received a copy of the GNU Lesser General Public
+'	License along with this library; if not, write to the Free Software
+'	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+'
+'	See:  http://www.gnu.org/licenses/lgpl.html
+'
+'**********************************************************************
+'	If you make changes, please append to the change log below.
+'
+'	Change Log
+'		Danny Brewer			Revised 2004-03-12-01
+'
+'          Sally MacFarlane                2005-08-23
+'                                          Accept port number from input dialog
+'
+'
+'**********************************************************************
+
+'======================================================================
+' Allow user to change OOo listening port
+'======================================================================
+
+Sub changePort()
+        ' first get the current host and port
+	cUnoSetupConnectionURL = GetUnoConnectionURL()
+
+	nPos = Instr( 1, cUnoSetupConnectionURL, "host=", 1 )
+	If nPos > 0 Then
+		cHost = GetToken( cUnoSetupConnectionURL, nPos+5, ",;" )
+	Else
+		cHost = ""
+	EndIf
+	
+	nPos = Instr( 1, cUnoSetupConnectionURL, "port=", True )
+	If nPos > 0 Then
+		cPort = GetToken( cUnoSetupConnectionURL, nPos+5, ",;" )
+		nPort = Val( cPort )
+	Else
+		nPort = 0
+	EndIf
+
+        ' accept connections from localhost only - set this to 0 to listen to any host
+	cConnectionsFrom = "localhost"
+	' Dialog to prompt user for a port
+
+        nConnectionPort = InputBox("Please enter the port for OOo to listen on.  (You will need to restart OOo for this change to take effect.)", "Change OOo port", nPort)
+
+        if nConnectionPort = "" then  ' User clicked Cancel
+
+            exit sub
+
+        endif
+
+'	SetUnoConnectionURL( "socket,host=0,port=8100;urp;StarOffice.ServiceManager" )
+	SetUnoConnectionURL( "socket,host=" + cConnectionsFrom _
+			+ ",port=" + CSTR( nConnectionPort )_
+			+ ";urp;StarOffice.ServiceManager" )
+End Sub
+
+
+'======================================================================
+'	Configuration Management
+'	These routines get or alter the property that affects whether
+'	 and how OOo will accept a remote UNO connection.
+'======================================================================
+
+Function GetUnoConnectionURL()
+	oConfigAccess = GetConfigAccess( "/org.openoffice.Setup/Office" )
+	
+	cUnoSetupConnectionURL = oConfigAccess.ooSetupConnectionURL
+
+	' Check to see if we've got a string.
+	nType = VarType( cUnoSetupConnectionURL )
+	If nType <> 8 Then
+		cUnoSetupConnectionURL = ""
+	EndIf
+	
+	GetUnoConnectionURL() = cUnoSetupConnectionURL
+End Function
+
+Sub SetUnoConnectionURL( cUnoSetupConnectionURL )
+	oConfigAccess = GetConfigAccess( "/org.openoffice.Setup/Office", True, True, False )
+	oConfigAccess.ooSetupConnectionURL = cUnoSetupConnectionURL
+	oConfigAccess.commitChanges()
+End Sub
+
+
+'======================================================================
+'	A miscellaneous routine from Danny's library.
+'======================================================================
+
+Function MakePropertyValue( Optional cName As String, Optional uValue ) As com.sun.star.beans.PropertyValue
+	Dim oPropertyValue As New com.sun.star.beans.PropertyValue
+	If Not IsMissing( cName ) Then
+		oPropertyValue.Name = cName
+	EndIf
+	If Not IsMissing( uValue ) Then
+		oPropertyValue.Value = uValue
+	EndIf
+	MakePropertyValue() = oPropertyValue
+End Function
+
+
+
+Function GetConfigAccess( ByVal cNodePath As String,_
+							Optional bWriteAccess,_
+							Optional bEnableSync,_
+							Optional bLazyWrite ) As Object
+	If IsMissing( bWriteAccess ) Then
+		bWriteAccess = False
+	EndIf
+	If IsMissing( bEnableSync ) Then
+		bEnableSync = True
+	EndIf
+	If IsMissing( bLazyWrite ) Then
+		bLazyWrite = False
+	EndIf
+
+'	If bWriteAccess  And  bEnableSync Then
+		oConfigProvider = GetProcessServiceManager().createInstanceWithArguments(_
+							"com.sun.star.configuration.ConfigurationProvider",_
+							Array( MakePropertyValue( "enableasync", bEnableSync ) ) )
+'	Else
+'		oConfigProvider = createUnoService( "com.sun.star.configuration.ConfigurationProvider" )
+'	EndIf
+	
+	If bWriteAccess Then
+		cServiceName = "com.sun.star.configuration.ConfigurationUpdateAccess"
+	Else
+		cServiceName = "com.sun.star.configuration.ConfigurationAccess"
+	EndIf
+	
+	oConfigAccess = oConfigProvider.createInstanceWithArguments( cServiceName,_
+		Array( MakePropertyValue( "nodepath", cNodePath ),_
+				MakePropertyValue( "lazywrite", bLazyWrite ) ) )
+	
+	GetConfigAccess() = oConfigAccess
+End Function
+
+
+
+' Given a string and starting position,
+'  accumulate and return all the characters up to the
+'  end of the string, or up to a delimiter character.
+Function GetToken( cString, nStartPos, cDelimiter )
+	cResult = ""
+	nLen = Len( cString )
+	For i = nStartPos To nLen
+		c = Mid( cString, i, 1 )
+		If CharsInSet( c, cDelimiter ) Then
+			Exit For
+		EndIf
+		cResult = cResult + c
+	Next
+	GetToken() = cResult
+End Function
+
+
+' Returns true if every char in cChars is a digit.
+Function IsDigit( cChars )
+	IsDigit() = CharsInSet( cChars, "0123456789" )
+End Function
+
+' Returns true if every char in cChars is a letter.
+Function IsAlpha( cChars )
+	IsAlpha() = IsUCaseAlpha( UCase(cChars) )
+End Function
+
+' Returns true if every char in cChars is a upper case letter.
+Function IsUCaseAlpha( cChars )
+	IsUCaseAlpha() = CharsInSet( cChars, "ABCDEFGHIJKLMNOPQRSTUVWXYZ" )
+End Function
+
+' Returns true if every char in cChars is in the set cSet.
+Function CharsInSet( cChars, cSet )
+	CharsInSet() = False
+	For i = 1 To Len( cChars )
+		c = Mid( cChars, i, 1 )
+		If Instr( cSet, c ) = 0 Then
+			Exit Function
+		EndIf
+	Next
+	CharsInSet() = True
+End Function
+
+' Returns true if every char in cChars is NOT in the set cSet.
+Function CharsNotInSet( cChars, cSet )
+	CharsNotInSet() = False
+	For i = 1 To Len( cChars )
+		c = Mid( cChars, i, 1 )
+		If Instr( cSet, c ) > 0 Then
+			Exit Function
+		EndIf
+	Next
+	CharsNotInSet() = True
+End Function
+
+' Return string with proper capitalization.
+Function ProperName( cName )
+	bInWord = False
+	cResult = ""
+	For i = 1 To Len( cName )
+		c = Mid( cName, i, 1 )
+		If bInWord Then
+			If IsAlpha( c ) Then
+				c = LCase( c )
+			Else
+				bInWord = False
+			EndIf
+		Else
+			If IsAlpha( c ) Then
+				c = UCase( c )
+				bInWord = True
+			Else
+				c = LCase( c )
+			EndIf
+		EndIf
+		cResult = cResult + c
+	Next
+	ProperName() = cResult
+End Function
+
+Sub Macro1
+
+End Sub
+

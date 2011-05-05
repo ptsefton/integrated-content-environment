@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Standard.P1 {keep-with-next:always; }
+img.fr1 {border:none; margin-left:0cm; margin-right:0cm; padding-bottom:0.153cm; padding-left:0.28cm; padding-right:0.28cm; padding-top:0.153cm; }</style></head><body><p class="P1"><a name="graphics1"/><img alt="graphics1" class="fr1" height="359" src="Figure 1_files/m6f1c4bbc.png" style="border:0px; vertical-align: top" width="310"/></p><p class="Caption">Figure 1</p></body></html>

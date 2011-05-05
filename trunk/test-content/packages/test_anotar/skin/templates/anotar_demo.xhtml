@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>
+		Anotar Build Template
+		</title>
+		<link class="sub css" rel="stylesheet" href="package-root/skin/default.css" />
+		<style class="sub style-css" type="text/css" />
+   	<!--[if gt IE 5]>
+        <style>
+            .body table { border-collapse: collapse;}
+        </style>
+        <![endif]-->
+        <!--[if IE 6]>
+        <style>
+        .toolbar {
+                position:static;
+            }
+        </style>
+
+        <![endif]-->
+       <!-- Paquete setup -->    
+	         <link type="text/css" rel="stylesheet" href="package-root/skin/paquete/paquete_styles.css" />
+                  <link type="text/css" rel="stylesheet" href="package-root/skin/anotar/sample_styles.css" />
+	          <script type="text/javascript" src="package-root/skin/paquete/paquete.js"><!-- s --></script> 
+	         <script type="text/javascript" src ="package-root/skin/paquete/paquete_config.js"> <!-- s --> </script> 
+                    <!-- Anotar Setup -->
+                <script type="text/javascript" src="package-root/skin/anotar/lib/jquery-1.4.1.min.js"><!-- --></script>
+                <script type="text/javascript" src="package-root/skin/anotar/lib/json2.js"><!-- --></script>
+                <script type="text/javascript" src="package-root/skin/anotar/lib/jquery.timeago.js"><!-- --></script>
+                <script type="text/javascript" src="package-root/skin/anotar/anotar.js"><!-- --></script>
+                <script type="text/javascript">
+                var commentConfig,notes;
+
+                jQuery(function(){
+                    commentConfig = {
+                    docRoot  : jQuery(".body"),
+                    tag_list : "p",
+                    serverAddress : "http://demo.adfi.usq.edu.au/couchdb/anotar/",
+                    setPageUriOnLoad:true,
+                    collapseComments : true
+                };
+                notes = anotarFactory(jQuery, commentConfig);
+
+            });
+        </script>
+        <script type="Text/JavaScript" src="package-root/skin/arc90_extlink.js"><!-- --></script>
+	</head>
+	<body>
+		<div><a name="top"><span id="top"><!-- top --></span></a></div>
+		<div class="ins toolbar">
+			<!-- ICE TOOLBAR -->
+		</div>
+		
+    <table border="0" cellpadding="0" cellspacing="0" class="layout">
+                <colgroup>
+                    <col  width ="20%" />
+                    <col />
+                </colgroup>
+    		<tr>
+				<td class="layout-logo">
+					<img src="package-root/skin/paquete/images/logo.gif" alt="USQ Australia" />
+				</td>
+				</tr>
+            <tr>
+                <td colspan="2">
+                   <div class="ins title"/>
+                </td>
+            </tr>
+			<tr>
+				<td class="layout-left" style="vertical-align: top;" rowspan="2" width="20%">
+					<div class="paquete-toc" />
+				</td>
+				<td style="vertical-align: top;">
+				    <div class="ins page-toc" />
+					<div class="ins body" id="body"></div>
+				</td>
+			</tr>
+			
+		</table> 
+  </body>
+</html>
+
+

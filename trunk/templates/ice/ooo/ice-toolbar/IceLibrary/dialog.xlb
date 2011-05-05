@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library:library PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "library.dtd">
+<library:library xmlns:library="http://openoffice.org/2000/library" library:name="IceLibrary" library:readonly="false" library:passwordprotected="false">
+ <library:element library:name="dlgCrossRef"/>
+ <library:element library:name="dlgShortcuts"/>
+ <library:element library:name="dlgConvert"/>
+ <library:element library:name="dlgPublish"/>
+ <library:element library:name="dlgListType"/>
+ <library:element library:name="dlgHint"/>
+</library:library>

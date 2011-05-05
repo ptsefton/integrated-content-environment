@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Sync Test</title><style type="text/css">table {border-spacing: 0;empty-cells: show;}
+span.sub {vertical-align:sub; font-size:smaller; }
+span.sup {vertical-align:super; font-size:smaller; }
+span.underline {text-decoration:underline; }
+span.double-underline {border-bottom: 1px solid; text-decoration: underline; padding-bottom: .2em; }
+Header_20_right.P1 {margin-bottom:0cm; margin-top:0cm; }
+Header_20_left.P3 {font-weight:normal; }</style></head><body><p>This document is to test syncing issues:</p><h1><a id="id1" name="id1"><!--id1--></a>Don't sync if render fails</h1><p>The document should not sync if the render fails.</p><p>03:50:29 PM</p><p>03:58:51 PM</p><p/></body></html>

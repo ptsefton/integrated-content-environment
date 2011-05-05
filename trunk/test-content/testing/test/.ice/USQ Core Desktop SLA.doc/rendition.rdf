@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:ore="http://www.openarchives.org/ore/terms/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs1="http://www.w3.org/2001/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/slideicon.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] slideicon.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.htm%3FexportVersion%3D1&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.htm?exportVersion=1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/mr.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tl.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/jquery.js">
+    <dc:format>application/x-javascript</dc:format>
+    <dc:title>[ICE.skin] jquery.js</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/tr.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/ml.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/ml.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf">
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/ResourceMap"/>
+    <dc:format></dc:format>
+    <dcterms:created>2009-09-14 16:15:22</dcterms:created>
+    <dcterms:modified>2009-09-14 16:15:22</dcterms:modified>
+    <ore:describes rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/bl.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/magnifier.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] magnifier.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/up.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/up.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.htm?exportVersion=1">
+    <dc:format>text/html</dc:format>
+    <dc:title>[Untitled]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/closebox.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/Aggregation">
+    <rdfs1:label>Aggregation</rdfs1:label>
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/pdf.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/pdf.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tr.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_previous.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] inactive_previous.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/default.css">
+    <dc:format>text/css</dc:format>
+    <dc:title>[ICE.skin] default.css</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/slideicon.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/slideicon.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/bm.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/tm.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/br.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/br.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/tl.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/previous.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] previous.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/bl.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/pdf.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] pdf.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/fancyzoom.js&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/fancyzoom.js"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/closebox.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/fancyzoom.js">
+    <dc:format>application/x-javascript</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/fancyzoom.js</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/bl.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/mr.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/bl.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/default.css&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/default.css"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/tl.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/bm.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/bm.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/magnifier.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/magnifier.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/mr.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tm.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/next.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/next.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation">
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dc:format>application/rdf+xml</dc:format>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/slideicon.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/fancyzoom.js"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/magnifier.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.htm?exportVersion=1"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.dc"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/default.css"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/br.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/pdf.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/jquery.js"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bl.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/br.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.png"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.pdf"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.png"/>
+    <dc:title>[Untitled]</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/br.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/br.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/mr.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/mr.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/ResourceMap">
+    <rdfs1:label>ResourceMap</rdfs1:label>
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/tr.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/inactive_next.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_next.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/bm.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/bm.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/tm.png&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.png"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/closebox.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/previous.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/previous.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/br.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/br.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tr.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tr.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/inactive_up.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_up.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.dc&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.dc"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/next.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] next.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/up.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] up.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.pdf">
+    <dc:format>application/pdf</dc:format>
+    <dc:title>[Untitled] (PDF)</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.dc">
+    <dc:format>text/xml</dc:format>
+    <dc:title>Dublin Core Metadata</dc:title>
+    <dcterms:conformsTo>http://www.openarchives.org/OAI/2.0/oai_dc/</dcterms:conformsTo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/ml.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/closebox.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/closebox.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/inactive_previous.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/inactive_previous.gif"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/jquery.js&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/jquery.js"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_next.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] inactive_next.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tm.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tm.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/ml.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/ml.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/fancyzoom/tl.png">
+    <dc:format>image/png</dc:format>
+    <dc:title>[ICE.skin] fancyzoom/tl.png</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.pdf&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.pdf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.test-content/skin/inactive_up.gif">
+    <dc:format>image/gif</dc:format>
+    <dc:title>[ICE.skin] inactive_up.gif</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.test-content/skin/fancyzoom/br.gif&amp;where=http%3A//localhost%3A8000/rep.test-content/testing/test/USQ%20Core%20Desktop%20SLA.rdf%23aggregation">
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.test-content/testing/test/USQ Core Desktop SLA.rdf#aggregation"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.test-content/skin/fancyzoom/br.gif"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>ICE conversion</title>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <style type="text/css">
+      body, td, th {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: smaller;
+      }
+      .title {
+        font-family: serif;
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #cc6600;
+        margin-bottom: 0.25em;
+      }
+      .sect-title {
+        font-family: Arial, Verdana, sans-serif;
+        font-size: 1.0em;
+        color: navy;
+        font-weight: normal;
+      }
+      h2.sect-title {
+        font-size: 1.25em;
+      }
+      .sub-title {
+        font-family: Arial, Verdana, sans-serif;
+        font-size: 0.8em;
+        color: #A34B4B;
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">ICE conversion service</h1>
+    <form action="/api/convert/preview" method="post" enctype="multipart/form-data">
+      <table>
+        <tr><td colspan="2" class="sect-title">Document</td></tr>
+        <tr>
+          <td>URL</td>
+          <td><input type="text" name="url" size="30"/></td>
+        </tr>
+        <tr>
+          <td>or Upload</td>
+          <td><input type="file" name="file" size="30"/></td>
+        </tr>
+      </table>
+      <p>
+        <input type="hidden" name="sessionid" value="$sessionId"/>
+        <input type="hidden" name="pathext" value="$pathExt"/>
+        <input type="reset" value="Reset"/>
+        <input type="submit" value="Convert"/>
+      </p>
+      <div class="options">
+      #if $options
+        $options
+      #else
+        <h2 class="sect-title">Services</h2>
+        <p>Use these links to specify document options, otherwise defaults will be used.</p>
+        <ul>
+          #for $plugin in $plugins
+          <li>
+            $plugin.description
+            #for $ext in $plugin.exts
+            [<a href="/api/convert/$ext[1:]">$ext[1:]</a>]
+            #end for
+          </li>
+          #end for
+        </ul>
+      #end if
+      </div>
+    </form>
+  </body>
+</html>

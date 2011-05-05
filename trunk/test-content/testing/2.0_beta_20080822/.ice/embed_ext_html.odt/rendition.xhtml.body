@@ -1,0 +1,24 @@
+<div><p><div class="embedded-html">
+        <style type="text/css">
+            #hastags .gf-relativePublishedDate, .gf-author {font-size: .9em;}
+            #hastags .gf-result {font-size: .9em;}
+            #hastags .gf-title {display:none}
+            #hastags .gf-snippet {}
+        </style>
+        <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAChzYxP3_-JemoueS3e-k6xTUiUchViEq1e-vMB81kYf6c37qNhR0MBwDuQfj2jctddfPMZP_2MdUIg"/>
+               <script type="text/javascript">
+            
+            google.load('feeds', "1");
+            
+            function initialize() {
+            var feedControl = new google.feeds.FeedControl();
+            
+            feedControl.addFeed("http://www.hashtags.org/feeds/tag/ice4ed/", "ICE Team Status");
+            feedControl.draw(document.getElementById("hastags"));
+            }
+            google.setOnLoadCallback(initialize);
+        </script>
+                
+        <div id="hastags"><p>View our status on <a href="http://www.hashtags.org/tag/ice4ed/">http://www.hashtags.org/tag/ice4ed/</a></p>
+        </div>
+     </div></p><p/></div>

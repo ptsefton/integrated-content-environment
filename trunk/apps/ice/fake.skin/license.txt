@@ -1,0 +1,18 @@
+Licenses for the vary Icons used by the Integrated Content Environment.
+Images have been resized and modifed in brightness and contrast compared to the originals.
+
+Source: http://tango.freedesktop.org/Tango_Icon_Library 
+License: http://creativecommons.org/licenses/by-sa/2.5/
+Files:
+folder.png
+folder-deleted.png
+open.png
+edit-copy.png
+edit-cut.png
+edit-paste.png
+edit.png
+
+source: http://commons.wikimedia.org/wiki/Image:Crystal_Clear_action_viewmag%2B.png
+license: http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
+files:
+open_lightbox.gif

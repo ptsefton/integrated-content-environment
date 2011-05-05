@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://openoffice.org/extensions/description/2006" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <identifier value="org.openoffice.ice-toolbar.oxt"/>
+    <version value="4.6.8"/>
+    <update-information><src xlink:href="http://ice.usq.edu.au/svn/ice/trunk/templates/ice/ooo/ice.update.xml"/></update-information>
+    <registration>
+    <simple-license accept-by="admin" suppress-on-update="true">
+      <license-text xlink:href="pkg-desc/pkg-licence-EN.txt"/>
+      <license-text xlink:href="pkg-desc/pkg-licence-EN.txt" lang="en-US"/>
+    </simple-license>
+  </registration>
+   <display-name><name>ICE Style Toolbar (dev)</name></display-name>
+ <icon>
+    <default xlink:href="icons/Ice.png"/>
+    <high-contrast xlink:href="icons/Ice.png"/>
+  </icon>
+  <extension-description>
+    <src xlink:href="pkg-desc/pkg-description.txt"/>
+    <src xlink:href="pkg-desc/pkg-description.txt" lang="en"/>
+  </extension-description>
+</description>

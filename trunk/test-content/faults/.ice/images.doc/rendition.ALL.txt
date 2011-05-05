@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Images</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+span.P2 {font-size:24pt; text-align:center; }
+span.P3 {line-height:0.22cm; margin-bottom:0.423cm; margin-top:0.212cm; text-align:center; }
+span.T1 {country:none; language:none; }
+span.T2 {color:#ff0000; country:US; font-size:9pt; language:en; }
+img.fr1 {border:none; margin-left:0cm; margin-right:0cm; padding-bottom:0.153cm; padding-left:0.28cm; padding-right:0.28cm; padding-top:0.153cm; }
+span.gr1 {margin-left:0cm; margin-right:0cm; padding-bottom:0.229cm; padding-left:0.441cm; padding-right:0.441cm; padding-top:0.229cm; wrap-option:wrap; }
+span.gr2 {margin-left:0.319cm; margin-right:0.319cm; }
+span.gr4 {padding-bottom:0.229cm; padding-left:0.441cm; padding-right:0.441cm; padding-top:0.229cm; wrap-option:no-wrap; }
+span.gr5 {padding-bottom:0cm; padding-left:0cm; padding-right:0cm; padding-top:0cm; wrap-option:wrap; }
+span.gr6 {padding-bottom:0.229cm; padding-left:0.441cm; padding-right:0.441cm; padding-top:0.229cm; wrap-option:wrap; }
+span.gr7 {padding-bottom:0.229cm; padding-left:0.441cm; padding-right:0.441cm; padding-top:0.229cm; wrap-option:wrap; }
+span.gr8 {padding-bottom:0.229cm; padding-left:0.441cm; padding-right:0.441cm; padding-top:0.229cm; wrap-option:wrap; }</style></head><body><p><a name=""/><img alt="" class="gr4" height="246" src="images_files/356219d1_304x246.jpg" style="border:0px; vertical-align: top" width="304"/><p/><p class="P3" style="width:304px;"><span style="color:#ff0000; country:US; font-size:9pt; language:en; "><span class="T2">Figure 2.4 EBC Framework for Autonomous Agents</span></span></p><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></p><p><a name="graphics1"/><img alt="graphics1" class="fr1" height="292" src="images_files/2b92aea4_309x292.jpg" style="border:0px; vertical-align: top" width="309"/></p><p>Figure 2.4 provided with permission From Dr Penny de Byl for testing only.</p></body></html>

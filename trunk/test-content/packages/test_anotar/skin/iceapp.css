@@ -1,0 +1,244 @@
+/*button, .ice-tab-inactive, div.ice-taggedwith span.command, span.mytag, span.mytags,.ice-tab-whitespace span.command
+  { behavior: url('/skin/IEFixes.htc')
+  }
+*/
+
+@import url("./toolbar.css");
+
+body{
+      behavior: url(/skin/IEFixes.htc) /* - */
+}
+
+
+
+/* Annotations */
+
+div.anno-info span.command {
+          color: black;
+          cursor: pointer;
+          background-color: #bdbdbd;
+          padding: 1px;
+          font-size: 1em;
+          margin-top: .1em;
+          border-left: 1px solid white;
+          border-top: 1px solid white;
+          border-right: 1px solid gray;
+          border-bottom: 1px solid gray;
+          padding-left: 2px;
+          padding-right: 2px;
+          
+      }
+      
+div.anno-info span.command:hover {
+          text-decoration:none;
+      }
+      
+
+
+ /* File manager */
+ #editDiv {
+    border:1px solid black; 
+    margin-left:2em; 
+    background-color:#D0D0D0; 
+    display:block; 
+    width: 500px; 
+    padding: 0.2em;
+    padding-left: 0.4em; 
+    margin-top: 0.5em; 
+  }
+
+  span.disabled {
+    color: gray;
+  }
+ 
+  span.command {
+    cursor: pointer;
+    color: blue;
+  }
+  
+  span.command:hover {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+  }
+
+  img.command { cursor:pointer;}
+ 
+  tr.selected { background:#c0d0ff;}
+  tr.alt-selected { background: #c0d0ff; }
+  tr.alt { background:#e0f0ff; }
+  table.app-file-manager { border-spacing:0px; }
+  table.app-file-manager td { padding-right:1em; }
+  
+  /* Organizer */
+  
+.body table.app-item { 
+       background-color: #F5F5F5;
+       color: black;
+       padding-top: 0.4em;
+       width: 550px;
+       margin-top: 10px;
+              }
+.body table.app-item td {
+    vertical-align: top;
+}
+              
+.body td.app-item-select {text-align: left; width: 15px;} 
+ 
+.body a.app-expand {
+	vertical-align: top;
+}
+
+.body a:link:hover.app-expand{
+	background-color: transparent;
+}
+
+.body a.app-minimize {
+	vertical-align: top;
+}
+.body a:link:hover.app-minimize {
+	background-color: #F6F6F6;
+}
+
+.body a.app-root-move {
+	vertical-align: top;
+}
+
+.body a:link:hover.app-root-move{
+	background-color: white;
+}
+
+.body a.app-move {
+	vertical-align: top;
+    display: inline;
+}
+
+.body a:link:hover.app-move{
+	background-color: #F6F6F6;
+}
+
+/* svn status */
+
+
+span.app-in-sync, span.app-modifications, span.app-out-of-date, span.app-conflicts, span.app-offline, span.app-offline-modifications {
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-bottom: 12px;
+	padding-top: 0px;
+	margin-top: 0px;
+	margin-left: 1px;
+	margin-bottom: 2px;
+	vertical-align: top;
+	width: 24px;
+	height: 24px;
+}
+
+span.app-online, span-app-offline, span.app-in-sync span, span.app-modifications span, span.app-out-of-date span, span.app-conflicts span, span.app-offline span, span.app-offline-modifications span{
+}
+
+span.app-in-sync {
+	background: url('ok.gif');
+	background-repeat: no-repeat;
+}
+
+
+span.app-modifications {
+	background: url('modifications.gif');
+	background-repeat: no-repeat;
+}
+
+span.app-out-of-date {
+	background: url('out-of-sync.gif');
+	background-repeat: no-repeat;
+}
+
+span.app-conflicts {
+	background: url('conflict.gif');
+	background-repeat: no-repeat;
+}
+
+span.app-offline {
+	background: url('offline.gif');
+	background-repeat: no-repeat;
+}
+
+span.app-offline-modifications {
+	background: url('offline-modifications.gif');
+	background-repeat: no-repeat;
+}
+
+.search-result {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.search-result-desc {
+    font-size: .8em;
+}
+
+ /* annotations */
+ 
+ .body span.command, .body span.command:hover {
+     cursor: pointer;
+ }
+ 
+.annotate-form {
+    background: rgb(224, 255, 224) none repeat scroll 0%;
+}
+  
+.inline-anno {
+     background-color:transparent; 
+}
+
+.inline-annotation {
+    margin-left: 5px;
+    border-left: 1px dotted black;
+    color: #006400;
+    background-color:#d9d9d9;
+    padding-left: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+}
+
+.inline-annotation-form {
+    background-color:#d9d9d9;
+    border: 1px solid #006400;
+    margin: 2px;
+    padding: 2px;
+}
+
+.inline-annotation-form .app-label {
+    font-weight: bold;
+}
+
+.anno-children {  
+    padding-left: 3px;
+    padding: 3px;
+    margin-top: 3px;   
+}
+
+.anno-info {
+    margin-bottom: 2px;
+    font-style:italic;
+    color: black;
+}
+
+.closed {
+    margin-top: 1px;
+    background-color:#F8F8F8;
+    color: #3CB371;
+    
+}
+
+.closed .anno-info {
+    color: #989898;
+}
+
+.orig-content {
+    background-color: transparent;
+    color: #484848;
+}
+
+div.inline-annotation-form div.annotateThis { display:none; }
+/* End Annotations */

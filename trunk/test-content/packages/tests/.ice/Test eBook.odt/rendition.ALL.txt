@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }</style></head><body><p>This is a test of how well the Cybook Opus handles images.  </p><p/><p><span style="display: block"><a name="graphics1"><!-- --></a><img alt="graphics1" class="fr1" height="229" src="Test eBook_files/22948ced_353x229.jpg" style="border:0px; vertical-align: top" width="353"/></span></p></body></html>

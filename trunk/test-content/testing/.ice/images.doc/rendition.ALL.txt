@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Images</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+p.P2 {country:none; language:none; }
+span.P3 {font-size:24pt; text-align:center; }
+span.P4 {line-height:0.22cm; margin-bottom:0.423cm; margin-top:0.212cm; text-align:center; }
+span.T1 {color:#ff0000; country:US; font-size:9pt; language:en; }
+span.gr3 {padding-bottom:0.229cm; padding-left:0.441cm; padding-right:0.441cm; padding-top:0.229cm; wrap-option:wrap; }
+span.gr4 {padding-bottom:0cm; padding-left:0cm; padding-right:0cm; padding-top:0cm; wrap-option:wrap; }
+span.gr5 {padding-bottom:0cm; padding-left:0cm; padding-right:0cm; padding-top:0cm; wrap-option:wrap; }
+span.gr6 {padding-bottom:0cm; padding-left:0cm; padding-right:0cm; padding-top:0cm; wrap-option:wrap; }
+span.gr7 {padding-bottom:0cm; padding-left:0cm; padding-right:0cm; padding-top:0cm; wrap-option:wrap; }</style></head><body><p class="P2"><a name=""><!-- --></a><img alt="" class="gr3" height="246" src="images_files/m183af3ef_304x246.jpg" style="border:0px; vertical-align: top" width="304"/><br/><p/><p class="P4" style="width:304px;"><span style="color:#ff0000; country:US; font-size:9pt; language:en; "><span class="T1">Figure 2.4 EBC Framework for Autonomous Agents</span></span></p><p/><p/><p/><p/><p/><p/><p/><p/><p/></p><p>Figure 2.4 provided with permission From Dr Penny de Byl for testing only.</p></body></html>

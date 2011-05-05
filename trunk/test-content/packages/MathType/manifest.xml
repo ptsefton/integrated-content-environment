@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE manifest SYSTEM "imscp_rootv1p1.dtd">
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" identifier="MANIFEST-6971EFA4-1391-578F-D1CE-39875264E76A" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd">
+  <metadata>
+  <schema e-dtype="string">IMS Content</schema>
+  <schemaversion e-dtype="string">1.2.2</schemaversion>
+  </metadata>
+  
+<organizations default="default"><organization identifier="default" structure=""><title>Documents containing MathType</title>
+<item identifierref="4592d347a7ae9d7cdc304d7ada2f0a09" identifier="default-4592d347a7ae9d7cdc304d7ada2f0a09-1" isvisible="True">
+<title>Sample MathType in OOo</title>
+</item>
+<item identifierref="3aa3707daf417ad8f2cf4e9f61c5ca9f" identifier="default-3aa3707daf417ad8f2cf4e9f61c5ca9f-1" isvisible="False">
+<title>[toc.htm]</title>
+</item>
+<item identifierref="ec03424a589e5d584142e99023c88451" identifier="default-ec03424a589e5d584142e99023c88451-1" isvisible="False">
+<title>[default.htm]</title>
+</item>
+<item identifierref="6502fcab9de35c138287b4c9e678c75b" identifier="default-6502fcab9de35c138287b4c9e678c75b-1" isvisible="True">
+<title>OOo in Book only</title>
+<item identifierref="b289c3f8672bfd402ae3b452765506d8" identifier="default-b289c3f8672bfd402ae3b452765506d8-1" isvisible="True">
+<title>[OOo_only_multiple_files.book.pdf]</title>
+</item>
+</item>
+<item identifierref="f81933fb02f205461bdb69a82f7f2db2" identifier="default-f81933fb02f205461bdb69a82f7f2db2-1" isvisible="True">
+<title>Sample MathType in Word</title>
+</item>
+<item identifierref="3289c250d538308dd68d58e4645a1d3a" identifier="default-3289c250d538308dd68d58e4645a1d3a-1" isvisible="True">
+<title>Word in a Book</title>
+</item>
+</organization>
+</organizations>
+<resources>
+<resource href=".skin/slide.css" identifier="03d3f9dd10ce3603cced69d613e1e790" type="webcontent">
+<file href=".skin/slide.css"/>
+</resource>
+<resource href=".skin/minimize.gif" identifier="0a0dfaba3f5a32edcf1ae9785791968d" type="webcontent">
+<file href=".skin/minimize.gif"/>
+</resource>
+<resource href=".skin/expand.gif" identifier="118b683d766e01df88c7d75d9b51b3f1" type="webcontent">
+<file href=".skin/expand.gif"/>
+</resource>
+<resource href=".skin/top.gif" identifier="125780de7a20aee2ea70a545f6f85a3b" type="webcontent">
+<file href=".skin/top.gif"/>
+</resource>
+<resource href=".skin/app.css" identifier="2516af32903b3ec924985dc72a82a761" type="webcontent">
+<file href=".skin/app.css"/>
+</resource>
+<resource href="word/word_only.book.htm" identifier="3289c250d538308dd68d58e4645a1d3a" type="webcontent">
+<file href="word/word_only.book.htm"/>
+<file href="word/word_only.book.pdf"/>
+<file href="word/word_only.book_files/m27362b35_127x52.gif"/>
+<file href="word/word_only.book_files/m2f56c21b_104x47.gif"/>
+</resource>
+<resource href=".skin/offline.gif" identifier="367a7a7a88b243a5adbe0838d2aba02c" type="webcontent">
+<file href=".skin/offline.gif"/>
+</resource>
+<resource href=".skin/logo.jpg" identifier="36fdbf883c04079598e9244f95e1d383" type="webcontent">
+<file href=".skin/logo.jpg"/>
+</resource>
+<resource href="toc.htm" identifier="3aa3707daf417ad8f2cf4e9f61c5ca9f" type="webcontent">
+<file href="toc.htm"/>
+</resource>
+<resource href=".skin/conflict.gif" identifier="3eddd94aff0995031f70535586abb810" type="webcontent">
+<file href=".skin/conflict.gif"/>
+</resource>
+<resource href=".skin/template-login.xhtml" identifier="40d73c3ecc63a63af7b0c3ed7136f02f" type="webcontent">
+<file href=".skin/template-login.xhtml"/>
+</resource>
+<resource href=".skin/slideicon.gif" identifier="41ae2cc99739599536091bc66a6e4946" type="webcontent">
+<file href=".skin/slideicon.gif"/>
+</resource>
+<resource href="odt/sample_mathtype.htm" identifier="4592d347a7ae9d7cdc304d7ada2f0a09" type="webcontent">
+<file href="odt/sample_mathtype.htm"/>
+<file href="odt/sample_mathtype.pdf"/>
+<file href="odt/sample_mathtype_files/607b15f_191x52.gif"/>
+<file href="odt/sample_mathtype_files/34aa1cf9_169x47.gif"/>
+</resource>
+<resource href=".skin/File.gif" identifier="5069ea5a925a5a443ac0f0ae4ba47952" type="webcontent">
+<file href=".skin/File.gif"/>
+</resource>
+<resource href=".skin/move-here.gif" identifier="525e95af1c32e52bae30d6ac4fa878f3" type="webcontent">
+<file href=".skin/move-here.gif"/>
+</resource>
+<resource href=".skin/slideous.js" identifier="59126bf50b23d78f9a0bdcf7d57852e6" type="webcontent">
+<file href=".skin/slideous.js"/>
+</resource>
+<resource href=".skin/parent-inactive.gif" identifier="5e48815677f45912f454892f946df265" type="webcontent">
+<file href=".skin/parent-inactive.gif"/>
+</resource>
+<resource href=".skin/pdf.gif" identifier="6021e03813f6c812d57d3cb6aa369188" type="webcontent">
+<file href=".skin/pdf.gif"/>
+</resource>
+<resource href=".skin/ICE-logo.jpg" identifier="6085fe996487dd35c0ba47527d20878b" type="webcontent">
+<file href=".skin/ICE-logo.jpg"/>
+</resource>
+<resource href=".skin/homepage.jpg" identifier="63a73cbae2cce4cbd352ce82bbde356e" type="webcontent">
+<file href=".skin/homepage.jpg"/>
+</resource>
+<resource href="odt/OOo_only.book.htm" identifier="6502fcab9de35c138287b4c9e678c75b" type="webcontent">
+<file href="odt/OOo_only.book.htm"/>
+<file href="odt/OOo_only.book.pdf"/>
+<file href="odt/OOo_only.book_files/7cee3f72_169x47.gif"/>
+<file href="odt/OOo_only.book_files/39b0a1a9_191x52.gif"/>
+</resource>
+<resource href=".skin/ok.gif" identifier="6a638e70ffd93a8052c1b5b3eee429b0" type="webcontent">
+<file href=".skin/ok.gif"/>
+</resource>
+<resource href=".skin/FolderClosed.gif" identifier="746ac47d3e9a67f084a159efd1aa0075" type="webcontent">
+<file href=".skin/FolderClosed.gif"/>
+</resource>
+<resource href=".skin/offline-modifications.gif" identifier="875765e24b11839b94b75744192b332c" type="webcontent">
+<file href=".skin/offline-modifications.gif"/>
+</resource>
+<resource href=".skin/ice.gif" identifier="a23b65112d97443d03a2026b617e2b74" type="webcontent">
+<file href=".skin/ice.gif"/>
+</resource>
+<resource href=".skin/inactive_next.gif" identifier="a45721f434a637e5c460042baeaff55c" type="webcontent">
+<file href=".skin/inactive_next.gif"/>
+</resource>
+<resource href=".skin/root-move-here.gif" identifier="a6723b01dd6b454627e79dc76a88e523" type="webcontent">
+<file href=".skin/root-move-here.gif"/>
+</resource>
+<resource href=".skin/out-of-sync.gif" identifier="aa4530c92ab36e0a52cd8f6182143925" type="webcontent">
+<file href=".skin/out-of-sync.gif"/>
+</resource>
+<resource href=".skin/inactive_previous.gif" identifier="ab4e9c4a2d510cdd782b7d76e95fc22b" type="webcontent">
+<file href=".skin/inactive_previous.gif"/>
+</resource>
+<resource href="odt/OOo_only_multiple_files.book.pdf" identifier="b289c3f8672bfd402ae3b452765506d8" type="webcontent">
+<file href="odt/OOo_only_multiple_files.book.pdf"/>
+</resource>
+<resource href=".skin/template.xhtml" identifier="c19dcdbc37fdbb1f04589d965f07cdbe" type="webcontent">
+<file href=".skin/template.xhtml"/>
+</resource>
+<resource href=".skin/inactive_up.gif" identifier="c6499efde90698ac14c081b34ac771f1" type="webcontent">
+<file href=".skin/inactive_up.gif"/>
+</resource>
+<resource href=".skin/source.gif" identifier="c7473856e8955d5179b993c07446d8a0" type="webcontent">
+<file href=".skin/source.gif"/>
+</resource>
+<resource href=".skin/next.gif" identifier="c7fd409d3f340990deaa9283015ccc78" type="webcontent">
+<file href=".skin/next.gif"/>
+</resource>
+<resource href=".skin/previous.gif" identifier="c8c1ed546053c9ca4c53fc0c72a557d4" type="webcontent">
+<file href=".skin/previous.gif"/>
+</resource>
+<resource href=".skin/FolderUp.gif" identifier="cb99f16af5e59564ba8b3bc2b3f020a2" type="webcontent">
+<file href=".skin/FolderUp.gif"/>
+</resource>
+<resource href=".skin/parent.gif" identifier="cfb74197110d9ce069ddad29d73954a1" type="webcontent">
+<file href=".skin/parent.gif"/>
+</resource>
+<resource href=".skin/up.gif" identifier="d6bfa6475e42f89a29af5952be58a760" type="webcontent">
+<file href=".skin/up.gif"/>
+</resource>
+<resource href=".skin/modifications.gif" identifier="d9f043ffa8766c9e81c8103bef678341" type="webcontent">
+<file href=".skin/modifications.gif"/>
+</resource>
+<resource href="default.htm" identifier="ec03424a589e5d584142e99023c88451" type="webcontent">
+<file href="default.htm"/>
+</resource>
+<resource href=".skin/default.css" identifier="ec95c6f148b6338b9a15882d821fdb2a" type="webcontent">
+<file href=".skin/default.css"/>
+</resource>
+<resource href="word/sample_mathtype.htm" identifier="f81933fb02f205461bdb69a82f7f2db2" type="webcontent">
+<file href="word/sample_mathtype.htm"/>
+<file href="word/sample_mathtype.pdf"/>
+<file href="word/sample_mathtype_files/36f2bf7f_104x47.gif"/>
+<file href="word/sample_mathtype_files/md1311c6_127x52.gif"/>
+</resource>
+</resources>
+</manifest>

@@ -1,0 +1,3 @@
+ICE OOo Extension
+
+The purpose of the toolbar is to apply the ICE styles quicker and easier, this has been achieved by the creation of a toolbar that not only uses identical icons in OpenOffice.org and Word but also uses the same short cuts on all operating systems and word processors. The functionality of toolbar also includes some 'smarts' to assist with the creation of more structurally correct content. For more information visit http://ice.usq.edu.au

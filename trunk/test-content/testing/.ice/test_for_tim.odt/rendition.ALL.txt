@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>News Stand</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_right.P1 {margin-bottom:0.212cm; margin-top:0cm; }
+Header_20_right.P2 {country:US; font-size:8.5pt; font-weight:bold; language:en; margin-bottom:0.212cm; margin-top:0cm; }
+Header_20_left.P3 {country:US; font-size:8.5pt; language:en; margin-bottom:0.212cm; margin-top:0cm; }
+Header_20_left.P4 {country:US; font-size:8.5pt; font-weight:bold; language:en; }
+p.P5 {hyphenate:false; hyphenation-ladder-count:no-limit; hyphenation-push-char-count:2; hyphenation-remain-char-count:2; margin-bottom:0.423cm; margin-top:0cm; orphans:2; widows:2; }
+p-center.P6 {margin-bottom:0.423cm; margin-top:0cm; }
+p-center.P7 {margin-bottom:0.423cm; margin-top:0cm; text-align:center; }
+p-center.P8 {margin-bottom:0.423cm; margin-top:0cm; }
+p-center.P9 {margin-bottom:0.423cm; margin-top:0cm; text-align:center; }
+p.P10 {hyphenate:false; hyphenation-ladder-count:no-limit; hyphenation-push-char-count:2; hyphenation-remain-char-count:2; margin-bottom:0.423cm; margin-top:0cm; orphans:2; widows:2; }
+span.T1 {country:US; font-size:8.5pt; language:en; }
+span.T2 {font-weight:bold; }
+span.T3 {font-weight:normal; }</style></head><body><p/><p class="P5">This function of this page is to keep you up to date with what is happening in the CAIRSS community. We aim to provide both direct links and subscriptions to web systems and services used by CAIRSS.</p><p class="P5"/><p class="P5"><a name="graphics1"><!-- --></a><img alt="graphics1" class="fr1" height="100" src="test_for_tim_files/m571843aa_100x100.jpg" style="border:0px; vertical-align: top" width="100"/></p></body></html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2007, v.4002-->
+<!DOCTYPE questestinterop SYSTEM "dtd/imsqti_v1_2.dtd">
+<questestinterop>
+<item
+ident="WCT:ASM0:221001299017:27609619:EA8CB4E72A1A4CB8E0340003BA90BE71"
+title="fill in the blank">
+<itemmetadata>
+<qtimetadata>
+<vocabulary uri="imsqtiv1p2_metadata.txt" vocab_type="text/plain"
+></vocabulary>
+<qtimetadatafield><fieldlabel>qmd_questiontype</fieldlabel><fieldentry
+>FIB-string</fieldentry></qtimetadatafield>
+</qtimetadata>
+<qtimetadata>
+<vocabulary uri="webct_imsqti_metadatav1p0.txt" vocab_type="text/plain"
+></vocabulary>
+<qtimetadatafield><fieldlabel>wct_answer_text1</fieldlabel><fieldentry
+>plus</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_fib_questionText</fieldlabel>
+<fieldentry>An alternative word for "add" is [plus]</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_allowedInBox1</fieldlabel><fieldentry
+>0</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_fib_answerBoxWidth</fieldlabel>
+<fieldentry>30</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_comparison_type2</fieldlabel>
+<fieldentry>EQUALS</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_authorWebctGlid</fieldlabel>
+<fieldentry>139.86.14.141-1111626092280-10507062017.45453534017</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_questioncategory</fieldlabel>
+<fieldentry>0 Test different question types</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_fib_caseSensitive</fieldlabel>
+<fieldentry>No</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_authorFullName</fieldlabel>
+<fieldentry>David Grant</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_value3</fieldlabel><fieldentry>100.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_comparison_type3</fieldlabel>
+<fieldentry>EQUALS</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_allowedInBox2</fieldlabel><fieldentry
+>0</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_questiontype</fieldlabel><fieldentry
+>WCT_FillInTheBlank</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_comparison_type1</fieldlabel>
+<fieldentry>EQUALS</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_allowedInBox3</fieldlabel><fieldentry
+>0</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_answer_text2</fieldlabel><fieldentry
+>sum</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_value2</fieldlabel><fieldentry>100.0</fieldentry>
+</qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_answer_text3</fieldlabel><fieldentry
+>total</fieldentry></qtimetadatafield>
+<qtimetadatafield><fieldlabel>wct_value1</fieldlabel><fieldentry>100.0</fieldentry>
+</qtimetadatafield>
+</qtimetadata>
+</itemmetadata>
+<presentation>
+<flow>
+<material>
+<mattext charset="US-ASCII" label="wct_fib_questionTextType"
+texttype="TEXT/HTML" xml:space="preserve">An alternative word for "add" is </mattext>
+</material>
+<response_str ident="FIB01" rcardinality="Single" rtiming="No">
+<render_fib charset="US-ASCII" columns="30" encoding="UTF-8"
+fibtype="String" maxchars="30" maxnumber="1" minnumber="1" prompt="Box"
+rows="1">
+<response_label ident="A1" rshuffle="No"></response_label>
+</render_fib></response_str></flow>
+</presentation>
+<resprocessing>
+<outcomes><decvar varname="SCORE" vartype="Decimal"></decvar></outcomes>
+<respcondition continue="Yes" title="genFeedback">
+<conditionvar>
+<other></other>
+</conditionvar>
+<displayfeedback feedbacktype="Response"
+linkrefid="wct_general_feedback_ref_1"></displayfeedback>
+</respcondition>
+</resprocessing>
+<resprocessing>
+<outcomes><decvar defaultval="0.0" varname="SCORE" vartype="Decimal"
+></decvar></outcomes>
+<respcondition continue="No">
+<conditionvar>
+<varequal case="No" respident="FIB01">plus</varequal>
+</conditionvar>
+<setvar action="Add" varname="SCORE">100.0</setvar>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal case="No" respident="FIB01">sum</varequal>
+</conditionvar>
+<setvar action="Add" varname="SCORE">100.0</setvar>
+</respcondition>
+<respcondition continue="No">
+<conditionvar>
+<varequal case="No" respident="FIB01">total</varequal>
+</conditionvar>
+<setvar action="Add" varname="SCORE">100.0</setvar>
+</respcondition>
+</resprocessing>
+<itemfeedback ident="wct_general_feedback_ref_1" view="All">
+<flow_mat class=" ">
+<material>
+<mattext charset="US-ASCII" label="wct_general_feedback_1"
+texttype="TEXT/HTML" xml:space="preserve">You could use "plus" or "sum" or "total" as an alternative to "add".</mattext>
+</material>
+</flow_mat>
+</itemfeedback>
+</item>
+</questestinterop>

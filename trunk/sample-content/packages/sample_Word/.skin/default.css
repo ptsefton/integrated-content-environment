@@ -1,0 +1,503 @@
+/* faculty css */
+@import url("faculty.css");
+
+.extlinkIMG {
+	background: transparent url(extLink_img.gif) no-repeat top right;
+	margin-left: 2px;
+	height: 12px;
+	width: 12px;
+	cursor: pointer;
+	padding-left: 12px;
+}
+
+.blanklinkIMG {
+	background: transparent url(blankLink_img.gif) no-repeat top right;
+	margin-left: 2px;
+	height: 12px;
+	width: 12px;
+	cursor: pointer;
+	padding-left: 12px;
+}
+
+/* default css */
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: black;
+	padding: 0px;
+	margin: 0px; 
+	background-color: white;
+}
+
+body td, body th{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: .8em;
+}
+
+.body table td {
+	border-spacing: 0;empty-cells: show;
+
+	
+}
+
+.body  {
+  padding: 0px;
+  margin-right: 26px;
+  margin-left: 26px;
+}
+
+.spCh {
+    font-family: "Lucida Grande","Arial Unicode MS", sans-serif; font-size: 1.2em;
+} 
+
+p {
+  line-height: 1.45em;
+ }
+
+.context-link {
+    font-size: .8em;
+    padding-left: 4px;
+    padding-bottom: 14px;
+}
+
+table.header {
+	width: 100%;
+	padding: 0px;
+	vertical-align: top;
+}
+
+table.header td {
+	vertical-align: top;
+}
+
+
+.pdf-rendition-link td{
+	padding: 1px;
+	font-size: smaller;
+}
+
+.pdf-rendition-link table td{
+	padding: 1px;
+	font-size: smaller;
+	padding: 0px;
+	
+}
+
+.nav-buttons {
+  margin-right: 15px;
+  margin-left: 10px;
+  padding-top: 8px;
+}
+
+.layout {
+	width: 100%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
+	font-weight: normal;
+}
+
+a:link  {
+  text-decoration: None;
+}
+
+a:visited {
+  text-decoration: None;
+}
+
+.body a:link {
+	text-decoration: underline;
+}
+
+.body a:visited {
+	text-decoration: underline;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+p.indent {
+	margin-left: 25px;
+}
+
+p.firstline-indent {
+	text-indent: 0.6cm;
+}
+
+p.hanging-indent {
+	margin-left: 0.6cm; text-indent: -0.6cm;
+}
+
+p.caption-above {
+    margin-bottom: 2px;
+    padding-top: 0px;
+}
+
+p.caption-below {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+p.table-caption-above {
+    margin-bottom: 2px;
+    padding-top: 0px;
+}
+
+p.table-caption-below {
+    margin-top: 2px;
+    padding-top: 0px;
+}
+
+p.figure-caption-above {
+    margin-bottom: -8px;
+    padding-bottom: 0px;
+}
+
+p.figure-caption-below {
+    margin-top: -8px;
+    padding-top: 0px;
+}
+
+.body blockquote {
+    color:black;
+    background-color:transparent; 
+}
+
+
+.body blockquote.bqs {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: .9em;
+	color: #000000;
+	background-color:transparent; 
+	margin-top: -3px;
+}
+
+
+.bi {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.double-underline {
+    border-bottom: 3px double;
+    text-decoration: none;
+}
+
+dt {
+	font-weight: bold;
+}
+
+H1  {
+	font-size: 1.3em;
+	font-weight: bold;
+	color: #631415;
+	background: #E8E7E7;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+}
+
+.title  {
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	background: #FFFFFF;
+	margin-left: 18px;
+	margin-top: 10px;
+	
+}
+
+H2  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.2em;
+	color: #8F2B2B;
+}
+
+H3  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.1em;
+	color: #A34B4B;
+}
+
+H4  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.1em;
+	color: #685656;
+}
+
+H5  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.05em;
+	color: #000000;
+}
+
+H6  {
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1em;
+	color: #000000;
+}
+
+table  {
+	
+}
+
+th  {
+	
+}
+
+td  {
+	
+}
+
+span.footnote,  span.endnote {
+    /* line-height: 0px; */
+     vertical-align: baseline;
+     position: relative;
+     margin-bottom: 0.1em;
+}
+
+sup  {
+    line-height: 0px;
+    font-size: .8em;
+    vertical-align: baseline;
+    position: relative;
+    bottom: 0.25em;
+}
+
+sub  {
+   	line-height: 0px;
+    font-size: .8em;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.25em;
+
+}
+
+pre  {
+	font-family: Courier New, Courier, mono;
+	
+}
+
+a:link:hover  {
+	background-color: #FFEF9B;
+}
+
+a:visited:hover  {
+	background-color: #FFEF9B;
+}
+
+a:link  {
+
+color: #0085CA;
+
+}
+
+a:visited  {
+	color: #2A4AC1;
+}
+
+.small  {
+	font-size: smaller;
+}
+
+/* Activity Tables */
+div.slide, table.audio, table.cd, table.presentation, table.selfassessment, table.video, table.note, table.exercise, table.activity, table.reading, table.reflection, table.learning, table.example, table.casestudy, table.discussion, table.stop, table.interactive{
+	background-color: #FFF9D8;
+	margin-left: 25px;
+	border: 1px solid #C4C2BC;
+}
+
+div.slide, table.audio td, table.cd td, table.presentation td, table.selfassessment td, table.video td, table.note td, table.exercise td, table.activity td, table.reading td, table.reflection td, table.learning td, table.example td, table.casestudy td, table.discussion td, table.stop td, table.interactive td{
+	padding: 4px;
+	vertical-align: top;
+}
+
+table.audio h6, table.cd h6, table.presentation h6, table.selfassessment h6, table.video h6, table.note h6, table.exercise h6, table.activity h6, table.reading h6, table.reflection h6, table.learning h6, table.example h6, table.casestudy h6, table.discussion h6, table.stop h6, table.interactive h6{
+	text-align: left;
+}
+
+div.slide h1 {
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 1.2em;
+	color: #8F2B2B;
+	background-color: #FFF9D8;
+	padding: 0px;	
+}
+
+
+/* Lists */
+
+ol.li-lower-alpha {
+	list-style: lower-alpha;
+}
+
+ol.li-upper-alpha {
+	list-style: upper-alpha;
+}
+
+ol.li-lower-roman {
+	list-style: lower-roman;
+}
+
+ol.li-upper-roman {
+	list-style: upper-roman;
+}
+
+
+dt {
+	font-weight: bold;
+}
+
+/* nav buttons */
+.nav-buttons {
+	margin-right: 5px;
+}
+.nav-buttons div {
+	padding: 0px;
+	margin: 0px;
+}
+
+
+
+.no-text {
+	display:none;
+}
+
+/* left layout */
+.course-specification-link {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background: transparent url(course_spec.gif) no-repeat left;
+	padding: 0 0 0 14px;
+	font-weight: bold;
+	
+}
+
+td.layout-left {
+	width: 1%;
+	
+}
+
+div.toc, div.context-toc {
+	width: 165px;
+}
+
+.layout-left ul {
+	margin-left: 0;
+	padding-left: 12px;
+	padding-right: 3px;
+	text-indent: -.2em;
+        margin-top: 5px;
+	font-weight: bold;
+}
+
+.layout-left li {
+  margin-top: 1em;
+	
+}
+
+.layout-left span.current-url {
+	color: #757575;
+}
+
+.layout-left {
+  	background-color: #F1F1F1;
+	padding-left: 4px;
+	padding-top: 15px;
+	
+  
+}
+
+.layout-left a:link {color: #090978}
+.layout-left a:visited {color: #090978}
+
+.layout-left .common a:link {
+	color: #0066C6;	
+	font-weight: bold;
+}
+
+
+.layout-left .common
+{
+	padding-top: 2px;
+}
+
+.layout-left .common a:visited {
+	color: #0066C6;
+	font-weight: bold;
+}
+
+.layout-left a:hover {
+	background-color: #FEFEFE;
+}
+
+.layout-left .nav-buttons {
+	text-align: center;
+}
+
+
+
+/* Footer */
+table.footer, table.copyright {
+	width: 100%;
+}
+
+.footer {
+	background-color: #F6F6F6;
+	width: 100%;
+	text-align: center;
+}
+.copyright, .footer {
+	font-size: .98em;
+	color: #999999;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	width: 100%;
+	text-align: center;	
+}
+.copyright td, .footer td{
+	text-align: center;
+	color: #999999;
+}
+
+.eightpt  {
+	font-size: 75%;
+}
+
+.ninept {
+	font-size: 85%;
+}
+
+.i-underline{
+font-style: italic;
+text-decoration: underline;
+}
+.b-underline{
+font-weight: bold;
+text-decoration: underline;
+}
+.bi-underline{
+font-weight: bold;
+font-style: italic;
+text-decoration: underline;
+}
+
+.copyright a:link {color: #999999}
+.copyright a:visited {color: #999999}
+
+
+

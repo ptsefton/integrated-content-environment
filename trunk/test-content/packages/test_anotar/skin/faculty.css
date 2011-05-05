@@ -1,0 +1,37 @@
+/* Faculty specific css */
+
+.layout-logo {
+	text-align: right;
+}
+
+
+.layout-banner table {
+	width: 100%;
+}
+
+td.layout-banner {
+	padding: 0px;
+	margin: 0px;
+	background-color: #FFE040;	
+}
+
+.layout-banner-course {
+	height :20px;
+	text-align: right;
+	padding-right: 10px;
+	font-weight: bold;
+	background-color: #FFE040;
+	color: black;
+}
+
+td.web-layout-banner {
+	padding: 0px;
+	margin: 0px;
+	background-color: #ffffff;	
+}
+
+.web-layout-banner-course {
+	background-color: #ffffff;
+	color: black;
+	height: 5px;
+}

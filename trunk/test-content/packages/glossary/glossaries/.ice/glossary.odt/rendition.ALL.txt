@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+table.Table48 {width:14.601cm; }
+div.Table48 {width: 100%; margin: 0px; padding: 0px; }
+th.Table48_A1, td.Table48_A1 {border-bottom:0.002cm solid #000000; border-left:0.002cm solid #000000; border-right:none; border-top:0.002cm solid #000000; padding:0.097cm; }
+th.Table48_B1, td.Table48_B1 {border:0.002cm solid #000000; padding:0.097cm; }
+th.Table48_A2, td.Table48_A2 {border-bottom:0.002cm solid #000000; border-left:0.002cm solid #000000; border-right:none; border-top:none; padding:0.097cm; }
+th.Table48_B2, td.Table48_B2 {border-bottom:0.002cm solid #000000; border-left:0.002cm solid #000000; border-right:0.002cm solid #000000; border-top:none; padding:0.097cm; }
+Header_20_right.P1 {margin-bottom:0cm; margin-top:0cm; }
+Header_20_left.P3 {font-weight:normal; }
+p.P4 {text-align:start; }
+span.T1 {font-weight:bold; }</style></head><body><p class="P5"/><div class="Table48" style="width: 100%; margin: 0px; padding: 0px; text-align:left;"><table class="Table48" style="border-spacing: 0;empty-cells: show; width:14.601cm; border-collapse: collapse; border: 1.0px solid #000000"><colgroup><col style="width:2.155cm;"/><col style="width:12.446cm;"/></colgroup><tbody><tr><td class="Table48_A1" style="vertical-align: top;  border-bottom:1.0px solid #000000;  border-left:1.0px solid #000000;  border-right:none;  border-top:1.0px solid #000000;  padding:0.097cm; "><p>Bitmap</p></td><td class="Table48_B1" style="vertical-align: top;  border:1.0px solid #000000;  padding:0.097cm; "><p>A bitmap (also known as raster) image consists of pixels (dots) which combine to make up the picture. Each pixel is individually defined and can be modified. Bitmap images cannot be resized without a loss of quality which is in contrast to vector images. Some common bitmap file formats are GIF, JPEG (JPG), PNG, PICT (Macintosh), TIFF, BMP, EPS (can contain both bitmap and vector data). </p></td></tr><tr><td class="Table48_A2" style="vertical-align: top;  border-bottom:1.0px solid #000000;  border-left:1.0px solid #000000;  border-right:none;  border-top:none;  padding:0.097cm; "><p>Hyperlink</p></td><td class="Table48_B2" style="vertical-align: top;  border-bottom:1.0px solid #000000;  border-left:1.0px solid #000000;  border-right:1.0px solid #000000;  border-top:none;  padding:0.097cm; "><p>A hyperlink (link) is a specific area that, when activated (usually by a mouse click) will take you to information within the same file or to other files. Some other functions a hyperlink may perform are sending email or submitting forms. A hyperlink within text is often coloured and underlined so it is prominent. Graphics may also have a hyperlink applied though it is not always obvious. If a linked graphic has a border it will usually be blue for recognition. </p></td></tr></tbody></table></div><p/></body></html>

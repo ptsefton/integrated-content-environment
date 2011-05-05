@@ -1,0 +1,1 @@
+<applet name="Jmol" code="JmolApplet" archive="/theorem/packages/tait/media/compound/JmolApplet.jar" width="300" height="300"><param name="load" value="/theorem/packages/tait/media/compound/mol9.cml" /><param name="progressbar" value="true" /><param name="progresscolor" value="blue" /><param name="bgcolor" value="white" /></applet>

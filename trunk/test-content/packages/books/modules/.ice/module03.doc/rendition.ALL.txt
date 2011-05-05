@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>This is Module 3 (Word)</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_left.P1 {font-weight:bold; }
+Header_20_left.P2 {margin-bottom:0.212cm; margin-top:0cm; }
+Footer.P3 {font-style:italic; margin-left:-1.319cm; margin-right:-0.891cm; text-indent:0cm; }
+Footer.P4 {margin-left:-0.319cm; margin-right:-0.861cm; text-align:end; text-indent:0cm; }
+Header_20_right.P7 {font-weight:bold; }
+span.T1 {font-style:italic; }
+span.T2 {font-style:italic; }</style></head><body><p>Text</p><p>Nested list:</p><ol class="lin" style="list-style: decimal;"><li><p>One</p><ol class="li-lower-roman" style="list-style: lower-roman;"><li><p>Nested one</p></li><li><p>Nested two</p></li></ol></li><li><p>Two</p><ol class="li-lower-roman" style="list-style: lower-roman;"><li><p>Nested one</p></li><li><p>Nested two</p></li></ol></li><li><p>Three</p></li><li><p>four</p></li></ol><p/><p>List:</p><ol class="lin" style="list-style: decimal;"><li><p>One</p></li><li><p>Two</p></li><li><p>Three</p></li></ol></body></html>

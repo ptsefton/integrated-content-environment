@@ -1,0 +1,76 @@
+## Cheetah Template
+#encoding UTF-8
+<html>
+ <head>
+  <title>ICE Admin</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <script src="/jquery.js" type="text/javascript"><!-- --></script>
+  <script type="text/javascript">//<!--
+    var jQ = jQuery;
+    var myTimer;
+    var url="/ice.admin/";
+    function tic() {
+        // do work here
+        if(jQ("#autoUpdate").attr("checked")) 
+        {
+            // make AJAX request for html
+            var id = jQ("select").val();
+            jQ("div.logOutput").load(url, params={id:id, ajax:1});
+            myTimer = setTimeout(tic, 1000);
+        }
+    }
+    function main() {
+        tic();
+    }
+    function testBut_click() {
+        function callback(data, statusCode) {
+            //alert(data);
+        }
+        jQ.get(url, {ajax:"test"}, callback);
+    }
+    function reloadPlugins_click() {
+        function callback(data, statusCode) {
+            alert(data);
+        }
+        jQ.get(url, {ajax:"reloadPlugins"}, callback);
+    }
+    jQ(main);
+  //-->
+  </script>
+ </head>
+ <body>
+  <div>
+    <h2>ICE Admin (plugin)</h2>
+    <form method="GET" action="">
+      <select size="8" name="id" onchange="submit();">
+        <option value="" #if $id=="" then "selected='selected'" else ""#>Global</option>
+        <option value="worker" #if $id=="worker" then "selected='selected'" else ""#>Worker</option>
+        #for s in $sessions
+          #if $s.id==$id
+              <option selected="selected" value='$s.id'>$s.username ($s.id) $s.lastRequestTimeStr</option>
+          #else
+              <option value='$s.id'>$s.username ($s.id) $s.lastRequestTimeStr</option>
+          #end if
+        #end for
+      </select>
+      <button type='submit'>Update</button>
+    </form>
+    <div>
+        <button name='testBut' id='testBut' onclick='testBut_click();'>Test</button>
+        <button name='reloadPluginsBut' id='reloadPluginsBut' onclick='reloadPlugins_click();'>Reload Plugins</button>
+    </div>
+
+    <hr/>
+    <h3>Log</h3>
+    <input type='checkbox' checked='checked' id='autoUpdate' onchange='tic();' value='1'><!-- --></input> Auto update
+    <div>For: $logFor</div>
+    <div class='logOutput' style='border:1px solid black;background:#cccccc;padding:0.5em;'>
+      #for logLine in $logLines
+        <div>$logLine</div>
+      #end for
+    </div>
+  </div>
+ </body>
+</html>
+
+

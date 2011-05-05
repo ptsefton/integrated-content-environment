@@ -1,0 +1,260 @@
+## Cheetah template
+<div>
+<script type="text/javascript"> 
+// <!--
+	jQ(function(){
+		jQ("span.spnFind").click(function () {
+			var data = jQ(this).text(); 
+ 			jQ("span.spnFind").show();
+ 			jQ("div.divReplace").hide();
+ 			jQ(this).next("div").show();
+ 			jQ("input.txtReplace").attr("value",data);
+ 			jQ(this).hide();
+ 		});
+ 		jQ("a.aEditFile").click(function(){
+ 			jQ("div.divFile").hide();
+ 			divName = "div[id='"+jQ(this).text()+"']";
+ 			jQ(divName).show();
+ 			jQ("div#divResult").hide();
+ 			jQ(window).scrollTop(0);
+ 			return false;
+ 		});
+ 		jQ("input.btnCancel").click(function(){
+ 			jQ(this).parent().hide();
+ 			jQ("div#divResult").show();
+ 			jQ(window).scrollTop(0);
+ 		});
+ 		
+ 		jQ("input.txtLink").focus(function(){
+ 			jQ("input.btnReplaceThis").hide();
+ 			jQ(this).next("input.btnReplaceThis").show();
+ 		});
+ 		
+ 		jQ("input.btnReplaceInAllFile").click(function(){
+ 			//This function will replace the url in all files.
+ 			var findStrs="["+jQ("div.divReplace:visible").prev("span.spnFind").text()+"]";
+ 			var replaceStrs="["+jQ("div.divReplace:visible>input.txtReplace").val()+"]";
+ 			var files = jQ("div.divReplace:visible").parent().next().find("input.listOfFiles").val();
+ 			files = "["+files.slice(1)+"]";
+ 			if(checkValidURL(replaceStrs)){
+				ajaxSubmit(files,findStrs,replaceStrs,ajaxCallback1);
+			}else{
+				alert("Replace URL is invalid. Please insert the absolute URL.");
+			}
+			
+ 		});
+ 		jQ("input.btnReplaceThis").click(function(){
+ 			// this function is to replace only one url in a file 
+ 			var findStrs="["+jQ(this).prev("input.txtLink").attr("id")+"]";
+ 			var replaceStrs="["+jQ(this).prev("input.txtLink").attr("value")+"]";
+ 			var files =  "["+jQ("div.divFile:visible").find("a.aFile").attr("href")+"]";
+ 			
+ 			
+ 			if(checkValidURL(replaceStrs)){
+				ajaxSubmit(files,findStrs,replaceStrs,ajaxCallback2);
+			}else{
+				alert("Replace URL is invalid. Please insert the absolute URL.");
+			}
+ 		});
+
+ 		jQ("input.btnReplaceInThisFile").click(function(){
+ 			//to replace urls in a file
+ 			var files ="["+jQ("div.divFile:visible").find("a.aFile").attr("href")+"]";
+ 			var findStrs = "[";
+			var replaceStrs="[";
+			for(i=0;i<jQ("div.divFile:visible").find("input.txtLink[value!='']").size();i++){
+				var curInput = jQ("div.divFile:visible").find("input.txtLink[value!='']:eq("+i+")");
+				if (i!=0){
+					findStrs +=",";
+ 					replaceStrs +=","
+ 				}
+ 				if(curInput.attr("id") !='undefined')
+ 					findStrs += curInput.attr("id");
+ 				if(curInput.attr("value") !='undefined')
+ 					replaceStrs += curInput.attr("value");
+			}
+			findStrs+="]";
+			replaceStrs+="]";
+			if(checkValidURL(replaceStrs)){
+				ajaxSubmit(files,findStrs,replaceStrs,ajaxCallback3);
+			}else{
+				alert("Replace URL(s) is invalid. Please insert the absolute URL(s).");
+			}
+			
+ 		});
+	});
+	
+	function checkValidURL(urlStr){
+		//href.find("../") != -1 or href.find("./")!= -1)
+		//replaceStr = replaceStr[1:-1]
+    	//replaceStrs = replaceStr.split(",")
+    	value = true;
+		urlStr = urlStr.replace("]","").replace("[","");
+		urls = urlStr.split(",");
+		for(var i=0;i<urls.length;i++){
+			if(urls[i].indexOf("./")!=-1){
+				value = false;
+				break;
+			}
+		}
+		return value;
+	}
+	function removeRecordFromResultDiv(file,url){
+		//to remove the record from the result Div
+		var tr ="tr[id="+url+"]";
+		if(jQ(tr).find("a").size() <=1){
+			//if there is only one file
+			jQ(tr).remove();
+		}else{
+			//if more than one file
+			var a = "a[id="+file+"]";
+			a=a.replace("''","'");
+			value = jQ(tr).find("input.listOfFiles").attr("value");
+			value =value.replace(","+file.replace("'","").replace("'",""),"");
+			jQ(tr).find("input.listOfFiles").attr("value", value);
+			jQ(tr).find(a).parent().remove();
+		}
+		
+	}
+		
+	function ajaxCallback1(resultData,status){
+		//for replace in all files  call back
+		if(resultData != ""){
+			//if success
+			//assume multiple files but one url 
+			var data = resultData.replace("([","").replace("])","").split("],[");
+			var files =data[0].split(",");
+			var url = data[1];
+			for(var i=0;i<files.length;i++){
+				var a = "a[id="+files[i]+"]";
+				var fileName = jQ("div.divReplace:visible").parent().next().find(a).text();
+				jQ("div.divReplace:visible").parent().next().find(a).parent("div").remove()
+				if (jQ("div.divReplace:visible").parent().next().children().size() == 1){
+					if (jQ("div.divReplace:visible").parent().next().children().get(0).tagName.toLowerCase()=="input"){
+						//if the last file is deleted then delete the whole record. 
+						jQ("div.divReplace:visible").parent().parent().remove();
+					}	
+				}
+				//delete from the file list
+				var divName = "div[id='"+fileName+"']"
+				jQ(divName).show();
+				var tr= "tr:has(td:has(input[id="+url+"]))";
+				jQ(divName).find(tr).remove();
+				jQ(divName).hide();
+			}
+		}
+	}
+	function ajaxCallback2(resultData,status){
+		//for replace single url in a file
+		if(resultData != ""){
+			//if success
+			// assume it only return one file and one url  
+			var data = resultData.replace("([","").replace("])","").split("],[");
+			var file = data[0];
+			var url = data[1];
+			var input= "input.txtLink[id="+url+"]";
+			jQ(input).parent().parent().remove();
+			jQ("div#divResult").show();
+			
+			removeRecordFromResultDiv(file,url);
+			jQ("div#divResult").hide();
+			
+		}
+	}
+	function ajaxCallback3(resultData,status){
+		//for single file replace
+		if(resultData!=""){
+			//if success
+			//assume only one file but multiple urls
+			var data = resultData.replace("([","").replace("])","").split("],[");
+			var file = data[0];
+			var urls = data[1].split(",");
+			var filePaths = file.split("/");
+			var fileName = filePaths[filePaths.length-1].replace("'","");
+			jQ("div[id="+fileName+"]").remove();
+			jQ("div#divResult").show();
+			for(var i=0;i<urls.length;i++){
+				removeRecordFromResultDiv(file,urls[i]);
+			}
+		}
+	}
+	
+	function ajaxSubmit(files,findStrs,replaceStrs,callback){
+		jQ.get("", {"ajax":"cmap", "files":files, "findStrs":findStrs, "replaceStrs":replaceStrs}, callback);
+ 	}
+// --> 
+</script>
+
+<div id="divResult">
+	#if $success
+		<span  style='padding:1em;color:blue;font-size:120%;height:200px;'>
+	 		$result
+	 	</span>
+	#else
+		<span  style='padding:1em;color:red;font-size:120%;height:200px;'>
+			$result
+		</span>
+		#if $hrefs
+			<table border="2pt solid #000000" cellpadding='1' cellspacing='1'>
+				<tr>
+					<th>Edit Invalid URL(s)</th>
+					<th>Edit link(s) In File(s)</th>
+				</tr>
+				#for $href in $hrefs:
+					<tr id='$href'>
+						<td>
+							<span class="spnFind">$href</span>
+							<div class="divReplace" style="display:none">
+								<input type="text" class="txtReplace" value='$href' size="80" />
+								<input type="submit" class="btnReplaceInAllFile" value="Replace in All Files" />
+								 
+							</div>
+						</td>
+						<td>
+							#set $strFiles = ""
+							#for $file in $hrefs[$href]:
+								<div class="divFiles">
+									<a href="#" id="$file[1]" class="aEditFile">$file[0]</a>
+								</div>
+								#set $strFiles = $strFiles +","+ $file[1]
+							#end for 
+							<input type="hidden" class="listOfFiles" value='$strFiles' />
+						</td>
+					</tr>
+				#end for 
+			</table>
+		#end if 
+		
+	#end if 
+
+</div>
+
+#if $filesWithInvalidLinks
+	#set $count = 0
+	#for $file in $filesWithInvalidLinks
+		#set $count = $count + 1
+		<div class="divFile" id="$filesWithInvalidLinks[$file][0]" style="display:none">
+			<b><a href='$file' class="aFile">$filesWithInvalidLinks[$file][0]</a></b>
+			<table border="2pt solid #000000">
+				<tr>
+					<td><b>Find</b></td>
+					<td><b>Replace with</b></td>
+				</tr>
+				#for $link in $filesWithInvalidLinks[$file][1]
+					<tr>
+						<td>
+							$link
+						</td>
+						<td>
+							<input type="text" class="txtLink" id="$link" size="80" value="$link"/>
+							<input type="submit" class="btnReplaceThis" value="Replace" style="display:none"/>
+						</td>
+					</tr>
+				#end for
+			</table>
+			<input type="submit" class="btnReplaceInThisFile" value="Replace all URLs in this file" />
+			<input type="submit" class="btnCancel" value="Cancel" />
+		</div>
+	#end for
+#end if
+</div>

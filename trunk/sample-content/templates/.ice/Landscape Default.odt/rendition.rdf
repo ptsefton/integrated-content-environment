@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:ore="http://www.openarchives.org/ore/terms/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs1="http://www.w3.org/2001/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/inactive_previous.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_previous.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/pdf.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/pdf.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.dc">
+    <dc:format>text/xml</dc:format>
+    <dcterms:conformsTo>http://www.openarchives.org/OAI/2.0/oai_dc/</dcterms:conformsTo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/Aggregation">
+    <rdfs1:label>Aggregation</rdfs1:label>
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/inactive_next.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_next.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.openarchives.org/ore/terms/ResourceMap">
+    <rdfs1:label>ResourceMap</rdfs1:label>
+    <rdfs1:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/inactive_previous.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation">
+    <dc:format>application/rdf+xml</dc:format>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/next.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/default.css"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/slideicon.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.htm?exportVersion=1"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.dc"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.pdf"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_up.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/previous.gif"/>
+    <ore:aggregates rdf:resource="http://localhost:8000/rep.Sample-Content/skin/pdf.gif"/>
+    <dc:title>None</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/default.css">
+    <dc:format>text/css</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/slideicon.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/next.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/next.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.pdf&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.pdf"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/previous.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/previous.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/default.css&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/default.css"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf">
+    <dcterms:created>2008-11-05 11:51:27</dcterms:created>
+    <dc:format></dc:format>
+    <ore:describes rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+    <dcterms:modified>2008-11-05 11:51:27</dcterms:modified>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/ResourceMap"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/inactive_next.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.pdf">
+    <dc:format>application/pdf</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/inactive_up.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.dc&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.dc"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/inactive_up.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/inactive_up.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/pdf.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.htm?exportVersion=1">
+    <dc:format>text/html</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/next.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/slideicon.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/slideicon.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/skin/up.gif&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/skin/up.gif"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/up.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost:8000/rep.Sample-Content/skin/previous.gif">
+    <dc:format>image/gif</dc:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://oreproxy.org/r?what=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.htm%3FexportVersion%3D1&amp;where=http%3A//localhost%3A8000/rep.Sample-Content/templates/Landscape%20Default.rdf%23aggregation">
+    <ore:proxyFor rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.htm?exportVersion=1"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Proxy"/>
+    <ore:proxyIn rdf:resource="http://localhost:8000/rep.Sample-Content/templates/Landscape Default.rdf#aggregation"/>
+  </rdf:Description>
+</rdf:RDF>

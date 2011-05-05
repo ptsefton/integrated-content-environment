@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition"
+  xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+  xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+  xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+  xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+  xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+  xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+  xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+  xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+  xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+  xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+  xmlns:math="http://www.w3.org/1998/Math/MathML"
+  xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+  xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+  xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer"
+  xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events"
+  xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <utfx:stylesheet src="ooo2xhtml.xsl"/>
+  <utfx:test>
+    <utfx:name>Image with caption</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <draw:frame draw:style-name="fr1" draw:name="Frame1" text:anchor-type="paragraph"
+          svg:width="3.283cm" draw:z-index="0">
+          <draw:text-box fo:min-height="0.31cm">
+            <text:p text:style-name="Illustration"><draw:frame draw:style-name="fr2"
+                draw:name="Graphic1" text:anchor-type="paragraph" svg:x="0.004cm" svg:y="0.002cm"
+                svg:width="3.283cm" style:rel-width="100%" svg:height="0.309cm"
+                style:rel-height="scale" draw:z-index="1">
+                <draw:image xlink:href="Pictures/10000000000001000000000C8487D45F.png"
+                  xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+              </draw:frame>Illustration <text:sequence text:ref-name="refIllustration0"
+                text:name="Illustration" text:formula="ooow:Illustration+1" style:num-format="1"
+              >1</text:sequence>: This is a .png image</text:p>
+          </draw:text-box>
+        </draw:frame>
+      </utfx:source>
+      <!-- copied fom good; good has divs for caption and caption title -->
+      <utfx:expected validate="no">
+        <p class="l">
+          <img src="Pictures/10000000000001000000000C8487D45F.png" alt="Graphic1" class="fr2" height="12"
+            width="124"/>Illustration 1: This is a .png image</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Image without caption</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="Standard"><draw:frame draw:style-name="fr5" draw:name="graphics3"
+            text:anchor-type="paragraph" svg:width="3.254cm" svg:height="2.09cm" draw:z-index="6">
+            <draw:image xlink:href="Pictures/100000000000007B0000004FCE07CF3A.png"
+              xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+          </draw:frame>No caption</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>
+          <img src="Pictures/100000000000007B0000004FCE07CF3A.png" alt="graphics3" class="fr5" height="79"
+            width="123"/>No caption</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Image has a name</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="Standard">Image has a name</text:p>
+        <text:p text:style-name="Standard">
+          <draw:frame draw:style-name="fr5" draw:name="Image Name" text:anchor-type="paragraph"
+            svg:width="3.254cm" svg:height="2.09cm" draw:z-index="7">
+            <draw:image xlink:href="Pictures/100000000000007B0000004FCE07CF3A.jpg"
+              xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+          </draw:frame>
+        </text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>Image has a name</p>
+        <p>
+          <img src="Pictures/100000000000007B0000004FCE07CF3A.jpg" alt="Image Name" class="fr5" height="79"
+            width="123"/>
+        </p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Object without caption</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <draw:frame draw:style-name="fr2" draw:name="Object8" text:anchor-type="as-char"
+          svg:width="1.854cm" svg:height="0.526cm" draw:z-index="7">
+          <draw:object xlink:href="./Object 8" xlink:type="simple" xlink:show="embed"
+            xlink:actuate="onLoad"/>
+          <draw:image xlink:href="./ObjectReplacements/Object 8" xlink:type="simple"
+            xlink:show="embed" xlink:actuate="onLoad"/>
+        </draw:frame>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <img alt="Object8" class="fr2" height="20" src="./ObjectReplacements/Object 8" width="70"/>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <utfx:test>
+    <utfx:name>Object Test</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+          <draw:frame draw:style-name="fr1" draw:name="Object1" text:anchor-type="as-char"
+            svg:y="0.3cm" svg:width="2.074cm" svg:height="1.016cm" draw:z-index="0">
+            <draw:object xlink:href="./Object 1" xlink:type="simple" xlink:show="embed"
+              xlink:actuate="onLoad"/>
+            <draw:image xlink:href="./ObjectReplacements/Object 1" xlink:type="simple"
+              xlink:show="embed" xlink:actuate="onLoad"/>
+          </draw:frame>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <img alt="Object1" class="fr1" src="./ObjectReplacements/Object 1" height="38" width="78"/>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  
+  <utfx:test>
+    <utfx:name>Basic Flash Object Test</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="p-center">
+          <draw:frame draw:name="Object1" text:anchor-type="paragraph" svg:width="9.999cm"
+            svg:height="9.999cm" draw:z-index="0">
+            <draw:plugin
+              xlink:href="http://localhost:8000/packages/sample-course/media/flash/bac.swf"
+              xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"
+              draw:mime-type="application/x-shockwave-flash"/>
+          </draw:frame>
+        </text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p class="center"><a name="Object1"></a>
+          <embed name="Object1" title="Object1" alt="Object1" height="378" src="http://localhost:8000/packages/sample-course/media/flash/bac.swf" type="application/x-shockwave-flash" width="378"/>
+        </p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Basic MathType Object Test</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <draw:frame draw:style-name="fr1"
+          draw:name="Object1" text:anchor-type="paragraph" svg:width="2.469cm"
+          svg:height="0.706cm" draw:z-index="0">
+          <draw:object-ole xlink:href="./Object 1" xlink:type="simple" xlink:show="embed"
+            xlink:actuate="onLoad"/>
+          <draw:image xlink:href="./ObjectReplacements/Object 1" xlink:type="simple"
+            xlink:show="embed" xlink:actuate="onLoad"/>
+        </draw:frame>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <img alt="Object1" class="fr1" src="./ObjectReplacements/Object 1" height="27" width="93"/>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Linked images</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <draw:a xlink:type="simple"
+          xlink:href="http://localhost:8000/packages/ice-guide/media/flash/flash.swf?embed&amp;width=300&amp;height=120">
+          <draw:frame draw:style-name="fr5" draw:name="FLASH SAMPLE"
+            text:anchor-type="paragraph" svg:width="8.043cm" svg:height="3.334cm"
+            draw:z-index="7">
+            <draw:image xlink:href="Pictures/10000000000001300000007E5011C084.png"
+              xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+          </draw:frame>
+        </draw:a>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <a href="http://localhost:8000/packages/ice-guide/media/flash/flash.swf?embed&amp;width=300&amp;height=120">
+          <img src="Pictures/10000000000001300000007E5011C084.png" alt="FLASH SAMPLE" class="fr5" height="126" width="304"/></a>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Left aligned image with wrapping text</utfx:name>
+    <utfx:call-template name="root-test"/>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <office:automatic-styles>
+          <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Title"
+            style:master-page-name="Standard"/>
+          <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+            <style:graphic-properties fo:margin-left="0.499cm" fo:margin-right="0.499cm"
+              style:run-through="foreground" style:wrap="parallel"
+              style:number-wrapped-paragraphs="no-limit" style:wrap-contour="false"
+              style:vertical-pos="from-top" style:vertical-rel="paragraph"
+              style:horizontal-pos="from-left" style:horizontal-rel="paragraph"
+              style:shadow="none" style:mirror="none" fo:clip="rect(0cm 0cm 0cm 0cm)"
+              draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%"
+              draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%"
+              draw:color-mode="standard"/>
+          </style:style>
+        </office:automatic-styles>
+        <office:body>
+          <office:text>
+            <office:forms form:automatic-focus="false" form:apply-design-mode="false">
+              <form:form form:name="Standard" form:apply-filter="true" form:command-type="table"
+                form:control-implementation="ooo:com.sun.star.form.component.Form"
+                office:target-frame="" xlink:href="">
+                <form:properties>
+                  <form:property form:property-name="GroupBy" office:value-type="string"
+                    office:string-value=""/>
+                  <form:property form:property-name="HavingClause" office:value-type="string"
+                    office:string-value=""/>
+                  <form:property form:property-name="MaxRows" office:value-type="float"
+                    office:value="0"/>
+                  <form:property form:property-name="UpdateCatalogName"
+                    office:value-type="string" office:string-value=""/>
+                  <form:property form:property-name="UpdateSchemaName"
+                    office:value-type="string" office:string-value=""/>
+                  <form:property form:property-name="UpdateTableName"
+                    office:value-type="string" office:string-value=""/>
+                </form:properties>
+              </form:form>
+            </office:forms>
+            <text:sequence-decls>
+              <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
+              <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
+              <text:sequence-decl text:display-outline-level="0" text:name="Text"/>
+              <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
+            </text:sequence-decls>
+        <text:p text:style-name="p"><draw:frame draw:style-name="fr1" draw:name="ICE"
+          text:anchor-type="paragraph" svg:x="0.235cm" svg:y="0.319cm" svg:width="5.08cm"
+          svg:height="2.716cm" draw:z-index="0">
+          <draw:image xlink:href="Pictures/10000000000000900000004DA5FDBC18.jpg"
+            xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+        </draw:frame>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </text:p>
+          </office:text>
+        </office:body>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <html><head><title></title>
+        <style type="text/css">table {border-spacing: 0;empty-cells: show;} img.fr1 {float: left; margin-left:0.499cm; margin-right:0.499cm; }</style>
+        </head><body><p><img class="fr1" alt="ICE" height="103" src="Pictures/10000000000000900000004DA5FDBC18.jpg" width="192"></img>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></body></html><p><img class="fr1" alt="ICE" height="103" src="Pictures/10000000000000900000004DA5FDBC18.jpg" width="192"></img>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  <utfx:test>
+    <utfx:name>Right aligned image with wrapping text</utfx:name>
+    <utfx:call-template name="root-test"/>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <office:automatic-styles>
+          <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Title"
+            style:master-page-name="Standard"/>
+          <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
+            <style:graphic-properties fo:margin-left="0.499cm" fo:margin-right="0.499cm"
+              style:run-through="foreground" style:wrap="parallel"
+              style:number-wrapped-paragraphs="no-limit" style:wrap-contour="false"
+              style:vertical-pos="from-top" style:vertical-rel="paragraph"
+              style:horizontal-pos="right" style:horizontal-rel="paragraph"
+              style:shadow="none" style:mirror="none" fo:clip="rect(0cm 0cm 0cm 0cm)"
+              draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%"
+              draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%"
+              draw:color-mode="standard"/>
+          </style:style>
+        </office:automatic-styles>
+        <office:body>
+          <office:text>
+            <office:forms form:automatic-focus="false" form:apply-design-mode="false">
+              <form:form form:name="Standard" form:apply-filter="true" form:command-type="table"
+                form:control-implementation="ooo:com.sun.star.form.component.Form"
+                office:target-frame="" xlink:href="">
+                <form:properties>
+                  <form:property form:property-name="GroupBy" office:value-type="string"
+                    office:string-value=""/>
+                  <form:property form:property-name="HavingClause" office:value-type="string"
+                    office:string-value=""/>
+                  <form:property form:property-name="MaxRows" office:value-type="float"
+                    office:value="0"/>
+                  <form:property form:property-name="UpdateCatalogName"
+                    office:value-type="string" office:string-value=""/>
+                  <form:property form:property-name="UpdateSchemaName"
+                    office:value-type="string" office:string-value=""/>
+                  <form:property form:property-name="UpdateTableName"
+                    office:value-type="string" office:string-value=""/>
+                </form:properties>
+              </form:form>
+            </office:forms>
+            <text:sequence-decls>
+              <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
+              <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
+              <text:sequence-decl text:display-outline-level="0" text:name="Text"/>
+              <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
+            </text:sequence-decls>
+            <text:p text:style-name="p"><draw:frame draw:style-name="fr1" draw:name="ICE"
+              text:anchor-type="paragraph" svg:x="0.235cm" svg:y="0.319cm" svg:width="5.08cm"
+              svg:height="2.716cm" draw:z-index="0">
+              <draw:image xlink:href="Pictures/10000000000000900000004DA5FDBC18.jpg"
+                xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+            </draw:frame>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </text:p>
+          </office:text>
+        </office:body>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <html><head><title></title>
+          <style type="text/css">table {border-spacing: 0;empty-cells: show;} img.fr1 {float: right; margin-left:0.499cm; margin-right:0.499cm; }</style>
+        </head><body><p><img class="fr1" alt="ICE" height="103" src="Pictures/10000000000000900000004DA5FDBC18.jpg" width="192"></img>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></body></html><p><img class="fr1" alt="ICE" height="103" src="Pictures/10000000000000900000004DA5FDBC18.jpg" width="192"></img>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  
+  <utfx:test>
+    <utfx:name>Link on an image</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:p text:style-name="p"><draw:a xlink:type="simple"
+          xlink:href="http://localhost:8000/packages/sample-course/study-modules/module01.htm">
+          <draw:frame draw:style-name="fr1"
+            draw:name="HTTP://LOCALHOST:8000/PACKAGES/SAMPLE-COURSE/STUDY-MODULES/MODULE01.HTM"
+            text:anchor-type="paragraph" svg:width="0.873cm" svg:height="0.847cm"
+            draw:z-index="0">
+            <draw:image xlink:href="Pictures/100002000000002100000020D3495E14.gif"
+              xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+          </draw:frame>
+        </draw:a>Module 1</text:p>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <p>
+          <a href="http://localhost:8000/packages/sample-course/study-modules/module01.htm"><img style="border: 0px;" alt="HTTP://LOCALHOST:8000/PACKAGES/SAMPLE-COURSE/STUDY-MODULES/MODULE01.HTM" src="Pictures/100002000000002100000020D3495E14.gif" class="fr1" height="32" width="33"/></a>Module 1
+        </p>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+</utfx:tests>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition"
+  xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+  xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+  xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+  xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+  xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+  xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+  xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+  xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+  xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+  xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+  xmlns:math="http://www.w3.org/1998/Math/MathML"
+  xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+  xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+  xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer"
+  xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events"
+  xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <utfx:stylesheet src="ooo2xhtml.xsl"/>
+ 
+  <utfx:test>
+    <utfx:name>Track changes: Deletion</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <text:changed-region text:id="ct410650368">
+          <text:deletion>
+            <office:change-info>
+              <dc:creator>Authors Name</dc:creator>
+              <dc:date>2006-10-25T09:23:00</dc:date>
+            </office:change-info>
+            <text:p text:style-name="p">Lorem ipsum dolor sit amet, consectetuer</text:p>
+          </text:deletion>
+        </text:changed-region>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <div class="deletion" style="color: red; text-decoration: line-through;" title="Deletion: Authors Name 2006-10-25 09:23:00">
+          <div><p>Lorem ipsum dolor sit amet, consectetuer</p></div></div>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  
+  <utfx:test>
+    <utfx:name>Annotation</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+          <office:annotation>
+            <dc:creator>Authors Name</dc:creator>
+            <dc:date>2006-10-25T01:00:00</dc:date>
+            <text:p>This is a comment</text:p>
+          </office:annotation>
+      </utfx:source>
+      <utfx:expected validate="no">
+        <div class="annotation" style="color: black; border: 1px solid #C0C0C0; padding: 1px; margin: 1px; background: #F1F1F1; font-size: .9em;">
+          <div>
+            <span class="annotation-heading" style="font-weight: bold;">
+               <span>Annotation: Authors Name 2006-10-25 01:00:00</span>
+            </span>
+            <p>This is a comment</p></div></div>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+</utfx:tests>

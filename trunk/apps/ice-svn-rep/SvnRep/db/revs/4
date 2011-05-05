@@ -1,0 +1,136 @@
+PLAIN
+K 10
+_propList_
+V 152
+(lp1
+S'meta-toc'
+p2
+aS'meta-title'
+p3
+aS'meta-style'
+p4
+aS'meta-images'
+p5
+aS'meta-lastSaved'
+p6
+aS'rendition-ALL.txt'
+p7
+aS'rendition-xhtml.body'
+p8
+a.
+K 11
+meta-images
+V 6
+(lp1
+.
+K 14
+meta-lastSaved
+V 13
+I1122614968
+.
+K 10
+meta-style
+V 44
+S'<style type="text/css">STYLE</style>'
+p1
+.
+K 10
+meta-title
+V 22
+S'Study Schedule'
+p1
+.
+K 8
+meta-toc
+V 79
+S"<ul><li><a href='#one'>TOC</a></li><li><a href='#two'>END</a></li></ul>"
+p1
+.
+K 17
+rendition-ALL.txt
+V 78
+S'<?xml version="1.0" encoding="UTF-8"?>\n<html>Test all HTML</html>\n\n'
+p1
+.
+K 20
+rendition-xhtml.body
+V 83
+S"<div><h1><a name='one'/>TOC</h1>XHTML BODY<h1><a name='two'/>END</h1></div>"
+p1
+.
+K 13
+svn:mime-type
+V 24
+application/octet-stream
+END
+ENDREP
+id: 9.0.r4/738
+type: file
+pred: 9.0.r3/46615
+count: 1
+text: 3 0 18834 21315 917d528e1fc220cf1fdbbe8dc5b9a561
+props: 4 0 725 0 1e84b26b1cc905b831d788c3e8efed07
+cpath: /TestRep/course_content/Study_Schedule.sxw
+copyroot: 0 /
+
+PLAIN
+K 18
+Study_Schedule.sxw
+V 15
+file 9.0.r4/738
+END
+ENDREP
+id: 8.0.r4/1024
+type: dir
+pred: 8.0.r3/46889
+count: 1
+text: 4 962 49 49 ff52812a1f9554af4ac069996acd4fac
+cpath: /TestRep/course_content
+copyroot: 0 /
+
+PLAIN
+K 8
+Test.txt
+V 14
+file 2.0.r1/89
+K 14
+course_content
+V 15
+dir 8.0.r4/1024
+K 6
+subDir
+V 14
+dir 3.0.r2/982
+K 8
+test.jpg
+V 17
+file a.0.r3/47090
+END
+ENDREP
+id: 1.0.r4/1333
+type: dir
+pred: 1.0.r3/47438
+count: 3
+text: 4 1175 145 145 c0af55a8b5eefe56d4ca15716c64a4cc
+cpath: /TestRep
+copyroot: 0 /
+
+PLAIN
+K 7
+TestRep
+V 15
+dir 1.0.r4/1333
+END
+ENDREP
+id: 0.0.r4/1522
+type: dir
+pred: 0.0.r3/47629
+count: 4
+text: 4 1472 37 37 5f9d07ad5ab15bbc89f534124f8e224c
+cpath: /
+copyroot: 0 /
+
+9.0.t3-1 modify false true /TestRep/course_content/Study_Schedule.sxw
+
+
+1522 1652

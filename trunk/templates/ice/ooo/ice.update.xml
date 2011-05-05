@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://openoffice.org/extensions/update/2006" xmlns:xlink="http://www.w3.org/1999/xlink">
+<identifier value="org.openoffice.ice-toolbar.oxt"/>
+<version value="4.6.8"/>
+<update-download><src xlink:href="http://ice.usq.edu.au/svn/ice/trunk/templates/ice/ooo/ice-toolbar.oxt"/></update-download>
+</description>

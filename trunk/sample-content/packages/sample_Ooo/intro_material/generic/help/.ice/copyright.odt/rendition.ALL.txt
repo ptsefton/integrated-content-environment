@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Copyright</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_right.P4 {margin-bottom:0cm; margin-top:0cm; }
+Header_20_left.P5 {font-weight:normal; }</style></head><body><p>Copyrighted materials contained in USQ course websites or CDs are used under the provisions of the Copyright Act 1968 as amended, or as a result of application to the copyright owner. Any unauthorised use of the materials contained on this site is prohibited. No part of this work may be reproduced, stored in a retrieval system, communicated or transmitted in any form by any means electronic, mechanical, photocopying, recording or otherwise without prior permission. </p><p/></body></html>

@@ -1,0 +1,397 @@
+<html>
+	<head>
+		<title>Config editor 2</title>
+        <meta charset="utf-8"/>
+        <script src="/jquery.js" type="text/javascript"><!-- --></script>
+        <script src="/skin/jquery-ui.js" type="text/javascript"><!-- --></script>
+        <script src="/skin/json2.js" type="text/javascript"><!-- --></script>
+	    <script type="text/javascript">
+          <!--
+{$javascript$}
+    	  -->
+		</script>
+        <link rel="stylesheet" type="text/css" media="screen" href="/skin/dialog.css"><!-- --></link>
+        <link rel="stylesheet" type="text/css" media="screen" href="/skin/accordion.css"><!-- --></link>
+	    <style>
+          	body {
+          		padding: 10px;
+          		margin-left: 10px;
+          		font-family: Verdana, Arial;
+          		font-size: small;
+          	}
+       	  	h1  {
+              	font-size: 1.6em;
+              	color: navy;
+              	font-family: Arial, Verdana, Helvetica, sans-serif;
+              	font-weight: bold;
+	            margin-top: 2px;
+          	}
+            h2  {
+              	font-family: Arial, Verdana, Helvetica, sans-serif;
+              	font-size: 1.4em;
+              	color: navy;
+              	font-weight: normal;
+	            margin-top: 2px;
+          	}
+            h3 {
+              	font-family: Arial, Verdana, Helvetica, sans-serif;
+              	font-size: 1.2em;
+                color: #666666;
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+            }
+            h6 {
+              	font-family: Arial, Verdana, Helvetica, sans-serif;
+              	font-size: 1.2em;
+            }
+            span.defaultRep {
+                color: blue;
+            }
+          	td, th {
+          		font-size: small;
+          		text-align: left;
+          	}
+           	.title
+          	{
+              	font-family: serif, Arial,  Helvetica, sans-serif;
+              	font-size: 1.8em;
+              	font-weight: bold;
+              	color: #CC6600;
+	            margin-top: 5px;
+	            margin-bottom: 5px;
+	            padding: 0px;
+          	}
+          	.app-section {
+          		padding: 5px;
+          		margin-bottom: 15px;
+          	}
+            span.help {
+                color: blue;
+                cursor: pointer;
+                text-decoration:underline;
+            }
+    	    table.new {
+		        border:1px solid green; 
+		        background: #E0FFE0;
+		        margin-top:1em; 
+		        padding:.2em;
+		    }
+            div.rep {
+                border:1px solid black;
+                margin-top:1em;
+                padding:.2em;
+                width:720px;
+            }
+            div.addNewRep {
+                border:1px solid grey;
+                padding:1em;
+            }
+            div.helptext {
+                display:none;
+            }
+            tr.default {
+                color: grey;
+            }
+            .newSetting {
+                border:1px solid black;
+                background-color:lightgreen;
+                padding:1ex;
+            }
+            tr.setting { background:#f0f0f0; }
+        </style>
+	</head>
+	<body><div>
+		<h1 class="title">Config editor</h1>
+        <div style='display:none;'><div id="dialog">Dialog contents</div></div>
+		<div class="app-section">
+			<h2>ICE Settings</h2>
+			<table><tbody>
+				<tr>
+					<td>ICE host address: </td>
+					<td>
+						<input type="text" id="iceHost" value="" />
+						<div class="helptext" title="ICE port number">
+							<p>The address on which ICE is running.</p>
+							<p>This is normally just 'localhost', but if you 
+								want it to be accessable from other computers 
+								you will need to change this to this machines IP address.
+							</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>ICE (HTTP) port number: </td>
+					<td>
+						<input type="text" id="icePort" value="" />
+						<div class="helptext" title="ICE host address">
+							<p>The ICE port number is the HTTP port for the localhost 
+								URL which is set to 8000 by default. If you are running 
+								another server on port 8000 you can change this to 
+								another number to avoid conflict, for example:
+							</p>
+							<p>The default URL for ICE is http://localhost:8000</p>
+							<p>If the port number was 1000 the URL for ICE would be 
+								http://localhost:1000
+							</p>
+						</div>
+					</td>
+				</tr>
+                <tr>
+                    <td>Path to OpenOffice.org: </td>
+                    <td id='oooPathCell'>
+                        <input size='75' id='oooPath' type='text' />
+						<div class="helptext" title="Path to OpenOffice.org">
+							<p>The OpenOffice.org path is where you have installed
+                                OpenOffice.org, examples include:
+							</p>
+                            <p> <b>Windows</b>
+                                c:/Program Files/OpenOffice 3.2/
+                            </p>
+                            <p> <b>Mac</b>
+                                /Applications/OpenOffice.org 3.1.app/Contents/MacOS
+                                <p>
+                                    (NB: The Mac OpenOffice.org path needs to be the exact
+                                    location of the program files).
+                                </p>
+                            </p>
+                            <p> <b>Ubuntu</b>
+                                Note: general this will not be required when running
+                                under Ubuntu.
+                            </p>
+						</div>
+                        <div id='oooPathFeedback' style='color:#A02000;display:none;'> </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>OpenOffice.org port number: </td>
+                    <td id='oooPortCell'>
+                        <input id='oooPort' type='text' value='' />
+						<div class="helptext" title="OpenOffice.org port number">
+							<p>
+                                The port number is used to automate OpenOffice, this
+                                number needs to match the one set in OpenOffice.
+                                The default value is 2002.
+							</p>
+						</div>
+                    </td>
+                </tr>
+			</tbody></table>
+		</div>
+		
+		<!-- Settings -->
+		<div class='accordion' style='padding-top:1em;'>
+			<div class='defaultSettings'>
+				<h6><a>Global default settings:</a></h6>
+				<table class='settings'>
+				  <tbody>
+					<tr class='addSetting' >
+					  <td style='width:20ex;'></td>
+					  <td style='padding-top:1em;'>
+						<button type='button' class="addSettingButton" title='Add/Create a new setting'>
+							Add new setting
+						</button>
+						<table class="newSetting" style='border:1px solid gray;'><tbody>
+                         <tr><td></td><td style='font-size:110%;'>Add a new setting</td></tr>
+						 <tr>
+						  <td><label for="newVarName">Name:</label></td>
+						  <td>
+							<input type="text" name="newVarName" size="22"/>
+							<label for="newVarType">Type:</label>
+							<select name="newVarType">
+							  <option value="bool">Boolean</option>
+							  <option value="str" selected="selected">String</option>
+							</select>
+						  </td>
+						 </tr>
+						 <tr>
+						  <td><label for="newVarDesc">Description:</label></td>
+						  <td>
+							<input type="text" name="newVarDesc" size="38"/>
+						  </td>
+						 </tr>
+						 <tr>
+							<td></td>
+							<td>
+							  <button type="button" name="addVar" class="addVarButton">Add</button>
+							  &#160;&#160;&#160;&#160;
+							  <button type="button" name="cancel" class="cancelButton">Cancel</button>
+							</td>
+						 </tr>
+						 <!-- 
+						   <tr><td>
+						     <div style="padding-top:1em;color:red"></div>
+						   </td></tr>
+						 -->
+						</tbody></table>
+					  </td>
+					</tr>
+				  </tbody>
+				</table>
+			</div>
+		</div> <!-- settings -->
+		
+		<div style="padding: 2em;" class="message">
+            <button type="button" id="resetButton"
+                title="Cancel all changes made before the last save.">Cancel</button>
+            &#160; &#160;
+			<button type="button" class="saveButton"
+                title="Save all changes">Save</button>
+            &#160; &#160;
+			<button type="button" class="saveButton" id='saveAndClose'
+                title="Save all changes">Save and close editor</button>
+            &#160; &#160;
+			<button type="button" class="closeButton" id='closeButton'
+                title="Save all changes">Close without saving</button>
+            <div class='tempMessage' id='tempMessage' style='display:none;color:green; padding:1ex;'>
+            </div>
+		</div>
+
+<!--
+		<div>
+			<button type="button" id="testButton">Test</button
+		</div>
+-->
+		
+		<!-- Repositories -->
+		<h3 style='color:#408040;'>Repositories information and settings</h3>
+		<div>Note: '~' = '<span id='homePath'> </span>' - your home directory</div>
+		<div class='accordion'>
+			<div class='addrep' id='addrep' style='padding-top:2ex;padding-bottom:2ex;'>
+				<h6><a>Add a new repository</a></h6>
+				<div class="addNewRep">
+					<table><tbody>
+					  <tr>
+						<td colspan='2'>
+							Enter the URL (or the path of an existing checked out repository)
+							and optionally a new configuration name for the repository.
+						</td>
+					  </tr>
+					  <tr>
+						<td>Name:</td>
+						<td>
+							<input type='text' size='20' id='newRepName'/> (Optional)
+							<div class="helptext" title="New repository name">
+								<p>Enter the repoistory's local configuration name. </p>
+								<p>(Note:</p>
+							</div>
+						</td>
+					  </tr>
+					  <tr>
+						<td>New repository URL: </td>
+						<td>
+							<input type='text' size='64' id='newRepUrl'/>
+							<div class="helptext" title="New repository URL">
+								<p>Enter the root URL of your documents in your Subversion repository. 
+								ICE will configure a new repository using default settings.
+								These settings can be overwritten in the 'Advanced repository settings' area below if required.</p>
+								<p>For example: http://ice-sandbox.googlecode.com/svn/sample-content</p>
+							</div>
+						</td>
+					  </tr>
+					  <tr>
+						<td>and/or Path:</td>
+						<td>
+							<input type='text' size='64' id='newRepPath'/>
+						</td>
+					  </tr>
+					  <tr>
+						<td colspan='2'>
+							<div style="padding-left:1em;display:none;" id="newRepAuth" class="">
+								<table><tbody>
+									<tr>
+										<td rowspan="2">SVN requires authentication:</td>
+										<td>Username: </td>
+										<td>
+											<input type="text" id="username" />
+										</td>
+									</tr>
+									<tr>
+										<td>Password: </td>
+										<td>
+											<input type="password" name="password" id="password"
+												value=""/>
+										</td>
+										<td>
+											<button type="button" name="authSubmit" id="authSubmit">Submit</button>
+										</td>
+									</tr>
+								</tbody></table>
+							</div>
+						</td>
+					  </tr>
+					  <tr>
+						<td></td>
+						<td>
+							<button type="button" id="submitAddNewRep">Add</button>
+							<button type="button" id="clearAddNewRep">Clear</button>
+						</td>
+					  </tr>
+					</tbody></table>
+				</div> <!-- addNewRep -->
+			</div> <!-- addrep -->
+			
+			<!-- repository -->
+			<div class='rep' id='rep_temp' style='display:none;'>
+				<h6><a>Repository - <span class='repName'></span></a></h6>
+				<div>
+					<table><tbody>
+						<tr>
+							<td><label>Name:</label></td>
+							<td>
+								<input type='text' class='repName'/>
+								&#160;&#160;&#160;&#160;
+								<label><input type='radio' class='repDefault' /> Default</label>
+							</td>
+						</tr>
+						<tr>
+							<td>SVN URL:</td>
+							<td>
+								<input type='text' size='64' class='repUrl' />
+							</td>
+						</tr>
+						<tr>
+							<td>Path:</td>
+							<td>
+								<input type='text' size='64' class='repPath' />
+							</td>
+						</tr>
+						<tr>
+							<td>Document template path:</td>
+							<td>
+								<input type='text' size='64' class='repTempPath' />
+							</td>
+						</tr>
+						<tr>
+							<td>Export path (Absolute):</td>
+							<td>
+								<input type='text' size='64' class='repExportPath' />
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+									<div style="text-align:right;padding: 2px;" class="message">
+										<button type="button" class="deleteButton"
+                                            title="Remove this repository settings from this configuration">
+                                            Delete</button>
+									</div>
+							</td>
+						</tr>
+						<tr>
+							<td><h4 style='padding-top:0em;'>Additional settings:</h4></td>
+						</tr>
+						<tr>
+							<td colspan='2' class='repSettings'>
+							</td>
+						</tr>
+					</tbody></table>
+				</div>
+			</div> <!-- repository -->
+
+		</div> <!-- accordion -->
+
+		<div class="app versionInfo" style="font-size: 11px;padding-top:2em;">
+		  <pre id="versionInfo"> </pre>
+		</div>
+	</div></body>
+</html>

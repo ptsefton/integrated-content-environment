@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<iceConfig>
+<!-- ice web server port -->
+  <iceWebPort>8000</iceWebPort>
+<!-- OOo listen port
+  NOTE if you change this value, 
+  you will need to RESTART OOo (and the OOo QuickStart) for this to take effect!
+-->
+  <oooPort>2002</oooPort>
+<!-- The path to where OpenOffice.org is installed -->
+  <oooPath>/etc/openoffice.org-2.1</oooPath>
+<!-- Email From Address -->
+  <emailFromAddress>test@mailAddress</emailFromAddress>
+<!-- Email SMTP Server -->
+  <emailSmtpServer>smtp</emailSmtpServer>
+<!-- Emial username -->
+  <emailUsername>username</emailUsername>
+<!-- Repositories names, paths [, urls, exportPath, documentTemplatesPath] -->
+  <repositories default="Test">
+    <repository url="" path="../../sample-content" documentTemplatesPath="templates" name="SampleContent" exportPath="/home/ward/ICE/exports"/>
+    <repository url="" path="/home/ward/work/ice/test" documentTemplatesPath="templates" name="Test" exportPath="/home/ward/work/ice/exports"/>
+    <repository url="file:///home/ward/work/ice/svnTestSampleRep" path="../../testSample" documentTemplatesPath="templates" name="TestSample" exportPath="../../exports"/>
+    <repository url="https://good.usq.edu.au:8051/content" path="../../USQContent" documentTemplatesPath="templates" name="USQContent" exportPath="../../exports"/>
+  </repositories>
+  <!-- Settings (key/value pairs) -->
+  <settings>
+    <var name="transformUsingPython" type="boolean" value="True"/>
+    <var name="displayTiming" type="boolean" value="False"/>
+        <var name='strTest'>value1</var>
+        <var name='strTest2' value="value2"/>
+        <var name='intTest' type='int'>42</var>
+        <var name='intTest2' type='integer' value='33'/>
+        <var name='boolTest' type='bool'>false</var>
+        <var name='boolTest2' type='bool' value='true'/>
+        <var name='array1' type='array' sep=", ">one, two, three, 4</var>
+        <var name='array2' type='array'><var>one</var><var>two</var>"three", "four", 5<var>five</var></var>
+        
+        <var name='dict1' type='dict'><var name='key1' value='v'/><var name='key2'>v2</var></var>
+        <var name='dict2' type='dict'>"key1":"value", "key2":"value2"<var name='key' value='value'/>"k":45</var>
+  </settings>
+</iceConfig>

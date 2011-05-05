@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Untitled</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+Header_20_right.P1 {margin-bottom:0cm; margin-top:0cm; }
+Header_20_left.P3 {font-weight:normal; }
+Frame.fr1 {border:none; margin-bottom:0cm; margin-left:0cm; margin-right:0cm; margin-top:0cm; padding:0cm; }
+img.fr2 {border:none; margin-bottom:0cm; margin-left:0cm; margin-right:0cm; margin-top:0cm; padding:0cm; }</style></head><body><p class="P5"><p class="Illustration" style="width:552px;"><span style="display: block"><a name="graphics1"/><img alt="graphics1" class="fr2" height="312" src="another caption test_files/7e91f37d_552x312.jpg" style="border:0px; vertical-align: top" width="552"/></span>Illustration 1: Test</p></p></body></html>

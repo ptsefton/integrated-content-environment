@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<html><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/><title>Line drawing image render test</title><style type="text/css">table {border-spacing: 0;empty-cells: show; }
+.body .indent {margin-left: 25px;}
+.body .hint {font-size: 1.4em; font-style: normal;font-weight:bolder;color: #00000;}
+.spCh {font-family: 'Lucida Grande','Arial Unicode MS', sans-serif; font-size: 1.2em;}
+span.underline {text-decoration:underline; }
+span.P2 {text-align:center; }</style></head><body><p>Below: A group of line drawings to test rendering (no alt text)</p><p/><p>Below:  Line drawings <span class="spCh spChx2013">&#x2013;</span> not grouped</p><p/><p/><p/><p/><p/><p/><p/></body></html>

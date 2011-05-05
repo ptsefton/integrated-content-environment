@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Module1" script:language="StarBasic">&apos;************************************************************
+&apos;	This is a program that alters one of the configuration
+&apos;	 settings of the OpenOffice.org office software.
+&apos;	The setting altered determines how or whether OOo will
+&apos;	 allow a remote UNO connection to the office.
+&apos;
+&apos;**********************************************************************
+&apos;	Copyright (c) 2003-2004 Danny Brewer
+&apos;	d29583@groovegarden.com
+&apos;
+&apos;	This library is free software; you can redistribute it and/or
+&apos;	modify it under the terms of the GNU Lesser General Public
+&apos;	License as published by the Free Software Foundation; either
+&apos;	version 2.1 of the License, or (at your option) any later version.
+&apos;
+&apos;	This library is distributed in the hope that it will be useful,
+&apos;	but WITHOUT ANY WARRANTY; without even the implied warranty of
+&apos;	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+&apos;	Lesser General Public License for more details.
+&apos;
+&apos;	You should have received a copy of the GNU Lesser General Public
+&apos;	License along with this library; if not, write to the Free Software
+&apos;	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+&apos;
+&apos;	See:  http://www.gnu.org/licenses/lgpl.html
+&apos;
+&apos;**********************************************************************
+&apos;	If you make changes, please append to the change log below.
+&apos;
+&apos;	Change Log
+&apos;		Danny Brewer			Revised 2004-03-12-01
+&apos;
+&apos;          Sally MacFarlane                2005-08-23
+&apos;                                          Accept port number from input dialog
+&apos;
+&apos;
+&apos;**********************************************************************
+Sub Main
+
+End Sub
+
+
+
+&apos;======================================================================
+&apos; Allow user to change OOo listening port
+&apos;======================================================================
+
+
+
+Sub changePort()
+        &apos; first get the current host and port
+	cUnoSetupConnectionURL = GetUnoConnectionURL()
+	
+	nPos = Instr( 1, cUnoSetupConnectionURL, &quot;host=&quot;, 1 )
+	If nPos &gt; 0 Then
+		cHost = GetToken( cUnoSetupConnectionURL, nPos+5, &quot;,;&quot; )
+	Else
+		cHost = &quot;&quot;
+	EndIf
+	
+	nPos = Instr( 1, cUnoSetupConnectionURL, &quot;port=&quot;, True )
+	If nPos &gt; 0 Then
+		cPort = GetToken( cUnoSetupConnectionURL, nPos+5, &quot;,;&quot; )
+		nPort = Val( cPort )
+	Else
+		nPort = 0
+	EndIf
+
+        &apos; accept connections from localhost only - set this to 0 to listen to any host
+	cConnectionsFrom = &quot;localhost&quot;
+	&apos; Dialog to prompt user for a port
+
+        nConnectionPort = InputBox("Please enter the port for OOo to listen on.  (You will need to restart OOo for this change to take effect.)", "Change OOo port", nPort)
+
+        if nConnectionPort = "" then  &apos; User clicked Cancel
+
+            exit sub
+
+        endif
+
+&apos;	SetUnoConnectionURL( &quot;socket,host=0,port=8100;urp;StarOffice.ServiceManager&quot; )
+	SetUnoConnectionURL( &quot;socket,host=&quot; + cConnectionsFrom _
+			+ &quot;,port=&quot; + CSTR( nConnectionPort )_
+			+ &quot;;urp;StarOffice.ServiceManager&quot; )
+End Sub
+
+
+&apos;======================================================================
+&apos;	Configuration Management
+&apos;	These routines get or alter the property that affects whether
+&apos;	 and how OOo will accept a remote UNO connection.
+&apos;======================================================================
+
+Function GetUnoConnectionURL()
+	oConfigAccess = GetConfigAccess( &quot;/org.openoffice.Setup/Office&quot; )
+	
+	cUnoSetupConnectionURL = oConfigAccess.ooSetupConnectionURL
+
+	&apos; Check to see if we&apos;ve got a string.
+	nType = VarType( cUnoSetupConnectionURL )
+	If nType &lt;&gt; 8 Then
+		cUnoSetupConnectionURL = &quot;&quot;
+	EndIf
+	
+	GetUnoConnectionURL() = cUnoSetupConnectionURL
+End Function
+
+Sub SetUnoConnectionURL( cUnoSetupConnectionURL )
+	oConfigAccess = GetConfigAccess( &quot;/org.openoffice.Setup/Office&quot;, True, True, False )
+	oConfigAccess.ooSetupConnectionURL = cUnoSetupConnectionURL
+	oConfigAccess.commitChanges()
+End Sub
+
+
+&apos;======================================================================
+&apos;	A miscellaneous routine from Danny&apos;s library.
+&apos;======================================================================
+
+Function MakePropertyValue( Optional cName As String, Optional uValue ) As com.sun.star.beans.PropertyValue
+	Dim oPropertyValue As New com.sun.star.beans.PropertyValue
+	If Not IsMissing( cName ) Then
+		oPropertyValue.Name = cName
+	EndIf
+	If Not IsMissing( uValue ) Then
+		oPropertyValue.Value = uValue
+	EndIf
+	MakePropertyValue() = oPropertyValue
+End Function
+
+
+
+Function GetConfigAccess( ByVal cNodePath As String,_
+							Optional bWriteAccess,_
+							Optional bEnableSync,_
+							Optional bLazyWrite ) As Object
+	If IsMissing( bWriteAccess ) Then
+		bWriteAccess = False
+	EndIf
+	If IsMissing( bEnableSync ) Then
+		bEnableSync = True
+	EndIf
+	If IsMissing( bLazyWrite ) Then
+		bLazyWrite = False
+	EndIf
+
+&apos;	If bWriteAccess  And  bEnableSync Then
+		oConfigProvider = GetProcessServiceManager().createInstanceWithArguments(_
+							&quot;com.sun.star.configuration.ConfigurationProvider&quot;,_
+							Array( MakePropertyValue( &quot;enableasync&quot;, bEnableSync ) ) )
+&apos;	Else
+&apos;		oConfigProvider = createUnoService( &quot;com.sun.star.configuration.ConfigurationProvider&quot; )
+&apos;	EndIf
+	
+	If bWriteAccess Then
+		cServiceName = &quot;com.sun.star.configuration.ConfigurationUpdateAccess&quot;
+	Else
+		cServiceName = &quot;com.sun.star.configuration.ConfigurationAccess&quot;
+	EndIf
+	
+	oConfigAccess = oConfigProvider.createInstanceWithArguments( cServiceName,_
+		Array( MakePropertyValue( &quot;nodepath&quot;, cNodePath ),_
+				MakePropertyValue( &quot;lazywrite&quot;, bLazyWrite ) ) )
+	
+	GetConfigAccess() = oConfigAccess
+End Function
+
+
+
+&apos; Given a string and starting position,
+&apos;  accumulate and return all the characters up to the
+&apos;  end of the string, or up to a delimiter character.
+Function GetToken( cString, nStartPos, cDelimiter )
+	cResult = &quot;&quot;
+	nLen = Len( cString )
+	For i = nStartPos To nLen
+		c = Mid( cString, i, 1 )
+		If CharsInSet( c, cDelimiter ) Then
+			Exit For
+		EndIf
+		cResult = cResult + c
+	Next
+	GetToken() = cResult
+End Function
+
+
+&apos; Returns true if every char in cChars is a digit.
+Function IsDigit( cChars )
+	IsDigit() = CharsInSet( cChars, &quot;0123456789&quot; )
+End Function
+
+&apos; Returns true if every char in cChars is a letter.
+Function IsAlpha( cChars )
+	IsAlpha() = IsUCaseAlpha( UCase(cChars) )
+End Function
+
+&apos; Returns true if every char in cChars is a upper case letter.
+Function IsUCaseAlpha( cChars )
+	IsUCaseAlpha() = CharsInSet( cChars, &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot; )
+End Function
+
+&apos; Returns true if every char in cChars is in the set cSet.
+Function CharsInSet( cChars, cSet )
+	CharsInSet() = False
+	For i = 1 To Len( cChars )
+		c = Mid( cChars, i, 1 )
+		If Instr( cSet, c ) = 0 Then
+			Exit Function
+		EndIf
+	Next
+	CharsInSet() = True
+End Function
+
+&apos; Returns true if every char in cChars is NOT in the set cSet.
+Function CharsNotInSet( cChars, cSet )
+	CharsNotInSet() = False
+	For i = 1 To Len( cChars )
+		c = Mid( cChars, i, 1 )
+		If Instr( cSet, c ) &gt; 0 Then
+			Exit Function
+		EndIf
+	Next
+	CharsNotInSet() = True
+End Function
+
+&apos; Return string with proper capitalization.
+Function ProperName( cName )
+	bInWord = False
+	cResult = &quot;&quot;
+	For i = 1 To Len( cName )
+		c = Mid( cName, i, 1 )
+		If bInWord Then
+			If IsAlpha( c ) Then
+				c = LCase( c )
+			Else
+				bInWord = False
+			EndIf
+		Else
+			If IsAlpha( c ) Then
+				c = UCase( c )
+				bInWord = True
+			Else
+				c = LCase( c )
+			EndIf
+		EndIf
+		cResult = cResult + c
+	Next
+	ProperName() = cResult
+End Function
+
+
+</script:module>

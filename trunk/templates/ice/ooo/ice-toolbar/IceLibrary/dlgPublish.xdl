@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dlg:window PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "dialog.dtd">
+<dlg:window xmlns:dlg="http://openoffice.org/2000/dialog" xmlns:script="http://openoffice.org/2000/script" dlg:id="dlgPublish" dlg:left="223" dlg:top="0" dlg:width="204" dlg:height="231" dlg:closeable="true" dlg:moveable="true" dlg:title="ICE Publish To Blog">
+ <dlg:bulletinboard>
+  <dlg:text dlg:id="Label1" dlg:tab-index="18" dlg:left="4" dlg:top="9" dlg:width="22" dlg:height="9" dlg:value="Options:"/>
+  <dlg:text dlg:id="Label3" dlg:tab-index="19" dlg:left="4" dlg:top="73" dlg:width="33" dlg:height="9" dlg:value="URL:"/>
+  <dlg:button dlg:id="butPublish" dlg:tab-index="16" dlg:left="114" dlg:top="212" dlg:width="41" dlg:height="14" dlg:default="true" dlg:value="Publish">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.Publisher.subPublishExecute?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:button>
+  <dlg:button dlg:id="butPreview" dlg:tab-index="15" dlg:left="51" dlg:top="212" dlg:width="41" dlg:height="14" dlg:value="Preview">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.Publisher.subPublishPreview?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:button>
+  <dlg:text dlg:id="Label4" dlg:tab-index="20" dlg:left="4" dlg:top="25" dlg:width="33" dlg:height="9" dlg:value="Title:"/>
+  <dlg:text dlg:id="Label5" dlg:tab-index="21" dlg:left="4" dlg:top="41" dlg:width="33" dlg:height="9" dlg:value="Author:"/>
+  <dlg:text dlg:id="Label6" dlg:tab-index="22" dlg:left="4" dlg:top="57" dlg:width="33" dlg:height="9" dlg:value="Summary:"/>
+  <dlg:text dlg:id="Label7" dlg:tab-index="24" dlg:left="70" dlg:top="125" dlg:width="27" dlg:height="9" dlg:value="Username:"/>
+  <dlg:text dlg:id="Label8" dlg:tab-index="25" dlg:left="70" dlg:top="143" dlg:width="50" dlg:height="10" dlg:value="Password:"/>
+  <dlg:textfield dlg:id="txtUsername" dlg:tab-index="8" dlg:left="101" dlg:top="125" dlg:width="99" dlg:height="12"/>
+  <dlg:textfield dlg:id="txtPassword" dlg:tab-index="9" dlg:left="101" dlg:top="141" dlg:width="99" dlg:height="12" dlg:echochar="*"/>
+  <dlg:text dlg:id="Label9" dlg:tab-index="26" dlg:left="70" dlg:top="108" dlg:width="130" dlg:height="9" dlg:value="Required for Basic and Blogger"/>
+  <dlg:textfield dlg:id="txtTitle" dlg:tab-index="0" dlg:left="43" dlg:top="23" dlg:width="157" dlg:height="12"/>
+  <dlg:textfield dlg:id="txtAuthor" dlg:tab-index="1" dlg:left="43" dlg:top="39" dlg:width="157" dlg:height="12"/>
+  <dlg:textfield dlg:id="txtSummary" dlg:tab-index="2" dlg:left="43" dlg:top="55" dlg:width="157" dlg:height="12"/>
+  <dlg:radiogroup>
+   <dlg:radio dlg:id="optNone" dlg:tab-index="5" dlg:left="8" dlg:top="112" dlg:width="51" dlg:height="9" dlg:value="None"/>
+   <dlg:radio dlg:id="optBasic" dlg:tab-index="6" dlg:left="8" dlg:top="125" dlg:width="51" dlg:height="9" dlg:value="Basic" dlg:checked="true"/>
+   <dlg:radio dlg:id="optBlogger" dlg:tab-index="7" dlg:left="8" dlg:top="140" dlg:width="51" dlg:height="9" dlg:value="Blogger"/>
+  </dlg:radiogroup>
+  <dlg:titledbox dlg:id="framCtrlAuthType" dlg:tab-index="23" dlg:left="4" dlg:top="101" dlg:width="60" dlg:height="54">
+   <dlg:title dlg:value="Authorisation Type"/>
+  </dlg:titledbox>
+  <dlg:checkbox dlg:id="chkDraft" dlg:tab-index="10" dlg:left="4" dlg:top="163" dlg:width="54" dlg:height="9" dlg:value="Draft" dlg:checked="true"/>
+  <dlg:checkbox dlg:id="chkNewEntry" dlg:tab-index="11" dlg:left="4" dlg:top="176" dlg:width="54" dlg:height="9" dlg:value="New entry" dlg:checked="true"/>
+  <dlg:textfield dlg:id="txtAtomPubUrl" dlg:tab-index="3" dlg:left="43" dlg:top="71" dlg:width="157" dlg:height="12"/>
+  <dlg:button dlg:id="butViewLog" dlg:tab-index="14" dlg:left="6" dlg:top="212" dlg:width="41" dlg:height="14" dlg:value="View Log">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.Publisher.subViewLog?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:button>
+  <dlg:textfield dlg:id="txtProxy" dlg:tab-index="13" dlg:left="69" dlg:top="190" dlg:width="130" dlg:height="12"/>
+  <dlg:text dlg:id="Label11" dlg:tab-index="27" dlg:left="70" dlg:top="177" dlg:width="50" dlg:height="9" dlg:value="Proxy settings:"/>
+  <dlg:button dlg:id="butClose" dlg:tab-index="17" dlg:left="158" dlg:top="212" dlg:width="41" dlg:height="14" dlg:value="Close" dlg:button-type="cancel"/>
+  <dlg:text dlg:id="Label2" dlg:tab-index="28" dlg:left="4" dlg:top="89" dlg:width="32" dlg:height="9" dlg:value="Category:"/>
+  <dlg:textfield dlg:id="txtCategories" dlg:tab-index="4" dlg:left="43" dlg:top="87" dlg:width="157" dlg:height="12"/>
+  <dlg:checkbox dlg:id="chkPDF" dlg:tab-index="12" dlg:left="4" dlg:top="189" dlg:width="52" dlg:height="14" dlg:value="Include PDF Link" dlg:checked="false"/>
+  <dlg:text dlg:id="Label10" dlg:tab-index="29" dlg:left="70" dlg:top="161" dlg:width="75" dlg:height="9" dlg:value="Misc settings:"/>
+  <dlg:button dlg:id="CommandButton1" dlg:tab-index="30" dlg:left="29" dlg:top="87" dlg:width="13" dlg:height="14" dlg:value="?">
+   <script:event script:event-name="on-performaction" script:macro-name="vnd.sun.star.script:IceLibrary.Publisher.subbutCatHelp?language=Basic&amp;location=application" script:language="Script"/>
+   <script:event script:event-name="on-mousedown" script:macro-name="vnd.sun.star.script:IceLibrary.Publisher.subbutCatHelp?language=Basic&amp;location=application" script:language="Script"/>
+  </dlg:button>
+  <dlg:button dlg:id="CommandButton2" dlg:tab-index="31" dlg:left="176" dlg:top="177" dlg:width="2" dlg:height="0" dlg:value="CommandButton2"/>
+ </dlg:bulletinboard>
+</dlg:window>

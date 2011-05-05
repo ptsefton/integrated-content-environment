@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library:library PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "library.dtd">
+<library:library xmlns:library="http://openoffice.org/2000/library" library:name="IceLibrary" library:readonly="false" library:passwordprotected="false">
+ <library:element library:name="XRef"/>
+ <library:element library:name="Toolbar"/>
+ <library:element library:name="StyleCreator"/>
+ <library:element library:name="Publisher"/>
+ <library:element library:name="styleTestCommon"/>
+ <library:element library:name="Module1"/>
+ <library:element library:name="Hint"/>
+ <library:element library:name="StyleUnitTest"/>
+ <library:element library:name="styleTestDocCreator"/>
+ <library:element library:name="Repair"/>
+ <library:element library:name="common"/>
+ <library:element library:name="imgLinks"/>
+</library:library>

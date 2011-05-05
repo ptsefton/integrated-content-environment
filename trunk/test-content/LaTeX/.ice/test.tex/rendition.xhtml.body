@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <title>Default Template</title>
+    <style type="text/css">
+      .rendition-links { text-align: right; }
+      .body table td { vertical-align: top; }
+    </style>
+    <link href="test.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="rendition-links">
+      <span class="pdf-rendition-link" />
+    </div>
+    <h1 class="title"> </h1>
+    <div class="page-toc" />
+    <div class="body"><div class="maketitle">
+      <h2 class="titleHead">
+        the importance of being Fractal
+      </h2>
+      <div class="author">
+        <span class="cmr-12x-x-120">Bron Chandler</span>
+      </div><br />
+      <div class="date">
+        <span class="cmr-12x-x-120">June 23, 2009</span>
+      </div>
+    </div>
+    <ul class="itemize1">
+      <li class="itemize">To solve the differential equation
+      <span class="cmmi-12">y</span>&#8220; <span class="cmsy-10x-x-120">-</span> <span class="cmmi-12">y</span>&#8216; <span class="cmsy-10x-x-120">-</span> 2<span class="cmmi-12">y</span> =
+      0,
+      </li>
+      <li class="itemize">substitute the exponential <span class="cmmi-12">y</span> = exp(<span class="cmmi-12">&#955;t</span>),
+      </li>
+      <li class="itemize">and deduce that <span class="cmmi-12">&#955;</span><sup><span class="cmr-8">2</span></sup> <span class="cmsy-10x-x-120">-</span>
+      <span class="cmmi-12">&#955;</span> <span class="cmsy-10x-x-120">-</span> 2 = 0.
+      </li>
+    </ul>
+    <center class="par-math-display">
+      <img alt="a2 + b2 = c2 " class="par-math-display" src="test_files/test0x.png" />
+    </center>
+    <p class="nopar" />
+    <table class="equation">
+      <tr>
+        <td>
+          <center class="math-display">
+            <img alt=" &#8747; x 1 logx = -dt 1 t " class="math-display" src="test_files/test1x.png" /><a id="x1-2r1" name="x1-2r1" />
+          </center>
+        </td>
+        <td class="equation-label">
+          (1)
+        </td>
+      </tr>
+    </table>
+    <p class="nopar" /></div>
+  </body>
+</html>
