@@ -365,12 +365,12 @@ class Ooo2xhtml(object, xml.sax.ContentHandler):
             for item in list(self.__footer.items):
                 if count==1:
                     self.__shtml.body.addChild(element("hr"))
-                p = element("p")
+                #p = element("p")
                 #div = element("div")
                 #p.addChild(div)
                 #div.setAttribute("style", "font-size: .9em;")
-                p.addChild(item)
-                self.__shtml.body.addChild(p)
+                #p.addChild(item)
+                self.__shtml.body.addChild(item)
                 count+=1
             #print "shtml="
             #print self.shtml.formatted()
