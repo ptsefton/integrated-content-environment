@@ -36,7 +36,7 @@ class footnoteState(stateObject):
         id = attrs.get("text:id", "")
         
         a = element("a")
-        a.setAttribute("name", id)
+        a.setAttribute("id", id)
         a.setAttribute("href", "#%s-text" % id)
         self.__a = a
         
@@ -44,7 +44,7 @@ class footnoteState(stateObject):
         span.setAttribute("class", "footnote")
         
         e = element("a")
-        e.setAttribute("name", "%s-text" % id)
+        e.setAttribute("id", "%s-text" % id)
         e.setAttribute("href", "#%s" % id)
         e.setAttribute("class", "footnote")
         span.addChild(e)
@@ -121,13 +121,13 @@ class endnoteState(stateObject):
     
     def processElement(self, name, attrs):
         a = element("a")
-        a.setAttribute("name", "%s" % attrs.get("text:id", ""))
+        a.setAttribute("id", "%s" % attrs.get("text:id", ""))
         a.setAttribute("href", "#%s-text" % attrs.get("text:id", ""))
         self.__a = a
 
         e = element("a")
         e.setAttribute("href", "#%s" % attrs.get("text:id", ""))
-        e.setAttribute("name", "%s-text" % attrs.get("text:id", ""))
+        e.setAttribute("id", "%s-text" % attrs.get("text:id", ""))
         self.stateElement = e        # Note: also sets self.currentState
         s1 = element("span")
         s1.setAttribute("style", "vertical-align: super;")
