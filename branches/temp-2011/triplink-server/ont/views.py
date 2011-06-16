@@ -29,7 +29,7 @@ def ontologize(request):
         ref = "[unknown referring page]"
     
     tripll = TripLink()
-    data =  tripll.process(url, ref )
+    data =  tripll.process(url,referer=ref )
     if data:
         statement = data["statement"]
         rdfa = data["RDFaTemplate"]
