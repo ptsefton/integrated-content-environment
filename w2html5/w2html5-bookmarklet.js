@@ -9,7 +9,7 @@
  * Released under the Creative Commons Attribution 3.0 Unported License,
  * as defined here: http://creativecommons.org/licenses/by/3.0/
  *
- *  <a href="javascript:(function(){var head=document.getElementsByTagName('head')[0],script=document.createElement('script');script.type='text/javascript';script.src='http://www.site.com/your-javascript.js?' + Math.floor(Math.random()*99999);head.appendChild(script);})(); void 0">Your Bookmarklet Name</a>
+ *  <a href="javascript:(function(){var head=document.getElementsByTagName('head')[0],script=document.createElement('script');script.type='text/javascript';script.src='http://integrated-content-environment.googlecode.com/svn/branches/temp-2011/w2html5/w2html5-bookmarklet.js?' + Math.floor(Math.random()*99999);head.appendChild(script);})(); void 0">Word2HTML5</a>
  *
  */
  
@@ -18,8 +18,8 @@ window.bookmarklet = function(opts){fullFunc(opts)};
 // These are the styles, scripts and callbacks we include in our bookmarklet:
 window.bookmarklet({
  
-    css : [],
-    js  : ['http://www.site.com/your.js'],    
+    css : ['http://integrated-content-environment.googlecode.com/svn/branches/temp-2011/w2html5/w2html5ext/w2html5.js'],
+    js  : ['http://integrated-content-environment.googlecode.com/svn/branches/temp-2011/w2html5/w2html5ext/w2html5.js'],    
     jqpath : 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', 
     ready : function(){
  
