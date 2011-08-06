@@ -23,8 +23,7 @@ window.bookmarklet({
     jqpath : 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', 
     ready : function(){
  
-		// The meat of your jQuery code goes here
-		$("body").html("Hello World");
+		alert("Hello world");
  
    	    }
 })
