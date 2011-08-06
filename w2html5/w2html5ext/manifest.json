@@ -1,0 +1,16 @@
+{
+  "name": "Word to HTML5",
+  "version": "0.1",
+  "description": "Experimntal extension for normalizing / cleaning up Word's HTML export (the kind it has used since Word 2000)",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+
+    "content_scripts": [
+    {
+      "matches": ["file:///*"],
+      "js": ["jquery.min.js", "w2html5.js"],
+       "css": ["w2html5.css"]
+    }
+  ]
+}

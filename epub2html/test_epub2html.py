@@ -25,10 +25,10 @@ import json
 class CheckEpub2Html(unittest.TestCase):
         def testNothing(self):
                 p =  epub2html.Epub2Html("epub2html-test.epub","epub2html-test-html.epub", True )
-                self.assertEqual(p.toc.getHtml(), "<ol id='toc'><li><a href='OEBPS/index.html' target='content-frame'>Simple test file for Paquete</a><ol><li><a href='OEBPS/index.html#anchor-1' target='content-frame'>1. Part 1</a></li><li><a href='OEBPS/ar01s02.html' target='content-frame'>2. Part 2</a></li><li><a href='OEBPS/ar01s03.html' target='content-frame'>3. Part 3</a></li></ol></li></ol>")
+                self.assertEqual(p.toc.getHtml(), "<ul id='toc'><li><a href='OEBPS/index.html' target='content-frame'>Simple test file for Paquete</a><ul><li><a href='OEBPS/index.html#anchor-1' target='content-frame'>1. Part 1</a></li><li><a href='OEBPS/ar01s02.html' target='content-frame'>2. Part 2</a></li><li><a href='OEBPS/ar01s03.html' target='content-frame'>3. Part 3</a></li></ul></li></ul>")
 		tocData = json.loads(p.toc.getJsonString())
-		self.assertEqual(tocData["toc"][0]["title"], "Simple test file for Paquete")
-		self.assertEqual(tocData["toc"][0]["children"][1]["relPath"], "OEBPS/ar01s02.html")
+		self.assertEqual(tocData[0]["title"], "Simple test file for Paquete")
+		self.assertEqual(tocData[0]["children"][1]["src"], "OEBPS/ar01s02.html")
 
 if __name__ == "__main__":
     unittest.main()  
