@@ -99,7 +99,7 @@ class Epub2Html(object):
 			self.__contString = self.__contString.replace("</manifest>","%s\n</manifest>" % ET.tostring(item)) #HACK!
 			#self.__manifest.append(item) # TODO can't serialize sensisbly using ElementTree
 
-		self.tidy = False #TODO make this an option but ATM is causing encoding probs
+		
 		self.__data = {}
 
 		self.__mimeTypes = dict(); #only need a few
@@ -174,6 +174,7 @@ class Epub2Html(object):
 			addToManifest(f)
 
 		self.zip.extractall(outputDirname)
+                
 		#Needs more work to get going
 		#monocle = file("templates/monocle.html").read() % {"spine-data": self.toc.getComponents(),\
 		#						   "contents-data":  self.toc.getJsonString(), \
@@ -194,7 +195,7 @@ class Epub2Html(object):
 		#file(os.path.join(outputDirname,"monocle.html"), "w").write(monocle)
 		#addToManifest("monocle.html")
 
-		self.zip.close()
+		self.zip = None #don't close 'cos we have poluted the file
 
 		#TODO: Fix this string-based hack
 		#Write as file
@@ -213,10 +214,7 @@ class Epub2Html(object):
 		# Add the mimetype file first and set it to be uncompressed
 		epub.write(os.path.join(outputDirname, mimefile), mimefile,  compress_type=zipfile.ZIP_STORED)
 		
-		#Tidy any HTML if necessary
-		if self.tidy:
-			for htmlFile in htmlItems:
-				retcode = subprocess.call(["tidy", "-asxml", "-m", '-n', os.path.join(outputDirname,htmlFile)])
+		
 		
 		# For the remaining paths in the EPUB, add all of their files using normal ZIP compression
 		for dirpath, dirnames, filenames in os.walk(outputDirname, topdown=False):
@@ -224,7 +222,7 @@ class Epub2Html(object):
 			    if name == mimefile:
 				continue
 			    f = os.path.join(dirpath, name)
-                            #print "adding %s" % f
+                            print "adding %s" % f
 			    epub.write(f, os.path.relpath(f,outputDirname), compress_type=zipfile.ZIP_DEFLATED)
 		
 
