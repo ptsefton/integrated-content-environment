@@ -18,12 +18,12 @@ window.bookmarklet = function(opts){fullFunc(opts)};
 // These are the styles, scripts and callbacks we include in our bookmarklet:
 window.bookmarklet({
  
-    css : ['http://integrated-content-environment.googlecode.com/svn/branches/temp-2011/w2html5/w2html5ext/w2html5.js'],
+    css : ['http://integrated-content-environment.googlecode.com/svn/branches/temp-2011/w2html5/w2html5ext/w2html5.css'],
     js  : ['http://integrated-content-environment.googlecode.com/svn/branches/temp-2011/w2html5/w2html5ext/w2html5.js'],    
     jqpath : 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', 
     ready : function(){
  
-		alert("Hello world");
+		//TODO - call the conversion code instead of having it run on load
  
    	    }
 })
