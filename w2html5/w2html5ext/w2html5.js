@@ -18,6 +18,11 @@ COPYRIGHT Peter Malcolm Sefton 2011
 
 
 */
+
+//TODO - capture everything after "-" in a style name and use a class on generated p or h
+
+//TODO Add a config object
+
 //TODO - add regular expressions to boil down styles
 headingStyles = {
 "h1n" : "h2",
@@ -29,6 +34,93 @@ headingStyles = {
 "msotitle" : "h1",
 "title" : "h1"
 };
+
+function stateFactory(jQ, topContainer) {
+	var state = {};
+	state.indentStack = [0];
+ 	state.elementStack = [topContainer];
+	state.currentIndent = 0;
+	function setCurrentIndent(indent) {
+		state.currentIndent = indent;
+	}
+	state.setCurrentIndent = setCurrentIndent;
+	function nestingNeeded() {
+		//Test whether current left=margin indent means we should add some nesting
+		return(state.currentIndent > state.indentStack[state.indentStack.length-1]);
+		
+	}
+	state.nestingNeeded = nestingNeeded;
+	function levelDown() {
+		while (state.currentIndent < state.indentStack[state.indentStack.length-1]) {
+			popState();
+		}
+			
+	}
+	state.levelDown = levelDown;
+	function getCurrentElement() {
+		return state.elementStack[state.elementStack.length-1];
+	}
+	state.getCurrentElement = getCurrentElement;
+	function popState() {
+		state.indentStack.pop();
+		state.elementStack.pop();
+	}
+	state.popState = popState;
+	function pushState(el) {
+		state.indentStack.push(state.currentIndent);
+		state.elementStack.push(el);
+	}
+	state.pushState = pushState;
+	function resetState() {
+		state.indentStack = [0];
+		state.elementStack = [state.elementStack[0]];
+	}
+	state.resetState = resetState;
+	return state;
+}
+
+function loseWordMongrelMarkup(doc) {
+
+
+	 
+
+		//Deal with MMDs        
+		startComment = /<\!--\[(.*?)\]\>/g;
+		startCommentReplace = "<span title='start-$1'/><xml class='mso-conditional'>";
+		doc = doc.replace(startComment, startCommentReplace);
+		
+		endComment = /<\!\[(.*?)\]--\>/g;
+		endCommentReplace = "</xml><span title='end-$1'/>";
+		doc = doc.replace(endComment, endCommentReplace);
+
+		//Ordinary condition comment
+		comment = /<\!--\[(.*?)\]--\>/g;
+		commentReplace = "";
+		doc = doc.replace(startComment, commentReplace);
+	      
+		startMMD = /<\!\[(.*?)\]\>/g;
+		startMMDReplace = "<span title='$1'/>";
+		doc = doc.replace(startMMD, startMMDReplace);
+
+
+		
+		endMMD = /<\!\[endif\]>/g;
+		endMMDReplace = "<span title='endif'/>";
+		doc = doc.replace(endMMD, endMMDReplace);
+
+		//This is a rare special case, seems to be related to equations
+		wrapblock = /<o:wrapblock>/g;
+		wrapblockreplace = "<span title='wrapblock' ><!-- --></span>";
+		doc = doc.replace(wrapblock, wrapblockreplace);
+
+		endwrapblock = /<\/o:wrapblock>/g;
+		endwrapblockreplace = "<span title='end-wrapblock' ><!-- --></span>";
+		doc = doc.replace(endwrapblock, endwrapblockreplace);
+
+	    
+		return doc;	
+
+}
 
 function getRidOfExplicitNumbering(element) {
 	//Get rid of Word's redundant numbering (Note, don't don't do this on headings)
@@ -49,8 +141,7 @@ function rewrite() {
   
   //Make the assumption Normal has zero indent
   //TODO work out zero indent from Normal style (and deal with negative indents?)
-  indentStack = [0];
-  elementStack = [art];
+  state = stateFactory(art);
   $("body > *").each (
     
     function (index) {
@@ -62,11 +153,9 @@ function rewrite() {
 	
 	tag = headingStyles[classs];
 	if (tag) { //Found a heading - close all containers
- 		 indentStack = [0];
-		 elementStack = [art];
-		 currentIndent = 0;
+ 		 state.resetState();
 	} else {
-		currentIndent = parseFloat($(this).css("margin-left"));
+		state.setCurrentIndent(parseFloat($(this).css("margin-left")));
 	}
 
 
@@ -88,7 +177,7 @@ function rewrite() {
 			
 			type = "li";
 			//If this is a new list try to work out its type
-			if (currentIndent > indentStack[indentStack.length-1]) {
+			if (state.nestingNeeded()) {
 				number = $(this).find("span[style='mso-list:Ignore']").text();
 				if (number.search(/A/) > -1) {
 					listType = "A";
@@ -127,16 +216,12 @@ function rewrite() {
 
         
 
-	while (currentIndent < indentStack[indentStack.length-1]) {
-			indentStack.pop();
-			elementStack.pop();
-			
-	}
+	state.levelDown(); //If we're embedded to far, fix that
 	
-        if (currentIndent > indentStack[indentStack.length-1]) {
+        if (state.nestingNeeded()) {
 		
 		//Put this inside the previous container element - we're going deeper
-		$(this).appendTo(elementStack[elementStack.length-1]);
+		$(this).appendTo(state.getCurrentElement());
 		if (type == "li") {
                         if (listType == "b") {
 				$(this).wrap("<ul><li></li></ul>");
@@ -165,8 +250,8 @@ function rewrite() {
 		//All subsequent paras at the right level and type should go into this container
                 //So remember it
 		//TODO - wrap this in a proper state object rather than the parallel arrays: FRAGILE!
-		elementStack.push($(this).parent());
-		indentStack.push(currentIndent);
+		state.pushState($(this).parent());
+		
 		
 		
 	}
@@ -174,14 +259,14 @@ function rewrite() {
 		
 		
 		if (type == "li") {
-			$(this).appendTo(elementStack[elementStack.length-1]).parent().parent();
+			$(this).appendTo(state.getCurrentElement().parent());
 			$(this).wrap("<li></li>");
 			getRidOfExplicitNumbering($(this));
 			
 		}
 		else {
 
-			$(this).appendTo(elementStack[elementStack.length-1]).parent()	;
+			$(this).appendTo(state.getCurrentElement())		;
 			if (tag) {
 				//It's a heading
 				$(this).replaceWith("<" + tag + ">" + $(this).html() + "</" + tag + ">");
@@ -202,20 +287,32 @@ function rewrite() {
   )
 }
 
-//Start here
+//Start by string-processing MSO markup into something we can read and reloading
+$("head").html(loseWordMongrelMarkup($("head").html()));
 
+$("body").html(loseWordMongrelMarkup($("body").html()));
+
+// TODO alert(loseWordMongrelMarkup("<![if !supportLists]>"));
+
+//Get rid of the worst of the emndded stuff
+$("xml").remove();
 //Get rid of Word's sections
 $("div").each(
 function(index) {
-   $(this).children().unwrap();
+   $(this).children(":first-child").unwrap();
 }
 )
+
+
 rewrite();
 
 //Clean it all up
 $("p:empty").remove();
 $("span:empty").remove();
 $("span[mso-spacerun='yes']").remove(); //.replacewith(" ");
+
+$("xml").remove();
+$("v:shapetype").remove();
 
 //TODO: get rid of reams of other crap from Word
 
