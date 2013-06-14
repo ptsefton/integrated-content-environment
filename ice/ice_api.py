@@ -123,6 +123,7 @@ class IceServices(object):
                     raise self.iceContext.IceException(str(e))
                 if mimeType == self.iceContext.MimeTypes[".html"]:
                     content = self.__fixPreviewLinks(content, sessionId)
+		   
                 response.setResponse(content, mimeType)
             else:
                 raise self.iceContext.IceException("Unsupported extension %s" % ext)
@@ -164,18 +165,25 @@ class IceServices(object):
     
     def __fixPreviewLinks(self, html, sessionId):
         # process links to include the sessionId
-        et = self.iceContext.ElementTree.XML(html)
-        postfix = "?%s=%s" %(self.SESSION_ID, sessionId)
-        self.__updatePreviewLinks(et, "a", "href", postfix)
-        self.__updatePreviewLinks(et, "img", "src", postfix)
-        self.__updatePreviewLinks(et, "link", "href", postfix)
-        self.__updatePreviewLinks(et, "script", "src", postfix)
-        return self.iceContext.ElementTree.tostring(et)
+	try:
+		#et = self.iceContext.ElementTree.XML(html)
+		xhtml = self.iceContext.Xml(html, parseAsHtml=True)
+		postfix = "?%s=%s" %(self.SESSION_ID, sessionId)
+		self.__updatePreviewLinks(xhtml, "a", "href", postfix)
+		self.__updatePreviewLinks(xhtml, "img", "src", postfix)
+		self.__updatePreviewLinks(xhtml, "link", "href", postfix)
+		self.__updatePreviewLinks(xhtml, "script", "src", postfix)
+		return str(xhtml)
+ 	except Exception, e:
+			print "WARNING - Unable to fix preview links"
+			print str(e)
+			print self.iceContext.formattedTraceback()
+			return html
     
     
     def __updatePreviewLinks(self, tree, tagName, attrName, postfix):
-        for elem in tree.findall(".//" + tagName):
-            attr = elem.get(attrName)
+        for elem in tree.getNodes("//" + tagName):
+            attr = elem.getAttribute(attrName)
             if attr != None and attr.find("://") == -1 and not attr.startswith("#"):
-                elem.set(attrName, attr + postfix)
+                elem.setAttribute(attrName, attr + postfix)
 
