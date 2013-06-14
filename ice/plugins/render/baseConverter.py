@@ -24,7 +24,8 @@ import urlparse
 from hashlib import md5
 import time
 import urllib
-
+import os
+import subprocess
 
 from http_util import Http
 
@@ -119,7 +120,15 @@ class BaseConverter:
     def setTransformUsingPython(self, value=True):
         self.__transformMethod = value
     
-    
+    def transformUsingWordDown(self):
+        if self.__transformMethod is not None:
+            return self.__transformMethod
+
+        return self.iceContext.config.settings.get("transformUsingWordDown", False)
+    def setTransformUsingWordDown(self, value=True):
+        self.__transformMethod = value
+
+
     def __startOpenOfficePipe(self):
         if self.__startOpenOffice and self.iceContext.isServer==False:
             soffice ="soffice"
@@ -291,7 +300,10 @@ class BaseConverter:
             if includeHtml:
                 # HTML
                 try:
-                    result = self._convertToHtml()
+		    if self.transformUsingWordDown():
+			result = self.__wordDownConvertToHtml()
+		    else:
+                   	 result = self._convertToHtml()
                 except Exception, e:
                     msg = str(e)
                     if msg.find("cannot find OpenOffice.org")!=1:
@@ -1007,9 +1019,44 @@ class BaseConverter:
             return msg
             
         self.convertedData.addRenditionFile(".pdf", self._tmpPdfFileName)
-        
+
+
+	
         return "ok"
     
+    def __wordDownConvertToHtml(self):
+	result, msg = self._convertFile(self._tmpOooFileName, \
+                    self._tmpHtmlFileName ) #, reindex=reindex)
+        if result==False:
+            return msg
+	print "Saved HTML from OOO: " + self._tmpHtmlFileName
+	myPath, myFile  = os.path.split(os.path.abspath(__file__))
+	command = ["phantomjs",os.path.join(myPath, "render.js"), "file:///" + self._tmpHtmlFileName, self._tmpHtmlFileName]
+	subprocess.check_output(command)
+	imageNames = self.__findAllImageNames(self._tmpHtmlFileName, True)
+
+        #self.convertedData.addRenditionFile(".xhtml.body", self._tmpHtmlFileName)
+	self.convertedData.addMeta("style.css", "")
+	copiedImages = []
+	for imageName in imageNames.values():
+		if not imageName in copiedImages:
+		      	    filename = self.convertedData.abspath(imageName)
+		            print "Adding image: " + imageName + " :::: " + filename
+		            self.convertedData.addImageFile(imageName, filename=filename)
+	
+	xhtml = self.iceContext.Xml(self._tmpHtmlFileName, parseAsHtml=True)
+	body = xhtml.getNode("//body")
+        elems = body.getNodes("*")
+        
+        rendition = "<div>"
+        for elem in elems:
+            rendition += str(elem)
+        rendition += "</div>"
+	
+        self.convertedData.addRenditionData(".xhtml.body", rendition)
+	xhtml.close()
+	
+	return "ok"
     
     def __fixRelativeLinkForPdf(self, tmpOooFileName):
         tmpDir = self.__fs.split(tmpOooFileName)[0] + "/tmpDir"
@@ -1261,8 +1308,9 @@ class BaseConverter:
             raise Exception(msg)
     
     
-    def __findAllImageNames(self, htmlFilename):
-        """Given a html file, search for img tags and load name, src into a dictionary"""
+    def __findAllImageNames(self, htmlFilename, wordDownFix = False):
+        """Given a html file, search for img tags and load name, src into a dictionary
+           For WordDown converstion also fix image path to refer to _files directory"""
         # first reset the image names for processing a new document?
         imageNames = {}
         xml = None
@@ -1284,12 +1332,18 @@ class BaseConverter:
             #print "########   %s" % str(img)
             src = img.getAttribute("src")
             name = img.getAttribute("name")
+	    if wordDownFix:
+		#TODO: ROn is is OK to use self._sourceFileName here? 
+		img.setAttribute("src", self.__getRelativeImageLink(src, self._sourceFileName))
             if name is None:
                 count += 1
                 name = "noname%s" % count
             imageNames[name] = src
+	if wordDownFix:
+	    xml.saveFile(htmlFilename)
         xml.close()
         return imageNames
+
 
 
     def __convertImageNames(self, xml, sourceFilename, imageNames):
@@ -1359,7 +1413,8 @@ class BaseConverter:
         return linkedImages.values()
 
 
-    def __processContent(self, xml, sourceFilename):
+    def __processContent(self, xml, sourceFilename): 
+	
         # fixup links to be relative links
         links = self.__fixupRelativeLinks(xml, sourceFilename)
         
@@ -1388,8 +1443,9 @@ class BaseConverter:
         for elem in elems:
             rendition += str(elem)
         rendition += "</div>"
+	
         self.convertedData.addRenditionData(".xhtml.body", rendition)
-        
+        #TODO Jsut don't call this whole method
         self.convertedData.addMeta("links", links)
         
     
