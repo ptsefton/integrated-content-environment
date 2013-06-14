@@ -117,7 +117,7 @@ class OOoUtils(object):
         elif self.__system.isMac:
             pythonName = "python.sh"
         elif self.__system.isLinux:
-            pythonName = "python.sh"
+            pythonName = "python" #TODO check if this is OK
         progPython = "program/%s" % pythonName
         if oooPath is None:
             oooPyPath = None
@@ -218,7 +218,7 @@ class OOoUtils(object):
                     if len(paths)>0:
                         oooPath = pythonPaths[0][:-len(progPython)]
                         break
-        if oooPath is None:
+        if True: #oooPath is None:
             # just try python
             result, msg = self.__system.execute("python", "-c", "__import__('uno');print(True)")
             if result.startswith("True"):  #result=="True\n":
