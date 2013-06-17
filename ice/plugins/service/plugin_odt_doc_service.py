@@ -21,11 +21,8 @@
 import re
 import zipfile
 from time import gmtime, strftime
-import time
-import subprocess
 
-
-pluginName = "ice.service.worddown"
+pluginName = "ice.service.ooo-word"
 pluginDesc = "OpenOffice.org/Word conversion service"
 pluginFunc = None           # either (or both) pluginFunc or pluginClass should
 pluginClass = None          #   be set by the pluginInit() method
@@ -36,9 +33,9 @@ Mets = None
 
 def pluginInit(iceContext, **kwargs):
     global pluginFunc, pluginClass, pluginInitialized
-    handler = WordDownService(iceContext)
+    handler = OdtDocService(iceContext)
     pluginInitialized = True
-    pluginClass = WordDownService
+    pluginClass = OdtDocService
     global Mets
     Mets = iceContext.getPlugin("ice.mets").pluginClass
     return handler
@@ -46,12 +43,13 @@ def pluginInit(iceContext, **kwargs):
 #ModsCreator(iceContext)
 #ModsCreator.createFromMeta(meta) -> xmlString
 
-class WordDownService(object):
+class OdtDocService(object):
     @staticmethod
     def createModsFromMeta(iceContext, meta):
         modsCreator = ModsCreator(iceContext)
         return modsCreator.createFromMeta(meta)
-
+    
+    
     defaultTemplate = """<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -73,16 +71,12 @@ class WordDownService(object):
     <div class="ins body"></div>
   </body>
 </html>"""
-    xhtmlDeclaration = """
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"> 
-"""
     
     exts = [".odt", ".doc", ".docx", ".rtf"]
     
     def __init__(self, iceContext):
         self.iceContext = iceContext
-        self.__includeExts = [".htm", ".odt", ".doc", ".docx", ".rtf", ".pdf", ".slide.htm", ".epub"]
+        self.__includeExts = [".htm", ".odt", ".doc", ".docx", ".rtf", ".pdf", ".slide.htm"]
     
     def service(self, document, options, request, response):
     
@@ -93,16 +87,14 @@ class WordDownService(object):
         # Note: 'templateString' is deprecated but still in use by Moodle
         url = options.get("url")
         template = options.get("template", options.get("templateString", None))
-	
         if template == None or template == "":
             # make sure there is a default template
             # TODO check if template was uploaded
             template = self.defaultTemplate
-	    
             options.update({"template": template})
-        
+
         #print "template='%s'" % template
-        if not options.has_key("includetitle"):
+        if options.has_key("includetitle"):
             options.update({"includetitle": False})
         if not options.has_key("toc"):
             options.update({"toc": False})
@@ -130,9 +122,10 @@ class WordDownService(object):
         
         docFilePath = tmpFs.absPath(filename)
         tmpFs.writeFile(filename, document)
-        OdtDocConverter = self.iceContext.getPlugin("ice.ooo.WordDownConverter").pluginClass
+        OdtDocConverter = self.iceContext.getPlugin("ice.ooo.OdtDocConverter").pluginClass
         app = OdtDocConverter(self.iceContext, tmpFs, template)
         status, htmlFile, _ = app.convert(docFilePath, toDir, options)
+        
         if status == "ok":
             #self.__removeLocalhostLinks(htmlFile, app.meta)
             contentFile, mimeType = self.__createPackage(tmpFs, filename, app.meta)
@@ -141,14 +134,11 @@ class WordDownService(object):
                 mimeType = self.iceContext.MimeTypes[".html"]
         else:
             raise self.iceContext.IceException(status)
-
-	
         
-		
-        return  tmpFs.readFile(contentFile), mimeType
+        return tmpFs.readFile(contentFile), mimeType
     
     def options(self):
-        tmpl = self.iceContext.HtmlTemplate(templateFile = "plugins/service/worddown-service.tmpl")
+        tmpl = self.iceContext.HtmlTemplate(templateFile = "plugins/service/odt-doc-service.tmpl")
         return tmpl.transform({"template": self.defaultTemplate})
     
     def __removeLocalhostLinks(self, htmlFile, meta):
@@ -204,15 +194,12 @@ class WordDownService(object):
     
     def __createPackage(self, fs, filename, meta):
         zip = self.__options.get("zip", False)
-	epub = self.__options.get("epub", False)
-	
         mets = self.__options.get("mets", False)
         mods = self.__options.get("mods", mets)    # MODS always created with METS
         dc = self.__options.get("dc", False)
         rdf = self.__options.get("rdf", False)
         sourcelink = self.__options.get("sourcelink", "off")
         slidelink = self.__options.get("slidelink", "off")
-	epub = self.__options.get("epub", False)
         includeSkin = self.__options.get("includeSkin",False)
         contentFile = None
         mimeType = None
@@ -262,38 +249,7 @@ class WordDownService(object):
 #                fs.writeFile("rdf.xml", rdf)
 #                contentFile = fs.absPath("rdf.xml")
 #                mimeType = self.iceContext.MimeTypes[".xml"]
-      	
-	if epub:
-		
-		_, name, _ = fs.splitPathFileExt(filename)
-		htmlFile = "%s.htm" % fs.absPath(name)
-		epubFile = "%s.epub" % fs.absPath(name)
-		title = meta.get("title", "")
-		publisher = meta.get("publisher","")
-		date = meta.get("date","")
-		print "DATE:" + date
-                print "ABS: " + meta.get("abstract", "")
-		authors = []
-		for author in meta.get("authors", []):
-           		authorName = author.get("name", "") #TODO will have probs if there is an ampersand here
-			authors.append(authorName)
-
-		hf = open(htmlFile,"r")
-		htmlString = hf.read()
-		hf.close
-		htmlString = htmlString.replace("<html>", self.xhtmlDeclaration)
-		hf = open(htmlFile,"w")
-		hf.write(htmlString)
-		hf.close()
-                print "Running calibre"
-		command = """ebook-convert "%s" "%s"  --chapter "//*[name()='h1']"  --level1-toc "//*[name()='h1']" --level2-toc "//*[name()='h2']" --title "%s" --authors "%s" --publisher "%s" --pubdate "%s" """\
-			 % (htmlFile, epubFile, title, "&".join(authors), publisher, date) 
-		print command
-		retcode = subprocess.call([command] , shell=True)  
-		if not(zip):
-			self.__response.setDownloadFilename(name.replace(" ", "_") + ".epub")
-			return epubFile, "application/epub+zip"
-
+        
         if zip:
             _, name, _ = fs.splitPathFileExt(filename)
             #name = name.replace(" ", "_")
@@ -505,9 +461,4 @@ class MetsCreator(object):
                     self.mets.addFptr(div2, file2.id)
         
         return self.mets.getXml()
-    
-
-		
-		
-		
-    
+   
