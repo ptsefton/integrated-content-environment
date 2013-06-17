@@ -26,6 +26,10 @@ import time
 import urllib
 import os
 import subprocess
+import zipfile
+from wordDownOpenOfficeUtils import Bookmarker
+from wordDownOpenOfficeUtils import Styles
+from wordDownOpenOfficeUtils import Namespaces
 
 from http_util import Http
 
@@ -1025,11 +1029,15 @@ class BaseConverter:
         return "ok"
     
     def __wordDownConvertToHtml(self):
+
+	odt = zipfile.ZipFile(self._tmpOooFileName, "a")
+	bookmarker = Bookmarker(odt)	
+
 	result, msg = self._convertFile(self._tmpOooFileName, \
                     self._tmpHtmlFileName ) #, reindex=reindex)
         if result==False:
             return msg
-	print "Saved HTML from OOO: " + self._tmpHtmlFileName
+	
 	myPath, myFile  = os.path.split(os.path.abspath(__file__))
 	command = ["phantomjs",os.path.join(myPath, "render.js"), "file:///" + self._tmpHtmlFileName, self._tmpHtmlFileName]
 	subprocess.check_output(command)
