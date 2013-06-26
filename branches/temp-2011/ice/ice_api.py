@@ -18,7 +18,7 @@
 #    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-
+import re
 
 class IceServices(object):
     CONVERT_PATH = "/api/convert"
@@ -173,14 +173,16 @@ class IceServices(object):
 		self.__updatePreviewLinks(xhtml, "img", "src", postfix)
 		self.__updatePreviewLinks(xhtml, "link", "href", postfix)
 		self.__updatePreviewLinks(xhtml, "script", "src", postfix)
-		return str(xhtml)
+		html = str(xhtml)
+                html = re.sub("</(img|br|meta)>","",html)
+		html = re.sub("(<(img|br|meta).*?)/?>","\\1/>",html)
+		return html
  	except Exception, e:
 			print "WARNING - Unable to fix preview links"
 			print str(e)
 			print self.iceContext.formattedTraceback()
 			return html
-    
-    
+  
     def __updatePreviewLinks(self, tree, tagName, attrName, postfix):
         for elem in tree.getNodes("//" + tagName):
             attr = elem.getAttribute(attrName)
