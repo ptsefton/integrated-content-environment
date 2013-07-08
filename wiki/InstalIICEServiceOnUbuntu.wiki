@@ -2,8 +2,7 @@
 
 This page describes the installation steps in setting up ICE Service for Ubuntu.
 
-= Tested =
- * Ubuntu 10.04.1 LTS April 2011
+
 
 = Documentation =
 
@@ -20,13 +19,13 @@ sudo apt-get install daemon
 
 ==== Install Calibre to make ebooks ====
 {{{
-sudo apt-get install calibre
+TODO: point to Calibre installer
 }}}
 
 ==== Install python libraries ====
  1. Add the following via Synaptic Package manager or sudo aptitude install command:
 {{{
-sudo apt-get install python-gdata python-svn python-libxslt1 python-paste python-twisted python2.6-dev python-cheetah python-textile python-openid python-lxml python-pycurl python-pypdf python-reportlab build-essential python-setuptools idle
+sudo apt-get install python-gdata python-svn python-libxslt1 python-paste python-twisted python2.7-dev python-cheetah python-textile python-openid python-lxml python-pycurl python-pypdf python-reportlab build-essential python-setuptools idle
 }}}
 
  3. The Python packages can be verified by:
@@ -51,7 +50,10 @@ import foresite
 
 Checkout ICE
 
+{{{
+svn co https://integrated-content-environment.googlecode.com/svn/branches/temp-2011
 
+}}}
 === Available Services for ICE Server ===
 '''Services & Required libraries''':
  * [wiki:ICEService/WriterWord OpenOffice.org Writer document (.odt) and Ms Office Word document (.doc) conversion service]
