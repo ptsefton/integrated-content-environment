@@ -134,19 +134,28 @@ class BaseConverter:
 
 
     def __startOpenOfficePipe(self):
-        if self.__startOpenOffice and self.iceContext.isServer==False:
-            soffice ="soffice"
-            try:
-                soffice = self.iceContext.urlJoin(self.iceContext.settings.get("oooPath"), "program/soffice")
-            except: pass
-            print "*** Failed to connect to OpenOffice - try starting OpenOffice"
-            print "*** Starting soffice='%s'" % soffice
-            p3 = self.iceContext.system.execute3(soffice, 
-                "-accept=pipe,name=oooPyPipe;urp;StarOffice.ServiceManager",
-                "-quickstart", "-norestore", "-nodefault") #, "-invisible") # "-nologo" "-minimized" "-headless"
-            self.__openOfficeProcess = p3
-            print "Waiting for OpenOffice to startup"
-            self.iceContext.sleep(8)
+
+        if self.__startOpenOffice:
+		print "*** Failed to connect to OpenOffice - try starting OpenOffice"
+            	soffice ="soffice"
+		
+		if self.iceContext.config.settings.get("asServiceOnly", False):
+		    
+		    p3 = self.iceContext.system.execute3(soffice, 
+		        "-accept=pipe,name=oooPyPipe;urp;StarOffice.ServiceManager",
+		        "-quickstart", "-norestore", "-nodefault", "-headless")
+		else:
+		    try:
+		        soffice = self.iceContext.urlJoin(self.iceContext.settings.get("oooPath"), "program/soffice")
+		    except: pass
+		   
+		    p3 = self.iceContext.system.execute3(soffice, 
+		        "-accept=pipe,name=oooPyPipe;urp;StarOffice.ServiceManager",
+		        "-quickstart", "-norestore", "-nodefault") #, "-invisible") # "-nologo" "-minimized" "-headless"
+	self.__openOfficeProcess = p3
+	print "*** Starting soffice='%s'" % soffice
+	print "Waiting for OpenOffice to startup"
+	self.iceContext.sleep(8)
     
     # Main Method
     # Note: the rep is only used to access the export method
