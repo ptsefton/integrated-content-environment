@@ -1038,7 +1038,6 @@ class BaseConverter:
         return "ok"
     
     def __wordDownConvertToHtml(self):
-
 	odt = zipfile.ZipFile(self._tmpOooFileName, "a")
 	bookmarker = Bookmarker(odt)	
 
