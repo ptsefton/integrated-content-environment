@@ -21,6 +21,7 @@
   </repositories>
   <!-- Settings -->
   <settings>
+<var name="transformUsingWordDown" type="boolean" value="True"/>
     <var name="transformUsingPython" type="boolean" value="True"/>
     <var name="host" type="string" value="localhost"/>
     <var name="asServiceOnly" type="boolean" value="False"/>
