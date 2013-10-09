@@ -1063,13 +1063,14 @@ class BaseConverter:
 	xhtml = self.iceContext.Xml(self._tmpHtmlFileName, parseAsHtml=True)
 	body = xhtml.getNode("//body")
         elems = body.getNodes("*")
-        
         rendition = "<div>"
         for elem in elems:
             rendition += str(elem)
         rendition += "</div>"
-	
+	self.convertedData.meta["title"] = xhtml.getNode("//title").getContent()
+	self.convertedData.addRenditionData(".html", xhtml.serialize())
         self.convertedData.addRenditionData(".xhtml.body", rendition)
+        
 	xhtml.close()
 	
 	return "ok"
