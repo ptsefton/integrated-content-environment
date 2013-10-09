@@ -53,7 +53,7 @@ class OdtDocService(object):
     defaultTemplate = """<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Default Template</title>
+    <title class="ins title">Default Template</title>
     <style type="text/css">
       .rendition-links { text-align: right; }
       .body table td { vertical-align: top; }
@@ -94,7 +94,13 @@ class OdtDocService(object):
             options.update({"template": template})
 
         #print "template='%s'" % template
-        if options.has_key("includetitle"):
+        #TODO: Fix: The parameter passing here seems to be a bit messy
+        
+        
+        if options.has_key("title"):
+	  options["includeTitle"] = options.get("title")
+	  
+        if not options.has_key("includetitle"):
             options.update({"includetitle": False})
         if not options.has_key("toc"):
             options.update({"toc": False})

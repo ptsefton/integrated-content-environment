@@ -128,15 +128,15 @@ class OOoConverter(object):
         htmlFile = self.__fs.join(toDir, name + ".htm")
         for imageName in convertedData.imageNames:
             convertedData.saveImageTo(imageName, supportDir)
-        
+   
         
         includeSkin= self.__getOptionValue(options, "includeSkin")
         includetitle = self.__getOptionValue(options,"includetitle")
+        
+           
+        title = convertedData.getMeta("title")
+       
 
-        if includetitle:   
-            title = convertedData.getMeta("title")
-        else:
-            title = " "
         if title.strip() == "":
             if item is not None:
                 title = item.getMeta("title")
@@ -147,7 +147,10 @@ class OOoConverter(object):
         self.meta = convertedData.meta
         style = convertedData.getMeta("style.css")
         body = convertedData.getRendition(".xhtml.body")
-        
+        if ".html" in convertedData.renditionNames:
+	    html = convertedData.getRendition(".html")
+	else:
+	   html = None
         toc = self.__getOptionValue(options, "toc")
         if toc:  
             pageToc = convertedData.getMeta("toc")
@@ -184,13 +187,11 @@ class OOoConverter(object):
             convertedData.saveRenditionTo(".pdf", pdfFile)
             # target='_blank' alt='PDF version'
             pdfRendition = "<a href='%s' title='View the printable version of this page'>PDF version</a>" % (name + ".pdf")
-        dataDict = {"title":title, "style-css":style, "page-toc":pageToc, "body":body,
-                    "pdf-rendition-link":pdfRendition, "source-link":sourceLink,
-                    "slide-link":slideRendition, "annotations":"<!--No annotations-->",
-                    "toolbar": "<!--No toolbar-->"}
-        
-        
-        html = self.__applyHtmlTemplate(self.__htmlTemplate, dataDict)
+       
+	if html == None:
+	  dataDict = {"title":title, "style-css":style,"page-toc":pageToc,"body":body,"pdf-rendition-link":pdfRendition,"source-link":sourceLink, "slide-link":slideRendition, "annotations":"<!--No \ annotations-->","toolbar": "<!--No toolbar-->"} 
+	  
+	  html = self.__applyHtmlTemplate(self.__htmlTemplate, dataDict)
         if self.rep is not None:
             # process media objects
             basePath = self.__fs.split(file)[0]
@@ -603,6 +604,7 @@ class OOoConverter(object):
             
         
     def __applyHtmlTemplate(self, template, dataDict):
+        
         template, subs, inserts = self.__templateConvert(template)
         for key in subs:
             if not dataDict.has_key(key):
@@ -610,7 +612,6 @@ class OOoConverter(object):
         for key in inserts:
             if not dataDict.has_key(key):
                 dataDict.update({key:'<!-- No content -->'})
-        
         return template%dataDict
 
 

@@ -23,8 +23,10 @@ class Bookmarker():
 	odfZip.writestr("content.xml",etree.tostring(self.contentRoot))
 	odfZip.close()
 	
-    def _traverseDocAddingBookmarks(self, el, level = 0):
+    def _traverseDocAddingBookmarks(self, el, level = 0, prevMarginLeft = "0"):
+
         for subEl in el.xpath("*"):
+           
 	   if subEl.tag in (self.pTag, self.hTag): #TODO - include headings in this
 		style = subEl.get(self._styleNameAttributeName)
 
@@ -34,6 +36,9 @@ class Bookmarker():
 		#Remove units - all we need are absolute numbers
 		#for relative indents
 		marginLeft = re.sub("[^\W\d]*", "", str(marginLeft))
+		deltaIsSmall = abs(float(marginLeft) - float(prevMarginLeft)) < (float(marginLeft) / 10)
+		if deltaIsSmall:
+			marginLeft = prevMarginLeft
 		bookmark.attrib[self.bookmarkNameAttribute] = "left-margin:%s :::%s" %\
 			 (marginLeft, str(self._count))
 		
@@ -45,11 +50,14 @@ class Bookmarker():
 			 (self.styles.getDisplayName(style), str(self._count))
 		self._count += 1
 		subEl.append(bookmark) 
-	   elif subEl.tag == self._listTag:
-	   	self._traverseDocAddingBookmarks(subEl, level + 1)
-	   else:
-	 	self._traverseDocAddingBookmarks(subEl,level)					
+		prevMarginLeft = marginLeft
 
+
+	   elif subEl.tag == self._listTag: 	
+		prevMarginLeft = self._traverseDocAddingBookmarks(subEl, level + 1, prevMarginLeft)
+	   else:
+	 	prevMarginLeft = self._traverseDocAddingBookmarks(subEl,level, prevMarginLeft)					
+	return prevMarginLeft
 
   
 	
