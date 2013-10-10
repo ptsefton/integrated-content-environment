@@ -432,13 +432,15 @@ function getBaselineIndentAndDataAtts(node) {
 				
 			}
 
-			//Sometimes Word puts <p> in <li>, sometimes not
-			//So normalise this to always have p
-	 		list.find("li:not(:has(p))").each(function() {
-				jQ(this).children().wrap("<p> </p>");
-
-			});
+			
+	 		
 			list.children("li").each(function(){
+				//Sometimes Word puts <p> in <li>, sometimes not
+				//So normalise this to always have p
+				if (!jQ(this).children("p, h1, h2, h3, h4, h5, h6").length) {
+				      jQ(this).children().wrap("<p> </p>");
+				  
+				}
                                jQ(this).children("p").each(function ()
 				{
 					getClass(jQ(this));
@@ -690,6 +692,14 @@ function removeEmpties(doc) {
 	
 }
 
+function removeHeaderAndFooter(doc) {
+	//Remove Empty paragraphs and 
+	doc.find("div[type='FOOTER'], div[type='HEADER']").each(function () {
+	  jQ(this).remove();
+	});
+	
+}
+
 function convert() {
     jQ("o\\:p, meta[name], object").remove();
 	while (jQ("o:SmartTagType").length){ 
@@ -698,7 +708,7 @@ function convert() {
 	//jQ("hr").parent().remove();
 
  	removeEmpties(jQ("body"));
-	
+	removeHeaderAndFooter(jQ("body"));
 	jQ("p[class^='MsoToc']").remove();
 	
 	//Extract the style info to make a lookup table for classes
@@ -766,7 +776,7 @@ function convert() {
 		var parser = document.createElement('a');
 		parser.href = href;
 		vocab = parser.protocol + "//" + parser.host + "/"; 
-		jQ(container).attr("vocab",vocab);  
+		jQ(container).attr("vocab",vocab);
 
 		container.attr("typeof", typeProp[0]);
 
@@ -988,6 +998,7 @@ function convert() {
    word2html.getLeftMargin = getLeftMargin;
    word2html.processparas = processparas;
    word2html.flattenLists = flattenLists;
+   word2html.removeHeaderAndFooter = removeHeaderAndFooter;
    return word2html;
 }
 
